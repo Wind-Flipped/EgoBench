@@ -1,6 +1,31 @@
-# Multi-Agent Customer Service Simulation Framework
+# EgoBench: An Interactive Egocentric Multimodal Benchmark for Tool-Using Agents
 
-A framework for evaluating multimodal LLM-based customer service agents through simulated multi-turn conversations. A user agent (simulated customer) interacts with a service agent (LLM under test) across four real-world service domains, while an automated evaluation pipeline measures tool-call accuracy and interaction quality.
+Welcome to **EgoBench**, the first interactive multimodal agent benchmark grounded in **egocentric (first-person) videos**. EgoBench is designed to bridge the evaluation gap for AI agents operating in open, real-world environments. It jointly assesses three critical capabilities: **multimodal perception**, **tool-augmented multi-hop reasoning**, and **dynamic user interaction**.
+
+Unlike traditional static benchmarks, EgoBench constructs a dynamic environment containing 1,045 tasks across four daily scenarios: Retail, Restaurant, Kitchen and Order.
+
+---
+
+<div align="center">
+  <h3>📌 Key Features</h3>
+</div>
+
+**1. Egocentric Visual Grounding**
+- Built upon the **Ego4D** dataset and self-collected first-person videos.
+- Tasks contain rich **spatiotemporal cues** (e.g., "the bottle on the left," "the one I just picked up") to test the agent's ability to resolve references in dynamic scenes.
+
+**2. Strict Capability Coupling**
+- Tasks are designed to enforce the **joint application** of visual perception and tool invocation.
+- Introduces a "visual-data information gap," requiring agents to retrieve invisible contextual information (e.g., nutrition facts, prices) via tools to complete tasks.
+
+**3. Multi-Agent User Simulation**
+- Features an **Actor-Evaluator-Summarizer** architecture to generate high-fidelity, goal-aligned responses.
+- Supports three interaction modes: `Dynamic Easy Mode`, `Dynamic Hard Mode` (with distractions), and `Static Mode`.
+
+**4. Deterministic Evaluation Framework**
+- Ensures objectivity through **process-based** (tool-call coverage) and **result-based** (database state equivalence) validation.
+- Eliminates reliance on subjective LLM judges by verifying the final state of the environment.
+
 
 ## Architecture
 
@@ -41,7 +66,7 @@ Each scenario variant provides a different in-memory database configuration (pro
 
 | Model | Provider | API |
 |-------|----------|-----|
-| `glm-4.5v` / `glm-5v-turbo` | Zhipu AI | Zhipu AI SDK |
+| `glm-5v-turbo` | Zhipu AI | Zhipu AI SDK |
 | `qwen3-vl-225b` | Alibaba Qwen | Custom endpoint |
 | `Qwen3.5-397B-A17B` | Alibaba Qwen | OpenAI-compatible |
 | `qwen3.6-plus` | Alibaba Qwen | OpenAI-compatible |
@@ -99,6 +124,10 @@ Each scenario variant provides a different in-memory database configuration (pro
 └── requirements.txt
 ```
 
+<div align="center">
+  <h3>🚀 Quick Start</h3>
+</div>
+
 ## Getting Started
 
 ### Prerequisites
@@ -154,11 +183,11 @@ All API keys and base URLs are managed through environment variables. A `.env.ex
 | Environment Variable | Required | Default | Description |
 |---------------------|----------|---------|-------------|
 | `API_KEY` | Yes* | - | API key for Qwen, Gemini, DeepSeek, GLM, Doubao models |
-| `LLM_API_BASE_URL` | No | `https://api.example.com/v1` | Base URL for LLM API endpoints |
+| `LLM_API_BASE_URL` |  Yes* | `https://api.example.com/v1` | Base URL for LLM API endpoints |
 | `KIMI_API_KEY` | Yes* | - | Moonshot Kimi API key |
-| `KIMI_API_BASE_URL` | No | `https://api.moonshot.cn/v1` | Kimi API base URL |
+| `KIMI_API_BASE_URL` |  Yes* | `https://api.moonshot.cn/v1` | Kimi API base URL |
 | `MIMO_API_KEY` | Yes* | - | Xiaomi MiMo API key |
-| `MIMO_API_BASE_URL` | No | `https://api.xiaomimimo.com/v1` | MiMo API base URL |
+| `MIMO_API_BASE_URL` | Yes* | `https://api.xiaomimimo.com/v1` | MiMo API base URL |
 | `ZHIPU_API_KEY` | Yes* | - | Zhipu AI API key |
 
 *Required only if using the corresponding models.
@@ -247,7 +276,7 @@ python run/multi_agent.py \
   --scenario kitchen \
   --scenario_number 2 \
   --user_mode hard \
-  --service_model_name glm-4.5v \
+  --service_model_name doubao-seed-2-0-pro-260215 \
   --num_samples 10
 
 # Rerun only previously failed scenarios
@@ -350,10 +379,7 @@ Simulation results are saved to `results/{model_name}/{scenario}{number}_{mode}.
 
 Evaluation results are saved to `eval_result/{model_name}/{scenario}{number}_{mode}_eval.json`.
 
-## License
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-<<<<<<< HEAD
-See [LEGAL.md](LEGAL.md) for legal information.
-=======
-See [LEGAL.md](LEGAL.md) for legal information.
->>>>>>> 8e32508effec235bfade0059139aab013e2700f7
+## License
+Released under the MIT License. See [LICENSE](./LICENSE) for full terms.
