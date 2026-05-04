@@ -16,7 +16,7 @@ EgoBench constructs a dynamic environment containing 1,045 tasks across four dai
 
 **2. Strict Capability Coupling**
 - Tasks are designed to enforce the **joint application** of visual perception and tool invocation based multi-hop reasoning.
-- Introduces a "visual-data information gap," requiring agents to retrieve invisible contextual information (e.g., nutrition facts, prices) via tools to complete tasks.
+- We implement a three-stage synergistic pipeline to generate such tasks: Specifically, we first collect ego-centric videos with explicit spatiotemporal cues as visual anchors, then build a comprehensive tool library and database with a visual–information gap, and finally design tasks that require agents to perform multimodal perception, retrieve hidden contextual information via tools, reason logically, and modify database states through tool use.
 
 **3. Multi-Agent User Simulation**
 - Features an **Actor-Evaluator-Summarizer** architecture to generate high-fidelity, goal-aligned user responses.
