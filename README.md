@@ -56,7 +56,7 @@ The system operates as a **two-agent dialogue loop**:
 | Scenario   | #Tools | #Items | #Tasks |
 |------------|--------|--------|--------|
 | Retail     | 20     | 709    | 454    |
-| Kitchen    | 28     | 103    | 175    |
+| Kitchen    | 28     | 102    | 175    |
 | Restaurant | 25     | 142    | 219    |
 | Order      | 25     | 137    | 197    |
 | **Total**  | **98** | **1091** | **1045** |
@@ -195,7 +195,7 @@ All API keys and base URLs are managed through environment variables. A `.env.ex
 
 ### Video URL Configuration
 
-Our video files are available at [EgoBench Dataset](https://www.kaggle.com/datasets/egobench/egobench).
+Our video files are available at [EgoBench Dataset](https://www.kaggle.com/datasets/egobench/egobench/data?select=EgoCentricVideos).
 The video information and tool library content corresponding to each task are stored in the `scenarios/final` folder.
 This framework requires video files for multimodal scenario simulations. You need to upload your own videos to publicly accessible URLs and configure them before running simulations.
 
