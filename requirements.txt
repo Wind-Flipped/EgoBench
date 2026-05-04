@@ -1,0 +1,9 @@
+openai
+requests
+pandas
+numpy
+matplotlib
+Pillow
+adjustText
+openpyxl
+zai-sdk

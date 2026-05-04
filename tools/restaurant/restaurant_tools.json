@@ -1,0 +1,821 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "add_dish_to_catalog",
+      "description": "Add or update a dish in the restaurant's catalog. Each dish must have a unique name, category, price, discount factor, nutritional tags, taste profile, allergens, and nutrition facts.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string",
+            "description": "Unique dish name (primary key)."
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "Pizza",
+              "Pasta",
+              "Salads",
+              "Sandwiches & Panini",
+              "Antipasti & Snacks",
+              "Cheese & Olives",
+              "Cold Cuts",
+              "Steaks",
+              "Handmade Bread"
+            ]
+          },
+          "price": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Shelf price including tax."
+          },
+          "tax_rate": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Tax rate (e.g., 0.08 for 8%)."
+          },
+          "discount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1.0,
+            "description": "Discount factor: final amount = price * discount."
+          },
+          "nutritional_characteristics": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "low_calories",
+                "low_fat",
+                "low_sugar",
+                "low_sodium",
+                "no_additives",
+                "high_fiber",
+                "high_protein",
+                "high_calcium",
+                "sugar_free",
+                "gluten_free",
+                "high_omega3",
+                "vegan"
+              ]
+            },
+            "description": "Nutritional/health tags."
+          },
+          "taste": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "sweet",
+                "salty",
+                "spicy",
+                "sour",
+                "bitter",
+                "umami",
+                "mild",
+                "savory",
+                "smoky"
+              ]
+            },
+            "description": "Taste profiles."
+          },
+          "allergens": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "nutrition": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "basis": {
+                "type": "string",
+                "enum": [
+                  "PER_100G",
+                  "PER_SERVING"
+                ]
+              },
+              "serving_size_g": {
+                "type": "number"
+              },
+              "calories_kcal": {
+                "type": "number"
+              },
+              "protein_g": {
+                "type": "number"
+              },
+              "fat_g": {
+                "type": "number"
+              },
+              "carbs_g": {
+                "type": "number"
+              },
+              "sugar_g": {
+                "type": "number"
+              },
+              "sodium_mg": {
+                "type": "number"
+              },
+              "fiber_g": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "basis"
+            ]
+          }
+        },
+        "required": [
+          "dish_name",
+          "category",
+          "price",
+          "tax_rate",
+          "discount",
+          "nutritional_characteristics",
+          "taste",
+          "allergens",
+          "nutrition"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "remove_dish_from_catalog",
+      "description": "Remove a dish from the catalog by its exact name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dish_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "update_dish_price",
+      "description": "Update the price of an existing dish in the catalog.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          },
+          "new_price": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "dish_name",
+          "new_price"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "update_dish_discount",
+      "description": "Update the discount factor for an existing dish.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          },
+          "new_discount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1.0
+          }
+        },
+        "required": [
+          "dish_name",
+          "new_discount"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_dish_nutrition",
+      "description": "Retrieve detailed nutrition information for a specific dish by name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dish_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_dish_allergens",
+      "description": "Retrieve allergen information for a specific dish by name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dish_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_tax_rate",
+      "description": "Retrieve the tax rate for a specific dish by name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dish_name"
+        ]
+      }
+    }
+  },  
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_dish_taste_profile",
+      "description": "Retrieve the taste profile (e.g., sweet, spicy) for a specific dish by name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dish_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_dish_price",
+      "description": "Get only the current shelf price (including tax) for a specific dish by name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dish_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_dish_discount",
+      "description": "Get only the current discount factor for a specific dish by name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dish_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_dishes_by_category",
+      "description": "List all dishes belonging to a specific category (e.g., 'Pizza', 'Salads').",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "Pizza",
+              "Pasta",
+              "Salads",
+              "Sandwiches & Panini",
+              "Antipasti & Snacks",
+              "Cheese & Olives",
+              "Cold Cuts",
+              "Steaks",
+              "Handmade Bread"
+            ]
+          }
+        },
+        "required": [
+          "category"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_dishes_by_nutritional_tag",
+      "description": "Find all dishes that have a specific nutritional characteristic tag (e.g., 'low_calories', 'vegan').",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tag": {
+            "type": "string",
+            "enum": [
+              "low_calories",
+              "low_fat",
+              "low_sugar",
+              "low_sodium",
+              "no_additives",
+              "high_fiber",
+              "high_protein",
+              "high_calcium",
+              "sugar_free",
+              "gluten_free",
+              "high_omega3",
+              "vegan"
+            ]
+          }
+        },
+        "required": [
+          "tag"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_dishes_by_taste",
+      "description": "Find all dishes that match a specific taste profile (e.g., 'spicy', 'sweet').",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "taste": {
+            "type": "string",
+            "enum": [
+              "sweet",
+              "salty",
+              "spicy",
+              "sour",
+              "bitter",
+              "umami",
+              "mild",
+              "savory",
+              "smoky"
+            ]
+          }
+        },
+        "required": [
+          "taste"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "add_dish_to_order",
+      "description": "Add one or more servings of a dish to a user's current order. Order is keyed by user_id.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "dish_name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "user_id",
+          "dish_name",
+          "quantity"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "remove_dish_from_order",
+      "description": "Remove a specified quantity of a dish from a user's current order.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "dish_name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "user_id",
+          "dish_name",
+          "quantity"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "clear_user_order",
+      "description": "Clear all items from a user's current order.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_user_order_summary",
+      "description": "Retrieve the full list of dishes and quantities in a user's current order.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "user_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "compute_total_payment",
+      "description": "Compute total payable amount for the specified dishes: sum(price * discount * qty).",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The unique identifier of the user"
+          },
+          "dishes": {
+            "type": "array",
+            "description": "List of dishes to calculate total payment for",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dish_name": {
+                  "type": "string",
+                  "description": "Name of the dish"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "description": "Quantity of the dish to purchase"
+                }
+              },
+              "required": [
+                "dish_name",
+                "quantity"
+              ]
+            }
+          }
+        },
+        "required": [
+          "user_id",
+          "dishes"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "compute_total_tax",
+      "description": "Compute total tax amount for the specified dishes. Since price is tax-inclusive, tax per item = (price * tax_rate / (1 + tax_rate)) * discount * qty.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The unique identifier of the user"
+          },
+          "dishes": {
+            "type": "array",
+            "description": "List of dishes to calculate total tax for",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dish_name": {
+                  "type": "string",
+                  "description": "Name of the dish"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "description": "Quantity of the dish to purchase"
+                }
+              },
+              "required": [
+                "dish_name",
+                "quantity"
+              ]
+            }
+          }
+        },
+        "required": [
+          "user_id",
+          "dishes"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "compute_total_nutrition",
+      "description": "Compute total nutrition values across all items for the specified dishes.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "The unique identifier of the user"
+          },
+          "dishes": {
+            "type": "array",
+            "description": "List of dishes to calculate total nutrition values for",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dish_name": {
+                  "type": "string",
+                  "description": "Name of the dish"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "description": "Quantity of the dish to purchase"
+                }
+              },
+              "required": [
+                "dish_name",
+                "quantity"
+              ]
+            }
+          }
+        },
+        "required": [
+          "user_id",
+          "dishes"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "list_all_discounted_dishes",
+      "description": "Return a list of all dish names that currently have a discount factor less than 1.0.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {}
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "filter_dishes_by_price_range",
+      "description": "Find all dishes with a price within a specified inclusive range.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "min_price": {
+            "type": "number",
+            "minimum": 0
+          },
+          "max_price": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "min_price",
+          "max_price"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "create_set_meal",
+      "description": "Create a new set meal by combining existing dishes. The set meal will have a fixed name, a composite price, and a discount factor.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "set_meal_name": {
+            "type": "string"
+          },
+          "included_dishes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "dish_name": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              },
+              "required": [
+                "dish_name",
+                "quantity"
+              ]
+            }
+          },
+          "set_meal_price": {
+            "type": "number",
+            "minimum": 0
+          },
+          "set_meal_discount": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1.0
+          }
+        },
+        "required": [
+          "set_meal_name",
+          "included_dishes",
+          "set_meal_price",
+          "set_meal_discount"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_set_meal_details",
+      "description": "Retrieve the composition, price, and discount of a set meal by its name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "set_meal_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "set_meal_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "add_set_meal_to_order",
+      "description": "Add a pre-defined set meal to a user's order. The set meal is treated as a single item with its own price and discount.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "set_meal_name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "user_id",
+          "set_meal_name",
+          "quantity"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "remove_set_meal_from_order",
+      "description": "Remove a specified quantity of a pre-defined set meal from a user's order. The set meal is treated as a single item with its own price and discount.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string"
+          },
+          "set_meal_name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "user_id",
+          "set_meal_name",
+          "quantity"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_set_meals_containing_dish",
+      "description": "Find all set meals that include a specific dish by name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "dish_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dish_name"
+        ]
+      }
+    }
+  }
+]

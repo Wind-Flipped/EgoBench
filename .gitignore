@@ -1,0 +1,25 @@
+*.jpg
+*.png
+*.zip
+*.mp4
+*.xlsx
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+
+# Results and evaluation
+results/
+eval_result/
+video/
+
+# IDE and OS
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo

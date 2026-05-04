@@ -1,0 +1,438 @@
+[
+  {
+    "tool_name": "add_recipe_to_menu",
+    "description": "Add a recipe to the user's daily menu.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        },
+        "recipe_name": {
+          "type": "string",
+          "description": "Name of the recipe to add"
+        }
+      },
+      "required": ["user_id", "recipe_name"]
+    }
+  },
+  {
+    "tool_name": "remove_recipe_from_menu",
+    "description": "Remove a recipe from the user's daily menu.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        },
+        "recipe_name": {
+          "type": "string",
+          "description": "Name of the recipe to remove"
+        }
+      },
+      "required": ["user_id", "recipe_name"]
+    }
+  },
+  {
+    "tool_name": "get_current_menu",
+    "description": "Retrieve the list of recipes planned for today.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        }
+      },
+      "required": ["user_id"]
+    }
+  },
+  {
+    "tool_name": "tally_total_nutritional_characteristics",
+    "description": "Aggregate nutritional characteristics for specified recipes in the menu.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        },
+        "recipes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of recipe names to calculate nutritional characteristics for"
+        }
+      },
+      "required": ["user_id", "recipes"]
+    }
+  },
+  {
+    "tool_name": "tally_total_tastes",
+    "description": "Aggregate taste characteristics for specified recipes in the menu.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        },
+        "recipes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of recipe names to calculate tastes for"
+        }
+      },
+      "required": ["user_id", "recipes"]
+    }
+  },
+  {
+    "tool_name": "add_to_shopping_list",
+    "description": "Add ingredients with quantities to the shopping list.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        },
+        "ingredient_name": {
+          "type": "string",
+          "description": "Name of the ingredient to add"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "Quantity to add (in units of 100g, must be greater than 0)"
+        }
+      },
+      "required": ["user_id", "ingredient_name", "quantity"]
+    }
+  },
+  {
+    "tool_name": "remove_from_shopping_list",
+    "description": "Remove a specific ingredient from the shopping list.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        },
+        "ingredient_name": {
+          "type": "string",
+          "description": "Name of the ingredient to remove"
+        }
+      },
+      "required": ["user_id", "ingredient_name"]
+    }
+  },
+  {
+    "tool_name": "compute_total_nutritions",
+    "description": "Calculate total nutritional values for specified ingredients in the shopping list.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        },
+        "ingredients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ingredient_name": {
+                "type": "string",
+                "description": "Name of the ingredient"
+              },
+              "quantity": {
+                "type": "number",
+                "description": "Quantity (in units of 100g)"
+              }
+            },
+            "required": ["ingredient_name", "quantity"]
+          },
+          "description": "List of ingredients with quantities to calculate nutrition for"
+        }
+      },
+      "required": ["user_id", "ingredients"]
+    }
+  },
+  {
+    "tool_name": "get_cooking_steps",
+    "description": "Retrieve detailed step-by-step instructions for a recipe.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "recipe_name": {
+          "type": "string",
+          "description": "Name of the recipe"
+        }
+      },
+      "required": ["recipe_name"]
+    }
+  },
+  {
+    "tool_name": "get_recipe_allergens",
+    "description": "Retrieve allergen information for a specific recipe.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "recipe_name": {
+          "type": "string",
+          "description": "Name of the recipe"
+        }
+      },
+      "required": ["recipe_name"]
+    }
+  },
+  {
+    "tool_name": "find_recipes_by_allergen",
+    "description": "Find all recipes containing a specific allergen.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "allergen": {
+          "type": "string",
+          "description": "Allergen name (e.g., 'gluten', 'dairy', 'nuts', 'shellfish', 'soy')"
+        }
+      },
+      "required": ["allergen"]
+    }
+  },
+  {
+    "tool_name": "get_recipe_taste",
+    "description": "Retrieve taste profile for a specific recipe.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "recipe_name": {
+          "type": "string",
+          "description": "Name of the recipe"
+        }
+      },
+      "required": ["recipe_name"]
+    }
+  },
+  {
+    "tool_name": "find_recipes_by_taste",
+    "description": "Find all recipes matching a specific taste profile.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "taste": {
+          "type": "string",
+          "enum": ["sweet", "salty", "spicy", "sour", "bitter", "umami", "mild", "savory"],
+          "description": "Taste profile to search for"
+        }
+      },
+      "required": ["taste"]
+    }
+  },
+  {
+    "tool_name": "get_recipe_ingredients",
+    "description": "Retrieve the list of ingredients and quantities required for a recipe.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "recipe_name": {
+          "type": "string",
+          "description": "Name of the recipe"
+        }
+      },
+      "required": ["recipe_name"]
+    }
+  },
+  {
+    "tool_name": "find_recipes_by_ingredient",
+    "description": "Find all recipes that require a specific ingredient.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "ingredient_name": {
+          "type": "string",
+          "description": "Name of the ingredient"
+        }
+      },
+      "required": ["ingredient_name"]
+    }
+  },
+  {
+    "tool_name": "get_ingredient_shelf_life",
+    "description": "Retrieve the expiration date for a specific ingredient.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "ingredient_name": {
+          "type": "string",
+          "description": "Name of the ingredient"
+        }
+      },
+      "required": ["ingredient_name"]
+    }
+  },
+  {
+    "tool_name": "find_ingredients_by_expiry_date",
+    "description": "Find ingredients expiring after a specific date.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "description": "Target date in YYYY-MM-DD format (e.g., '2025-12-11')"
+        }
+      },
+      "required": ["date"]
+    }
+  },
+  {
+    "tool_name": "get_ingredient_location",
+    "description": "Retrieve the storage location for a specific ingredient.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "ingredient_name": {
+          "type": "string",
+          "description": "Name of the ingredient"
+        }
+      },
+      "required": ["ingredient_name"]
+    }
+  },
+  {
+    "tool_name": "find_ingredients_by_location",
+    "description": "Find all ingredients stored in a specific location.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "enum": ["fridge", "freezer", "pantry", "countertop", "spice_rack"],
+          "description": "Storage location to search for"
+        }
+      },
+      "required": ["location"]
+    }
+  },
+  {
+    "tool_name": "get_ingredient_nutrition",
+    "description": "Retrieve detailed nutritional facts for a specific ingredient.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "ingredient_name": {
+          "type": "string",
+          "description": "Name of the ingredient"
+        }
+      },
+      "required": ["ingredient_name"]
+    }
+  },
+  {
+    "tool_name": "get_ingredient_quantity",
+    "description": "Retrieve the current stock quantity of a specific ingredient.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "ingredient_name": {
+          "type": "string",
+          "description": "Name of the ingredient"
+        }
+      },
+      "required": ["ingredient_name"]
+    }
+  },
+  {
+    "tool_name": "get_all_recipe_names",
+    "description": "Retrieve the names of all available recipes.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "tool_name": "get_ingredients_by_category",
+    "description": "Retrieve ingredients belonging to a specific category.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Ingredient category (e.g., 'vegetable', 'meat', 'dairy', 'carbs/grains', 'seasoning', 'fruits', 'drinks')"
+        }
+      },
+      "required": ["category"]
+    }
+  },
+  {
+    "tool_name": "find_ingredient_category",
+    "description": "Find the category of a specific ingredient.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "ingredient_name": {
+          "type": "string",
+          "description": "Name of the ingredient"
+        }
+      },
+      "required": ["ingredient_name"]
+    }
+  },
+  {
+    "tool_name": "get_current_shopping_list",
+    "description": "Retrieve the user's current shopping list.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "description": "User ID"
+        }
+      },
+      "required": ["user_id"]
+    }
+  },
+  {
+    "tool_name": "get_recipe_nutritional_characteristics",
+    "description": "Retrieve nutritional characteristic tags for a specific recipe.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "recipe_name": {
+          "type": "string",
+          "description": "Name of the recipe"
+        }
+      },
+      "required": ["recipe_name"]
+    }
+  },
+  {
+    "tool_name": "find_recipes_by_nutritional_characteristics",
+    "description": "Find all recipes matching specific nutritional characteristics.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "characteristic": {
+          "type": "string",
+          "description": "Nutritional characteristic tag (e.g., 'high_protein', 'low_fat', 'high_fiber', 'gluten_free', 'vegan')"
+        }
+      },
+      "required": ["characteristic"]
+    }
+  },
+  {
+    "tool_name": "get_all_ingredient_names",
+    "description": "Retrieve the names of all available ingredients.",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  }
+]

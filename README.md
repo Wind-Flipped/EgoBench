@@ -352,4 +352,8 @@ Evaluation results are saved to `eval_result/{model_name}/{scenario}{number}_{mo
 
 ## License
 
+<<<<<<< HEAD
 See [LEGAL.md](LEGAL.md) for legal information.
+=======
+See [LEGAL.md](LEGAL.md) for legal information.
+>>>>>>> 8e32508effec235bfade0059139aab013e2700f7
