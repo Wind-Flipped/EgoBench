@@ -2,7 +2,7 @@
 
 Welcome to **EgoBench**, the first interactive multimodal agent benchmark grounded in **egocentric (first-person) videos**. EgoBench is designed to bridge the evaluation gap for AI agents operating in open, real-world environments. It jointly assesses three critical capabilities: **multimodal perception**, **tool-augmented multi-hop reasoning**, and **dynamic user interaction**.
 
-Unlike traditional static benchmarks, EgoBench constructs a dynamic environment containing 1,045 tasks across four daily scenarios: Retail, Restaurant, Kitchen and Order.
+EgoBench constructs a dynamic environment containing 1,045 tasks across four daily scenarios: Retail, Restaurant, Kitchen and Order.
 
 ---
 
@@ -10,57 +10,58 @@ Unlike traditional static benchmarks, EgoBench constructs a dynamic environment 
   <h3>📌 Key Features</h3>
 </div>
 
-**1. Egocentric Visual Grounding**
+**1. Egocentric Visual Collection**
 - Built upon the **Ego4D** dataset and self-collected first-person videos.
 - Tasks contain rich **spatiotemporal cues** (e.g., "the bottle on the left," "the one I just picked up") to test the agent's ability to resolve references in dynamic scenes.
 
 **2. Strict Capability Coupling**
-- Tasks are designed to enforce the **joint application** of visual perception and tool invocation.
+- Tasks are designed to enforce the **joint application** of visual perception and tool invocation based multi-hop reasoning.
 - Introduces a "visual-data information gap," requiring agents to retrieve invisible contextual information (e.g., nutrition facts, prices) via tools to complete tasks.
 
 **3. Multi-Agent User Simulation**
-- Features an **Actor-Evaluator-Summarizer** architecture to generate high-fidelity, goal-aligned responses.
-- Supports three interaction modes: `Dynamic Easy Mode`, `Dynamic Hard Mode` (with distractions), and `Static Mode`.
+- Features an **Actor-Evaluator-Summarizer** architecture to generate high-fidelity, goal-aligned user responses.
+- Supports three interaction modes: `Dynamic Easy Mode`, `Dynamic Hard Mode` (with distractions), and `Static Mode`, to comprehensively test agents' interactive ability.
 
 **4. Deterministic Evaluation Framework**
 - Ensures objectivity through **process-based** (tool-call coverage) and **result-based** (database state equivalence) validation.
-- Eliminates reliance on subjective LLM judges by verifying the final state of the environment.
+- Eliminates reliance on subjective LLM judges.
 
 
 ## Architecture
 
 The system operates as a **two-agent dialogue loop**:
 
-1. **User Agent** — Simulates a customer with a specific task. In *easy* mode, the customer is cooperative and provides information step-by-step. In *hard* mode, the customer has low patience, gives vague or fragmented information, and may provide negative feedback. In *static* mode, the customer sends a single comprehensive request with no follow-up.
+1. **Simulated User** — Simulates a customer with a specific task. In *easy* mode, the customer is cooperative and provides information step-by-step. In *hard* mode, the customer has low patience, gives vague or fragmented information, and may provide negative feedback. In *static* mode, the customer sends a single comprehensive request with no follow-up.
 
-2. **Service Agent** — The LLM being evaluated. It receives tool definitions for the scenario, processes the user's request, invokes tools via structured JSON output, and responds in natural language. Tool calls are intercepted, executed against an in-memory scenario database, and the results are fed back into the conversation.
+2. **Service Agent** — The LLM being evaluated. It receives tool definitions for the scenario, processes the user's request, invokes tools via structured JSON output, and responds in natural language. Tool calls are intercepted, executed against an scenario database, and the results are fed back into the conversation.
 
-3. **Evaluation Pipeline** — After simulation, tool calls are compared against scenario ground truth using fuzzy matching to compute success metrics. Results feed into visualization and report generation scripts.
+3. **Evaluation Pipeline** — After simulation, tool calls and database state are compared against scenario ground truth using fuzzy matching to compute success metrics. Results feed into visualization and report generation scripts.
 
 ```
-┌─────────────┐     message      ┌──────────────┐
-│  User Agent  │ ───────────────▶ │ Service Agent │
-│  (Qwen3.5)   │ ◀─────────────── │  (LLM under   │
-│              │   response       │   test)       │
+┌─────────────┐     message       ┌──────────────┐
+│  Simulated  │ ───────────────▶ │ Service Agent │
+│     User    │ ◀─────────────── │  (LLM under   │
+│             │   response        │  test)       │
 └─────────────┘                   └──────┬───────┘
                                          │ tool call (JSON)
                                          ▼
                                   ┌──────────────┐
-                                  │ Scenario DB   │
-                                  │ (in-memory)   │
+                                  │ Scenario DB  │
+                                  │              │
                                   └──────────────┘
 ```
 
 ## Supported Scenarios
 
-| Scenario | Description | Variants | Tools |
-|----------|-------------|----------|-------|
-| **retail** | Wine & retail product shopping | 10 environments | Product search, cart management, shopping lists, nutrition info, tax & discounts |
-| **kitchen** | Kitchen & recipe assistance | 4 environments | Ingredient search, recipe lookup, nutrition, substitution, cooking instructions |
-| **restaurant** | Restaurant ordering & menus | 5 environments | Dish/menu lookup, ordering, dietary info, set meals |
-| **order** | Order tracking & delivery | 2 environments | Restaurant ordering, order tracking, delivery status |
+| Scenario   | #Tools | #Items | #Tasks |
+|------------|--------|--------|--------|
+| Retail     | 20     | 709    | 454    |
+| Kitchen    | 28     | 103    | 175    |
+| Restaurant | 25     | 142    | 219    |
+| Order      | 25     | 137    | 197    |
+| **Total**  | **98** | **1091** | **1045** |
 
-Each scenario variant provides a different in-memory database configuration (product catalogs, menus, etc.) loaded from `tools/{scenario}/{scenario}_init.py`.
+Each scenario variant provides a different database configuration (product catalogs, menus, etc.) loaded from `tools/{scenario}/{scenario}_init.py`.
 
 ## Supported Models
 
@@ -99,7 +100,7 @@ Each scenario variant provides a different in-memory database configuration (pro
 │   ├── database_init.py          # DB initialization utilities
 │   └── user_words.py             # Extra phrases for hard-mode user agent
 ├── scenarios/
-│   └── final/                    # Production scenario definitions (JSON)
+│   └── final/                    # Task definitions and ground truth (JSON)
 │       ├── retail1.json .. retail10.json
 │       ├── kitchen1.json .. kitchen4.json
 │       ├── restaurant1.json .. restaurant5.json
@@ -194,6 +195,8 @@ All API keys and base URLs are managed through environment variables. A `.env.ex
 
 ### Video URL Configuration
 
+Our video files are available at [EgoBench Dataset](https://www.kaggle.com/datasets/egobench/egobench).
+The video information and tool library content corresponding to each task are stored in the `scenarios/final` folder.
 This framework requires video files for multimodal scenario simulations. You need to upload your own videos to publicly accessible URLs and configure them before running simulations.
 
 #### Step 1: Upload Videos
