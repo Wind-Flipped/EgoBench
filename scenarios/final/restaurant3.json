@@ -21,26 +21,26 @@
           "user_id": "customer_006",
           "dishes": [
             {
-              "product_name": "Serrano ham",
+              "dish_name": "Serrano ham",
               "quantity": 1
             },
             {
-              "product_name": "Tuna panini",
+              "dish_name": "Tuna panini",
               "quantity": 2
             },
             {
-              "product_name": "Veggie salad",
+              "dish_name": "Veggie salad",
               "quantity": 1
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 1,
+    "task_id": 1,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -71,26 +71,26 @@
           "user_id": "customer_007",
           "dishes": [
             {
-              "product_name": "Focaccia",
+              "dish_name": "Focaccia",
               "quantity": 1
             },
             {
-              "product_name": "Homemade pappardelle with bolognese sauce",
+              "dish_name": "Homemade pappardelle with bolognese sauce",
               "quantity": 1
             },
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 2,
+    "task_id": 2,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -129,30 +129,30 @@
           "user_id": "customer_005",
           "dishes": [
             {
-              "product_name": "Annie's pizza",
+              "dish_name": "Annie's pizza",
               "quantity": 1
             },
             {
-              "product_name": "Annie's salad",
+              "dish_name": "Annie's salad",
               "quantity": 1
             },
             {
-              "product_name": "Cheesecake",
+              "dish_name": "Cheesecake",
               "quantity": 1
             },
             {
-              "product_name": "Steak Lovers Set",
+              "dish_name": "Steak Lovers Set",
               "quantity": 1
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 3,
+    "task_id": 3,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -202,7 +202,7 @@
         }
       }
     ],
-    "scenario_id": 4,
+    "task_id": 4,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -256,7 +256,7 @@
         }
       }
     ],
-    "scenario_id": 5,
+    "task_id": 5,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -310,7 +310,7 @@
         }
       }
     ],
-    "scenario_id": 6,
+    "task_id": 6,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -364,7 +364,7 @@
         }
       }
     ],
-    "scenario_id": 7,
+    "task_id": 7,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -422,7 +422,7 @@
         }
       }
     ],
-    "scenario_id": 8,
+    "task_id": 8,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -453,30 +453,30 @@
           "user_id": "customer_008",
           "dishes": [
             {
-              "product_name": "Beef filet",
+              "dish_name": "Beef filet",
               "quantity": 1
             },
             {
-              "product_name": "Buratta salad",
+              "dish_name": "Buratta salad",
               "quantity": 1
             },
             {
-              "product_name": "Walnut bread",
+              "dish_name": "Walnut bread",
               "quantity": 1
             },
             {
-              "product_name": "Steak Lovers Set",
+              "dish_name": "Steak Lovers Set",
               "quantity": 1
             },
             {
-              "product_name": "Buffalo mozzarella caprese",
+              "dish_name": "Buffalo mozzarella caprese",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 9,
+    "task_id": 9,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -507,30 +507,30 @@
           "user_id": "customer_010",
           "dishes": [
             {
-              "product_name": "Black truffle",
+              "dish_name": "Black truffle",
               "quantity": 1
             },
             {
-              "product_name": "Salmon & cream",
+              "dish_name": "Salmon & cream",
               "quantity": 1
             },
             {
-              "product_name": "Sesame & nuts",
+              "dish_name": "Sesame & nuts",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Australian imported M9+ grain-fed Ribeye",
+              "dish_name": "Australian imported M9+ grain-fed Ribeye",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 10,
+    "task_id": 10,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -561,30 +561,30 @@
           "user_id": "customer_009",
           "dishes": [
             {
-              "product_name": "Chef salad",
+              "dish_name": "Chef salad",
               "quantity": 1
             },
             {
-              "product_name": "Lasagne",
+              "dish_name": "Lasagne",
               "quantity": 1
             },
             {
-              "product_name": "Salmone affumicato",
+              "dish_name": "Salmone affumicato",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 11,
+    "task_id": 11,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -615,26 +615,26 @@
           "user_id": "customer_002",
           "dishes": [
             {
-              "product_name": "Australian selected Ribeye",
+              "dish_name": "Australian selected Ribeye",
               "quantity": 1
             },
             {
-              "product_name": "Grilled chicken salad",
+              "dish_name": "Grilled chicken salad",
               "quantity": 1
             },
             {
-              "product_name": "Focaccia",
+              "dish_name": "Focaccia",
               "quantity": 1
             },
             {
-              "product_name": "Grilled chicken salad",
+              "dish_name": "Grilled chicken salad",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 12,
+    "task_id": 12,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -673,30 +673,30 @@
           "user_id": "customer_001",
           "dishes": [
             {
-              "product_name": "Buratta salad",
+              "dish_name": "Buratta salad",
               "quantity": 1
             },
             {
-              "product_name": "Rigatoni all'arrabbiata",
+              "dish_name": "Rigatoni all'arrabbiata",
               "quantity": 1
             },
             {
-              "product_name": "Tiramisu'",
+              "dish_name": "Tiramisu'",
               "quantity": 1
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 13,
+    "task_id": 13,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -735,22 +735,22 @@
           "user_id": "customer_007",
           "dishes": [
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             },
             {
-              "product_name": "Comte",
+              "dish_name": "Comte",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 14,
+    "task_id": 14,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -793,30 +793,30 @@
           "user_id": "customer_010",
           "dishes": [
             {
-              "product_name": "Black truffle",
+              "dish_name": "Black truffle",
               "quantity": 1
             },
             {
-              "product_name": "Salmon & cream",
+              "dish_name": "Salmon & cream",
               "quantity": 1
             },
             {
-              "product_name": "Sesame & nuts",
+              "dish_name": "Sesame & nuts",
               "quantity": 2
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Australian selected Ribeye",
+              "dish_name": "Australian selected Ribeye",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 15,
+    "task_id": 15,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -859,30 +859,30 @@
           "user_id": "customer_004",
           "dishes": [
             {
-              "product_name": "Mixed cold cuts plank",
+              "dish_name": "Mixed cold cuts plank",
               "quantity": 1
             },
             {
-              "product_name": "Cold cuts & cheese plate",
+              "dish_name": "Cold cuts & cheese plate",
               "quantity": 1
             },
             {
-              "product_name": "Comte",
+              "dish_name": "Comte",
               "quantity": 2
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             },
             {
-              "product_name": "Camembert",
+              "dish_name": "Camembert",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 16,
+    "task_id": 16,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -913,30 +913,30 @@
           "user_id": "customer_009",
           "dishes": [
             {
-              "product_name": "Lasagne",
+              "dish_name": "Lasagne",
               "quantity": 1
             },
             {
-              "product_name": "Salmone affumicato",
+              "dish_name": "Salmone affumicato",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             },
             {
-              "product_name": "Cooked ham",
+              "dish_name": "Cooked ham",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 17,
+    "task_id": 17,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -967,30 +967,30 @@
           "user_id": "customer_003",
           "dishes": [
             {
-              "product_name": "Salmon & asparagus",
+              "dish_name": "Salmon & asparagus",
               "quantity": 1
             },
             {
-              "product_name": "Grilled salmon",
+              "dish_name": "Grilled salmon",
               "quantity": 1
             },
             {
-              "product_name": "Tuna salad",
+              "dish_name": "Tuna salad",
               "quantity": 1
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             },
             {
-              "product_name": "Chicken wings",
+              "dish_name": "Chicken wings",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 18,
+    "task_id": 18,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1044,7 +1044,7 @@
         }
       }
     ],
-    "scenario_id": 19,
+    "task_id": 19,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1098,7 +1098,7 @@
         }
       }
     ],
-    "scenario_id": 20,
+    "task_id": 20,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1152,7 +1152,7 @@
         }
       }
     ],
-    "scenario_id": 21,
+    "task_id": 21,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1210,7 +1210,7 @@
         }
       }
     ],
-    "scenario_id": 22,
+    "task_id": 22,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1268,7 +1268,7 @@
         }
       }
     ],
-    "scenario_id": 23,
+    "task_id": 23,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1326,7 +1326,7 @@
         }
       }
     ],
-    "scenario_id": 24,
+    "task_id": 24,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1380,7 +1380,7 @@
         }
       }
     ],
-    "scenario_id": 25,
+    "task_id": 25,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1430,7 +1430,7 @@
         }
       }
     ],
-    "scenario_id": 26,
+    "task_id": 26,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1480,7 +1480,7 @@
         }
       }
     ],
-    "scenario_id": 27,
+    "task_id": 27,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1534,7 +1534,7 @@
         }
       }
     ],
-    "scenario_id": 28,
+    "task_id": 28,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1584,7 +1584,7 @@
         }
       }
     ],
-    "scenario_id": 29,
+    "task_id": 29,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1638,7 +1638,7 @@
         }
       }
     ],
-    "scenario_id": 30,
+    "task_id": 30,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1692,7 +1692,7 @@
         }
       }
     ],
-    "scenario_id": 31,
+    "task_id": 31,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1762,7 +1762,7 @@
         }
       }
     ],
-    "scenario_id": 32,
+    "task_id": 32,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1828,7 +1828,7 @@
         }
       }
     ],
-    "scenario_id": 33,
+    "task_id": 33,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1898,7 +1898,7 @@
         }
       }
     ],
-    "scenario_id": 34,
+    "task_id": 34,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -1952,7 +1952,7 @@
         }
       }
     ],
-    "scenario_id": 35,
+    "task_id": 35,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2010,7 +2010,7 @@
         }
       }
     ],
-    "scenario_id": 36,
+    "task_id": 36,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2072,7 +2072,7 @@
         }
       }
     ],
-    "scenario_id": 37,
+    "task_id": 37,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2132,7 +2132,7 @@
         }
       }
     ],
-    "scenario_id": 38,
+    "task_id": 38,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2198,7 +2198,7 @@
         }
       }
     ],
-    "scenario_id": 39,
+    "task_id": 39,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2256,7 +2256,7 @@
         }
       }
     ],
-    "scenario_id": 40,
+    "task_id": 40,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2310,7 +2310,7 @@
         }
       }
     ],
-    "scenario_id": 41,
+    "task_id": 41,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2366,7 +2366,7 @@
         }
       }
     ],
-    "scenario_id": 42,
+    "task_id": 42,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2420,7 +2420,7 @@
         }
       }
     ],
-    "scenario_id": 43,
+    "task_id": 43,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2486,7 +2486,7 @@
         }
       }
     ],
-    "scenario_id": 44,
+    "task_id": 44,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2540,7 +2540,7 @@
         }
       }
     ],
-    "scenario_id": 45,
+    "task_id": 45,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2598,7 +2598,7 @@
         }
       }
     ],
-    "scenario_id": 46,
+    "task_id": 46,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2664,7 +2664,7 @@
         }
       }
     ],
-    "scenario_id": 47,
+    "task_id": 47,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2695,26 +2695,26 @@
           "user_id": "customer_002",
           "dishes": [
             {
-              "product_name": "Australian selected Ribeye",
+              "dish_name": "Australian selected Ribeye",
               "quantity": 1
             },
             {
-              "product_name": "Grilled chicken salad",
+              "dish_name": "Grilled chicken salad",
               "quantity": 1
             },
             {
-              "product_name": "Focaccia",
+              "dish_name": "Focaccia",
               "quantity": 1
             },
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 48,
+    "task_id": 48,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2745,30 +2745,30 @@
           "user_id": "customer_009",
           "dishes": [
             {
-              "product_name": "Lasagne",
+              "dish_name": "Lasagne",
               "quantity": 1
             },
             {
-              "product_name": "Salmone affumicato",
+              "dish_name": "Salmone affumicato",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             },
             {
-              "product_name": "Grilled chicken salad",
+              "dish_name": "Grilled chicken salad",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 49,
+    "task_id": 49,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2799,34 +2799,34 @@
           "user_id": "customer_001",
           "dishes": [
             {
-              "product_name": "Margherita",
+              "dish_name": "Margherita",
               "quantity": 1
             },
             {
-              "product_name": "Rigatoni all'arrabbiata",
+              "dish_name": "Rigatoni all'arrabbiata",
               "quantity": 1
             },
             {
-              "product_name": "Tiramisu'",
+              "dish_name": "Tiramisu'",
               "quantity": 1
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             },
             {
-              "product_name": "Australian selected Ribeye",
+              "dish_name": "Australian selected Ribeye",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 50,
+    "task_id": 50,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2857,30 +2857,30 @@
           "user_id": "customer_010",
           "dishes": [
             {
-              "product_name": "Black truffle",
+              "dish_name": "Black truffle",
               "quantity": 1
             },
             {
-              "product_name": "Salmon & cream",
+              "dish_name": "Salmon & cream",
               "quantity": 1
             },
             {
-              "product_name": "Sesame & nuts",
+              "dish_name": "Sesame & nuts",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Aglio, olio & peperoncino",
+              "dish_name": "Aglio, olio & peperoncino",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 51,
+    "task_id": 51,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2911,26 +2911,26 @@
           "user_id": "customer_003",
           "dishes": [
             {
-              "product_name": "Salmon & asparagus",
+              "dish_name": "Salmon & asparagus",
               "quantity": 2
             },
             {
-              "product_name": "Grilled salmon",
+              "dish_name": "Grilled salmon",
               "quantity": 1
             },
             {
-              "product_name": "Tuna salad",
+              "dish_name": "Tuna salad",
               "quantity": 1
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             }
           ]
         }
       }
     ],
-    "scenario_id": 52,
+    "task_id": 52,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -2980,7 +2980,7 @@
         }
       }
     ],
-    "scenario_id": 53,
+    "task_id": 53,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -3030,7 +3030,7 @@
         }
       }
     ],
-    "scenario_id": 54,
+    "task_id": 54,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -3084,7 +3084,7 @@
         }
       }
     ],
-    "scenario_id": 55,
+    "task_id": 55,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -3138,7 +3138,7 @@
         }
       }
     ],
-    "scenario_id": 56,
+    "task_id": 56,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -3196,7 +3196,7 @@
         }
       }
     ],
-    "scenario_id": 57,
+    "task_id": 57,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -3250,7 +3250,7 @@
         }
       }
     ],
-    "scenario_id": 58,
+    "task_id": 58,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",
@@ -3304,7 +3304,7 @@
         }
       }
     ],
-    "scenario_id": 59,
+    "task_id": 59,
     "image_name": "restaurant3",
     "image_path": "restaurant3.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to two dishes in succession.",

@@ -48,7 +48,7 @@
         }
       }
     ],
-    "scenario_id": 1,
+    "task_id": 1,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -98,7 +98,7 @@
         }
       }
     ],
-    "scenario_id": 2,
+    "task_id": 2,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -162,7 +162,7 @@
         }
       }
     ],
-    "scenario_id": 3,
+    "task_id": 3,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -222,7 +222,7 @@
         }
       }
     ],
-    "scenario_id": 4,
+    "task_id": 4,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -268,7 +268,7 @@
         }
       }
     ],
-    "scenario_id": 5,
+    "task_id": 5,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -310,7 +310,7 @@
         }
       }
     ],
-    "scenario_id": 6,
+    "task_id": 6,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -372,7 +372,7 @@
         }
       }
     ],
-    "scenario_id": 7,
+    "task_id": 7,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -418,7 +418,7 @@
         }
       }
     ],
-    "scenario_id": 8,
+    "task_id": 8,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -480,7 +480,7 @@
         }
       }
     ],
-    "scenario_id": 9,
+    "task_id": 9,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -542,7 +542,7 @@
         }
       }
     ],
-    "scenario_id": 10,
+    "task_id": 10,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -602,7 +602,7 @@
         }
       }
     ],
-    "scenario_id": 11,
+    "task_id": 11,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -696,7 +696,7 @@
         }
       }
     ],
-    "scenario_id": 12,
+    "task_id": 12,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -754,7 +754,7 @@
         }
       }
     ],
-    "scenario_id": 13,
+    "task_id": 13,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -798,7 +798,7 @@
         }
       }
     ],
-    "scenario_id": 14,
+    "task_id": 14,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -838,7 +838,7 @@
         }
       }
     ],
-    "scenario_id": 15,
+    "task_id": 15,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -888,7 +888,7 @@
         }
       }
     ],
-    "scenario_id": 16,
+    "task_id": 16,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -930,7 +930,7 @@
         }
       }
     ],
-    "scenario_id": 17,
+    "task_id": 17,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -972,7 +972,7 @@
         }
       }
     ],
-    "scenario_id": 18,
+    "task_id": 18,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1018,7 +1018,7 @@
         }
       }
     ],
-    "scenario_id": 19,
+    "task_id": 19,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1074,7 +1074,7 @@
         }
       }
     ],
-    "scenario_id": 20,
+    "task_id": 20,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1138,7 +1138,7 @@
         }
       }
     ],
-    "scenario_id": 21,
+    "task_id": 21,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1196,7 +1196,7 @@
         }
       }
     ],
-    "scenario_id": 22,
+    "task_id": 22,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1238,7 +1238,7 @@
         }
       }
     ],
-    "scenario_id": 23,
+    "task_id": 23,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1316,7 +1316,7 @@
         }
       }
     ],
-    "scenario_id": 24,
+    "task_id": 24,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1392,7 +1392,7 @@
         }
       }
     ],
-    "scenario_id": 25,
+    "task_id": 25,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1430,7 +1430,7 @@
         }
       }
     ],
-    "scenario_id": 26,
+    "task_id": 26,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1476,7 +1476,7 @@
         }
       }
     ],
-    "scenario_id": 27,
+    "task_id": 27,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
@@ -1490,6 +1490,64 @@
   {
     "Instruction": "You are a wine professional (User ID: david_jones_987) conducting quality checks. Focus on the rightmost bottle among the several bottles you just pointed at. You need to ask the AI Service Agent to confirm whether this bottle has a \"bitter\" taste characteristic and is from Spain. If both conditions are met, ask the AI Service Agent to add one bottle to your cart. If not, ask the AI Service Agent to check the third bottle from the right on the same shelf—it should have a blue label. Ask the AI Service Agent to verify whether this bottle is on sale and if its country of origin is New Zealand. If both conditions are satisfied, ask the AI Service Agent to add one bottle to your cart. Finally, ask the AI Service Agent to calculate the total payable amount for the items in your cart.",
     "analysis": "First, confirm whether the first bottle of wine you are pointing at has the \"low sugar\" nutritional feature. If this wine is low sugar, add 2 bottles to the shopping cart. If it is not low sugar, check whether the wine adjacent to its left has the \"low calorie\" feature. If the wine on the left is also not low calorie, add 1 bottle of the wine on the right to the shopping cart. Finally, calculate the total tax amount for all items in the shopping cart.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_cart",
+        "parameters": {
+          "user_id": "david_jones_987",
+          "product_name": "Merlot Oyster Bay",
+          "qty": 1,
+          "category": "wine",
+          "price": 139,
+          "tax_rate": 0.11,
+          "discount": 0.8
+        }
+      },
+      {
+        "tool_name": "compute_total_payment",
+        "parameters": {
+          "user_id": "david_jones_987",
+          "products": [
+            {
+              "product_name": "Merlot Oyster Bay",
+              "quantity": 1
+            },
+            {
+              "product_name": "Napa Valley Cabernet",
+              "quantity": 2
+            },
+            {
+              "product_name": "GLITZ Sauvignon Blanc",
+              "quantity": 2
+            },
+            {
+              "product_name": "ABVDOCK Cabernet Sauvignon",
+              "quantity": 1
+            },
+            {
+              "product_name": "HUNTER VALLEY Shiraz",
+              "quantity": 1
+            },
+            {
+              "product_name": "RIVER TERRACE Chardonnay",
+              "quantity": 2
+            }
+          ]
+        }
+      }
+    ],
+    "task_id": 28,
+    "image_name": "retail1",
+    "image_path": "retail1.mp4",
+    "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
+    "key": "product_name",
+    "value": [
+      "Kim Crawford Sauvignon Blanc"
+    ]
+  },
+  {
+    "Instruction": "You are a health-conscious shopper (User ID: emma_clark_654) focusing on low-sugar foods. You are pointing at three bottles of wine placed in the center of the middle shelf, specifically the first bottle indicated by your finger. You need to ask the AI Service Agent to confirm whether this wine has the \"low-sugar\" nutritional feature. If it does, ask the AI Service Agent to add 2 bottles to your cart. If it does not, ask the AI Service Agent to check the wine immediately to its left and confirm whether it has the \"low-calorie\" feature. If that wine is also not low-calorie, ask the AI Service Agent to add 1 bottle of the wine on the right to your cart, regardless of its specific features, because this is the only other option you are considering. Finally, ask the AI Service Agent to calculate the total tax amount for all items in the cart.",
+    "analysis": "1. Determine whether the wine bottle with a dark label pointed to by the left hand is on sale.\n2. If this wine is on sale, add 3 bottles of it to the cart.\n3. If this wine is not on sale, check the tax rate of the wine immediately to the left of this bottle.\n4. If the tax rate of the wine on the left is lower than 0.08, add 2 bottles of it to the cart.\n5. Otherwise, add 1 bottle of wine located to the right of the purple-labeled wine bottle to the cart.\n6. Calculate the total amount payable for the items in the cart.",
     "ground_truth": [
       {
         "tool_name": "add_to_cart",
@@ -1536,18 +1594,18 @@
         }
       }
     ],
-    "scenario_id": 28,
+    "task_id": 29,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
     "key": "product_name",
     "value": [
-      "Kim Crawford Sauvignon Blanc"
+      "Merlot Oyster Bay"
     ]
   },
   {
-    "Instruction": "You are a health-conscious shopper (User ID: emma_clark_654) focusing on low-sugar foods. You are pointing at three bottles of wine placed in the center of the middle shelf, specifically the first bottle indicated by your finger. You need to ask the AI Service Agent to confirm whether this wine has the \"low-sugar\" nutritional feature. If it does, ask the AI Service Agent to add 2 bottles to your cart. If it does not, ask the AI Service Agent to check the wine immediately to its left and confirm whether it has the \"low-calorie\" feature. If that wine is also not low-calorie, ask the AI Service Agent to add 1 bottle of the wine on the right to your cart, regardless of its specific features, because this is the only other option you are considering. Finally, ask the AI Service Agent to calculate the total tax amount for all items in the cart.",
-    "analysis": "1. Determine whether the wine bottle with a dark label pointed to by the left hand is on sale.\n2. If this wine is on sale, add 3 bottles of it to the cart.\n3. If this wine is not on sale, check the tax rate of the wine immediately to the left of this bottle.\n4. If the tax rate of the wine on the left is lower than 0.08, add 2 bottles of it to the cart.\n5. Otherwise, add 1 bottle of wine located to the right of the purple-labeled wine bottle to the cart.\n6. Calculate the total amount payable for the items in the cart.",
+    "Instruction": "You are a value-conscious buyer (User ID: john_smith_123). Focus on the wine bottle with a dark label on the middle shelf that you are pointing at with your left hand. You need to ask the AI service agent to determine whether this wine is on sale. If it is on sale, ask the AI service agent to add 3 bottles to your cart. If it is not on sale, ask the AI service agent to check the bottle immediately to the left of that wine bottle. If that wine's tax rate is lower than 0.08, ask the AI service agent to add 2 bottles to the cart; otherwise, ask the AI service agent to add 1 bottle of the wine located to the right of the purple label wine bottle to the cart. Finally, ask the AI service agent to calculate the total amount payable for the items in your cart.",
+    "analysis": "1. Determine whether the leftmost bottle among those tapped by the right hand originates from New Zealand.\n2. If it originates from New Zealand, add one bottle to the shopping cart.\n3. If it does not originate from New Zealand, check whether the second bottle from the right on the same shelf is currently on sale.\n4. If that bottle is on sale, add two bottles to the shopping cart.\n5. Retrieve the shopping list.\n6. Check whether any of the wines just added are already present in the shopping list.\n7. If any are not in the list, add them to the shopping cart.",
     "ground_truth": [
       {
         "tool_name": "add_to_cart",
@@ -1586,18 +1644,18 @@
         }
       }
     ],
-    "scenario_id": 29,
+    "task_id": 30,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
     "key": "product_name",
     "value": [
-      "Merlot Oyster Bay"
+      "Kim Crawford Sauvignon Blanc"
     ]
   },
   {
-    "Instruction": "You are a value-conscious buyer (User ID: john_smith_123). Focus on the wine bottle with a dark label on the middle shelf that you are pointing at with your left hand. You need to ask the AI service agent to determine whether this wine is on sale. If it is on sale, ask the AI service agent to add 3 bottles to your cart. If it is not on sale, ask the AI service agent to check the bottle immediately to the left of that wine bottle. If that wine's tax rate is lower than 0.08, ask the AI service agent to add 2 bottles to the cart; otherwise, ask the AI service agent to add 1 bottle of the wine located to the right of the purple label wine bottle to the cart. Finally, ask the AI service agent to calculate the total amount payable for the items in your cart.",
-    "analysis": "1. Determine whether the leftmost bottle among those tapped by the right hand originates from New Zealand.\n2. If it originates from New Zealand, add one bottle to the shopping cart.\n3. If it does not originate from New Zealand, check whether the second bottle from the right on the same shelf is currently on sale.\n4. If that bottle is on sale, add two bottles to the shopping cart.\n5. Retrieve the shopping list.\n6. Check whether any of the wines just added are already present in the shopping list.\n7. If any are not in the list, add them to the shopping cart.",
+    "Instruction": "You are a collector of New Zealand wines (User ID: lisa_taylor_321). Focus on the leftmost bottle of wine you tapped with your right finger. You want to know if this bottle is from New Zealand. Ask the AI Service Agent to determine whether this bottle is from New Zealand. If it is from New Zealand, ask the AI Service Agent to add 1 bottle to your cart. If it is not, ask the AI Service Agent to check the second bottle from the right on the same shelf. Have the AI Service Agent determine if that bottle is on sale. If it is on sale, ask the AI Service Agent to add 2 bottles to your cart. Finally, regardless of what you just added, ask the AI Service Agent to retrieve your shopping list, and have the AI Service Agent check if any of the wines you just added already exist in the list. If they are already in the list, no action is needed. If not, ask the AI Service Agent to add them to your cart.",
+    "analysis": "Results:\n1. Determine whether the bottle of wine you pointed at, featuring a light-colored label and a gold-bronze badge, originates from France.\n2. If it originates from France, add one bottle of this wine to the cart.\n3. If it does not originate from France, check whether this wine is on discount.\n4. If it is on discount, add one bottle of this wine to the cart.\n5. If there is no discount, examine the bottle immediately to its left.\n6. If the taste of the bottle immediately to the left is \"Sweet\", add one bottle of this wine to the cart.\n7. Finally, calculate the total amount payable for all items in the cart.",
     "ground_truth": [
       {
         "tool_name": "add_to_cart",
@@ -1624,18 +1682,18 @@
         }
       }
     ],
-    "scenario_id": 30,
+    "task_id": 31,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
     "key": "product_name",
     "value": [
-      "Kim Crawford Sauvignon Blanc"
+      "Merlot Oyster Bay"
     ]
   },
   {
-    "Instruction": "You are a collector of New Zealand wines (User ID: lisa_taylor_321). Focus on the leftmost bottle of wine you tapped with your right finger. You want to know if this bottle is from New Zealand. Ask the AI Service Agent to determine whether this bottle is from New Zealand. If it is from New Zealand, ask the AI Service Agent to add 1 bottle to your cart. If it is not, ask the AI Service Agent to check the second bottle from the right on the same shelf. Have the AI Service Agent determine if that bottle is on sale. If it is on sale, ask the AI Service Agent to add 2 bottles to your cart. Finally, regardless of what you just added, ask the AI Service Agent to retrieve your shopping list, and have the AI Service Agent check if any of the wines you just added already exist in the list. If they are already in the list, no action is needed. If not, ask the AI Service Agent to add them to your cart.",
-    "analysis": "Results:\n1. Determine whether the bottle of wine you pointed at, featuring a light-colored label and a gold-bronze badge, originates from France.\n2. If it originates from France, add one bottle of this wine to the cart.\n3. If it does not originate from France, check whether this wine is on discount.\n4. If it is on discount, add one bottle of this wine to the cart.\n5. If there is no discount, examine the bottle immediately to its left.\n6. If the taste of the bottle immediately to the left is \"Sweet\", add one bottle of this wine to the cart.\n7. Finally, calculate the total amount payable for all items in the cart.",
+    "Instruction": "You are a person preparing for a dinner party (User ID: sarah_green_567). Focus on the bottle of wine with a light-colored label and a gold-brown badge that you pointed at. You need to ask the AI service agent to determine whether this bottle is from France. If it is from France, ask the AI service agent to add one bottle to your cart. If it is not from France, ask the AI service agent to check if it has a discount. If it has a discount, ask the AI service agent to add one bottle of this wine to your cart. If it does not have a discount, ask the AI service agent to check the bottle immediately to its left. If that bottle's taste is \"Sweet\", ask the AI service agent to add one bottle of that wine to your cart. Finally, ask the AI service agent to calculate the total amount payable for all items in the cart.",
+    "analysis": "1. Among the bottles touched by hand, determine whether the current price of the second bottle from the right is below 150 yuan.\n2. If the price of this wine is below 150 yuan, add 2 bottles of it to the cart.\n3. If the price of this wine is not below 150 yuan, check the bottle immediately to its left.\n4. Determine whether the wine on the left originates from Australia.\n5. If the wine on the left originates from Australia, add 1 bottle of it to the cart.\n6. If the wine on the left does not originate from Australia, add 1 bottle of the wine directly above the original bottle to the cart.\n7. Calculate the total nutritional value of all items in the cart.",
     "ground_truth": [
       {
         "tool_name": "add_to_cart",
@@ -1678,49 +1736,7 @@
         }
       }
     ],
-    "scenario_id": 31,
-    "image_name": "retail1",
-    "image_path": "retail1.mp4",
-    "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",
-    "key": "product_name",
-    "value": [
-      "Merlot Oyster Bay"
-    ]
-  },
-  {
-    "Instruction": "You are a person preparing for a dinner party (User ID: sarah_green_567). Focus on the bottle of wine with a light-colored label and a gold-brown badge that you pointed at. You need to ask the AI service agent to determine whether this bottle is from France. If it is from France, ask the AI service agent to add one bottle to your cart. If it is not from France, ask the AI service agent to check if it has a discount. If it has a discount, ask the AI service agent to add one bottle of this wine to your cart. If it does not have a discount, ask the AI service agent to check the bottle immediately to its left. If that bottle's taste is \"Sweet\", ask the AI service agent to add one bottle of that wine to your cart. Finally, ask the AI service agent to calculate the total amount payable for all items in the cart.",
-    "analysis": "1. Among the bottles touched by hand, determine whether the current price of the second bottle from the right is below 150 yuan.\n2. If the price of this wine is below 150 yuan, add 2 bottles of it to the cart.\n3. If the price of this wine is not below 150 yuan, check the bottle immediately to its left.\n4. Determine whether the wine on the left originates from Australia.\n5. If the wine on the left originates from Australia, add 1 bottle of it to the cart.\n6. If the wine on the left does not originate from Australia, add 1 bottle of the wine directly above the original bottle to the cart.\n7. Calculate the total nutritional value of all items in the cart.",
-    "ground_truth": [
-      {
-        "tool_name": "add_to_cart",
-        "parameters": {
-          "user_id": "jane_doe_201",
-          "product_name": "RIVER TERRACE Chardonnay",
-          "qty": 2,
-          "category": "wine",
-          "price": 139,
-          "tax_rate": 0.07,
-          "discount": 1
-        }
-      },
-      {
-        "tool_name": "compute_total_nutrition",
-        "parameters": {
-          "user_id": "jane_doe_201",
-          "products": [
-            {
-              "product_name": "Souda Red Wine",
-              "quantity": 1
-            },
-            {
-              "product_name": "RIVER TERRACE Chardonnay",
-              "quantity": 2
-            }
-          ]
-        }
-      }
-    ],
-    "scenario_id": 32,
+    "task_id": 32,
     "image_name": "retail1",
     "image_path": "retail1.mp4",
     "image_description": "You are currently in front of a wine shelf and have pointed to three bottles of wine in succession.",

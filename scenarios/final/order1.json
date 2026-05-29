@@ -53,7 +53,7 @@
     ],
     "scenario_id": 1,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -114,7 +114,7 @@
     ],
     "scenario_id": 2,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -174,7 +174,7 @@
     ],
     "scenario_id": 3,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -230,7 +230,7 @@
     ],
     "scenario_id": 4,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -291,7 +291,7 @@
     ],
     "scenario_id": 5,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -331,19 +331,19 @@
           "user_id": "customer_009",
           "dishes": [
             {
-              "product_name": "Lasagne",
+              "dish_name": "Lasagne",
               "quantity": 1
             },
             {
-              "product_name": "Salmone affumicato",
+              "dish_name": "Salmone affumicato",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
@@ -352,7 +352,7 @@
     ],
     "scenario_id": 6,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -383,19 +383,19 @@
           "user_id": "customer_007",
           "dishes": [
             {
-              "product_name": "Homemade pappardelle with bolognese sauce",
+              "dish_name": "Homemade pappardelle with bolognese sauce",
               "quantity": 1
             },
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             },
             {
-              "product_name": "Salmon",
+              "dish_name": "Salmon",
               "quantity": 1
             }
           ]
@@ -404,7 +404,7 @@
     ],
     "scenario_id": 7,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -448,31 +448,31 @@
           "user_id": "customer_005",
           "dishes": [
             {
-              "product_name": "Annie's pizza",
+              "dish_name": "Annie's pizza",
               "quantity": 1
             },
             {
-              "product_name": "Annie's salad",
+              "dish_name": "Annie's salad",
               "quantity": 2
             },
             {
-              "product_name": "Cheesecake",
+              "dish_name": "Cheesecake",
               "quantity": 1
             },
             {
-              "product_name": "Steak Lovers Set",
+              "dish_name": "Steak Lovers Set",
               "quantity": 2
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             },
             {
-              "product_name": "Aglio, olio & peperoncino",
+              "dish_name": "Aglio, olio & peperoncino",
               "quantity": 1
             },
             {
-              "product_name": "Bolognese",
+              "dish_name": "Bolognese",
               "quantity": 1
             }
           ]
@@ -481,7 +481,7 @@
     ],
     "scenario_id": 8,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -538,7 +538,7 @@
     ],
     "scenario_id": 9,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -596,11 +596,11 @@
           "user_id": "customer_010",
           "dishes": [
             {
-              "product_name": "Sesame & nuts",
+              "dish_name": "Sesame & nuts",
               "quantity": 1
             },
             {
-              "product_name": "Cooked ham baguette",
+              "dish_name": "Cooked ham baguette",
               "quantity": 1
             }
           ]
@@ -609,7 +609,7 @@
     ],
     "scenario_id": 10,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -670,7 +670,7 @@
     ],
     "scenario_id": 11,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "sunny_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -727,7 +727,7 @@
     ],
     "scenario_id": 12,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "sunny_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -779,7 +779,7 @@
     ],
     "scenario_id": 13,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "sunny_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -913,7 +913,7 @@
     ],
     "scenario_id": 14,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "sunny_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -976,7 +976,7 @@
     ],
     "scenario_id": 15,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "sunny_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -1016,23 +1016,23 @@
           "user_id": "customer_005",
           "dishes": [
             {
-              "product_name": "Annie's salad",
+              "dish_name": "Annie's salad",
               "quantity": 2
             },
             {
-              "product_name": "Cheesecake",
+              "dish_name": "Cheesecake",
               "quantity": 1
             },
             {
-              "product_name": "Steak Lovers Set",
+              "dish_name": "Steak Lovers Set",
               "quantity": 2
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             },
             {
-              "product_name": "Mushroom soup",
+              "dish_name": "Mushroom soup",
               "quantity": 2
             }
           ]
@@ -1041,7 +1041,7 @@
     ],
     "scenario_id": 16,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1072,23 +1072,23 @@
           "user_id": "customer_004",
           "dishes": [
             {
-              "product_name": "Mixed cold cuts plank",
+              "dish_name": "Mixed cold cuts plank",
               "quantity": 1
             },
             {
-              "product_name": "Cold cuts & cheese plate",
+              "dish_name": "Cold cuts & cheese plate",
               "quantity": 1
             },
             {
-              "product_name": "Comte",
+              "dish_name": "Comte",
               "quantity": 1
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             },
             {
-              "product_name": "Mixed cold cuts plank",
+              "dish_name": "Mixed cold cuts plank",
               "quantity": 1
             }
           ]
@@ -1097,7 +1097,7 @@
     ],
     "scenario_id": 17,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -1146,15 +1146,15 @@
           "user_id": "customer_003",
           "dishes": [
             {
-              "product_name": "Grilled salmon",
+              "dish_name": "Grilled salmon",
               "quantity": 1
             },
             {
-              "product_name": "Tuna salad",
+              "dish_name": "Tuna salad",
               "quantity": 1
             },
             {
-              "product_name": "Cooked ham baguette",
+              "dish_name": "Cooked ham baguette",
               "quantity": 1
             }
           ]
@@ -1163,7 +1163,7 @@
     ],
     "scenario_id": 18,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1210,7 +1210,7 @@
           "user_id": "customer_002",
           "dishes": [
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             }
           ]
@@ -1219,7 +1219,7 @@
     ],
     "scenario_id": 19,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -1250,27 +1250,27 @@
           "user_id": "customer_001",
           "dishes": [
             {
-              "product_name": "Margherita",
+              "dish_name": "Margherita",
               "quantity": 1
             },
             {
-              "product_name": "Rigatoni all'arrabbiata",
+              "dish_name": "Rigatoni all'arrabbiata",
               "quantity": 1
             },
             {
-              "product_name": "Tiramisu'",
+              "dish_name": "Tiramisu'",
               "quantity": 1
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             },
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             }
           ]
@@ -1279,7 +1279,7 @@
     ],
     "scenario_id": 20,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1344,7 +1344,7 @@
     ],
     "scenario_id": 21,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1396,7 +1396,7 @@
     ],
     "scenario_id": 22,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -1452,7 +1452,7 @@
     ],
     "scenario_id": 23,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1513,7 +1513,7 @@
     ],
     "scenario_id": 24,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -1569,7 +1569,7 @@
     ],
     "scenario_id": 25,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1620,7 +1620,7 @@
     ],
     "scenario_id": 26,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -1675,7 +1675,7 @@
     ],
     "scenario_id": 27,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1735,7 +1735,7 @@
     ],
     "scenario_id": 28,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -1795,7 +1795,7 @@
     ],
     "scenario_id": 29,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1850,7 +1850,7 @@
     ],
     "scenario_id": 30,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -1890,15 +1890,15 @@
           "user_id": "customer_007",
           "dishes": [
             {
-              "product_name": "Cheese plate",
+              "dish_name": "Cheese plate",
               "quantity": 2
             },
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
@@ -1907,7 +1907,7 @@
     ],
     "scenario_id": 31,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -1963,7 +1963,7 @@
     ],
     "scenario_id": 32,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2019,7 +2019,7 @@
     ],
     "scenario_id": 33,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2093,7 +2093,7 @@
     ],
     "scenario_id": 34,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2145,7 +2145,7 @@
     ],
     "scenario_id": 35,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -2205,7 +2205,7 @@
     ],
     "scenario_id": 36,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2262,7 +2262,7 @@
     ],
     "scenario_id": 37,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -2323,7 +2323,7 @@
     ],
     "scenario_id": 38,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2383,7 +2383,7 @@
     ],
     "scenario_id": 39,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -2444,7 +2444,7 @@
     ],
     "scenario_id": 40,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2500,7 +2500,7 @@
     ],
     "scenario_id": 41,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -2557,7 +2557,7 @@
     ],
     "scenario_id": 42,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2642,7 +2642,7 @@
     ],
     "scenario_id": 43,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -2703,7 +2703,7 @@
     ],
     "scenario_id": 44,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2764,7 +2764,7 @@
     ],
     "scenario_id": 45,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "category",
     "value": [
@@ -2842,7 +2842,7 @@
     ],
     "scenario_id": 46,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2903,7 +2903,7 @@
     ],
     "scenario_id": 47,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -2964,7 +2964,7 @@
     ],
     "scenario_id": 48,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3049,7 +3049,7 @@
     ],
     "scenario_id": 49,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3114,7 +3114,7 @@
     ],
     "scenario_id": 50,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "sunny_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3170,7 +3170,7 @@
     ],
     "scenario_id": 51,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3235,7 +3235,7 @@
     ],
     "scenario_id": 52,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3301,7 +3301,7 @@
     ],
     "scenario_id": 53,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3341,19 +3341,19 @@
           "user_id": "customer_008",
           "dishes": [
             {
-              "product_name": "Focaccia",
+              "dish_name": "Focaccia",
               "quantity": 1
             },
             {
-              "product_name": "Buratta salad",
+              "dish_name": "Buratta salad",
               "quantity": 2
             },
             {
-              "product_name": "Walnut bread",
+              "dish_name": "Walnut bread",
               "quantity": 1
             },
             {
-              "product_name": "Steak Lovers Set",
+              "dish_name": "Steak Lovers Set",
               "quantity": 1
             }
           ]
@@ -3362,7 +3362,7 @@
     ],
     "scenario_id": 54,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3393,23 +3393,23 @@
           "user_id": "customer_009",
           "dishes": [
             {
-              "product_name": "Grana Padano",
+              "dish_name": "Grana Padano",
               "quantity": 3
             },
             {
-              "product_name": "Lasagne",
+              "dish_name": "Lasagne",
               "quantity": 1
             },
             {
-              "product_name": "Salmone affumicato",
+              "dish_name": "Salmone affumicato",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
@@ -3422,23 +3422,23 @@
           "user_id": "customer_009",
           "dishes": [
             {
-              "product_name": "Grana Padano",
+              "dish_name": "Grana Padano",
               "quantity": 3
             },
             {
-              "product_name": "Lasagne",
+              "dish_name": "Lasagne",
               "quantity": 1
             },
             {
-              "product_name": "Salmone affumicato",
+              "dish_name": "Salmone affumicato",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
@@ -3447,7 +3447,7 @@
     ],
     "scenario_id": 55,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3478,19 +3478,19 @@
           "user_id": "customer_007",
           "dishes": [
             {
-              "product_name": "Cooked ham baguette",
+              "dish_name": "Cooked ham baguette",
               "quantity": 1
             },
             {
-              "product_name": "Homemade pappardelle with bolognese sauce",
+              "dish_name": "Homemade pappardelle with bolognese sauce",
               "quantity": 1
             },
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
@@ -3503,19 +3503,19 @@
           "user_id": "customer_007",
           "dishes": [
             {
-              "product_name": "Cooked ham baguette",
+              "dish_name": "Cooked ham baguette",
               "quantity": 1
             },
             {
-              "product_name": "Homemade pappardelle with bolognese sauce",
+              "dish_name": "Homemade pappardelle with bolognese sauce",
               "quantity": 1
             },
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
@@ -3524,7 +3524,7 @@
     ],
     "scenario_id": 56,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3580,7 +3580,7 @@
     ],
     "scenario_id": 57,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3651,7 +3651,7 @@
     ],
     "scenario_id": 58,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3703,7 +3703,7 @@
     ],
     "scenario_id": 59,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3760,7 +3760,7 @@
     ],
     "scenario_id": 60,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3843,7 +3843,7 @@
     ],
     "scenario_id": 61,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3936,7 +3936,7 @@
     ],
     "scenario_id": 62,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -3997,7 +3997,7 @@
     ],
     "scenario_id": 63,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4054,7 +4054,7 @@
     ],
     "scenario_id": 64,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4114,7 +4114,7 @@
     ],
     "scenario_id": 65,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4215,7 +4215,7 @@
     ],
     "scenario_id": 66,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4310,7 +4310,7 @@
     ],
     "scenario_id": 67,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4370,7 +4370,7 @@
     ],
     "scenario_id": 68,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4422,7 +4422,7 @@
     ],
     "scenario_id": 69,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4497,7 +4497,7 @@
     ],
     "scenario_id": 70,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4553,7 +4553,7 @@
     ],
     "scenario_id": 71,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4605,7 +4605,7 @@
     ],
     "scenario_id": 72,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4666,7 +4666,7 @@
     ],
     "scenario_id": 73,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4727,7 +4727,7 @@
     ],
     "scenario_id": 74,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4787,7 +4787,7 @@
     ],
     "scenario_id": 75,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4844,7 +4844,7 @@
     ],
     "scenario_id": 76,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4904,7 +4904,7 @@
     ],
     "scenario_id": 77,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -4965,7 +4965,7 @@
     ],
     "scenario_id": 78,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5021,7 +5021,7 @@
     ],
     "scenario_id": 79,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5082,7 +5082,7 @@
     ],
     "scenario_id": 80,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5140,11 +5140,11 @@
           "user_id": "customer_002",
           "dishes": [
             {
-              "product_name": "Grilled chicken salad",
+              "dish_name": "Grilled chicken salad",
               "quantity": 2
             },
             {
-              "product_name": "Focaccia",
+              "dish_name": "Focaccia",
               "quantity": 1
             }
           ]
@@ -5153,7 +5153,7 @@
     ],
     "scenario_id": 81,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5202,23 +5202,23 @@
           "user_id": "customer_004",
           "dishes": [
             {
-              "product_name": "Mixed cold cuts plank",
+              "dish_name": "Mixed cold cuts plank",
               "quantity": 1
             },
             {
-              "product_name": "Comte",
+              "dish_name": "Comte",
               "quantity": 1
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             },
             {
-              "product_name": "Veggie salad",
+              "dish_name": "Veggie salad",
               "quantity": 1
             },
             {
-              "product_name": "Seafood Delight Set",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             }
           ]
@@ -5227,7 +5227,7 @@
     ],
     "scenario_id": 82,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5293,31 +5293,31 @@
           "user_id": "customer_006",
           "dishes": [
             {
-              "product_name": "Tuna panini",
+              "dish_name": "Tuna panini",
               "quantity": 2
             },
             {
-              "product_name": "Veggie salad",
+              "dish_name": "Veggie salad",
               "quantity": 1
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             },
             {
-              "product_name": "Brie",
+              "dish_name": "Brie",
               "quantity": 1
             },
             {
-              "product_name": "Buratta",
+              "dish_name": "Buratta",
               "quantity": 1
             },
             {
-              "product_name": "Gorgonzola",
+              "dish_name": "Gorgonzola",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             }
           ]
@@ -5326,7 +5326,7 @@
     ],
     "scenario_id": 83,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5366,23 +5366,23 @@
           "user_id": "customer_007",
           "dishes": [
             {
-              "product_name": "Homemade pappardelle with bolognese sauce",
+              "dish_name": "Homemade pappardelle with bolognese sauce",
               "quantity": 1
             },
             {
-              "product_name": "Piadina",
+              "dish_name": "Piadina",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             },
             {
-              "product_name": "Veggie salad",
+              "dish_name": "Veggie salad",
               "quantity": 1
             },
             {
-              "product_name": "Cold Cuts & Cheese Platter",
+              "dish_name": "Cold Cuts & Cheese Platter",
               "quantity": 1
             }
           ]
@@ -5391,7 +5391,7 @@
     ],
     "scenario_id": 84,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5431,27 +5431,27 @@
           "user_id": "customer_010",
           "dishes": [
             {
-              "product_name": "Black truffle",
+              "dish_name": "Black truffle",
               "quantity": 2
             },
             {
-              "product_name": "Salmon & cream",
+              "dish_name": "Salmon & cream",
               "quantity": 1
             },
             {
-              "product_name": "Sesame & nuts",
+              "dish_name": "Sesame & nuts",
               "quantity": 1
             },
             {
-              "product_name": "Italian Classic Set",
+              "dish_name": "Italian Classic Set",
               "quantity": 1
             },
             {
-              "product_name": "Orecchiette with Italian sausage, burrata cheese",
+              "dish_name": "Orecchiette with Italian sausage, burrata cheese",
               "quantity": 1
             },
             {
-              "product_name": "Annie's Special Set",
+              "dish_name": "Annie's Special Set",
               "quantity": 1
             }
           ]
@@ -5460,7 +5460,7 @@
     ],
     "scenario_id": 85,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_butcher_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5533,7 +5533,7 @@
     ],
     "scenario_id": 86,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "sunny_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5607,7 +5607,7 @@
     ],
     "scenario_id": 87,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5676,7 +5676,7 @@
     ],
     "scenario_id": 88,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "afrikana_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5741,7 +5741,7 @@
     ],
     "scenario_id": 89,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5815,7 +5815,7 @@
     ],
     "scenario_id": 90,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5889,7 +5889,7 @@
     ],
     "scenario_id": 91,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -5963,7 +5963,7 @@
     ],
     "scenario_id": 92,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_meraki_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -6041,7 +6041,7 @@
     ],
     "scenario_id": 93,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -6106,7 +6106,7 @@
     ],
     "scenario_id": 94,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -6175,7 +6175,7 @@
     ],
     "scenario_id": 95,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -6245,7 +6245,7 @@
     ],
     "scenario_id": 96,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "annie_pauhana_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -6332,7 +6332,7 @@
     ],
     "scenario_id": 97,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -6418,7 +6418,7 @@
     ],
     "scenario_id": 98,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -6492,7 +6492,7 @@
     ],
     "scenario_id": 99,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
@@ -6566,7 +6566,7 @@
     ],
     "scenario_id": 100,
     "image_name": "order1",
-    "image_path": "order1.mp4",
+    "image_path": "greek_annie_1.mp4",
     "image_description": "You and your friend are in a order. You look at the menu and point to three dishes in succession.",
     "key": "dish_name",
     "value": [
