@@ -27,7 +27,16 @@
               "Cheese & Olives",
               "Cold Cuts",
               "Steaks",
-              "Handmade Bread"
+              "Handmade Bread",
+              "Annie's top dishes",
+              "Appetizers",
+              "Desserts",
+              "Italian Pasta",
+              "Main Courses",
+              "Seafood",
+              "Selected Steaks",
+              "Sides",
+              "Soups"
             ]
           },
           "price": {
@@ -62,7 +71,18 @@
                 "sugar_free",
                 "gluten_free",
                 "high_omega3",
-                "vegan"
+                "vegan",
+                "high_antioxidants",
+                "high_calories",
+                "high_carbs",
+                "high_fat",
+                "high_healthy_fats",
+                "high_iron",
+                "high_monounsaturated_fat",
+                "high_sodium",
+                "high_sugar",
+                "high_vitaminA",
+                "low_protein"
               ]
             },
             "description": "Nutritional/health tags."
@@ -80,7 +100,18 @@
                 "umami",
                 "mild",
                 "savory",
-                "smoky"
+                "smoky",
+                "buttery",
+                "creamy",
+                "earthy",
+                "fresh",
+                "fruity",
+                "garlicky",
+                "herby",
+                "nutty",
+                "pungent",
+                "rich",
+                "tart"
               ]
             },
             "description": "Taste profiles."
@@ -99,7 +130,12 @@
                 "type": "string",
                 "enum": [
                   "PER_100G",
-                  "PER_SERVING"
+                  "PER_SERVING",
+                  "PER_125G",
+                  "PER_235G",
+                  "PER_250G",
+                  "PER_BOX",
+                  "PER_PIECE"
                 ]
               },
               "serving_size_g": {
@@ -398,7 +434,16 @@
               "Cheese & Olives",
               "Cold Cuts",
               "Steaks",
-              "Handmade Bread"
+              "Handmade Bread",
+              "Annie's top dishes",
+              "Appetizers",
+              "Desserts",
+              "Italian Pasta",
+              "Main Courses",
+              "Seafood",
+              "Selected Steaks",
+              "Sides",
+              "Soups"
             ]
           }
         },
@@ -436,7 +481,18 @@
               "sugar_free",
               "gluten_free",
               "high_omega3",
-              "vegan"
+              "vegan",
+              "high_antioxidants",
+              "high_calories",
+              "high_carbs",
+              "high_fat",
+              "high_healthy_fats",
+              "high_iron",
+              "high_monounsaturated_fat",
+              "high_sodium",
+              "high_sugar",
+              "high_vitaminA",
+              "low_protein"
             ]
           }
         },
@@ -471,7 +527,18 @@
               "umami",
               "mild",
               "savory",
-              "smoky"
+              "smoky",
+              "buttery",
+              "creamy",
+              "earthy",
+              "fresh",
+              "fruity",
+              "garlicky",
+              "herby",
+              "nutty",
+              "pungent",
+              "rich",
+              "tart"
             ]
           }
         },
@@ -617,7 +684,7 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "product_name": {
+              "dish_name": {
                 "type": "string",
                 "description": "Name of the dish"
               },
@@ -627,7 +694,7 @@
               }
             },
             "required": [
-              "product_name",
+              "dish_name",
               "quantity"
             ]
           }
@@ -662,7 +729,7 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "product_name": {
+              "dish_name": {
                 "type": "string",
                 "description": "Name of the dish"
               },
@@ -672,7 +739,7 @@
               }
             },
             "required": [
-              "product_name",
+              "dish_name",
               "quantity"
             ]
           }
@@ -707,7 +774,7 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "product_name": {
+              "dish_name": {
                 "type": "string",
                 "description": "Name of the dish"
               },
@@ -717,7 +784,7 @@
               }
             },
             "required": [
-              "product_name",
+              "dish_name",
               "quantity"
             ]
           }

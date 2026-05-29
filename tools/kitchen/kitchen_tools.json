@@ -14,7 +14,10 @@
           "description": "Name of the recipe to add"
         }
       },
-      "required": ["user_id", "recipe_name"]
+      "required": [
+        "user_id",
+        "recipe_name"
+      ]
     }
   },
   {
@@ -32,7 +35,10 @@
           "description": "Name of the recipe to remove"
         }
       },
-      "required": ["user_id", "recipe_name"]
+      "required": [
+        "user_id",
+        "recipe_name"
+      ]
     }
   },
   {
@@ -46,7 +52,9 @@
           "description": "User ID"
         }
       },
-      "required": ["user_id"]
+      "required": [
+        "user_id"
+      ]
     }
   },
   {
@@ -67,7 +75,10 @@
           "description": "List of recipe names to calculate nutritional characteristics for"
         }
       },
-      "required": ["user_id", "recipes"]
+      "required": [
+        "user_id",
+        "recipes"
+      ]
     }
   },
   {
@@ -88,7 +99,10 @@
           "description": "List of recipe names to calculate tastes for"
         }
       },
-      "required": ["user_id", "recipes"]
+      "required": [
+        "user_id",
+        "recipes"
+      ]
     }
   },
   {
@@ -110,7 +124,11 @@
           "description": "Quantity to add (in units of 100g, must be greater than 0)"
         }
       },
-      "required": ["user_id", "ingredient_name", "quantity"]
+      "required": [
+        "user_id",
+        "ingredient_name",
+        "quantity"
+      ]
     }
   },
   {
@@ -128,7 +146,10 @@
           "description": "Name of the ingredient to remove"
         }
       },
-      "required": ["user_id", "ingredient_name"]
+      "required": [
+        "user_id",
+        "ingredient_name"
+      ]
     }
   },
   {
@@ -155,12 +176,18 @@
                 "description": "Quantity (in units of 100g)"
               }
             },
-            "required": ["ingredient_name", "quantity"]
+            "required": [
+              "ingredient_name",
+              "quantity"
+            ]
           },
           "description": "List of ingredients with quantities to calculate nutrition for"
         }
       },
-      "required": ["user_id", "ingredients"]
+      "required": [
+        "user_id",
+        "ingredients"
+      ]
     }
   },
   {
@@ -174,7 +201,9 @@
           "description": "Name of the recipe"
         }
       },
-      "required": ["recipe_name"]
+      "required": [
+        "recipe_name"
+      ]
     }
   },
   {
@@ -188,7 +217,9 @@
           "description": "Name of the recipe"
         }
       },
-      "required": ["recipe_name"]
+      "required": [
+        "recipe_name"
+      ]
     }
   },
   {
@@ -202,7 +233,9 @@
           "description": "Allergen name (e.g., 'gluten', 'dairy', 'nuts', 'shellfish', 'soy')"
         }
       },
-      "required": ["allergen"]
+      "required": [
+        "allergen"
+      ]
     }
   },
   {
@@ -216,7 +249,9 @@
           "description": "Name of the recipe"
         }
       },
-      "required": ["recipe_name"]
+      "required": [
+        "recipe_name"
+      ]
     }
   },
   {
@@ -227,11 +262,23 @@
       "properties": {
         "taste": {
           "type": "string",
-          "enum": ["sweet", "salty", "spicy", "sour", "bitter", "umami", "mild", "savory"],
+          "enum": [
+            "sweet",
+            "salty",
+            "spicy",
+            "sour",
+            "bitter",
+            "umami",
+            "mild",
+            "savory",
+            "rich"
+          ],
           "description": "Taste profile to search for"
         }
       },
-      "required": ["taste"]
+      "required": [
+        "taste"
+      ]
     }
   },
   {
@@ -245,7 +292,9 @@
           "description": "Name of the recipe"
         }
       },
-      "required": ["recipe_name"]
+      "required": [
+        "recipe_name"
+      ]
     }
   },
   {
@@ -259,7 +308,9 @@
           "description": "Name of the ingredient"
         }
       },
-      "required": ["ingredient_name"]
+      "required": [
+        "ingredient_name"
+      ]
     }
   },
   {
@@ -273,7 +324,9 @@
           "description": "Name of the ingredient"
         }
       },
-      "required": ["ingredient_name"]
+      "required": [
+        "ingredient_name"
+      ]
     }
   },
   {
@@ -287,7 +340,9 @@
           "description": "Target date in YYYY-MM-DD format (e.g., '2025-12-11')"
         }
       },
-      "required": ["date"]
+      "required": [
+        "date"
+      ]
     }
   },
   {
@@ -301,7 +356,9 @@
           "description": "Name of the ingredient"
         }
       },
-      "required": ["ingredient_name"]
+      "required": [
+        "ingredient_name"
+      ]
     }
   },
   {
@@ -312,11 +369,19 @@
       "properties": {
         "location": {
           "type": "string",
-          "enum": ["fridge", "freezer", "pantry", "countertop", "spice_rack"],
+          "enum": [
+            "fridge",
+            "freezer",
+            "pantry",
+            "countertop",
+            "spice_rack"
+          ],
           "description": "Storage location to search for"
         }
       },
-      "required": ["location"]
+      "required": [
+        "location"
+      ]
     }
   },
   {
@@ -330,7 +395,9 @@
           "description": "Name of the ingredient"
         }
       },
-      "required": ["ingredient_name"]
+      "required": [
+        "ingredient_name"
+      ]
     }
   },
   {
@@ -344,7 +411,9 @@
           "description": "Name of the ingredient"
         }
       },
-      "required": ["ingredient_name"]
+      "required": [
+        "ingredient_name"
+      ]
     }
   },
   {
@@ -367,7 +436,9 @@
           "description": "Ingredient category (e.g., 'vegetable', 'meat', 'dairy', 'carbs/grains', 'seasoning', 'fruits', 'drinks')"
         }
       },
-      "required": ["category"]
+      "required": [
+        "category"
+      ]
     }
   },
   {
@@ -381,7 +452,9 @@
           "description": "Name of the ingredient"
         }
       },
-      "required": ["ingredient_name"]
+      "required": [
+        "ingredient_name"
+      ]
     }
   },
   {
@@ -395,7 +468,9 @@
           "description": "User ID"
         }
       },
-      "required": ["user_id"]
+      "required": [
+        "user_id"
+      ]
     }
   },
   {
@@ -409,7 +484,9 @@
           "description": "Name of the recipe"
         }
       },
-      "required": ["recipe_name"]
+      "required": [
+        "recipe_name"
+      ]
     }
   },
   {
@@ -423,7 +500,9 @@
           "description": "Nutritional characteristic tag (e.g., 'high_protein', 'low_fat', 'high_fiber', 'gluten_free', 'vegan')"
         }
       },
-      "required": ["characteristic"]
+      "required": [
+        "characteristic"
+      ]
     }
   },
   {

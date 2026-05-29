@@ -23,7 +23,12 @@
               "Cheese & Olives",
               "Cold Cuts",
               "Steaks",
-              "Handmade Bread"
+              "Handmade Bread",
+              "Annie's top dishes",
+              "Cold Brew",
+              "Espresso",
+              "Italian Pasta",
+              "Selected Steaks"
             ]
           },
           "price": {
@@ -58,7 +63,19 @@
                 "sugar_free",
                 "gluten_free",
                 "high_omega3",
-                "vegan"
+                "vegan",
+                "high_antioxidants",
+                "high_calorie",
+                "high_calories",
+                "high_carbs",
+                "high_fat",
+                "high_healthy_fats",
+                "high_iron",
+                "high_monounsaturated_fat",
+                "high_sodium",
+                "high_sugar",
+                "high_vitaminA",
+                "low_calorie"
               ]
             },
             "description": "Nutritional/health tags."
@@ -76,7 +93,19 @@
                 "umami",
                 "mild",
                 "savory",
-                "smoky"
+                "smoky",
+                "buttery",
+                "creamy",
+                "earthy",
+                "fresh",
+                "fruity",
+                "garlicky",
+                "herby",
+                "nutty",
+                "pungent",
+                "rich",
+                "strong",
+                "tart"
               ]
             },
             "description": "Taste profiles."
@@ -95,7 +124,12 @@
                 "type": "string",
                 "enum": [
                   "PER_100G",
-                  "PER_SERVING"
+                  "PER_SERVING",
+                  "PER_125G",
+                  "PER_235G",
+                  "PER_250G",
+                  "PER_BOX",
+                  "PER_PIECE"
                 ]
               },
               "serving_size_g": {
@@ -266,7 +300,7 @@
         ]
       }
     }
-  },  
+  },
   {
     "type": "function",
     "function": {
@@ -344,7 +378,12 @@
               "Cheese & Olives",
               "Cold Cuts",
               "Steaks",
-              "Handmade Bread"
+              "Handmade Bread",
+              "Annie's top dishes",
+              "Cold Brew",
+              "Espresso",
+              "Italian Pasta",
+              "Selected Steaks"
             ]
           }
         },
@@ -377,7 +416,19 @@
               "sugar_free",
               "gluten_free",
               "high_omega3",
-              "vegan"
+              "vegan",
+              "high_antioxidants",
+              "high_calorie",
+              "high_calories",
+              "high_carbs",
+              "high_fat",
+              "high_healthy_fats",
+              "high_iron",
+              "high_monounsaturated_fat",
+              "high_sodium",
+              "high_sugar",
+              "high_vitaminA",
+              "low_calorie"
             ]
           }
         },
@@ -407,7 +458,19 @@
               "umami",
               "mild",
               "savory",
-              "smoky"
+              "smoky",
+              "buttery",
+              "creamy",
+              "earthy",
+              "fresh",
+              "fruity",
+              "garlicky",
+              "herby",
+              "nutty",
+              "pungent",
+              "rich",
+              "strong",
+              "tart"
             ]
           }
         },

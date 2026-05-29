@@ -46,7 +46,11 @@
                 "high_calcium",
                 "sugar_free",
                 "gluten_free",
-                "vegan"
+                "vegan",
+                "high_calories",
+                "high_fat",
+                "high_sodium",
+                "high_sugar"
               ]
             },
             "description": "Nutritional/health tags."
@@ -63,7 +67,14 @@
                 "bitter",
                 "umami",
                 "mild",
-                "savory"
+                "savory",
+                "creamy",
+                "dry",
+                "minty",
+                "nutty",
+                "strong",
+                "tangy",
+                "·"
               ]
             },
             "description": "Taste profiles."
@@ -173,7 +184,11 @@
               "high_calcium",
               "sugar_free",
               "gluten_free",
-              "vegan"
+              "vegan",
+              "high_calories",
+              "high_fat",
+              "high_sodium",
+              "high_sugar"
             ]
           }
         },
@@ -202,7 +217,14 @@
               "bitter",
               "umami",
               "mild",
-              "savory"
+              "savory",
+              "creamy",
+              "dry",
+              "minty",
+              "nutty",
+              "strong",
+              "tangy",
+              "·"
             ]
           }
         },
