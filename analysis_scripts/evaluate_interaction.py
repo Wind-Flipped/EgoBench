@@ -909,7 +909,7 @@ def main():
         return
 
     # Ensure output directory exists
-    output_dir = f"/ossfs/workspace/process_data/eval_result/{model_name}"
+    output_dir = f"../eval_result/{model_name}"
     os.makedirs(output_dir, exist_ok=True)
 
     # Get all JSON files
