@@ -602,7 +602,17 @@ class RestaurantDB:
             elif dish_name in self.set_meals:
                 # Check if it's a set meal
                 set_meal = self.set_meals[dish_name]
-                item_total = set_meal.set_meal_price * set_meal.set_meal_discount * quantity
+                if set_meal.set_meal_price and set_meal.set_meal_price > 0:
+                    item_total = set_meal.set_meal_price * set_meal.set_meal_discount * quantity
+                else:
+                    meal_payment = 0.0
+                    for included_item in set_meal.included_dishes:
+                        included_dish_name = included_item.get("dish_name", " ").lower()
+                        included_qty = included_item.get("quantity", 1.0)
+                        if included_dish_name in self.catalog:
+                            included_dish = self.catalog[included_dish_name]
+                            meal_payment += included_dish.price * included_dish.discount * included_qty
+                    item_total = meal_payment * set_meal.set_meal_discount * quantity
                 total += item_total
             else:
                 # Optionally log warning for missing dish

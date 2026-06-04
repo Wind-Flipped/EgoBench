@@ -651,11 +651,19 @@ class OrderDB:
         """
         Compute total payable amount for the specified dishes:
         sum(price * discount * qty).
+        If a set meal has no set_meal_price, it is priced from its included dishes.
         """
         total_payment = 0.0
-        restaurant_key = (restaurant_name or "").lower()
+        restaurant_key = restaurant_name or ""
 
         store = self.restaurants.get(restaurant_key)
+        if not store:
+            for k, v in self.restaurants.items():
+                if k.lower() == restaurant_key.lower():
+                    store = v
+                    restaurant_key = k
+                    break
+
         if not store:
             return {
                 "restaurant_name": restaurant_name,
@@ -676,7 +684,17 @@ class OrderDB:
                 total_payment += amount
             elif dish_name in store["set_meals"]:
                 set_meal = store["set_meals"][dish_name]
-                amount = set_meal.set_meal_price * set_meal.set_meal_discount * quantity
+                if set_meal.set_meal_price and set_meal.set_meal_price > 0:
+                    amount = set_meal.set_meal_price * set_meal.set_meal_discount * quantity
+                else:
+                    meal_payment = 0.0
+                    for included_item in set_meal.included_dishes:
+                        included_dish_name = included_item.get("dish_name", " ").lower()
+                        included_qty = included_item.get("quantity", 1.0)
+                        if included_dish_name in store["catalog"]:
+                            included_dish = store["catalog"][included_dish_name]
+                            meal_payment += included_dish.price * included_dish.discount * included_qty
+                    amount = meal_payment * set_meal.set_meal_discount * quantity
                 total_payment += amount
 
         return {
@@ -693,9 +711,16 @@ class OrderDB:
         (price * tax_rate / (1 + tax_rate)) * discount * qty.
         """
         total_tax = 0.0
-        restaurant_key = (restaurant_name or "").lower()
+        restaurant_key = restaurant_name or ""
 
         store = self.restaurants.get(restaurant_key)
+        if not store:
+            for k, v in self.restaurants.items():
+                if k.lower() == restaurant_key.lower():
+                    store = v
+                    restaurant_key = k
+                    break
+
         if not store:
             return {
                 "restaurant_name": restaurant_name,
@@ -749,8 +774,15 @@ class OrderDB:
             "fiber_g": 0.0
         }
 
-        restaurant_key = (restaurant_name or "").lower()
+        restaurant_key = restaurant_name or ""
         store = self.restaurants.get(restaurant_key)
+        if not store:
+            for k, v in self.restaurants.items():
+                if k.lower() == restaurant_key.lower():
+                    store = v
+                    restaurant_key = k
+                    break
+
         if not store:
             return {
                 "restaurant_name": restaurant_name,

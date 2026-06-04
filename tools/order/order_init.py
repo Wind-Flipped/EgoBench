@@ -714,7 +714,7 @@ order_init_data = {
       }
     },
     {
-      "name": "Salmon affumicato",
+      "name": "Salmone affumicato",
       "restaurant_name": "Annie Italian Restaurant",
       "category": "Annie's top dishes",
       "price": 39,

@@ -21,7 +21,7 @@
         "parameters": {
           "restaurant_name": "Annie Italian Restaurant",
           "user_id": "customer_009",
-          "set_meal_name": "Cold Cuts & Cheese Platte",
+          "set_meal_name": "Cold Cuts & Cheese Platter",
           "quantity": 1
         }
       },
@@ -129,10 +129,10 @@
         "tool_name": "add_dish_to_order",
         "parameters": {
           "restaurant_name": "Annie Italian Restaurant",
-          "user_id": "customer_005\n",
+          "user_id": "customer_005",
           "dish_name": "Australian imported M9+ grain-fed Ribeye",
           "quantity": 1,
-          "category": "Selected Steaks\n",
+          "category": "Selected Steaks",
           "price": 659,
           "tax_rate": 0.07,
           "discount": 0.8
@@ -192,7 +192,7 @@
           "user_id": "customer_010",
           "dish_name": "Camembert",
           "quantity": 1,
-          "category": "Cheese & Olives\n",
+          "category": "Cheese & Olives",
           "price": 32,
           "tax_rate": 0.07,
           "discount": 0.9
@@ -248,7 +248,7 @@
           "user_id": "customer_004",
           "dish_name": "Piadina",
           "quantity": 1,
-          "category": "Sandwiches & Panini\n",
+          "category": "Sandwiches & Panini",
           "price": 88,
           "tax_rate": 0.13,
           "discount": 0.9
@@ -565,8 +565,8 @@
       {
         "tool_name": "remove_dish_from_order",
         "parameters": {
-          "restaurant_name": "customer_010",
-          "user_id": "Annie Italian Restaurant",
+          "restaurant_name": "Annie Italian Restaurant",
+          "user_id": "customer_010",
           "dish_name": "Black truffle",
           "quantity": 2
         }
@@ -1583,6 +1583,7 @@
       {
         "tool_name": "add_dish_to_order",
         "parameters": {
+          "restaurant_name": "Annie Italian Restaurant",
           "user_id": "customer_006",
           "dish_name": "Serrano ham",
           "quantity": 2,
@@ -1595,7 +1596,7 @@
       {
         "tool_name": "compute_total_nutrition",
         "parameters": {
-          "restaurant_name": "Annie Italian Restaurant_items",
+          "restaurant_name": "Annie Italian Restaurant",
           "user_id": "customer_006",
           "dishes": [
             {
@@ -1634,6 +1635,7 @@
       {
         "tool_name": "add_dish_to_order",
         "parameters": {
+          "restaurant_name": "Annie Italian Restaurant",
           "user_id": "customer_007",
           "dish_name": "Mozzarella di bufala",
           "quantity": 1,
@@ -1689,6 +1691,7 @@
       {
         "tool_name": "add_dish_to_order",
         "parameters": {
+          "restaurant_name": "Annie Italian Restaurant",
           "user_id": "customer_009",
           "dish_name": "Buratta & Parma ham",
           "quantity": 1,
@@ -1809,6 +1812,7 @@
       {
         "tool_name": "add_dish_to_order",
         "parameters": {
+          "restaurant_name": "Annie Italian Restaurant",
           "user_id": "customer_008",
           "dish_name": "Australian imported M9+ grain-fed Ribeye",
           "quantity": 1,
@@ -5524,7 +5528,7 @@
               "quantity": 1
             },
             {
-              "dish_name": "Seafood Delight Set'",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             }
           ]
@@ -6020,7 +6024,7 @@
               "quantity": 1
             },
             {
-              "dish_name": "Seafood Delight Set'",
+              "dish_name": "Seafood Delight Set",
               "quantity": 1
             },
             {
