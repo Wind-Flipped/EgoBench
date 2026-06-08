@@ -59,7 +59,7 @@
     ],
     "scenario_id": 1,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -130,7 +130,7 @@
     ],
     "scenario_id": 2,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -221,7 +221,7 @@
     ],
     "scenario_id": 3,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -289,7 +289,7 @@
     ],
     "scenario_id": 4,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -331,7 +331,7 @@
     ],
     "scenario_id": 5,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -391,7 +391,7 @@
     ],
     "scenario_id": 6,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -449,7 +449,7 @@
     ],
     "scenario_id": 7,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -502,7 +502,7 @@
     ],
     "scenario_id": 8,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -546,7 +546,7 @@
     ],
     "scenario_id": 9,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -575,7 +575,7 @@
         "parameters": {
           "user_id": "cook_004",
           "ingredient_name": "dill",
-          "quantity": "0.1"
+          "quantity": "0.02"
         }
       },
       {
@@ -592,7 +592,7 @@
     ],
     "scenario_id": 10,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -661,7 +661,7 @@
     ],
     "scenario_id": 11,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -742,7 +742,7 @@
     ],
     "scenario_id": 12,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -811,7 +811,7 @@
     ],
     "scenario_id": 13,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -859,7 +859,7 @@
     ],
     "scenario_id": 14,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -920,7 +920,7 @@
     ],
     "scenario_id": 15,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -969,7 +969,7 @@
     ],
     "scenario_id": 16,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1030,7 +1030,7 @@
     ],
     "scenario_id": 17,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1083,7 +1083,7 @@
     ],
     "scenario_id": 18,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1130,7 +1130,7 @@
     ],
     "scenario_id": 19,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1185,7 +1185,7 @@
     ],
     "scenario_id": 20,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1242,7 +1242,7 @@
     ],
     "scenario_id": 21,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1298,7 +1298,7 @@
     ],
     "scenario_id": 22,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1355,7 +1355,7 @@
     ],
     "scenario_id": 23,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1408,7 +1408,7 @@
     ],
     "scenario_id": 24,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1465,7 +1465,7 @@
     ],
     "scenario_id": 25,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1506,7 +1506,7 @@
     ],
     "scenario_id": 26,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1563,7 +1563,7 @@
     ],
     "scenario_id": 27,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1624,7 +1624,7 @@
     ],
     "scenario_id": 28,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1677,7 +1677,7 @@
     ],
     "scenario_id": 29,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1723,7 +1723,7 @@
     ],
     "scenario_id": 30,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1777,7 +1777,7 @@
     ],
     "scenario_id": 31,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1845,7 +1845,7 @@
     ],
     "scenario_id": 32,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -1908,7 +1908,7 @@
     ],
     "scenario_id": 33,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -2001,7 +2001,7 @@
     ],
     "scenario_id": 34,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -2042,7 +2042,7 @@
     ],
     "scenario_id": 35,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -2099,7 +2099,7 @@
     ],
     "scenario_id": 36,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -2171,7 +2171,7 @@
     ],
     "scenario_id": 37,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -2225,7 +2225,7 @@
     ],
     "scenario_id": 38,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -2297,7 +2297,7 @@
     ],
     "scenario_id": 39,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [
@@ -2320,7 +2320,7 @@
         "parameters": {
           "user_id": "cook_007",
           "ingredient_name": "Dill",
-          "quantity": "0.1"
+          "quantity": "0.02"
         }
       },
       {
@@ -2328,7 +2328,7 @@
         "parameters": {
           "user_id": "cook_007",
           "ingredient_name": "Thyme",
-          "quantity": "0.05"
+          "quantity": "0.02"
         }
       },
       {
@@ -2346,7 +2346,7 @@
     ],
     "scenario_id": 40,
     "image_name": "kitchen2",
-    "image_path": "kitchen2.mp4",
+    "image_path": "deep_fried.mp4",
     "image_description": "You are cooking in the kitchen. You are currently at a step in one of the dishes: cutting the already fried pork chop into strips.",
     "key": "recipe_name",
     "value": [

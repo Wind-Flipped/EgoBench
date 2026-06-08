@@ -20,7 +20,7 @@
         "tool_name": "add_dish_to_order",
         "parameters": {
           "restaurant_name": "Mediterranean Greek Restaurant",
-          "user_id": "Mediterranean Greek Restaurant",
+          "user_id": "customer_001",
           "dish_name": "Grilled Fish",
           "quantity": 1,
           "category": "Seafood",
