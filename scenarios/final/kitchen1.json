@@ -133,7 +133,7 @@
         "tool_name": "add_recipe_to_menu",
         "parameters": {
           "user_id": "cook_010",
-          "recipe_name": "Deep-fried Meat Platter"
+          "recipe_name": "Tofu Soup"
         }
       },
       {
@@ -149,7 +149,7 @@
           "recipes": [
             "Shrimp & Asparagus Stir-fry",
             "Roasted Chickpeas & Vegetables",
-            "Deep-fried Meat Platter"
+            "Tofu Soup"
           ]
         }
       }
@@ -171,7 +171,7 @@
         "tool_name": "add_recipe_to_menu",
         "parameters": {
           "user_id": "cook_008",
-          "recipe_name": "Potato & Greens Salad"
+          "recipe_name": "Shrimp & Asparagus Stir-fry"
         }
       },
       {

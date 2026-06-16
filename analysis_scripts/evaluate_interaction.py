@@ -23,8 +23,8 @@ from tools.order.order_init import order_init_data
 FUZZY_KEYS = {
     "retail": ["product_name"],
     "kitchen": ["ingredient_name", "recipe_name", "recipes"],
-    "restaurant": ["dish_name"],
-    "order": ["dish_name", "restaurant_name"]
+    "restaurant": ["dish_name", "set_meal_name"],
+    "order": ["dish_name", "set_meal_name", "restaurant_name"],
 }
 
 # Database match method mapping
@@ -47,9 +47,25 @@ DB_SET_MEAL_MATCH_METHOD = {
 SCENARIO_FUZZY_FIELDS = {
     "retail": ["product_name"],
     "kitchen": ["ingredient_name", "recipe_name"],
-    "restaurant": ["dish_name"],
-    "order": ["dish_name", "restaurant_name"]
+    "restaurant": ["dish_name", "set_meal_name"],
+    "order": ["dish_name", "set_meal_name", "restaurant_name"],
 }
+
+
+# ===================== Numeric Normalization for Hashing =====================
+def normalize_for_hash(value):
+    """Normalize numeric values so that integer-valued floats (e.g. 12.0) hash identically to ints (12)."""
+    if isinstance(value, dict):
+        return {k: normalize_for_hash(v) for k, v in value.items()}
+    if isinstance(value, list):
+        return [normalize_for_hash(v) for v in value]
+    if isinstance(value, tuple):
+        return [normalize_for_hash(v) for v in value]
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, float):
+        return int(value) if value.is_integer() else value
+    return value
 
 
 # ===================== Database Hash Calculation =====================
@@ -129,7 +145,7 @@ def calculate_db_hash(db_instance):
                 except:
                     continue
 
-    json_str = json.dumps(db_data, sort_keys=True, ensure_ascii=False, default=str)
+    json_str = json.dumps(normalize_for_hash(db_data), sort_keys=True, ensure_ascii=False, default=str)
     return hashlib.sha256(json_str.encode('utf-8')).hexdigest()
 
 

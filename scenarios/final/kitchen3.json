@@ -99,7 +99,7 @@
   },
   {
     "Instruction": "\nYour user ID is cook_004, and today is May 9, 2026. You are cooking. The wok contains completed stir-fried chicken with green peppers, and you are picking out ingredients from it. First, ask the AI Service Agent to identify which recipe this dish belongs to and which step of the recipe you are currently at. Then, ask the AI Service Agent to determine if the nutritional profile of this recipe includes \"high_protein\". If it does, ask the AI Service Agent to filter through all recipes containing the \"soy\" allergen and add the recipe with the highest sodium content to the menu. If there are multiple recipes tied for the highest sodium content, add all of them to the menu. Otherwise, ask the AI Service Agent to select the recipe that uses the most types of staple food/dry goods ingredients from all recipes that do not contain any allergens, and add it to the menu. If there are multiple recipes tied for the most types, add all of them to the menu. Subsequently, ask the AI Service Agent to check if any ingredients on the current home spice rack are expired. If none are expired, add the seasoning ingredient with the highest fat content to the shopping list in a quantity of 100g. If there are multiple ingredients tied for the highest fat content, add 100g of each to the shopping list. Finally, ask the AI Service Agent to summarize the nutritional profile tags of all recipes currently in the menu.",
-    "analysis": "1. Identify the current recipe being prepared and the current step within that recipe.\n\n2. If the nutritional profile of this recipe includes \"high_protein\", filter all recipes containing the \"soy\" allergen and select the recipe with the highest calcium content to add to the menu. If multiple recipes tie for the highest calcium content, add all of them to the menu.\n\n3. If the nutritional profile of this recipe does not include \"high_protein\", filter all recipes containing no allergens and select the recipe that uses the greatest variety of staple/dry goods ingredients to add to the menu. If multiple recipes tie for the greatest variety, add all of them to the menu.\n\n4. Check all ingredients on the current home spice rack for expiration. If any are expired, add one bottle of each expired seasoning ingredient to the shopping list.\n\n5. Summarize the nutritional profile tags of all recipes currently in the menu.",
+    "analysis": "1. Identify the current recipe being prepared and the current step within that recipe.\n\n2. If the nutritional profile of this recipe includes \"high_protein\", filter all recipes containing the \"soy\" allergen and select the recipe with the highest sodium content to add to the menu. If multiple recipes tie for the highest sodium content, add all of them to the menu.\n\n3. If the nutritional profile of this recipe does not include \"high_protein\", filter all recipes containing no allergens and select the recipe that uses the greatest variety of staple/dry goods ingredients to add to the menu. If multiple recipes tie for the greatest variety, add all of them to the menu.\n\n4. Check all ingredients on the current home spice rack for expiration. If any are expired, add one bottle of each expired seasoning ingredient to the shopping list.\n\n5. Summarize the nutritional profile tags of all recipes currently in the menu.",
     "ground_truth": [
       {
         "tool_name": "get_cooking_steps",
@@ -111,7 +111,7 @@
         "tool_name": "add_recipe_to_menu",
         "parameters": {
           "user_id": "cook_004",
-          "recipe_name": "Chicken & Broccoli Stir-fry"
+          "recipe_name": "Custom Seasoned Noodles"
         }
       },
       {
@@ -129,7 +129,7 @@
           "recipes": [
             "Roasted Chickpeas & Vegetables",
             "Cod & Lemon Dill Bake",
-            "Chicken & Broccoli Stir-fry"
+            "Custom Seasoned Noodles"
           ]
         }
       }
