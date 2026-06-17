@@ -34,9 +34,9 @@
           "product_name": "Camembert Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 36.8,
-          "tax_rate": 0.08,
-          "discount": 0.8
+          "price": 22.8,
+          "tax_rate": 0.06,
+          "discount": 0.9
         }
       },
       {
@@ -95,7 +95,7 @@
               "quantity": 1
             },
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 1
             },
             {
@@ -174,9 +174,9 @@
           "product_name": "Brie Cheese",
           "qty": 3,
           "category": "cheese",
-          "price": 51.8,
-          "tax_rate": 0.11,
-          "discount": 1
+          "price": 25.8,
+          "tax_rate": 0.05,
+          "discount": 0.8
         }
       },
       {
@@ -201,7 +201,7 @@
               "quantity": 3
             },
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 2
             },
             {
@@ -518,9 +518,9 @@
           "product_name": "Parmesan Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 80.8,
-          "tax_rate": 0.12,
-          "discount": 0.8
+          "price": 29.8,
+          "tax_rate": 0.09,
+          "discount": 1.0
         }
       },
       {
@@ -627,7 +627,7 @@
           "user_id": "user_456",
           "products": [
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 2
             },
             {
@@ -1287,7 +1287,7 @@
           "user_id": "user_202",
           "product_name": "Cheddar Cheese",
           "qty": 1,
-          "category": "cheese\n",
+          "category": "cheese",
           "price": 43.8,
           "tax_rate": 0.13,
           "discount": 0.7
@@ -1299,7 +1299,7 @@
           "user_id": "user_202",
           "product_name": "Manchego Cheese",
           "qty": 2,
-          "category": "cheese\n",
+          "category": "cheese",
           "price": 44.6,
           "tax_rate": 0.12,
           "discount": 0.9
@@ -1311,7 +1311,7 @@
           "user_id": "user_202",
           "product_name": "Mystic Valley Cheese",
           "qty": 3,
-          "category": "cheese\n",
+          "category": "cheese",
           "price": 25.8,
           "tax_rate": 0.08,
           "discount": 1
@@ -1423,7 +1423,7 @@
           "user_id": "user_456",
           "products": [
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 2
             },
             {
@@ -1470,8 +1470,8 @@
           "product_name": "Provolone Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 44.6,
-          "tax_rate": 0.07,
+          "price": 28.8,
+          "tax_rate": 0.09,
           "discount": 0.8
         }
       },
@@ -1482,9 +1482,9 @@
           "product_name": "Brie Cheese",
           "qty": 2,
           "category": "cheese",
-          "price": 51.8,
-          "tax_rate": 0.11,
-          "discount": 1
+          "price": 25.8,
+          "tax_rate": 0.05,
+          "discount": 0.8
         }
       },
       {
@@ -1845,7 +1845,7 @@
               "quantity": 1
             },
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 1
             },
             {
@@ -1904,9 +1904,9 @@
           "product_name": "Cheddar Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 36.8,
-          "tax_rate": 0.06,
-          "discount": 0.9
+          "price": 43.8,
+          "tax_rate": 0.13,
+          "discount": 0.7
         }
       },
       {
@@ -1982,9 +1982,9 @@
           "product_name": "Parmesan Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 80.8,
-          "tax_rate": 0.12,
-          "discount": 0.8
+          "price": 29.8,
+          "tax_rate": 0.09,
+          "discount": 1.0
         }
       },
       {
@@ -2019,7 +2019,7 @@
               "quantity": 1
             },
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 1
             },
             {
@@ -2066,8 +2066,8 @@
           "product_name": "Provolone Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 44.6,
-          "tax_rate": 0.07,
+          "price": 28.8,
+          "tax_rate": 0.09,
           "discount": 0.8
         }
       },
@@ -2168,9 +2168,9 @@
           "product_name": "Emmental Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 44.6,
-          "tax_rate": 0.15,
-          "discount": 0.9
+          "price": 12.9,
+          "tax_rate": 0.11,
+          "discount": 0.8
         }
       },
       {
@@ -2423,7 +2423,7 @@
               "quantity": 1
             },
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 1
             },
             {
@@ -2505,7 +2505,7 @@
           "user_id": "user_456",
           "products": [
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 2
             },
             {
@@ -3023,8 +3023,8 @@
           "qty": 1,
           "category": "cheese",
           "price": 28.8,
-          "tax_rate": 0.15,
-          "discount": 0.7
+          "tax_rate": 0.09,
+          "discount": 0.8
         }
       },
       {
@@ -3034,9 +3034,9 @@
           "product_name": "Mozzarella Cheese",
           "qty": 3,
           "category": "cheese",
-          "price": 44.6,
-          "tax_rate": 0.12,
-          "discount": 0.9
+          "price": 28.8,
+          "tax_rate": 0.15,
+          "discount": 0.7
         }
       },
       {
@@ -3092,9 +3092,9 @@
           "product_name": "Garlic Flavored Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 80.8,
-          "tax_rate": 0.12,
-          "discount": 0.8
+          "price": 62.8,
+          "tax_rate": 0.1,
+          "discount": 0.9
         }
       },
       {
@@ -3127,7 +3127,7 @@
               "quantity": 1
             },
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 1
             },
             {
@@ -3224,9 +3224,9 @@
           "product_name": "Parmesan Cheese",
           "qty": 2,
           "category": "cheese",
-          "price": 44.6,
-          "tax_rate": 0.15,
-          "discount": 0.9
+          "price": 29.8,
+          "tax_rate": 0.09,
+          "discount": 1.0
         }
       },
       {
@@ -3255,7 +3255,7 @@
               "quantity": 2
             },
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 2
             },
             {
@@ -3845,7 +3845,7 @@
               "quantity": 1
             },
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 1
             },
             {
@@ -3965,7 +3965,7 @@
           "user_id": "user_456",
           "products": [
             {
-              "product_name": "Switzerland Switzerland Swiss Cheese",
+              "product_name": "Switzerland Swiss Cheese",
               "quantity": 2
             },
             {

@@ -7,7 +7,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_009",
-          "ingredient_name": "salt",
+          "ingredient_name": "Salt",
           "quantity": "5"
         }
       },
@@ -510,7 +510,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "tomatoes",
+          "ingredient_name": "Tomatoes",
           "quantity": "7.5"
         }
       },
@@ -518,7 +518,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "cornmeal",
+          "ingredient_name": "Cornmeal",
           "quantity": "0.5"
         }
       },
@@ -526,7 +526,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "salmon",
+          "ingredient_name": "Salmon",
           "quantity": "2"
         }
       },
@@ -534,7 +534,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "olive oil",
+          "ingredient_name": "Olive Oil",
           "quantity": "0.1"
         }
       },
@@ -542,7 +542,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "salt",
+          "ingredient_name": "Salt",
           "quantity": "0.02"
         }
       },
@@ -550,7 +550,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "garlic powder",
+          "ingredient_name": "Garlic Powder",
           "quantity": "0.02"
         }
       },
@@ -624,7 +624,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "pork",
+          "ingredient_name": "Pork",
           "quantity": "1.5"
         }
       },
@@ -632,7 +632,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "chicken",
+          "ingredient_name": "Chicken",
           "quantity": "1.5"
         }
       },
@@ -640,7 +640,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "lemon",
+          "ingredient_name": "Lemon",
           "quantity": "1"
         }
       },
@@ -766,7 +766,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "celery",
+          "ingredient_name": "Celery",
           "quantity": "0.3"
         }
       },
@@ -774,7 +774,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "carrots",
+          "ingredient_name": "Carrots",
           "quantity": "0.4"
         }
       },
@@ -782,7 +782,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "eggs",
+          "ingredient_name": "Eggs",
           "quantity": "0.2"
         }
       },
@@ -790,7 +790,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "spinach",
+          "ingredient_name": "Spinach",
           "quantity": "1"
         }
       },
@@ -798,7 +798,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "cheese",
+          "ingredient_name": "Cheese",
           "quantity": "0.3"
         }
       },
@@ -839,7 +839,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_009",
-          "ingredient_name": "beef",
+          "ingredient_name": "Beef",
           "quantity": "2"
         }
       },
@@ -936,7 +936,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "pork",
+          "ingredient_name": "Pork",
           "quantity": "2"
         }
       },
@@ -1219,7 +1219,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_002",
-          "ingredient_name": "broccoli",
+          "ingredient_name": "Broccoli",
           "quantity": "1"
         }
       },
@@ -1227,7 +1227,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_002",
-          "ingredient_name": "asparagus",
+          "ingredient_name": "Asparagus",
           "quantity": "1"
         }
       },
@@ -1235,7 +1235,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_002",
-          "ingredient_name": "lemon",
+          "ingredient_name": "Lemon",
           "quantity": "0.5"
         }
       },
@@ -1243,7 +1243,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_002",
-          "ingredient_name": "olive oil",
+          "ingredient_name": "Olive Oil",
           "quantity": "0.15"
         }
       },
@@ -1251,7 +1251,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_002",
-          "ingredient_name": "salt",
+          "ingredient_name": "Salt",
           "quantity": "0.03"
         }
       },
@@ -1259,7 +1259,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_002",
-          "ingredient_name": "black pepper",
+          "ingredient_name": "Black Pepper",
           "quantity": "0.02"
         }
       },
@@ -1604,7 +1604,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_004",
-          "ingredient_name": "balsamic vinegar",
+          "ingredient_name": "Balsamic Vinegar",
           "quantity": "0.1"
         }
       },
@@ -1612,7 +1612,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_004",
-          "ingredient_name": "olive oil",
+          "ingredient_name": "Olive Oil",
           "quantity": "0.05"
         }
       },
@@ -1661,7 +1661,7 @@
         "parameters": {
           "user_id": "cook_008",
           "recipes": [
-            "Tofu & Bok Choy Soup",
+            "Tofu Soup",
             "Turkey & Apple Soup",
             "Egg & Spinach Frittata",
             "Duck & Cherry Salad"
@@ -1703,7 +1703,7 @@
           "user_id": "cook_001",
           "recipes": [
             "Chicken & Broccoli Stir-fry",
-            "Tofu & Bok Choy Soup",
+            "Tofu Soup",
             "Oat & Banana Pancakes",
             "Mushroom & Thyme Roast Chicken",
             "Pork & Red Bell Pepper Skillet"
@@ -2176,20 +2176,20 @@
           "user_id": "cook_005",
           "ingredients": [
             {
-              "product_name": "Pork",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Pork"
             },
             {
-              "product_name": "Yellow Onions",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Yellow Onions"
             },
             {
-              "product_name": "Spaghetti",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Spaghetti"
             },
             {
-              "product_name": "Chickpeas",
-              "quantity": 1
+              "quantity": 1,
+              "ingredient_name": "Chickpeas"
             }
           ]
         }
@@ -2230,20 +2230,20 @@
           "user_id": "cook_002",
           "ingredients": [
             {
-              "product_name": "Potatoes",
-              "quantity": 15
+              "quantity": 15,
+              "ingredient_name": "Potatoes"
             },
             {
-              "product_name": "Carrots",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Carrots"
             },
             {
-              "product_name": "Chicken",
-              "quantity": 8
+              "quantity": 8,
+              "ingredient_name": "Chicken"
             },
             {
-              "product_name": "Salt",
-              "quantity": 1
+              "quantity": 1,
+              "ingredient_name": "Salt"
             }
           ]
         }
@@ -2313,7 +2313,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "asparagus",
+          "ingredient_name": "Asparagus",
           "quantity": "1.5"
         }
       },

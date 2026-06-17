@@ -1249,7 +1249,7 @@
           "qty": 1,
           "category": "cookie",
           "price": 22.8,
-          "tax_rate": 22.8,
+          "tax_rate": 0.06,
           "discount": 0.7
         }
       },
@@ -2169,7 +2169,7 @@
               "quantity": 1
             },
             {
-              "product_name": "St Michel Dark Chocolate Cooki",
+              "product_name": "St Michel Dark Chocolate Cookie",
               "quantity": 1
             },
             {

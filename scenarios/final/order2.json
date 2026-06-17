@@ -8132,7 +8132,7 @@
           "category": "Seafood",
           "price": 198,
           "tax_rate": 0.14,
-          "discount": 0.14
+          "discount": 0.7
         }
       },
       {
@@ -9357,8 +9357,8 @@
           "dish_name": "Greek Salad",
           "quantity": 1,
           "category": "Appetizers",
-          "price": 48,
-          "tax_rate": 0.06,
+          "price": 68,
+          "tax_rate": 0.08,
           "discount": 0.7
         }
       },

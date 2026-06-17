@@ -274,11 +274,11 @@
           "dishes": [
             {
               "dish_name": "Black Tea",
-              "quantity": 1
+              "quantity": 2
             },
             {
               "dish_name": "Oolong Tea",
-              "quantity": 1
+              "quantity": 2
             },
             {
               "dish_name": "Cappuccino",
@@ -1292,7 +1292,7 @@
           "dish_name": "Americano",
           "quantity": 1,
           "category": "Antipasti & Snacks",
-          "price": 23,
+          "price": 33,
           "tax_rate": 0.14,
           "discount": 1
         }
@@ -1902,7 +1902,7 @@
             },
             {
               "dish_name": "Latte",
-              "quantity": 1
+              "quantity": 2
             },
             {
               "dish_name": "Afternoon Tea Set",

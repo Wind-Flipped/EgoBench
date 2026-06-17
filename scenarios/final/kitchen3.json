@@ -496,7 +496,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "banana",
+          "ingredient_name": "Banana",
           "quantity": "0.5"
         }
       },
@@ -504,7 +504,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "flour",
+          "ingredient_name": "Flour",
           "quantity": "0.5"
         }
       },
@@ -512,7 +512,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "lemon",
+          "ingredient_name": "Lemon",
           "quantity": "0.5"
         }
       },
@@ -625,7 +625,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_004",
-          "ingredient_name": "balsamic vinegar",
+          "ingredient_name": "Balsamic Vinegar",
           "quantity": "0.5"
         }
       },
@@ -633,7 +633,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_004",
-          "ingredient_name": "olive oil",
+          "ingredient_name": "Olive Oil",
           "quantity": "0.5"
         }
       },
@@ -706,7 +706,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "red bell pepper",
+          "ingredient_name": "Red Bell Pepper",
           "quantity": "2"
         }
       },
@@ -1003,24 +1003,24 @@
           "user_id": "cook_007",
           "ingredients": [
             {
-              "product_name": "Yogurt",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Yogurt"
             },
             {
-              "product_name": "Strawberry",
-              "quantity": 3
+              "quantity": 3,
+              "ingredient_name": "Strawberry"
             },
             {
-              "product_name": "Oats",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Oats"
             },
             {
-              "product_name": "Cinnamon",
-              "quantity": 1
+              "quantity": 1,
+              "ingredient_name": "Cinnamon"
             },
             {
-              "product_name": "Green Peas",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Green Peas"
             }
           ]
         }
@@ -1169,28 +1169,28 @@
           "user_id": "cook_009",
           "ingredients": [
             {
-              "product_name": "Turkey",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Turkey"
             },
             {
-              "product_name": "Celery",
-              "quantity": 4
+              "quantity": 4,
+              "ingredient_name": "Celery"
             },
             {
-              "product_name": "Green Peas",
-              "quantity": 4
+              "quantity": 4,
+              "ingredient_name": "Green Peas"
             },
             {
-              "product_name": "Apple",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Apple"
             },
             {
-              "product_name": "Orange Juice",
-              "quantity": 10
+              "quantity": 10,
+              "ingredient_name": "Orange Juice"
             },
             {
-              "product_name": "Banana",
-              "quantity": 1.5
+              "quantity": 1.5,
+              "ingredient_name": "Banana"
             }
           ]
         }
@@ -1212,7 +1212,7 @@
       {
         "tool_name": "get_ingredient_nutrition",
         "parameters": {
-          "ingredient_name": "green bell pepper"
+          "ingredient_name": "Green Bell Pepper"
         }
       },
       {
@@ -1227,7 +1227,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_006",
-          "ingredient_name": "spinach",
+          "ingredient_name": "Spinach",
           "quantity": "1.2"
         }
       },
@@ -1258,7 +1258,7 @@
       {
         "tool_name": "find_ingredient_category",
         "parameters": {
-          "ingredient_name": "green bell pepper"
+          "ingredient_name": "Green Bell Pepper"
         }
       },
       {
@@ -1377,13 +1377,13 @@
       {
         "tool_name": "get_ingredient_location",
         "parameters": {
-          "ingredient_name": "chicken"
+          "ingredient_name": "Chicken"
         }
       },
       {
         "tool_name": "get_ingredient_location",
         "parameters": {
-          "ingredient_name": "green bell pepper"
+          "ingredient_name": "Green Bell Pepper"
         }
       },
       {
@@ -1729,7 +1729,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "potatoes",
+          "ingredient_name": "Potatoes",
           "quantity": "2"
         }
       },
@@ -1737,7 +1737,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "broccoli",
+          "ingredient_name": "Broccoli",
           "quantity": "1"
         }
       },
@@ -1745,7 +1745,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "asparagus",
+          "ingredient_name": "Asparagus",
           "quantity": "1"
         }
       },
@@ -1753,7 +1753,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "lemon",
+          "ingredient_name": "Lemon",
           "quantity": "0.5"
         }
       },
@@ -1761,7 +1761,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "olive oil",
+          "ingredient_name": "Olive Oil",
           "quantity": "0.15"
         }
       },
@@ -1769,7 +1769,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "salt",
+          "ingredient_name": "Salt",
           "quantity": "0.03"
         }
       },
@@ -1777,7 +1777,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "black pepper",
+          "ingredient_name": "Black Pepper",
           "quantity": "0.02"
         }
       },
@@ -1824,7 +1824,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_001",
-          "ingredient_name": "cherries",
+          "ingredient_name": "Cherries",
           "quantity": "0.8"
         }
       },
@@ -1832,7 +1832,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_001",
-          "ingredient_name": "apple",
+          "ingredient_name": "Apple",
           "quantity": "1"
         }
       },
@@ -2301,7 +2301,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "shrimp",
+          "ingredient_name": "Shrimp",
           "quantity": "5"
         }
       },
@@ -2312,7 +2312,7 @@
           "recipes": [
             "Shrimp & Asparagus Stir-fry",
             "Roasted Chickpeas & Vegetables",
-            "Deep-fried Meat Platte"
+            "Deep-fried Meat Platter"
           ]
         }
       }
@@ -2349,7 +2349,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "shrimp",
+          "ingredient_name": "Shrimp",
           "quantity": "5"
         }
       },

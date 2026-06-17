@@ -1903,7 +1903,7 @@
       {
         "tool_name": "get_discount",
         "parameters": {
-          "product_name": "Moscato Scanavino"
+          "product_name": "Moscato Scanavino Rose"
         }
       },
       {
@@ -2415,7 +2415,7 @@
               "quantity": 2
             },
             {
-              "product_name": "Syrah Vieilles Vig1nes",
+              "product_name": "Syrah Vieilles Vignes",
               "quantity": 2
             },
             {

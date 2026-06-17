@@ -188,7 +188,7 @@
               "quantity": 2
             },
             {
-              "product_name": "St Michel Le Petit Beurre",
+              "product_name": "Lu Petit Beurre",
               "quantity": 1
             },
             {
@@ -484,7 +484,7 @@
           "user_id": "user_303",
           "product_name": "St Michel Le Sablé de Reims Coconut",
           "qty": 2,
-          "category": "cookie\n",
+          "category": "cookie",
           "price": 22.9,
           "tax_rate": 0.09,
           "discount": 0.8
@@ -512,7 +512,7 @@
               "quantity": 1
             },
             {
-              "product_name": "Choco Fit Lemo",
+              "product_name": "Choco Fit Lemon",
               "quantity": 1
             }
           ]
@@ -1093,7 +1093,7 @@
               "quantity": 2
             },
             {
-              "product_name": "St Michel Le Petit Beurre",
+              "product_name": "Lu Petit Beurre",
               "quantity": 1
             },
             {
@@ -1309,7 +1309,7 @@
           "user_id": "user_606",
           "products": [
             {
-              "product_name": "Grisbi Nocciola Hazelnut",
+              "product_name": "Grisbi Nocciola",
               "quantity": 2
             },
             {
@@ -1513,7 +1513,7 @@
               "quantity": 2
             },
             {
-              "product_name": "St Michel Le Petit Beurre",
+              "product_name": "Lu Petit Beurre",
               "quantity": 1
             },
             {
@@ -1555,7 +1555,7 @@
           "user_id": "user_456",
           "product_name": "Grisbi Limone Citron",
           "qty": 1,
-          "category": "cookie\n",
+          "category": "cookie",
           "price": 22.8,
           "tax_rate": 0.15,
           "discount": 0.7
@@ -1687,7 +1687,7 @@
           "user_id": "user_606",
           "products": [
             {
-              "product_name": "Grisbi Nocciola Hazelnut",
+              "product_name": "Grisbi Nocciola",
               "quantity": 2
             },
             {

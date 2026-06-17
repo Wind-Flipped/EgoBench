@@ -60,14 +60,14 @@
         }
       }
     ],
-    "task_id": 1,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "cold cuts"
-    ]
+    ],
+    "scenario_id": 1
   },
   {
     "Instruction": "Results:\nYou are a food critic (User ID: customer_009), currently evaluating the flavor profiles of dishes. Ask the AI Service Agent to check the category resembling an independent small card in the middle of the left fold. Ask the AI Service Agent to determine if it contains any dishes with fewer than 300 kcal. If so, ask the AI Service Agent to filter for a savory dish with the lowest sodium content from the section with a small hand illustration on the left of the title and add it to the order. If there are multiple dishes tied for the lowest sodium content among those that meet the conditions, add all of them. Otherwise, ask the AI Service Agent to find high-fiber bread with the highest calorie content in the smaller supplementary section in the bottom right corner and add it to the order. If there are multiple breads tied for the highest calorie content among those that meet the conditions, add all of them. Next, ask the AI Service Agent to select a sweet dish with the lowest price from the category with a small hand illustration below the second category you are pointing at, and add it to the order. If there are multiple dishes tied for the lowest price among those that meet the conditions, add all of them. Finally, ask the AI Service Agent to calculate the total tax amount for your order.",
@@ -130,14 +130,14 @@
         }
       }
     ],
-    "task_id": 2,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Cheese & Olives"
-    ]
+    ],
+    "scenario_id": 2
   },
   {
     "Instruction": "You are a chef (User ID: customer_008), currently reviewing menu pricing. Ask the AI Service Agent to check all dishes in the category you are pointing at first. Ask the AI Service Agent to determine if there are vegan dishes in this category. If so, ask the AI Service Agent to look in the section on the right flap featuring a dark background with white font, find a high-carb dish with the highest price, and add it to the order. If there are multiple dishes tied for the highest price among those that meet the conditions, add all of them. Otherwise, ask the AI Service Agent to look in the category on the middle flap where the right border features a small hand illustration, select a dish with a mild texture and the lowest price, and add it to the order. If there are multiple dishes tied for the lowest price among those that meet the conditions, add all of them. Then, ask the AI Service Agent to find a dish containing dairy with the lowest discounted price in the section you point to second, and add it to the order. If there are multiple dishes tied for the lowest discounted price among those that meet the conditions, add all of them. Finally, ask the AI Service Agent to calculate the total amount payable for all items in the order after discounts.",
@@ -200,14 +200,14 @@
         }
       }
     ],
-    "task_id": 3,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "cold cuts"
-    ]
+    ],
+    "scenario_id": 3
   },
   {
     "Instruction": "You are a nutritionist (User ID: customer_007) planning a balanced meal. Ask the AI Service Agent to find a meal item in the category within the white rounded box at the very top of the middle fold that contains gluten and has the highest protein content. Ask the AI Service Agent to check if the price of this meal item exceeds 60 yuan. If it does, ask the AI Service Agent to select a herbal-flavored dish with the lowest fat content from the category at the very top right of the entire menu and add it to the order. If there are multiple dishes tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select a high-calorie dish with a flavor profile including \"savory\" and the largest discount from the category you last pointed at, and add it to the order. If there are multiple dishes tied for the largest discount among those that meet the conditions, you want all of them to be added. Next, ask the AI Service Agent to find a low-sodium dish with the lowest price in the section at the very bottom of the left fold and add it to the order. If there are multiple dishes tied for the lowest price among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total calorie count of all dishes in the current order.",
@@ -266,14 +266,14 @@
         }
       }
     ],
-    "task_id": 4,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Antipasti & Snacks"
-    ]
+    ],
+    "scenario_id": 4
   },
   {
     "Instruction": "You are a flavor enthusiast (User ID: customer_003). Ask the AI service agent to examine the panel below the second category you are pointing at, which has a small hand illustration on its left border. Ask the AI service agent to determine if there are any dishes priced below 40 yuan within it. If so, ask the AI service agent to search the card area in the middle of the entire left fold-out page for meals with an earthy/fruity aroma and the lowest fat content, and add them to the order. If there are multiple meals tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to select bread with a buttery aroma and the highest price from the small section at the far bottom-right corner of the menu and add it to the order. If there are multiple breads tied for the highest price, you want all of them to be added. After that, ask the AI service agent to select a spicy dish with the highest protein content from the category you last pointed at and add it to the order. If there are multiple dishes tied for the highest protein content, you want all of them to be added. Finally, ask the AI service agent to calculate the total discounted amount for the entire order.",
@@ -336,14 +336,14 @@
         }
       }
     ],
-    "task_id": 5,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "salads"
-    ]
+    ],
+    "scenario_id": 5
   },
   {
     "Instruction": "You are a health-conscious customer (User ID: customer_001). Ask the AI Service Agent to locate the section with a dark background on the right fold of the menu. Ask the AI Service Agent to determine if this section contains dishes included in the Italian Classic Set. If it does, ask the AI Service Agent to select low-fat dishes with the lowest calories from the first category you pointed out and add them to the order. If there are multiple dishes tied for the lowest calories, add all of them. Otherwise, ask the AI Service Agent to find high-protein meals with the largest discount in the category marked with a small hand icon on the right side of the middle fold and add them to the order. If there are multiple meals tied for the largest discount, add all of them. Subsequently, ask the AI Service Agent to select a high-fiber meal with the highest price from the category in the white rounded box at the bottom of the left fold and add it to the order. If there are multiple meals tied for the highest price, add all of them. Finally, ask the AI Service Agent to calculate the total payment amount including discounts and taxes.",
@@ -410,14 +410,14 @@
         }
       }
     ],
-    "task_id": 6,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Selected Steaks"
-    ]
+    ],
+    "scenario_id": 6
   },
   {
     "Instruction": "You are a cost-conscious customer (User ID: customer_004). Ask the AI Service Agent to check the topmost section of the right-hand foldout. Ask the AI Service Agent to determine if there are any non-discounted items in that section. If there are, ask the AI Service Agent to find items in the section to the right of the category you are initially pointing at that are high in fat and have the largest discount, and add them to the order. If there are multiple items tied for the largest discount among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select items in the exclusive section with a dark background that are smoked/umami and have the lowest price, and add them to the order. If there are multiple items tied for the lowest price among those that meet the conditions, you want all of them to be added. Next, ask the AI Service Agent to select items in the category on the middle foldout that features a small hand illustration on the right border that are high in protein and have the lowest calories, and add them to the order. If there are multiple items tied for the lowest calories among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total fat content of all items in the current order.",
@@ -480,14 +480,14 @@
         }
       }
     ],
-    "task_id": 7,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Pizza"
-    ]
+    ],
+    "scenario_id": 7
   },
   {
     "Instruction": "You are a culinary student (User ID: customer_005). Ask the AI Service Agent to examine the independent small card area at the bottom of the left leaflet. Ask the AI Service Agent to determine if it contains dishes belonging to the Steak Lovers Set. If it does, ask the AI Service Agent to find a dish with high carbohydrates and the highest calorie content in the section you last pointed at and add it to the order. If there are multiple dishes tied for the highest calorie content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select a dish with high fiber and the highest price in the area with the small hand illustration on the left border of the right leaflet and add it to the order. If there are multiple dishes tied for the highest price among those that meet the conditions, you want all of them to be added. Then, ask the AI Service Agent to select a dish with high sodium and the lowest price after discount in the first section you pointed at and add it to the order. If there are multiple dishes tied for the lowest price among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total grams of carbohydrates for all meals in the order.",
@@ -554,14 +554,14 @@
         }
       }
     ],
-    "task_id": 8,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Annie's top dishes"
-    ]
+    ],
+    "scenario_id": 8
   },
   {
     "Instruction": "You are a fitness enthusiast (User ID: customer_002). Ask the AI Service Agent to scan the section in the middle-lower part of the middle foldout that has a title with a small hand illustration. Ask the AI Service Agent to determine if there are any dishes containing egg allergens in that section. If there are, ask the AI Service Agent to look in the area with a dark background on the right foldout for dishes that are high in protein and have the lowest carbohydrate content, and add them to the order. If there are multiple dishes tied for the lowest carbohydrate content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select meals from the category you pointed at first that are low in fat and have the highest protein content, and add them to the order. If there are multiple items tied for the highest protein content among those that meet the conditions, you want all of them to be added. Then, ask the AI Service Agent to select dishes from the section on the right foldout with a small hand illustration on the left border that are fresh/slightly sour and have the lowest price, and add them to the order. If there are multiple dishes tied for the lowest price among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total fat content of the entire order.",
@@ -620,14 +620,14 @@
         }
       }
     ],
-    "task_id": 9,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Italian Pasta"
-    ]
+    ],
+    "scenario_id": 9
   },
   {
     "Instruction": "You are a health coach (User ID: customer_003) advising a client who requires a low-sodium diet. Ask the AI Service Agent to examine the section on the right foldout that has a small hand icon on the left border. Ask the AI Service Agent to determine if there are any dishes belonging to Annie's Special Set in this section. If so, ask the AI Service Agent to find nut-free meals with the lowest sodium content in the middle section of the left foldout and add them to the order. If multiple meals tie for the lowest sodium content, add all of them. Otherwise, ask the AI Service Agent to select dishes with an earthy or fruity aroma and the lowest price from the section you pointed to for the second time, and add them to the order. If multiple dishes tie for the lowest price, add all of them. Next, ask the AI Service Agent to select a low-fat meal with the lowest sugar content from the area on the right border of the middle foldout that features a small hand illustration, and add it to the order. If multiple meals tie for the lowest sugar content, add all of them. Finally, ask the AI Service Agent to calculate the total amount payable for the entire order after discounts.",
@@ -690,14 +690,14 @@
         }
       }
     ],
-    "task_id": 10,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "salads"
-    ]
+    ],
+    "scenario_id": 10
   },
   {
     "Instruction": "You are a nutritionist (User ID: customer_001), helping a client with dietary restrictions. Ask the AI service agent to check the smaller homemade bread section in the bottom right corner. Ask the AI service agent to determine if the average tax rate of the items in this section is below 0.1. If it is, ask the AI service agent to look for dishes in the top area of the middle fold that are high-protein and have the lowest fat content, and add them to the order. If there are multiple dishes tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to select dishes from the category you last pointed at that are high-calcium and have the highest price, and add them to the order. If there are multiple dishes tied for the highest price among those that meet the conditions, you want all of them to be added. Subsequently, ask the AI service agent to pick a meal from the white rounded box section at the bottom of the left fold that is high-sodium and has the largest discount, and add it to the order. If there are multiple meals tied for the largest discount among those that meet the conditions, you want all of them to be added. Finally, ask the AI service agent to calculate the total calorie count for the entire order in detail.",
@@ -780,14 +780,14 @@
         }
       }
     ],
-    "task_id": 11,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Handmade Bread"
-    ]
+    ],
+    "scenario_id": 11
   },
   {
     "Instruction": "Results:\nYou are a budget-conscious student (User ID: customer_001). Ask the AI Service Agent to check the section at the very top of the right foldout. Ask the AI Service Agent to determine if that section contains spicy dishes. If it does, ask the AI Service Agent to look for low-fat dishes with the lowest price in the category marked with a small hand icon on the right side of the middle foldout. If there are multiple dishes tied for the lowest price, you want all of them to be selected. Otherwise, ask the AI Service Agent to select salty and savory meals with the highest calories in the card area in the middle of the left foldout. If there are multiple meals tied for the highest calories, you want all of them to be selected. Subsequently, ask the AI Service Agent to determine if the price of the selected dish(es) is below 50 yuan. If so, add them to the order. Next, ask the AI Service Agent to pick the cheapest dish in the category you point to for the second time and add it to the order. If there are multiple dishes tied for the cheapest price, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total nutritional value of your entire order.",
@@ -850,14 +850,14 @@
         }
       }
     ],
-    "task_id": 12,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Pizza"
-    ]
+    ],
+    "scenario_id": 12
   },
   {
     "Instruction": "You are a food blogger (User ID: customer_004), reviewing dishes for a blog post. Ask the AI service agent to check the content of the top section of the middle panel. Ask the AI service agent to determine if it contains rich-flavored dishes. If it does, ask the AI service agent to look in the area on the right with a dark background and white font for high-protein dishes that are the highest-priced and add the highest-priced qualifying dish to the order. If there are multiple dishes tied for the highest price among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to select herbal-flavored meals from the section your finger is pointing at first that are the lowest in calories and add the lowest-calorie qualifying meal to the order. If there are multiple meals tied for the lowest calories among those that meet the conditions, you want all of them to be added. Subsequently, ask the AI service agent to select high-carb bread from the independent small section at the bottom of the right panel that is the lowest-priced and add the lowest-priced qualifying bread item to the order. If there are multiple bread items tied for the lowest price among those that meet the conditions, you want all of them to be added. Finally, ask the AI service agent to calculate the total protein content of all items in the current order.",
@@ -952,14 +952,14 @@
         }
       }
     ],
-    "task_id": 13,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Antipasti & Snacks"
-    ]
+    ],
+    "scenario_id": 13
   },
   {
     "Instruction": "You are a nutritionist providing assistance to a client with hypertension (User ID: customer_009). Ask the AI Service Agent to carefully verify the topmost category in the left brochure that features a dark green background and white rounded boxes. Ask the AI Service Agent to determine if this category contains slightly salty dishes. If it does, ask the AI Service Agent to search in the section of the right brochure with a left-border small hand illustration for a dish that is high in iron and has the lowest sodium content, and add it to the order. If there are multiple dishes tied for the lowest sodium content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select a meal that is low in fat and has the lowest price from the category you pointed at for the third time, and add it to the order. If there are multiple meals tied for the lowest price among those that meet the conditions, you want all of them to be added. Subsequently, ask the AI Service Agent to select a dish that is high in fiber and has the lowest calories from the topmost section of the middle brochure and add it to the order. If there are multiple dishes tied for the lowest calories among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total tax and total payment amount for the entire order.",
@@ -1054,14 +1054,14 @@
         }
       }
     ],
-    "task_id": 14,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "cold cuts"
-    ]
+    ],
+    "scenario_id": 14
   },
   {
     "Instruction": "You are a nutritionist (User ID: customer_006). Ask the AI service agent to view the category in the very center of the left foldout. Ask the AI service agent to determine whether the tax rate for all dishes in this category equals 0.05. If it does, ask the AI service agent to select dishes that are high in calcium and have the lowest fat content within the section featuring a small hand illustration in the lower-middle part of the center foldout, and add them to the order. If there are multiple dishes tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to find meals that are low-fat and have the highest price in the separate subsection at the bottom-right of the section you pointed to for the second time, and add them to the order. If there are multiple meals tied for the highest price among those that meet the conditions, you want all of them to be added. Next, ask the AI service agent to select dishes that are high in protein and have the lowest calorie count in the area with the small hand illustration to the right of the title, and add them to the order. If there are multiple dishes tied for the lowest calorie count among those that meet the conditions, you want all of them to be added. Finally, ask the AI service agent to calculate the total protein content for the entire order.",
@@ -1120,14 +1120,14 @@
         }
       }
     ],
-    "task_id": 15,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Cheese & Olives"
-    ]
+    ],
+    "scenario_id": 15
   },
   {
     "Instruction": "You are a food critic (User ID: customer_007). Ask the AI Service Agent to examine the section on the right panel of the brochure that features a dark background with white text. Ask the AI Service Agent to determine whether all dishes in that section are on sale. If they are, ask the AI Service Agent to find the dish(es) with the highest price that feature cream or nut flavors within the category located below the section you initially pointed to. If there are multiple dishes tied for the highest price among those that meet the conditions, you want all of them to be selected. Otherwise, ask the AI Service Agent to find the dish(es) with the highest protein and lowest calories within the category on the middle panel that has a small hand illustration on its right border. If there are multiple dishes tied for the lowest calories among those that meet the conditions, you want all of them to be selected. Next, ask the AI Service Agent to check if the price of the dish(es) just found exceeds 80 yuan. If so, add them to the order. Finally, ask the AI Service Agent to select the bread item(s) with the highest calories from the homemade bread section in the bottom right corner and add them to the order. If there are multiple items tied for the highest calories, you want all of them to be added. Then, calculate the total fiber content for your entire order.",
@@ -1186,14 +1186,14 @@
         }
       }
     ],
-    "task_id": 16,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Selected Steaks"
-    ]
+    ],
+    "scenario_id": 16
   },
   {
     "Instruction": "You are a parent who focuses on healthy eating (User ID: customer_006). Ask the AI Service Agent to view the first section from the top on the middle fold. Have the AI Service Agent determine if all food items in that area contain gluten. If they do, ask the AI Service Agent to find high-fiber dishes with the lowest price in the category on the right fold that has a small hand illustration on the left border, and add them to the order. If there are multiple dishes tied for the lowest price, add all of them. Otherwise, ask the AI Service Agent to select low-fat items with the lowest calories from the section you last pointed at and add them to the order. If there are multiple items tied for the lowest calories, add all of them. Afterwards, ask the AI Service Agent to choose a low-fat item that is the cheapest after discount from the white rounded box at the very top of the left fold, and add it to the order. If there are multiple items tied for the cheapest price, add all of them. Finally, ask the AI Service Agent to calculate the total after-tax amount for the current order.",
@@ -1252,14 +1252,14 @@
         }
       }
     ],
-    "task_id": 17,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Antipasti & Snacks"
-    ]
+    ],
+    "scenario_id": 17
   },
   {
     "Instruction": "You are a chef planning a tasting menu (User ID: customer_008). Ask the AI Service Agent to focus on the section at the very bottom of the left foldout that resembles an independent small card. Ask the AI Service Agent to determine if there are any dishes belonging to the Seafood Delight Set in that section. If so, ask the AI Service Agent to find the spicy dish with the highest protein content in the first category you are pointing at and add it to the order. If there are multiple dishes tied for the highest protein content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select the smoked dish with the lowest price from the section in the lower-middle part of the middle foldout where there is a small hand illustration to the left of the title, and add it to the order. If there are multiple dishes tied for the lowest price among those that meet the conditions, you want all of them to be added. Then, ask the AI Service Agent to select the creamy dish with the largest discount from the category at the very top of the right foldout and add it to the order. If there are multiple dishes tied for the largest discount among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to accurately calculate the total sodium content value for the entire order.",
@@ -1338,14 +1338,14 @@
         }
       }
     ],
-    "task_id": 18,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Annie's top dishes"
-    ]
+    ],
+    "scenario_id": 18
   },
   {
     "Instruction": "You are a fitness enthusiast (User ID: customer_001). Ask the AI service agent to check the top area of the middle fold. Ask the AI service agent to determine whether all the dishes in this area contain dairy products. If they do, ask the AI service agent to look for high-protein dishes with the lowest fat content in the section with a dark background and white font on the right fold and add them to the order. If there are multiple dishes tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to select spicy dishes with the highest calorie count from the category you last pointed at and add them to the order. If there are multiple dishes tied for the highest calorie count among those that meet the conditions, you want all of them to be added. Next, ask the AI service agent to select a dish that is high-fiber and has the highest protein content from the small card section in the middle of the left fold and add it to the order. If there are multiple dishes tied for the highest protein content among those that meet the conditions, you want all of them to be added. Finally, ask the AI service agent to calculate the total sodium content of all meals in the current order.",
@@ -1428,14 +1428,14 @@
         }
       }
     ],
-    "task_id": 19,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Antipasti & Snacks"
-    ]
+    ],
+    "scenario_id": 19
   },
   {
     "Instruction": "You are a diner with diabetes (User ID: customer_003). Ask the AI Service Agent to verify the section on the left border of the right fold-out page that features a small hand illustration. Ask the AI Service Agent to determine if there are dishes priced above 60 yuan within that section. If so, ask the AI Service Agent to find a high-protein item containing the \"dairy\" allergen with the largest discount in the category you point to for the second time, and add it to the order. If there are multiple items tied for the largest discount among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select a high-fiber meal item with the lowest sugar content from the white-background rounded-box area at the very top of the left fold-out page and add it to the order. If there are multiple items tied for the lowest sugar content, you want all of them to be added. Ask the AI Service Agent to determine if there is a set meal that includes the items just selected. If so, remove the items just added from the order, and instead add the set meal containing those items to the order. Subsequently, ask the AI Service Agent to select a high-sodium meal item with a tax rate higher than 0.1 and the lowest price from the category with a small hand mark on the right border of the middle fold-out page, and add it to the order. If there are multiple items tied for the lowest price, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total tax payable for the entire order.",
@@ -1504,14 +1504,14 @@
         }
       }
     ],
-    "task_id": 20,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "salads"
-    ]
+    ],
+    "scenario_id": 20
   },
   {
     "Instruction": "You are a parent placing an order for your child (User ID: customer_002). Ask the AI Service Agent to observe the topmost area of the right fold. Ask the AI Service Agent to determine if there are any dishes belonging to the Steak Lovers Set in that area. If so, ask the AI Service Agent to find a meal in the top section of the middle fold that is low-sodium and has the highest carbohydrate content, and add it to the order. If there are multiple meals tied for the highest carbohydrate content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select a dish with the highest sugar content and the lowest price, featuring a \"spicy\" flavor, from the category you last pointed at, and add it to the order. If there are multiple dishes tied for the highest sugar content and lowest price among those that meet the conditions, you want all of them to be added. Afterwards, ask the AI Service Agent to check the allergen information for this dish in the order. Ask the AI Service Agent to determine if it contains nuts. If it does, remove it immediately, and ask the AI Service Agent to select a different dish that is high-calcium and has the lowest price from the white rounded rectangle in the middle of the left fold, and add it to the order. If there are multiple dishes tied for the lowest price among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to accurately calculate the total discounted price for the items you ordered.",
@@ -1560,14 +1560,14 @@
         }
       }
     ],
-    "task_id": 21,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Pizza"
-    ]
+    ],
+    "scenario_id": 21
   },
   {
     "Instruction": "You are a fitness enthusiast (User ID: customer_009). Ask the AI Service Agent to carefully examine the small section of homemade bread in the bottom right corner. Ask the AI Service Agent to determine whether all the items in this section contain gluten. If they all contain gluten, ask the AI Service Agent to look for low-fat dishes in the category you were last pointing at and add the dish with the lowest calorie count to the order. If there are multiple dishes tied for the lowest calorie count, add all of them. Otherwise, ask the AI Service Agent to select high-protein dishes from the independent section in the middle of the left foldout and add the dish with the lowest carbohydrate content to the order. If there are multiple dishes tied for the lowest carbohydrate content, add all of them. Then, ask the AI Service Agent to check the dish(es) just added to the order. Ask the AI Service Agent to determine if the flavor is spicy. If it is, remove it from the order and replace it by selecting a high-fiber dish with a flavor profile containing \"savory\" and the highest price from the section at the top of the right foldout. If there are multiple dishes tied for the highest price, add all of them as replacements. Finally, ask the AI Service Agent to recalculate the total amount payable for your order after discounts.",
@@ -1634,14 +1634,14 @@
         }
       }
     ],
-    "task_id": 22,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Handmade Bread"
-    ]
+    ],
+    "scenario_id": 22
   },
   {
     "Instruction": "You are a food blogger (User ID: customer_001). Ask the AI service agent to review the section in the lower-middle part of the middle fold that has a title with a small hand illustration. Ask the AI service agent to determine whether the tax rate for all dishes in that area is greater than 0.12. If so, ask the AI service agent to find the dishes that do not contain nuts and have the highest price in the category you point to for the second time, and add them to the order. If there are multiple dishes tied for the highest price among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to select the dishes with the highest protein content that are smoked/salty, priced between 600 and 700, from the exclusive area with a dark background on the right fold, and add them to the order. If there are multiple dishes tied for the highest protein content among those that meet the conditions, you want all of them to be added. Next, ask the AI service agent to check the dish just added. Ask the AI service agent to determine if it contains ingredients other than vegan ones (non-vegan). If so, remove it, and ask the AI service agent to select a dish with a smoked flavor, a discount factor better than 0.9, and the lowest calories from the category at the bottom of the left fold as a replacement to add to the order. If there are multiple dishes tied for the lowest calories among those that meet the conditions, you want all of them to be added. Finally, ask the AI service agent to calculate the total grams of fat in the order.",
@@ -1712,14 +1712,14 @@
         }
       }
     ],
-    "task_id": 23,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Italian Pasta"
-    ]
+    ],
+    "scenario_id": 23
   },
   {
     "Instruction": "You are a dessert lover (User ID: customer_005). Ask the AI Service Agent to check the category in the lower middle part of the center panel. Ask the AI Service Agent to determine if it contains herbal-flavored dishes. If it does, ask the AI Service Agent to find the dish included in the set meal with the lowest price within the section you last pointed at, and add it to the order. If there are multiple dishes tied for the lowest price, add all of them. Otherwise, ask the AI Service Agent to select the dish with the highest calories and butter flavor from the smaller supplementary section in the bottom right corner and add it to the order. If there are multiple dishes tied for the highest calories, add all of them. Subsequently, ask the AI Service Agent to carefully check the ingredient list of the newly selected dish. Ask the AI Service Agent to determine if it contains gluten. If it does, ask the AI Service Agent to remove it, and instead select a dish with high protein and the largest discount from the dark background area on the right panel and add it to the order. If there are multiple dishes tied for the largest discount, add all of them. Finally, ask the AI Service Agent to calculate the total tax amount payable for the current order.",
@@ -1806,14 +1806,14 @@
         }
       }
     ],
-    "task_id": 24,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Italian Pasta"
-    ]
+    ],
+    "scenario_id": 24
   },
   {
     "Instruction": "You are a health inspector (User ID: customer_004). Ask the AI Service Agent to examine the independent small card area at the very top of the left panel. Ask the AI Service Agent to determine if all dishes in that area are on discount. If they are, ask the AI Service Agent to find the meal item with high sodium and the highest price in the section you are pointing at for the second time and add it to the order. If there are multiple items tied for the highest price among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select a spicy dish with the highest sodium content from the category on the left border of the right panel that features a small hand illustration and put it in the order. If there are multiple items tied for the highest sodium content among those that meet the conditions, you want all of them to be added. Next, ask the AI Service Agent to check the set meal affiliation of this dish. Ask the AI Service Agent to determine if it belongs to any set meal. If it does, remove it from the order, and ask the AI Service Agent to select a dairy-free dish with the lowest calories from the section on the right side of the middle panel with a small hand illustration as a replacement. If there are multiple items tied for the lowest calories among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total carbohydrate content in your order.",
@@ -1860,14 +1860,14 @@
         }
       }
     ],
-    "task_id": 25,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "cold cuts"
-    ]
+    ],
+    "scenario_id": 25
   },
   {
     "Instruction": "You are a health-conscious parent (User ID: customer_007), dining with your child. Ask the AI service agent to check the bottom section of the left panel. Ask the AI service agent to determine if there are any dishes in this section with a discount factor lower than 0.8. If so, ask the AI service agent to find a low-fat meal with the highest protein content in the category you pointed at first and add it to the order. If there are multiple items tied for the highest protein content, add one of each. Otherwise, ask the AI service agent to select a refreshing or slightly sour meal with the lowest calorie content from the category on the right panel that has a small hand illustration on the left border, and add it to the order. If there are multiple items tied for the lowest calorie content, add one of each. After that, ask the AI service agent to select a low-sugar dish with the lowest price from the top section of the middle panel and add it to the order. If there are multiple items tied for the lowest price, add one of each. Finally, ask the AI service agent to accurately calculate the total calcium content of all dishes in the order.",
@@ -1910,14 +1910,14 @@
         }
       }
     ],
-    "task_id": 26,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Annie's top dishes"
-    ]
+    ],
+    "scenario_id": 26
   },
   {
     "Instruction": "You are a nutritionist (User ID: customer_007), advising a client on a high-protein diet. Ask the AI Service Agent to check the section on the right panel of the menu that features a small hand illustration on the left border. Ask the AI Service Agent to determine if this section contains dishes marked with fish allergens. If it does, ask the AI Service Agent to find dishes in the section you are pointing at for the first time that are high-protein and have the lowest calories, and add them to the order. If there are multiple dishes tied for the lowest calories among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select low-sodium and highest-priced meals from the white rounded-box area at the bottom of the left panel and add them to the order. If there are multiple meals tied for the highest price among those that meet the conditions, you want all of them to be added. Immediately after, ask the AI Service Agent to select a high-calcium meal with the highest protein content from the section at the top of the middle panel and add it to the order. If there are multiple meals tied for the highest protein content among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total grams of sugar in your order.",
@@ -1976,14 +1976,14 @@
         }
       }
     ],
-    "task_id": 27,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "salads"
-    ]
+    ],
+    "scenario_id": 27
   },
   {
     "Instruction": "You are a nutritionist (User ID: customer_009), helping a client develop a low-carb diet plan. Ask the AI Service Agent to check the category at the very top of the right panel. Ask the AI Service Agent to determine if it contains dishes belonging to the Cold Cuts & Cheese Platter set. If it does, ask the AI Service Agent to look inside the white rounded-corner box at the top of the left panel, find low-fat dishes with the lowest carbohydrate content, and add them to the order. If there are multiple dishes tied for the lowest carbohydrate content, you want all of them to be added. Otherwise, ask the AI Service Agent to select high-protein dishes with the lowest price from the section marked with a small hand icon on the right side of the middle panel and add them to the order. If there are multiple dishes tied for the lowest price, you want all of them to be added. Next, ask the AI Service Agent to select gluten-free meals with the lowest carbohydrate content from the section you last pointed at and add them to the order. If there are multiple meals tied for the lowest carbohydrate content, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total cost of this order after discounts.",
@@ -2046,14 +2046,14 @@
         }
       }
     ],
-    "task_id": 28,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Pizza"
-    ]
+    ],
+    "scenario_id": 28
   },
   {
     "Instruction": "You are a food critic (User ID: customer_008) writing reviews for dishes. Ask the AI service agent to examine the category located in the lower-middle part of the middle fold whose title has a small hand illustration on the left. Ask the AI service agent to determine whether the tax rate for all dishes in this category exceeds 0.08. If it does, ask the AI service agent to find high-sugar bread with the lowest price in the smaller section at the bottom right and add it to the order. If there are multiple breads tied for the lowest price among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to select a high-fat dish with the highest calorie count from the dark-background area on the right fold and add it to the order. If there are multiple dishes tied for the highest calorie count among those that meet the conditions, you want all of them to be added. Subsequently, ask the AI service agent to select a slightly salty/mild dish with the highest sugar content from the category you point to for the second time and add it to the order. If there are multiple dishes tied for the highest sugar content among those that meet the conditions, you want all of them to be added. Finally, ask the AI service agent to calculate the total fiber content of this order.",
@@ -2116,14 +2116,14 @@
         }
       }
     ],
-    "task_id": 29,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Italian Pasta"
-    ]
+    ],
+    "scenario_id": 29
   },
   {
     "Instruction": "You are a chef (User ID: customer_005), preparing a special menu. Ask the AI Service Agent to focus on the second section from the top on the left brochure page. Ask the AI Service Agent to determine if there are any dishes without discounts in this section. If so, ask the AI Service Agent to find a dish with high protein and the lowest price in the category you pointed at for the third time, and add it to the order. If there are multiple dishes tied for the lowest price among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to select a meal with smoked flavor and the highest protein from the top section of the right brochure page and add it to the order. If there are multiple meals tied for the highest protein among those that meet the conditions, you want all of them to be added. Ask the AI Service Agent to check if there is a meal set that includes the dish just selected. If so, remove the dish just added from the order, and instead add the meal set containing this dish to the order. After that, ask the AI Service Agent to select a dish that is salty and umami and has the lowest fat from the area with a small hand illustration on the right border of the middle brochure page, and add it to the order. If there are multiple dishes tied for the lowest fat among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total tax and fees for the entire order.",
@@ -2190,13 +2190,13 @@
         }
       }
     ],
-    "task_id": 30,
     "image_name": "restaurant2",
     "image_path": "restaurant2.mp4",
     "image_description": "You and your friend are in a restaurant. You look at the menu and point to three categories in succession.",
     "key": "category",
     "value": [
       "Cheese & Olives"
-    ]
+    ],
+    "scenario_id": 30
   }
 ]

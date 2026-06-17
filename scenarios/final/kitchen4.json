@@ -182,7 +182,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_003",
-          "ingredient_name": "celery",
+          "ingredient_name": "Celery",
           "quantity": "0.3"
         }
       },
@@ -190,7 +190,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_003",
-          "ingredient_name": "milk",
+          "ingredient_name": "Milk",
           "quantity": "0.3"
         }
       },
@@ -396,7 +396,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "shrimp",
+          "ingredient_name": "Shrimp",
           "quantity": "2.0"
         }
       },
@@ -460,7 +460,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "yogurt",
+          "ingredient_name": "Yogurt",
           "quantity": "2"
         }
       },
@@ -468,7 +468,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "strawberry",
+          "ingredient_name": "Strawberry",
           "quantity": "1"
         }
       },
@@ -476,7 +476,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "banana",
+          "ingredient_name": "Banana",
           "quantity": "0.8"
         }
       },
@@ -484,7 +484,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "banana",
+          "ingredient_name": "Banana",
           "quantity": "1"
         }
       },
@@ -492,7 +492,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "milk",
+          "ingredient_name": "Milk",
           "quantity": "0.5"
         }
       },
@@ -500,7 +500,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "tofu",
+          "ingredient_name": "Tofu",
           "quantity": "1.5"
         }
       },
@@ -508,7 +508,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "celery",
+          "ingredient_name": "Celery",
           "quantity": "0.3"
         }
       },
@@ -516,7 +516,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "spinach",
+          "ingredient_name": "Spinach",
           "quantity": "1.8"
         }
       },
@@ -524,7 +524,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_008",
-          "ingredient_name": "milk",
+          "ingredient_name": "Milk",
           "quantity": "0.3"
         }
       },
@@ -642,7 +642,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "eggs",
+          "ingredient_name": "Eggs",
           "quantity": "2"
         }
       },
@@ -650,7 +650,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "milk",
+          "ingredient_name": "Milk",
           "quantity": "0.5"
         }
       },
@@ -658,7 +658,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "butter",
+          "ingredient_name": "Butter",
           "quantity": "0.1"
         }
       },
@@ -666,7 +666,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "chicken",
+          "ingredient_name": "Chicken",
           "quantity": "2"
         }
       },
@@ -674,7 +674,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "broccoli",
+          "ingredient_name": "Broccoli",
           "quantity": "1.5"
         }
       },
@@ -682,7 +682,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "carrots",
+          "ingredient_name": "Carrots",
           "quantity": "0.5"
         }
       },
@@ -690,7 +690,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "soy sauce",
+          "ingredient_name": "Soy Sauce",
           "quantity": "0.15"
         }
       },
@@ -698,7 +698,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "butter",
+          "ingredient_name": "Butter",
           "quantity": "0.1"
         }
       },
@@ -706,7 +706,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "broccoli",
+          "ingredient_name": "Broccoli",
           "quantity": "1"
         }
       },
@@ -714,7 +714,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_007",
-          "ingredient_name": "asparagus",
+          "ingredient_name": "Asparagus",
           "quantity": "1"
         }
       },
@@ -800,7 +800,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_004",
-          "ingredient_name": "celery",
+          "ingredient_name": "Celery",
           "quantity": "0.3"
         }
       },
@@ -808,7 +808,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_004",
-          "ingredient_name": "broccoli",
+          "ingredient_name": "Broccoli",
           "quantity": "1"
         }
       },
@@ -1082,7 +1082,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_009",
-          "ingredient_name": "mushrooms",
+          "ingredient_name": "Mushrooms",
           "quantity": "1.5"
         }
       },
@@ -1090,7 +1090,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_009",
-          "ingredient_name": "thyme",
+          "ingredient_name": "Thyme",
           "quantity": "0.02"
         }
       },
@@ -1882,14 +1882,6 @@
         }
       },
       {
-        "tool_name": "add_to_shopping_list",
-        "parameters": {
-          "user_id": "",
-          "ingredient_name": "",
-          "quantity": ""
-        }
-      },
-      {
         "tool_name": "tally_total_nutritional_characteristics",
         "parameters": {
           "user_id": "cook_005",
@@ -2044,7 +2036,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "chickpeas",
+          "ingredient_name": "Chickpeas",
           "quantity": "5"
         }
       },
@@ -2295,20 +2287,20 @@
           "user_id": "cook_001",
           "ingredients": [
             {
-              "product_name": "Beef",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Beef"
             },
             {
-              "product_name": "Rice",
-              "quantity": 10
+              "quantity": 10,
+              "ingredient_name": "Rice"
             },
             {
-              "product_name": "Soy Sauce",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Soy Sauce"
             },
             {
-              "product_name": "Cocoa Powder",
-              "quantity": 8
+              "quantity": 8,
+              "ingredient_name": "Cocoa Powder"
             }
           ]
         }
@@ -2355,20 +2347,20 @@
           "user_id": "cook_002",
           "ingredients": [
             {
-              "product_name": "Potatoes",
-              "quantity": 10
+              "quantity": 10,
+              "ingredient_name": "Potatoes"
             },
             {
-              "product_name": "Carrots",
-              "quantity": 5
+              "quantity": 5,
+              "ingredient_name": "Carrots"
             },
             {
-              "product_name": "Chicken",
-              "quantity": 8
+              "quantity": 8,
+              "ingredient_name": "Chicken"
             },
             {
-              "product_name": "Banana",
-              "quantity": 10
+              "quantity": 10,
+              "ingredient_name": "Banana"
             }
           ]
         }
@@ -2783,7 +2775,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "rice",
+          "ingredient_name": "Rice",
           "quantity": "1.5"
         }
       },
@@ -2791,7 +2783,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "chickpeas",
+          "ingredient_name": "Chickpeas",
           "quantity": "1.5"
         }
       },
@@ -2799,7 +2791,7 @@
         "tool_name": "add_to_shopping_list",
         "parameters": {
           "user_id": "cook_010",
-          "ingredient_name": "flour",
+          "ingredient_name": "Flour",
           "quantity": "1.5"
         }
       },

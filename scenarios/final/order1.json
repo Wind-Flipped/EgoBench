@@ -2520,7 +2520,7 @@
         "parameters": {
           "restaurant_name": "Annie Italian Restaurant",
           "user_id": "customer_007",
-          "dish_name": "Salmon affumicato",
+          "dish_name": "Salmone affumicato",
           "quantity": 1,
           "category": "Annie's top dishes",
           "price": 39,
@@ -2552,7 +2552,7 @@
               "quantity": 1
             },
             {
-              "dish_name": "Salmon affumicato",
+              "dish_name": "Salmone affumicato",
               "quantity": 1
             }
           ]
