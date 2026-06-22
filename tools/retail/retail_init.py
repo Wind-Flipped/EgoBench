@@ -19083,7 +19083,7 @@ retail_init_data10 = {
           "quantity": 1
         },
         {
-          "product_name": "switzerland switzerland swiss cheese",
+          "product_name": "switzerland swiss cheese",
           "quantity": 1
         },
         {
@@ -19108,7 +19108,7 @@ retail_init_data10 = {
       "user_id": "user_456",
       "items": [
         {
-          "product_name": "switzerland switzerland swiss cheese",
+          "product_name": "switzerland swiss cheese",
           "quantity": 2
         },
         {

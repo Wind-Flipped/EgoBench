@@ -3658,7 +3658,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_001",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "greek lamb chops",
@@ -3702,7 +3702,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_002",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "grilled octopus",
@@ -3746,7 +3746,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_003",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "greek village roast chicken leg",
@@ -3798,7 +3798,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_004",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "mediterranean grilled prawns",
@@ -3850,7 +3850,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_005",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "grilled fish",
@@ -3898,7 +3898,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_006",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "greek lamb chops",
@@ -3942,7 +3942,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_007",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "greek village roast chicken leg",
@@ -3994,7 +3994,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_008",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "mediterranean grilled prawns",
@@ -4042,7 +4042,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_009",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "grilled fish",
@@ -4090,7 +4090,7 @@ order_init_data = {
     },
     {
       "user_id": "customer_010",
-      "restaurant_name": "Greek Village Roast Chicken Leg",
+      "restaurant_name": "Mediterranean Greek Restaurant",
       "items": [
         {
           "dish_name": "greek lamb chops",

@@ -183,7 +183,7 @@
         "parameters": {
           "user_id": "cook_003",
           "ingredient_name": "Celery",
-          "quantity": "0.3"
+          "quantity": "1"
         }
       },
       {
@@ -191,7 +191,7 @@
         "parameters": {
           "user_id": "cook_003",
           "ingredient_name": "Milk",
-          "quantity": "0.3"
+          "quantity": "1"
         }
       },
       {
@@ -397,7 +397,7 @@
         "parameters": {
           "user_id": "cook_010",
           "ingredient_name": "Shrimp",
-          "quantity": "2.0"
+          "quantity": "1.5"
         }
       },
       {
@@ -517,7 +517,7 @@
         "parameters": {
           "user_id": "cook_008",
           "ingredient_name": "Spinach",
-          "quantity": "1.8"
+          "quantity": "1"
         }
       },
       {
@@ -762,7 +762,7 @@
         "parameters": {
           "user_id": "cook_002",
           "ingredient_name": "Celery",
-          "quantity": "0.6"
+          "quantity": "1.2"
         }
       },
       {
@@ -1083,7 +1083,7 @@
         "parameters": {
           "user_id": "cook_009",
           "ingredient_name": "Mushrooms",
-          "quantity": "1.5"
+          "quantity": "1.2"
         }
       },
       {
@@ -1091,7 +1091,7 @@
         "parameters": {
           "user_id": "cook_009",
           "ingredient_name": "Thyme",
-          "quantity": "0.02"
+          "quantity": "0.05"
         }
       },
       {
@@ -1878,7 +1878,7 @@
         "parameters": {
           "user_id": "cook_005",
           "ingredient_name": "Shrimp",
-          "quantity": "2.0"
+          "quantity": "1.5"
         }
       },
       {
@@ -2792,7 +2792,7 @@
         "parameters": {
           "user_id": "cook_010",
           "ingredient_name": "Flour",
-          "quantity": "1.5"
+          "quantity": "2"
         }
       },
       {
@@ -2861,7 +2861,7 @@
         "parameters": {
           "user_id": "cook_006",
           "ingredient_name": "Spinach",
-          "quantity": "2.8"
+          "quantity": "1.2"
         }
       },
       {
