@@ -194,6 +194,64 @@
     ]
   },
   {
+    "Instruction": "You are a fitness enthusiast (User ID: user_101). Ask the AI Service Agent to check the protein content of the first box of cookies you picked up and put down. If its protein content exceeds 6g per 100g and the price is between 20 and 80 yuan, ask the AI Service Agent to add it to your cart. If not, ask the AI Service Agent to check the orange cookies with a rooster logo. If they have a \"High Oil\" label and are from the UK, add them to your cart. If neither condition is met, ask the AI Service Agent to search the current inventory for items that share the same country of origin as the first box of cookies and have a tax rate below 0.1, and add the item with the highest protein content to your cart. If there are multiple items tied for the highest protein content, you want all of them to be added. Additionally, ask the AI Service Agent to check if the average calorie count of the items in your cart is higher than 500 kcal. If so, ask the AI Service Agent to remove the item with the highest calorie count. If multiple items share the highest calorie count, remove all of them. Finally, ask the AI Service Agent to calculate the total amount payable for the items in your cart.",
+    "analysis": "1. Check the protein content and price of the box of cookies you first picked up and then put down.\n2. If the protein content exceeds 6 grams per 100 grams and the price is between 20-80 yuan, add it to your cart.\n\n3. If it doesn't exceed the protein content, check the orange cookies with the rooster logo; if they have a \"high oil\" label and are made in the UK, add them to your cart.\n\n4. If neither of these meets the criteria, search the product database for products from the same country as the first box and with a tax rate lower than 0.1%, and add the one with the highest protein content to your cart.\n5. If the average calorie count of the items in your cart exceeds 500 calories, remove the item with the highest calorie count (if they are the same, delete them as well).\n6. Calculate the total amount due for the items in your cart.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_cart",
+        "parameters": {
+          "user_id": "user_101",
+          "product_name": "Highland Speciality Shortbread Assortment",
+          "qty": 1,
+          "category": "cookie",
+          "price": 28.6,
+          "tax_rate": 0.14,
+          "discount": 0.9
+        }
+      },
+      {
+        "tool_name": "compute_total_payment",
+        "parameters": {
+          "user_id": "user_101",
+          "products": [
+            {
+              "product_name": "Highland Speciality Shortbread Assortment",
+              "quantity": 2
+            },
+            {
+              "product_name": "Choco Fit Lemon",
+              "quantity": 2
+            },
+            {
+              "product_name": "Grisbi Limone Citron",
+              "quantity": 2
+            },
+            {
+              "product_name": "Grisbi Chocolate Hazelnut",
+              "quantity": 2
+            },
+            {
+              "product_name": "Desobry Speculoos",
+              "quantity": 2
+            },
+            {
+              "product_name": "Lu Petit Beurre",
+              "quantity": 2
+            }
+          ]
+        }
+      }
+    ],
+    "scenario_id": 4,
+    "image_name": "retail7",
+    "image_path": "retail7.mp4",
+    "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
+    "key": "product_name",
+    "value": [
+      "Highland Speciality Shortbread Assortment"
+    ]
+  },
+  {
     "Instruction": "You are a sweets lover (User ID: user_202). Please ask the AI Service Agent to confirm whether the third box of brown cookies to the right of the red holiday plaid cookies has a \"Sweet\" label. If it is sweet and has a sugar content exceeding 50 grams, ask the AI Service Agent to add it to your cart. If not, ask the AI Service Agent to check the box of cookies that was picked up and put down for the second time. If its flavor is \"Sweet\" and it contains the \"Nuts\" allergen, add it to your cart. If neither condition is met, ask the AI Service Agent to search the current inventory for sweet cookies originating from Denmark, Japan, or Germany with a discount factor between 0.7 and 0.9, and add the lowest-priced option to your cart. If there are multiple cookies tied for the lowest price among those that meet the conditions, you want all of them to be added. Finally, ask the AI Service Agent to calculate the total tax for the items in your cart.",
     "analysis": "1. Verify whether the third box of brown cookies to the right of the red holiday plaid cookies has a \"Sweet\" label and check its sugar content.\n2. If it is sweet and the sugar content exceeds 50 grams, add it to your cart.\n3. If not, check the cookie that was picked up and put down for the second time. If its flavor is \"Sweet\" and it contains the \"Nuts\" allergen, add it to your cart.\n4. If neither condition is met, search the product database for sweet cookies originating from Denmark, Japan, or Germany with a discount factor between 0.7 and 0.9. Add the cheapest qualifying cookie to your cart. If there are multiple cookies tied for the lowest price among those that meet the conditions, add one of each of those tied items.\n5. Calculate the total tax for the items in your cart.",
     "ground_truth": [
@@ -234,7 +292,7 @@
         }
       }
     ],
-    "scenario_id": 4,
+    "scenario_id": 5,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -328,7 +386,7 @@
         }
       }
     ],
-    "scenario_id": 5,
+    "scenario_id": 6,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -418,7 +476,7 @@
         }
       }
     ],
-    "scenario_id": 6,
+    "scenario_id": 7,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -552,7 +610,7 @@
         }
       }
     ],
-    "scenario_id": 7,
+    "scenario_id": 8,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -622,7 +680,7 @@
         }
       }
     ],
-    "scenario_id": 8,
+    "scenario_id": 9,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -680,7 +738,7 @@
         }
       }
     ],
-    "scenario_id": 9,
+    "scenario_id": 10,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -730,7 +788,7 @@
         }
       }
     ],
-    "scenario_id": 10,
+    "scenario_id": 11,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -813,7 +871,7 @@
         }
       }
     ],
-    "scenario_id": 11,
+    "scenario_id": 12,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -896,7 +954,7 @@
         }
       }
     ],
-    "scenario_id": 12,
+    "scenario_id": 13,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1011,7 +1069,7 @@
         }
       }
     ],
-    "scenario_id": 13,
+    "scenario_id": 14,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1114,7 +1172,7 @@
         }
       }
     ],
-    "scenario_id": 14,
+    "scenario_id": 15,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1176,7 +1234,7 @@
         }
       }
     ],
-    "scenario_id": 15,
+    "scenario_id": 16,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1327,7 +1385,7 @@
         }
       }
     ],
-    "scenario_id": 16,
+    "scenario_id": 17,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1394,7 +1452,7 @@
         }
       }
     ],
-    "scenario_id": 17,
+    "scenario_id": 18,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1449,7 +1507,7 @@
         }
       }
     ],
-    "scenario_id": 18,
+    "scenario_id": 19,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1508,7 +1566,7 @@
         }
       }
     ],
-    "scenario_id": 19,
+    "scenario_id": 20,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1558,7 +1616,7 @@
         }
       }
     ],
-    "scenario_id": 20,
+    "scenario_id": 21,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1624,7 +1682,7 @@
         }
       }
     ],
-    "scenario_id": 21,
+    "scenario_id": 22,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1686,7 +1744,7 @@
         }
       }
     ],
-    "scenario_id": 22,
+    "scenario_id": 23,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1748,7 +1806,7 @@
         }
       }
     ],
-    "scenario_id": 23,
+    "scenario_id": 24,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1816,7 +1874,7 @@
         }
       }
     ],
-    "scenario_id": 24,
+    "scenario_id": 25,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1906,7 +1964,7 @@
         }
       }
     ],
-    "scenario_id": 25,
+    "scenario_id": 26,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -1952,7 +2010,7 @@
         }
       }
     ],
-    "scenario_id": 26,
+    "scenario_id": 27,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2088,7 +2146,7 @@
         }
       }
     ],
-    "scenario_id": 27,
+    "scenario_id": 28,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2146,7 +2204,7 @@
         }
       }
     ],
-    "scenario_id": 28,
+    "scenario_id": 29,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2200,7 +2258,7 @@
         }
       }
     ],
-    "scenario_id": 29,
+    "scenario_id": 30,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2282,7 +2340,7 @@
         }
       }
     ],
-    "scenario_id": 30,
+    "scenario_id": 31,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2372,7 +2430,7 @@
         }
       }
     ],
-    "scenario_id": 31,
+    "scenario_id": 32,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2434,7 +2492,7 @@
         }
       }
     ],
-    "scenario_id": 32,
+    "scenario_id": 33,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2532,7 +2590,7 @@
         }
       }
     ],
-    "scenario_id": 33,
+    "scenario_id": 34,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2595,7 +2653,7 @@
         }
       }
     ],
-    "scenario_id": 34,
+    "scenario_id": 35,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2638,7 +2696,7 @@
         }
       }
     ],
-    "scenario_id": 35,
+    "scenario_id": 36,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2709,7 +2767,7 @@
         }
       }
     ],
-    "scenario_id": 36,
+    "scenario_id": 37,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2779,7 +2837,7 @@
         }
       }
     ],
-    "scenario_id": 37,
+    "scenario_id": 38,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2834,7 +2892,7 @@
         }
       }
     ],
-    "scenario_id": 38,
+    "scenario_id": 39,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -2893,7 +2951,7 @@
         }
       }
     ],
-    "scenario_id": 39,
+    "scenario_id": 40,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -3012,7 +3070,7 @@
         }
       }
     ],
-    "scenario_id": 40,
+    "scenario_id": 41,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -3058,7 +3116,7 @@
         }
       }
     ],
-    "scenario_id": 41,
+    "scenario_id": 42,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -3108,7 +3166,7 @@
         }
       }
     ],
-    "scenario_id": 42,
+    "scenario_id": 43,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -3186,7 +3244,7 @@
         }
       }
     ],
-    "scenario_id": 43,
+    "scenario_id": 44,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -3248,7 +3306,7 @@
         }
       }
     ],
-    "scenario_id": 44,
+    "scenario_id": 45,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -3286,7 +3344,7 @@
         }
       }
     ],
-    "scenario_id": 45,
+    "scenario_id": 46,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -3340,7 +3398,7 @@
         }
       }
     ],
-    "scenario_id": 46,
+    "scenario_id": 47,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",
@@ -3418,7 +3476,7 @@
         }
       }
     ],
-    "scenario_id": 47,
+    "scenario_id": 48,
     "image_name": "retail7",
     "image_path": "retail7.mp4",
     "image_description": "You reach out and pick up a red box of cookies from the shelf. The box is rectangular, with a festive plaid pattern on its side and images of golden, buttery biscuits on the front. As you move your hand away, you scan the other products nearby. You then pick up an orange box of cookies. This box is also rectangular, featuring a classic design with images of the iconic square, scalloped-edge biscuits and the brand’s rooster logo. You hold it for a moment, examining the packaging before placing it back on the shelf.",

@@ -28,21 +28,9 @@
         }
       },
       {
-        "tool_name": "add_to_cart",
+        "tool_name": "find_products_by_country_of_origin",
         "parameters": {
-          "user_id": "user_123",
-          "product_name": "Camembert Cheese",
-          "qty": 1,
-          "category": "cheese",
-          "price": 22.8,
-          "tax_rate": 0.06,
-          "discount": 0.9
-        }
-      },
-      {
-        "tool_name": "get_country_of_origin",
-        "parameters": {
-          "product_name": "Gruyere AOP Cheese"
+          "country": "Switzerland"
         }
       },
       {
@@ -75,22 +63,6 @@
           "user_id": "user_123",
           "products": [
             {
-              "product_name": "Camembert Cheese",
-              "quantity": 1
-            },
-            {
-              "product_name": "Brie Cheese",
-              "quantity": 2
-            },
-            {
-              "product_name": "Camembert Cheese",
-              "quantity": 1
-            },
-            {
-              "product_name": "Goat Cheese",
-              "quantity": 3
-            },
-            {
               "product_name": "Cheddar Cheese",
               "quantity": 1
             },
@@ -113,6 +85,18 @@
             {
               "product_name": "Roquefort Cheese",
               "quantity": 2
+            },
+            {
+              "product_name": "Camembert Cheese",
+              "quantity": 1
+            },
+            {
+              "product_name": "Brie Cheese",
+              "quantity": 2
+            },
+            {
+              "product_name": "Goat Cheese",
+              "quantity": 3
             }
           ]
         }
@@ -264,7 +248,7 @@
     ]
   },
   {
-    "Instruction": "You are a nutritionist (User ID: user_101). Please ask the AI Service Agent to confirm the origin and nutritional information of the wedge-shaped cheese closest to you and at the very front of the glass display case. Ask the AI Service Agent to determine if its fat content per 100g is higher than 30g. If so, ask the AI Service Agent to find cheeses originating from Switzerland and priced above 30 yuan, and add the one with the highest protein content to your cart. If there are multiple cheeses tied for the highest protein content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to find cheeses with a \"mild\" flavor and carbohydrate content below 1g, and add the one with the lowest calories to your cart. If there are multiple cheeses tied for the lowest calories among those that meet the conditions, you want all of them to be added. At the same time, ask the AI Service Agent to check the discount of the item directly below the rectangular cheese at the very back. Then, ask the AI Service Agent to check the shopping list and add items that are on the list but not in the cart to the cart, limited only to those with a tax rate higher than 0.06. Finally, ask the AI Service Agent to calculate the total sugar content of all cheeses in your cart.",
+    "Instruction": "You are a nutritionist (User ID: user_101). Please ask the AI Service Agent to confirm the origin and nutritional information of the wedge-shaped cheese closest to you and at the very left front of the glass display case. Ask the AI Service Agent to determine if its fat content per 100g is higher than 30g. If so, ask the AI Service Agent to find cheeses originating from Switzerland and priced above 30 yuan, and add the one with the highest protein content to your cart. If there are multiple cheeses tied for the highest protein content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to find cheeses with a \"mild\" flavor and carbohydrate content below 1g, and add the one with the lowest calories to your cart. If there are multiple cheeses tied for the lowest calories among those that meet the conditions, you want all of them to be added. At the same time, ask the AI Service Agent to check the discount of the item directly below the rectangular cheese at the very back. Then, ask the AI Service Agent to check the shopping list and add items that are on the list but not in the cart to the cart, limited only to those with a tax rate higher than 0.06. Finally, ask the AI Service Agent to calculate the total sugar content of all cheeses in your cart.",
     "analysis": "(Note: In the cheese scenario, every 100g counts as one portion. For example, if the task requires adding 400g to the cart, the quantity parameter is 4.)\n\n1. Confirm the origin and nutritional information of the wedge-shaped cheese that is closest to you and positioned at the very front inside the glass cabinet.\n2. If its fat content per 100g exceeds 30g, search for cheeses produced in Switzerland and priced above 30 yuan, and add the cheese with the highest protein content to your cart. If multiple cheeses tie for the highest protein content among those that meet the conditions, add all of them.\n3. Otherwise, search for cheeses with a \"mild\" flavor and carb content below 1g, and add the cheese with the lowest calorie count to your cart. If multiple cheeses tie for the lowest calorie count among those that meet the conditions, add all of them.\n4. Query the discount of the product located directly below the rectangular cheese at the very back.\n5. Check the shopping list and add items to your cart that are on the list but not yet in the cart, limited to those with a tax rate higher than 0.06.\n6. Calculate the total sugar content of all cheeses in your shopping cart.",
     "ground_truth": [
       {
@@ -392,9 +376,9 @@
         }
       },
       {
-        "tool_name": "get_country_of_origin",
+        "tool_name": "find_products_by_country_of_origin",
         "parameters": {
-          "product_name": "Basiron Gouda Cheese"
+          "country": "Netherlands"
         }
       },
       {
@@ -548,6 +532,14 @@
         }
       },
       {
+        "tool_name": "remove_from_cart",
+        "parameters": {
+          "user_id": "user_123",
+          "product_name": "roquefort cheese",
+          "qty": 2
+        }
+      },
+      {
         "tool_name": "compute_total_nutrition",
         "parameters": {
           "user_id": "user_123",
@@ -571,6 +563,10 @@
             {
               "product_name": "Blue Cheese",
               "quantity": 2
+            },
+            {
+              "product_name": "Parmesan Cheese",
+              "quantity": 1
             },
             {
               "product_name": "Brie Cheese",
@@ -738,9 +734,9 @@
         }
       },
       {
-        "tool_name": "get_country_of_origin",
+        "tool_name": "find_products_by_country_of_origin",
         "parameters": {
-          "product_name": "Basiron Gouda Cheese"
+          "country": "Switzerland"
         }
       },
       {
@@ -944,9 +940,9 @@
         }
       },
       {
-        "tool_name": "get_country_of_origin",
+        "tool_name": "find_products_by_country_of_origin",
         "parameters": {
-          "product_name": "Gruyere AOP Cheese"
+          "country": "Switzerland"
         }
       },
       {
@@ -976,7 +972,7 @@
       {
         "tool_name": "compute_total_nutrition",
         "parameters": {
-          "user_id": "",
+          "user_id": "user_404",
           "products": [
             {
               "product_name": "Emmental Cheese",
@@ -1040,9 +1036,21 @@
         }
       },
       {
-        "tool_name": "get_taste",
+        "tool_name": "find_products_by_taste",
         "parameters": {
-          "product_name": "Emmi Gruyere Cheese"
+          "taste": "savory"
+        }
+      },
+      {
+        "tool_name": "find_products_by_taste",
+        "parameters": {
+          "taste": "creamy"
+        }
+      },
+      {
+        "tool_name": "find_products_by_taste",
+        "parameters": {
+          "taste": "nutty"
         }
       },
       {
@@ -1183,6 +1191,10 @@
             {
               "product_name": "Cheddar Cheese",
               "quantity": 3
+            },
+            {
+              "product_name": "Basiron Old Amsterdan Cheese",
+              "quantity": 1
             }
           ]
         }
@@ -1278,7 +1290,7 @@
     ]
   },
   {
-    "Instruction": "You are a nutritionist (User ID: user_202). Ask the AI Service Agent to check the sugar content of the wedge-shaped cheese closest to you and positioned at the very front of the glass cabinet. Have the AI Service Agent determine if its sugar content is less than 0.5 grams. If it is, instruct the AI Service Agent to search for cheeses with a \"mild\" flavor and originating from France, and add the one with the highest protein content to your cart. If there are multiple cheeses tied for the highest protein content among those that meet the conditions, you want all of them to be added. Otherwise, instruct the AI Service Agent to search for cheeses priced between 15 and 45 yuan with a discount factor better than 0.95, and add the one with the highest sodium content to your cart. If there are multiple cheeses tied for the highest sodium content among those that meet the conditions, you want all of them to be added. Subsequently, ask the AI Service Agent to remove the cheese with the lowest tag price from the cart (if it exists). Next, have the AI Service Agent check the shopping list, compare it with the cart, and add any items from the list that have not been added yet, provided their origin is not Italy. Finally, ask the AI Service Agent to calculate the total calories for all items in the cart.",
+    "Instruction": "You are a nutritionist (User ID: user_202). Ask the AI Service Agent to check the sugar content of the wedge-shaped cheese closest to you and positioned at the very left front of the glass cabinet. Have the AI Service Agent determine if its sugar content is less than 0.5 grams. If it is, instruct the AI Service Agent to search for cheeses with a \"mild\" flavor and originating from France, and add the one with the highest protein content to your cart. If there are multiple cheeses tied for the highest protein content among those that meet the conditions, you want all of them to be added. Otherwise, instruct the AI Service Agent to search for cheeses priced between 15 and 45 yuan with a discount factor better than 0.95, and add the one with the highest sodium content to your cart. If there are multiple cheeses tied for the highest sodium content among those that meet the conditions, you want all of them to be added. Subsequently, ask the AI Service Agent to remove the cheese with the lowest tag price from the cart (if it exists). Next, have the AI Service Agent check the shopping list, compare it with the cart, and add any items from the list that have not been added yet, provided their origin is not Italy. Finally, ask the AI Service Agent to calculate the total calories for all items in the cart.",
     "analysis": "(Note: In the cheese scenario, every 100g counts as one portion. For example, if the task requires adding 400g to the cart, the quantity parameter should be 4.)\n\n1. Query the sugar content of the wedge-shaped cheese that is closest to you and positioned at the very front of the glass cabinet.\n2. If its sugar content is less than 0.5 grams, search for cheeses with a \"mild\" flavor originating from France. Add the one with the highest protein content to your cart. If there are multiple cheeses tied for the highest protein content among those that meet the conditions, add all of them to your cart.\n3. Otherwise, search for cheeses priced between 15 and 45 yuan with a discount factor less than 0.95. Add the one with the highest sodium content to your cart. If there are multiple cheeses tied for the highest sodium content among those that meet the conditions, add all of them to your cart.\n4. Remove the cheese with the lowest tag price from the cart (if any exists).\n5. Check the shopping list and add any items not yet in the cart that do not originate from Italy.\n6. Calculate the total calories for all items in the cart.",
     "ground_truth": [
       {
@@ -1467,23 +1479,11 @@
         "tool_name": "add_to_cart",
         "parameters": {
           "user_id": "user_101",
-          "product_name": "Provolone Cheese",
+          "product_name": "Goat Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 28.8,
-          "tax_rate": 0.09,
-          "discount": 0.8
-        }
-      },
-      {
-        "tool_name": "add_to_cart",
-        "parameters": {
-          "user_id": "user_101",
-          "product_name": "Brie Cheese",
-          "qty": 2,
-          "category": "cheese",
-          "price": 25.8,
-          "tax_rate": 0.05,
+          "price": 26.8,
+          "tax_rate": 0.13,
           "discount": 0.8
         }
       },
@@ -1493,12 +1493,8 @@
           "user_id": "user_101",
           "products": [
             {
-              "product_name": "Provolone Cheese",
+              "product_name": "Goat Cheese",
               "quantity": 1
-            },
-            {
-              "product_name": "Brie Cheese",
-              "quantity": 2
             }
           ]
         }
@@ -1521,18 +1517,18 @@
         "tool_name": "add_to_cart",
         "parameters": {
           "user_id": "user_303",
-          "product_name": "Goat Cheese",
+          "product_name": "Provolone Cheese",
           "qty": 1,
           "category": "cheese",
-          "price": 26.8,
-          "tax_rate": 0.13,
+          "price": 28.8,
+          "tax_rate": 0.09,
           "discount": 0.8
         }
       },
       {
-        "tool_name": "get_country_of_origin",
+        "tool_name": "find_products_by_country_of_origin",
         "parameters": {
-          "product_name": "Switzerland Swiss Cheese"
+          "country": "Switzerland"
         }
       },
       {
@@ -1549,7 +1545,7 @@
               "quantity": 2
             },
             {
-              "product_name": "Goat Cheese",
+              "product_name": "Provolone Cheese",
               "quantity": 1
             }
           ]
@@ -1686,18 +1682,6 @@
         }
       },
       {
-        "tool_name": "add_to_cart",
-        "parameters": {
-          "user_id": "user_606",
-          "product_name": "Mystic Valley Cheese",
-          "qty": 2,
-          "category": "cheese",
-          "price": 25.8,
-          "tax_rate": 0.08,
-          "discount": 1
-        }
-      },
-      {
         "tool_name": "compute_total_nutrition",
         "parameters": {
           "user_id": "user_606",
@@ -1724,7 +1708,7 @@
             },
             {
               "product_name": "Mystic Valley Cheese",
-              "quantity": 4
+              "quantity": 2
             }
           ]
         }
@@ -2056,8 +2040,8 @@
     ]
   },
   {
-    "Instruction": "You are a health-conscious food blogger (User ID: user_789). Ask the AI Service Agent to verify whether the wedge-shaped cheese closest to you and positioned at the very front of the glass cabinet has a sodium content below 500 milligrams. If it does, ask the AI Service Agent to search for cheeses originating from the Netherlands priced between 15 and 50 yuan, and add the one with the largest discount to your cart. If there are multiple cheeses tied for the largest discount among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to search for cheeses with a \"tangy\" flavor and a tax rate below 0.08, and add the low-sodium cheese with the lowest fat content to your cart. If there are multiple cheeses tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Next, ask the AI Service Agent to remove any cheese from the cart that has a sugar content higher than 1 gram. Then, ask the AI Service Agent to check the shopping list and add any items that have not been fully purchased and have a protein content higher than 20 grams to the cart. Finally, ask the AI Service Agent to calculate the total payable amount for all items in the cart.",
-    "analysis": "(Note: In the cheese scenario, every 100g counts as one portion. For example: if the task requires adding 400g to the cart, the quantity parameter is 4.)\n\n1. Verify whether the wedge-shaped cheese closest to you and positioned at the very front of the glass cabinet has a sodium content below 500 milligrams.\n2. If yes, search for cheese originating from the Netherlands priced between 15 and 50 yuan, and add the item with the largest discount to the cart. If there are multiple cheeses tied for the largest discount among those that meet the conditions, add all of them to the cart.\n3. Otherwise, search for cheese with a \"tangy\" flavor and a tax rate below 0.08, and add the item with the lowest fat content to the cart. If there are multiple cheeses tied for the lowest fat content among those that meet the conditions, add all of them to the cart.\n4. Remove any cheese from the shopping cart that has a sugar content higher than 1 gram.\n5. Check the shopping list and add any incomplete items with a protein content higher than 20 grams to the cart.\n6. Calculate the total payable amount for all items in the shopping cart.",
+    "Instruction": "You are a health-conscious food blogger (User ID: user_789). Ask the AI Service Agent to verify whether the wedge-shaped cheese closest to you and positioned at the very left front of the glass cabinet has a sodium content below 500 milligrams. If it does, ask the AI Service Agent to search for cheeses originating from the Netherlands priced between 15 and 50 yuan, and add the one with the largest discount to your cart. If there are multiple cheeses tied for the largest discount among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to search for cheeses with a \"tangy\" flavor and a tax rate below 0.08, and add the low-sodium cheese with the lowest fat content to your cart. If there are multiple cheeses tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Next, ask the AI Service Agent to remove any cheese from the cart that has a sugar content higher than 1 gram. Then, ask the AI Service Agent to check the shopping list and add any items that have not been fully purchased and have a protein content higher than 20 grams to the cart. Finally, ask the AI Service Agent to calculate the total payable amount for all items in the cart.",
+    "analysis": "(Note: In the cheese scenario, every 100g counts as one portion. For example: if the task requires adding 400g to the cart, the quantity parameter is 4.)\n\n1. Verify whether the wedge-shaped cheese closest to you and positioned at the very left front of the glass cabinet has a sodium content below 500 milligrams.\n2. If yes, search for cheese originating from the Netherlands priced between 15 and 50 yuan, and add the item with the largest discount to the cart. If there are multiple cheeses tied for the largest discount among those that meet the conditions, add all of them to the cart.\n3. Otherwise, search for cheese with a \"tangy\" flavor and a tax rate below 0.08, and add the item with the lowest fat content to the cart. If there are multiple cheeses tied for the lowest fat content among those that meet the conditions, add all of them to the cart.\n4. Remove any cheese from the shopping cart that has a sugar content higher than 1 gram.\n5. Check the shopping list and add any incomplete items with a protein content higher than 20 grams to the cart.\n6. Calculate the total payable amount for all items in the shopping cart.",
     "ground_truth": [
       {
         "tool_name": "add_to_cart",
@@ -2854,7 +2838,7 @@
     ]
   },
   {
-    "Instruction": "You are a cheese expert (User ID: user_505). Ask the AI Service Agent to confirm the protein content of the wedge-shaped cheese closest to you and positioned at the very front of the glass cabinet. If the protein content is higher than 28 grams, ask the AI Service Agent to find cheeses that are from France and have a \"mild\" flavor, and add the cheapest one to your cart. If there are multiple cheeses tied for the lowest price among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to find cheeses with a tax rate higher than 0.10 and a unit price between 30 and 60 yuan, and add the one with the highest sodium content to your cart. If there are multiple cheeses tied for the highest sodium content among those that meet the conditions, you want all of them to be added. Additionally, ask the AI Service Agent to remove any items from your cart that contain more than 1 gram of sugar. Then, ask the AI Service Agent to compare against the shopping list and add any items not yet in your cart that have the lowest tax rate. If multiple items tie for the lowest tax rate, add all of them. Finally, ask the AI Service Agent to calculate the total calories for all items in your cart.",
+    "Instruction": "You are a cheese expert (User ID: user_505). Ask the AI Service Agent to confirm the protein content of the wedge-shaped cheese closest to you and positioned at the very left front of the glass cabinet. If the protein content is higher than 28 grams, ask the AI Service Agent to find cheeses that are from France and have a \"mild\" flavor, and add the cheapest one to your cart. If there are multiple cheeses tied for the lowest price among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI Service Agent to find cheeses with a tax rate higher than 0.10 and a unit price between 30 and 60 yuan, and add the one with the highest sodium content to your cart. If there are multiple cheeses tied for the highest sodium content among those that meet the conditions, you want all of them to be added. Additionally, ask the AI Service Agent to remove any items from your cart that contain more than 1 gram of sugar. Then, ask the AI Service Agent to compare against the shopping list and add any items not yet in your cart that have the lowest tax rate. If multiple items tie for the lowest tax rate, add all of them. Finally, ask the AI Service Agent to calculate the total calories for all items in your cart.",
     "analysis": "(Note: In the cheese scenario, every 100g counts as one portion. For example: if the task requires adding 400g to the cart, the quantity parameter is 4.)\n\n1. Confirm the protein content of the wedge-shaped cheese that is closest to you and positioned at the very front inside the glass cabinet.\n2. If the protein content is higher than 28 grams, search for cheeses originating from France with a \"mild\" flavor, and add the one with the lowest price to your cart. If there are multiple cheeses tied for the lowest price among those that meet the conditions, add one of each of those tied items to the cart.\n3. Otherwise, search for cheeses with a tax rate higher than 0.10 and a unit price between 30 and 60 yuan, and add the one with the highest sodium content to your cart. If there are multiple cheeses tied for the highest sodium content among those that meet the conditions, add one of each of those tied items to the cart.\n4. Remove any items from the cart that have a sugar content greater than 1 gram.\n5. Compare with the shopping list, and add any items that are not yet in the cart and are tax-exempt to the cart.\n6. Calculate the total calories for all items in the cart.",
     "ground_truth": [
       {

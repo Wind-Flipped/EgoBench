@@ -8,12 +8,25 @@
         "parameters": {
           "restaurant_name": "Mediterranean Greek Restaurant",
           "user_id": "customer_001",
-          "dish_name": "Pita Bread",
+          "dish_name": "Hummus Dip",
           "quantity": 1,
-          "category": "Sides",
-          "price": 28,
-          "tax_rate": 0.05,
-          "discount": 1
+          "category": "Appetizers",
+          "price": 58,
+          "tax_rate": 0.08,
+          "discount": 0.8
+        }
+      },
+      {
+        "tool_name": "add_dish_to_order",
+        "parameters": {
+          "restaurant_name": "Mediterranean Greek Restaurant",
+          "user_id": "customer_001",
+          "dish_name": "Melitzanosalata",
+          "quantity": 1,
+          "category": "Appetizers",
+          "price": 58,
+          "tax_rate": 0.08,
+          "discount": 0.9
         }
       },
       {
@@ -74,7 +87,11 @@
               "quantity": 2
             },
             {
-              "dish_name": "Pita Bread",
+              "dish_name": "Hummus Dip",
+              "quantity": 1
+            },
+            {
+              "dish_name": "Melitzanosalata",
               "quantity": 1
             },
             {
@@ -111,7 +128,11 @@
               "quantity": 2
             },
             {
-              "dish_name": "Pita Bread",
+              "dish_name": "Hummus Dip",
+              "quantity": 1
+            },
+            {
+              "dish_name": "Melitzanosalata",
               "quantity": 1
             },
             {
@@ -714,7 +735,7 @@
               "quantity": 2
             },
             {
-              "dish_name": "Dolmades",
+              "dish_name": "Tzatziki",
               "quantity": 2
             }
           ]
@@ -747,7 +768,7 @@
               "quantity": 2
             },
             {
-              "dish_name": "Dolmades",
+              "dish_name": "Tzatziki",
               "quantity": 2
             }
           ]
@@ -764,7 +785,7 @@
     ]
   },
   {
-    "Instruction": "You are a customer strictly following a low-carb diet plan (User ID: customer_009). Your father-in-law is a meat lover and will come to your home for dinner tonight. You have browsed the flip menu of Mediterranean Greek Restaurant and the brown menu of Sunshine Bistro (only items listed within the frames on the menus are currently available). You need the AI service agent to first select a suitable restaurant based on your father-in-law's needs. Once the restaurant is selected, inform the AI service agent that all subsequent tasks will be based on this chosen restaurant, and you won’t need to reiterate it. You pointed with the tip of your pen at the dark blue dual-handled pot on the bottom left of the 4th spread page. Ask the AI service agent to retrieve the calorie data for this dish. Ask the AI service agent to determine: if the calorie content of this dish is below 250 kcal, then ask the AI service agent to select the soup with the lowest fat content among all soups labeled with a mild flavor tag and add one portion to the order. If there are multiple soups tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to check the dish with the bright blue plate on the top right of the 3rd spread page and add one portion of it to the order. Next, ask the AI service agent to search for the latest set meal deals. Ask the AI service agent to determine if the dishes in the current order can fully match any set meal that includes an extra discount. If so, ask the AI service agent to automatically update the matching dishes in the order to that set meal format. Finally, ask the AI service agent to calculate the total carbohydrates for the entire order and the final discount amount.",
+    "Instruction": "You are a customer strictly following a low-carb diet plan (User ID: customer_009). Your father-in-law is a meat lover and will come to your home for dinner tonight. You have browsed the flip menu of Mediterranean Greek Restaurant and the brown menu of Sunshine Bistro (only items listed within the frames on the menus are currently available). You need the AI service agent to first select a suitable restaurant based on your father-in-law's needs. Once the restaurant is selected, inform the AI service agent that all subsequent tasks will be based on this chosen restaurant, and you won’t need to reiterate it. You pointed with the tip of your pen at the dark blue dual-handled pot on the bottom left of the 4th spread page. Ask the AI service agent to retrieve the calorie data for this dish. Ask the AI service agent to determine: if the calorie content of this dish is below 250 kcal, then ask the AI service agent to select the soup with the lowest fat content among all soups labeled with a mild flavor tag and add one portion to the order. If there are multiple soups tied for the lowest fat content among those that meet the conditions, you want all of them to be added. Otherwise, ask the AI service agent to check the dish with the bright blue plate on the top right of the 3rd spread page and add one portion of it to the order. Next, ask the AI service agent to search for the latest set meal deals. Ask the AI service agent to determine if the dishes in the current order can fully match any set meal that includes an extra discount. If so, ask the AI service agent to automatically update the matching dishes in the order to that set meal format. Finally, ask the AI service agent to calculate the total carbohydrates for the entire order and the total amount after discount.",
     "analysis": "All tool calls and database dish searches for this task are limited to the restaurant Mediterranean Greek Restaurant.\n1. Retrieve the calorie data for the dark blue double-handled pot dish located at the bottom left of the 4th expanded page.\n2. If the calorie count is below 250 kcal, select the soup with the lowest fat content among all soups tagged with \"mild flavor\" and add one portion to the order. If there are multiple soups tied for the lowest fat content among those that meet the conditions, add one portion of each of those tied items.\n3. Otherwise, detect the dish with a bright blue plate located at the top right of the 3rd expanded page and add one portion to the order.\n4. Retrieve the latest set meal promotions. If the dishes in the current order match any set meal that includes additional discounts, automatically update the order to that set meal format.\n5. Calculate the total carbohydrates for the entire order and the final discount amount.",
     "ground_truth": [
       {
@@ -863,8 +884,8 @@
     ]
   },
   {
-    "Instruction": "Your father enjoys various types of seafood and is coming over for dinner tonight. You have reviewed the flip menu of the Mediterranean Greek Restaurant and the brown menu of Sunshine Town Restaurant (ingredients mentioned in the dark sections are temporarily out of stock). You need the AI service assistant to first select a suitable restaurant based on your father's preferences. Once the restaurant is selected, inform the AI service agent that all subsequent tasks will be based on this chosen restaurant, and you won’t need to reiterate it. You are a budget-conscious food lover (User ID: customer_010). You are looking at the dish featuring a grilled vegetable skewer on that wooden cutting board. Ask the AI Service Agent to check its tax rate and discount status. Ask the AI Service Agent to determine if the current discount on this dish is at least 20% off (i.e., discount factor ≤ 0.8). If so, ask the AI Service Agent to select the savory dish with the highest calorie count from all savory dishes and add one serving to the order. If multiple dishes tie for the highest calorie count, add one serving of each of those tied dishes. Otherwise, ask the AI Service Agent to locate the deep blue casserole containing seafood positioned below it, and add two servings of that dish to the order. Subsequently, ask the AI Service Agent to determine if the total order amount including tax exceeds 180 yuan. If so, ask the AI Service Agent to remove the non-set dish with the highest carbohydrate content from the order. If multiple dishes tie for the highest carbohydrate content, remove all of them. Finally, ask the AI Service Agent to calculate the total calcium content and the actual total payable price of the final order.",
-    "analysis": "All tool calls and database dish searches for this task are limited to the Mediterranean Greek Restaurant.\n1. Query the tax rate and discount status of the dish with grilled vegetable skewers on the wooden cutting board.\n2. If the current discount factor is ≤ 0.8 (20% off or more), select the savory dish with the highest calorie count and add one portion to the order. If multiple dishes tie for the highest calorie count, add one portion of each tied dish.\n3. Otherwise, locate the dish in the dark blue ear-pot containing seafood below it and add two portions to the order.\n4. Perform a budget control check. If the total order amount including tax exceeds 180 yuan, remove the dish with the highest carbohydrate content from the order.\n5. Calculate the total calcium content and the actual total payable price for the final order.",
+    "Instruction": "Your father enjoys various types of seafood and is coming over for dinner tonight. You have reviewed the flip menu of the Mediterranean Greek Restaurant and the brown menu of Sunshine Town Restaurant (ingredients mentioned in the dark sections are temporarily out of stock). You need the AI service assistant to first select a suitable restaurant based on your father's preferences. Once the restaurant is selected, inform the AI service agent that all subsequent tasks will be based on this chosen restaurant, and you won’t need to reiterate it. You are a budget-conscious food lover (User ID: customer_010). You are looking at the dish featuring a grilled vegetable skewer on that wooden cutting board. Ask the AI Service Agent to check its tax rate and discount status. Ask the AI Service Agent to determine if the current discount on this dish is at least 20% off (i.e., discount factor ≤ 0.8). If so, ask the AI Service Agent to select the savory dish with the highest calorie count from all savory dishes and add one serving to the order. If multiple dishes tie for the highest calorie count, add one serving of each of those tied dishes. Otherwise, ask the AI Service Agent to locate the deep blue casserole containing seafood positioned below it, and add two servings of that dish to the order. Subsequently, ask the AI Service Agent to determine if the total order amount including tax exceeds 180 yuan. If so, ask the AI Service Agent to remove the non-set dish with the highest carbohydrate content from the order. If multiple dishes tie for the highest carbohydrate content, remove all of them. Finally, ask the AI Service Agent to calculate the total sodium content and the actual total payable price of the final order.",
+    "analysis": "All tool calls and database dish searches for this task are limited to the Mediterranean Greek Restaurant.\n1. Query the tax rate and discount status of the dish with grilled vegetable skewers on the wooden cutting board.\n2. If the current discount factor is ≤ 0.8 (20% off or more), select the savory dish with the highest calorie count and add one portion to the order. If multiple dishes tie for the highest calorie count, add one portion of each tied dish.\n3. Otherwise, locate the dish in the dark blue ear-pot containing seafood below it and add two portions to the order.\n4. Perform a budget control check. If the total order amount including tax exceeds 180 yuan, remove the dish with the highest carbohydrate content from the order.\n5. Calculate the total sodium content and the actual total payable price for the final order.",
     "ground_truth": [
       {
         "tool_name": "get_dish_tax_rate",
@@ -972,7 +993,7 @@
     ]
   },
   {
-    "Instruction": "Your fitness coach wants you to eat more grilled seafood for dinner. You have checked the menus of Afrikana Kitchen and Mediterranean Greek Restaurant. You need the AI Service Agent to first select one of these restaurants for you. Once the restaurant is selected, inform the AI service agent that all subsequent tasks will be based on this chosen restaurant, and you won’t need to reiterate it. You are a regular gym customer (User ID: customer_001). You are pointing at the dish with dairy products served in a wooden bowl. Ask the AI Service Agent to query the sugar content of this dish. Ask the AI Service Agent to judge: if the sugar content of this dish is less than 20 grams, then ask the AI Service Agent to find the dish with the highest protein content among all dishes with a low-calorie label and add one portion of it to the order. If there are multiple dishes tied for the highest protein content, you want one portion of each of those tied dishes to be added. Otherwise, ask the AI Service Agent to select the dish with the lowest price among all savory-flavored dishes and add two portions of it to the order. If there are multiple dishes tied for the lowest price, you want two portions of each of those tied dishes to be added. After placing the order, ask the AI Service Agent to judge: if the total calories of the current order exceed 600 kcal (calculated per 100g unit for each dish), then ask the AI Service Agent to remove the non-set meal dish with the highest fat content from the order. Finally, ask the AI Service Agent to calculate the total tax and total dietary fiber content of the order.",
+    "Instruction": "Your fitness coach wants you to eat more grilled seafood for dinner. You have checked the menus of Afrikana Kitchen and Mediterranean Greek Restaurant. You need the AI Service Agent to first select one of these restaurants for you. Once the restaurant is selected, inform the AI service agent that all subsequent tasks will be based on this chosen restaurant, and you won’t need to reiterate it. You are a regular gym customer (User ID: customer_001). You are pointing at the dish with dairy products served in a wooden bowl. Ask the AI Service Agent to query the sugar content of this dish. Ask the AI Service Agent to judge: if the sugar content of this dish is less than 20 grams, then ask the AI Service Agent to find the dish with the highest protein content among all dishes with a low-calorie label and add one portion of it to the order. If there are multiple dishes tied for the highest protein content, you want one portion of each of those tied dishes to be added. Otherwise, ask the AI Service Agent to select the dish with the lowest price among all savory-flavored dishes and add two portions of it to the order. If there are multiple dishes tied for the lowest price, you want two portions of each of those tied dishes to be added. After placing the order, ask the AI Service Agent to judge: if the total calories of the current order exceed 600 kcal (calculated per 100g unit for each dish), then ask the AI Service Agent to remove the non-set meal dish with the highest fat content from the order. Finally, ask the AI Service Agent to calculate the total dietary fiber content of the order.",
     "analysis": "All tool calls and database dish searches for this task are limited to the Mediterranean Greek Restaurant.\n1. Query the sugar content of dishes served with dairy products in wooden bowls.\n2. If the sugar content is below 20 grams, search among all dishes labeled as low-calorie for the one with the highest protein content and add one portion to the order. If multiple dishes tie for the highest protein content, add one portion of each.\n3. Otherwise, select the dish with the lowest price among all salty-flavored dishes and add two portions to the order. If multiple dishes tie for the lowest price, add two portions of each.\n4. Verify the total calorie count of the order. If the total calories exceed 600 kcal, remove the dish with the highest fat content from the order. If multiple dishes tie for the highest fat content, remove all of them.\n5. Calculate the total tax and total dietary fiber content for the order.",
     "ground_truth": [
       {

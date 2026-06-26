@@ -13835,8 +13835,8 @@ retail_init_data6 = {
           "quantity": 2
         },
         {
-          "product_name": "highland speciality shortbread teddy bear*2\"",
-          "quantity": 1
+          "product_name": "highland speciality shortbread teddy bear",
+          "quantity": 2
         }
       ]
     },

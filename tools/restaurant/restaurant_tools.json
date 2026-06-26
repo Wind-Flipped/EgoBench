@@ -61,11 +61,9 @@
                 "high_protein",
                 "high_calcium",
                 "sugar_free",
-                "gluten_free",
                 "high_omega3",
                 "vegan",
                 "high_antioxidants",
-                "high_calorie",
                 "high_calories",
                 "high_carbs",
                 "high_fat",
@@ -74,8 +72,7 @@
                 "high_monounsaturated_fat",
                 "high_sodium",
                 "high_sugar",
-                "high_vitaminA",
-                "low_calorie"
+                "high_vitaminA"
               ]
             },
             "description": "Nutritional/health tags."
@@ -113,7 +110,15 @@
           "allergens": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "dairy",
+                "gluten",
+                "fish",
+                "eggs",
+                "nuts",
+                "alcohol"
+              ]
             }
           },
           "nutrition": {
@@ -414,11 +419,9 @@
               "high_protein",
               "high_calcium",
               "sugar_free",
-              "gluten_free",
               "high_omega3",
               "vegan",
               "high_antioxidants",
-              "high_calorie",
               "high_calories",
               "high_carbs",
               "high_fat",
@@ -427,8 +430,7 @@
               "high_monounsaturated_fat",
               "high_sodium",
               "high_sugar",
-              "high_vitaminA",
-              "low_calorie"
+              "high_vitaminA"
             ]
           }
         },
@@ -578,7 +580,7 @@
     "type": "function",
     "function": {
       "tool_name": "compute_total_payment",
-      "description": "Compute total payable amount for the specified dishes: sum(price * discount * qty).",
+      "description": "Compute total payable amount for the specified dishes: sum(price * discount * qty). If a set meal has no set_meal_price, it is priced from its included dishes.",
       "parameters": {
         "type": "object",
         "additionalProperties": false,

@@ -87,13 +87,32 @@ class OrderDB:
         store = self._get_store(restaurant_name)
         query_lower = query.lower()
         matching_set_meals = []
-        
+
         for set_meal in store['set_meals'].values():
             set_meal_name_lower = set_meal.name.lower()
             if query_lower in set_meal_name_lower or set_meal_name_lower in query_lower:
-                matching_set_meals.append(set_meal) 
-            
+                matching_set_meals.append(set_meal)
+
         return matching_set_meals
+
+    def _find_set_meal_across_restaurants(self, set_meal_name: str, preferred_store: Optional[Dict[str, Any]] = None) -> tuple:
+        """Find a set meal across all restaurants.
+        Returns (store, set_meal) or (None, None) if not found.
+        If preferred_store is given, searches it first."""
+        set_meal_key = set_meal_name.lower()
+
+        # Search preferred store first
+        if preferred_store and set_meal_key in preferred_store.get("set_meals", {}):
+            return preferred_store, preferred_store["set_meals"][set_meal_key]
+
+        # Search all other restaurants
+        for r_store in self.restaurants.values():
+            if r_store is preferred_store:
+                continue
+            if set_meal_key in r_store.get("set_meals", {}):
+                return r_store, r_store["set_meals"][set_meal_key]
+
+        return None, None
 
     # ======================
     # Initialization Method (Adapt to Flat JSON Format)
@@ -459,10 +478,20 @@ class OrderDB:
         set_meal_key = set_meal_name.lower()
         if set_meal_key in store['set_meals']:
             set_meal = store['set_meals'][set_meal_key]
+            if set_meal.set_meal_price and set_meal.set_meal_price > 0:
+                price = set_meal.set_meal_price
+            else:
+                price = 0.0
+                for included_item in set_meal.included_dishes:
+                    included_dish_name = included_item.get("dish_name", " ").lower()
+                    included_qty = included_item.get("quantity", 1.0)
+                    if included_dish_name in store["catalog"]:
+                        included_dish = store["catalog"][included_dish_name]
+                        price += included_dish.price * included_dish.discount * included_qty
             return {
                 "name": set_meal.name,
                 "included_dishes": set_meal.included_dishes,
-                "price": set_meal.set_meal_price,
+                "price": price,
                 "discount": set_meal.set_meal_discount
             }
         else:
@@ -623,26 +652,46 @@ class OrderDB:
         return {"status": "success", "message": f"Added {quantity} x {set_meal_name} set meal to order for user {user_id}."}
 
     def remove_set_meal_from_order(self, restaurant_name: str, user_id: str, set_meal_name: str, quantity: float) -> Dict[str, Any]:
-        """Remove a specified quantity of a set meal from a user's order in specified restaurant."""
+        """Remove a specified quantity of a set meal from a user's order.
+        If not found in the current restaurant, search across all restaurants."""
         store = self._get_store(restaurant_name)
         set_meal_key = set_meal_name.lower()
         order_key = set_meal_key
 
-        if user_id not in store['user_orders'] or order_key not in store['user_orders'][user_id]:
-            return {"status": "error", "message": f"Set meal '{set_meal_name}' not found in order for user {user_id}."}
+        if user_id in store['user_orders'] and order_key in store['user_orders'][user_id]:
+            # Found in current restaurant
+            current_qty = store['user_orders'][user_id][order_key].quantity
+            new_qty = current_qty - quantity
 
-        current_qty = store['user_orders'][user_id][order_key].quantity
-        new_qty = current_qty - quantity
+            if new_qty <= 0:
+                del store['user_orders'][user_id][order_key]
+            else:
+                store['user_orders'][user_id][order_key].quantity = new_qty
 
-        if new_qty <= 0:
-            del store['user_orders'][user_id][order_key]
-        else:
-            store['user_orders'][user_id][order_key].quantity = new_qty
+            # Update current active restaurant
+            self.user_current_restaurant = restaurant_name
 
-        # Update current active restaurant
-        self.user_current_restaurant = restaurant_name
+            return {"status": "success", "message": f"Removed {quantity} x {set_meal_name} set meal from order for user {user_id}."}
 
-        return {"status": "success", "message": f"Removed {quantity} x {set_meal_name} set meal from order for user {user_id}."}
+        # Not found in current restaurant — search across all restaurants
+        for r_name, r_store in self.restaurants.items():
+            if r_name == restaurant_name:
+                continue
+            if user_id in r_store['user_orders'] and order_key in r_store['user_orders'][user_id]:
+                current_qty = r_store['user_orders'][user_id][order_key].quantity
+                new_qty = current_qty - quantity
+
+                if new_qty <= 0:
+                    del r_store['user_orders'][user_id][order_key]
+                else:
+                    r_store['user_orders'][user_id][order_key].quantity = new_qty
+
+                # Update current active restaurant
+                self.user_current_restaurant = r_name
+
+                return {"status": "success", "message": f"Removed {quantity} x {set_meal_name} set meal from order for user {user_id}."}
+
+        return {"status": "error", "message": f"Set meal '{set_meal_name}' not found in order for user {user_id}."}
 
     # ======================
     # Multi-restaurant Calculation Tools (No restaurant_name needed)
@@ -652,6 +701,7 @@ class OrderDB:
         Compute total payable amount for the specified dishes:
         sum(price * discount * qty).
         If a set meal has no set_meal_price, it is priced from its included dishes.
+        If a set meal is not found in the current restaurant, search across all restaurants.
         """
         total_payment = 0.0
         restaurant_key = restaurant_name or ""
@@ -665,10 +715,33 @@ class OrderDB:
                     break
 
         if not store:
+            # Still try cross-restaurant search for set meals
+            for item in dishes:
+                dish_name = item.get("dish_name", " ").lower()
+                quantity = item.get("quantity", 0)
+                if quantity <= 0:
+                    continue
+                # Try to find as set meal across restaurants
+                meal_store, set_meal = self._find_set_meal_across_restaurants(dish_name)
+                if set_meal:
+                    lookup_store = meal_store
+                    if set_meal.set_meal_price and set_meal.set_meal_price > 0:
+                        amount = set_meal.set_meal_price * set_meal.set_meal_discount * quantity
+                    else:
+                        meal_payment = 0.0
+                        for included_item in set_meal.included_dishes:
+                            included_dish_name = included_item.get("dish_name", " ").lower()
+                            included_qty = included_item.get("quantity", 1.0)
+                            if included_dish_name in lookup_store["catalog"]:
+                                included_dish = lookup_store["catalog"][included_dish_name]
+                                meal_payment += included_dish.price * included_dish.discount * included_qty
+                        amount = meal_payment * set_meal.set_meal_discount * quantity
+                    total_payment += amount
+
             return {
                 "restaurant_name": restaurant_name,
                 "user_id": user_id,
-                "total_payment": 0.0
+                "total_payment": round(total_payment, 2)
             }
 
         for item in dishes:
@@ -696,6 +769,23 @@ class OrderDB:
                             meal_payment += included_dish.price * included_dish.discount * included_qty
                     amount = meal_payment * set_meal.set_meal_discount * quantity
                 total_payment += amount
+            else:
+                # Not found in current restaurant, search across all restaurants
+                meal_store, set_meal = self._find_set_meal_across_restaurants(dish_name, preferred_store=store)
+                if set_meal:
+                    lookup_store = meal_store
+                    if set_meal.set_meal_price and set_meal.set_meal_price > 0:
+                        amount = set_meal.set_meal_price * set_meal.set_meal_discount * quantity
+                    else:
+                        meal_payment = 0.0
+                        for included_item in set_meal.included_dishes:
+                            included_dish_name = included_item.get("dish_name", " ").lower()
+                            included_qty = included_item.get("quantity", 1.0)
+                            if included_dish_name in lookup_store["catalog"]:
+                                included_dish = lookup_store["catalog"][included_dish_name]
+                                meal_payment += included_dish.price * included_dish.discount * included_qty
+                        amount = meal_payment * set_meal.set_meal_discount * quantity
+                    total_payment += amount
 
         return {
             "restaurant_name": restaurant_name,
@@ -709,6 +799,7 @@ class OrderDB:
         Compute total tax amount for the specified dishes.
         Since price is tax-inclusive, tax per item =
         (price * tax_rate / (1 + tax_rate)) * discount * qty.
+        If a set meal is not found in the current restaurant, search across all restaurants.
         """
         total_tax = 0.0
         restaurant_key = restaurant_name or ""
@@ -722,10 +813,28 @@ class OrderDB:
                     break
 
         if not store:
+            # Still try cross-restaurant search for set meals
+            for item in dishes:
+                dish_name = item.get("dish_name", " ").lower()
+                quantity = item.get("quantity", 0)
+                if quantity <= 0:
+                    continue
+                meal_store, set_meal = self._find_set_meal_across_restaurants(dish_name)
+                if set_meal:
+                    lookup_store = meal_store
+                    for included_item in set_meal.included_dishes:
+                        included_dish_name = included_item.get("dish_name", " ").lower()
+                        included_qty = included_item.get("quantity", 1.0)
+                        if included_dish_name in lookup_store["catalog"]:
+                            included_dish = lookup_store["catalog"][included_dish_name]
+                            pre_tax_price = (included_dish.price * included_dish.tax_rate) / (1 + included_dish.tax_rate)
+                            tax = pre_tax_price * included_dish.discount * included_qty * quantity
+                            total_tax += tax
+
             return {
                 "restaurant_name": restaurant_name,
                 "user_id": user_id,
-                "total_tax": 0.0
+                "total_tax": round(total_tax, 2)
             }
 
         for item in dishes:
@@ -752,6 +861,19 @@ class OrderDB:
                         pre_tax_price = (included_dish.price * included_dish.tax_rate) / (1 + included_dish.tax_rate)
                         tax = pre_tax_price * included_dish.discount * included_qty * quantity
                         total_tax += tax
+            else:
+                # Not found in current restaurant, search across all restaurants
+                meal_store, set_meal = self._find_set_meal_across_restaurants(dish_name, preferred_store=store)
+                if set_meal:
+                    lookup_store = meal_store
+                    for included_item in set_meal.included_dishes:
+                        included_dish_name = included_item.get("dish_name", " ").lower()
+                        included_qty = included_item.get("quantity", 1.0)
+                        if included_dish_name in lookup_store["catalog"]:
+                            included_dish = lookup_store["catalog"][included_dish_name]
+                            pre_tax_price = (included_dish.price * included_dish.tax_rate) / (1 + included_dish.tax_rate)
+                            tax = pre_tax_price * included_dish.discount * included_qty * quantity
+                            total_tax += tax
 
         return {
             "restaurant_name": restaurant_name,
@@ -763,6 +885,7 @@ class OrderDB:
     def compute_total_nutrition(self, restaurant_name: str, user_id: str, dishes: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
         Compute total nutrition values for the specified dishes.
+        If a set meal is not found in the current restaurant, search across all restaurants.
         """
         total_nutrition = {
             "calories_kcal": 0.0,
@@ -774,6 +897,26 @@ class OrderDB:
             "fiber_g": 0.0
         }
 
+        def _accumulate_nutrition(nut_info, multiplier):
+            total_nutrition["calories_kcal"] += (nut_info.calories_kcal or 0) * multiplier
+            total_nutrition["protein_g"] += (nut_info.protein_g or 0) * multiplier
+            total_nutrition["fat_g"] += (nut_info.fat_g or 0) * multiplier
+            total_nutrition["carbs_g"] += (nut_info.carbs_g or 0) * multiplier
+            total_nutrition["sugar_g"] += (nut_info.sugar_g or 0) * multiplier
+            total_nutrition["sodium_mg"] += (nut_info.sodium_mg or 0) * multiplier
+            total_nutrition["fiber_g"] += (nut_info.fiber_g or 0) * multiplier
+
+        def _accumulate_set_meal_nutrition(set_meal, lookup_store, quantity):
+            for included_item in set_meal.included_dishes:
+                included_dish_name = included_item.get("dish_name", " ").lower()
+                included_qty = included_item.get("quantity", 1.0)
+                if included_dish_name in lookup_store["catalog"]:
+                    included_dish = lookup_store["catalog"][included_dish_name]
+                    if included_dish and included_dish.nutrition:
+                        nut_info = included_dish.nutrition
+                        multiplier = (included_qty * quantity) / 100.0 if nut_info.basis == "PER_100G" else included_qty * quantity
+                        _accumulate_nutrition(nut_info, multiplier)
+
         restaurant_key = restaurant_name or ""
         store = self.restaurants.get(restaurant_key)
         if not store:
@@ -784,10 +927,21 @@ class OrderDB:
                     break
 
         if not store:
+            # Still try cross-restaurant search for set meals
+            for item in dishes:
+                dish_name = item.get("dish_name", " ").lower()
+                quantity = item.get("quantity", 0)
+                if quantity <= 0:
+                    continue
+                meal_store, set_meal = self._find_set_meal_across_restaurants(dish_name)
+                if set_meal:
+                    _accumulate_set_meal_nutrition(set_meal, meal_store, quantity)
+
+            rounded_nutrition = {k: round(v, 2) for k, v in total_nutrition.items()}
             return {
                 "restaurant_name": restaurant_name,
                 "user_id": user_id,
-                "total_nutrition": {k: 0.0 for k in total_nutrition}
+                "total_nutrition": rounded_nutrition
             }
 
         for item in dishes:
@@ -801,35 +955,17 @@ class OrderDB:
             if dish and dish.nutrition:
                 nut_info = dish.nutrition
                 multiplier = quantity / 100.0 if nut_info.basis == "PER_100G" else quantity
-
-                total_nutrition["calories_kcal"] += (nut_info.calories_kcal or 0) * multiplier
-                total_nutrition["protein_g"] += (nut_info.protein_g or 0) * multiplier
-                total_nutrition["fat_g"] += (nut_info.fat_g or 0) * multiplier
-                total_nutrition["carbs_g"] += (nut_info.carbs_g or 0) * multiplier
-                total_nutrition["sugar_g"] += (nut_info.sugar_g or 0) * multiplier
-                total_nutrition["sodium_mg"] += (nut_info.sodium_mg or 0) * multiplier
-                total_nutrition["fiber_g"] += (nut_info.fiber_g or 0) * multiplier
+                _accumulate_nutrition(nut_info, multiplier)
 
             elif dish_name in store["set_meals"]:
                 set_meal = store["set_meals"][dish_name]
-                # 套餐营养按包含菜品逐项累加
-                for included_item in set_meal.included_dishes:
-                    included_dish_name = included_item.get("dish_name", " ").lower()
-                    included_qty = included_item.get("quantity", 1.0)
+                _accumulate_set_meal_nutrition(set_meal, store, quantity)
 
-                    if included_dish_name in store["catalog"]:
-                        included_dish = store["catalog"][included_dish_name]
-                        if included_dish and included_dish.nutrition:
-                            nut_info = included_dish.nutrition
-                            multiplier = (included_qty * quantity) / 100.0 if nut_info.basis == "PER_100G" else included_qty * quantity
-
-                            total_nutrition["calories_kcal"] += (nut_info.calories_kcal or 0) * multiplier
-                            total_nutrition["protein_g"] += (nut_info.protein_g or 0) * multiplier
-                            total_nutrition["fat_g"] += (nut_info.fat_g or 0) * multiplier
-                            total_nutrition["carbs_g"] += (nut_info.carbs_g or 0) * multiplier
-                            total_nutrition["sugar_g"] += (nut_info.sugar_g or 0) * multiplier
-                            total_nutrition["sodium_mg"] += (nut_info.sodium_mg or 0) * multiplier
-                            total_nutrition["fiber_g"] += (nut_info.fiber_g or 0) * multiplier
+            else:
+                # Not found in current restaurant, search across all restaurants
+                meal_store, set_meal = self._find_set_meal_across_restaurants(dish_name, preferred_store=store)
+                if set_meal:
+                    _accumulate_set_meal_nutrition(set_meal, meal_store, quantity)
 
         rounded_nutrition = {k: round(v, 2) for k, v in total_nutrition.items()}
         return {
