@@ -39,7 +39,7 @@ error_analysis/
 error_analysis_*/
 reports/
 
-# Ignore only the legacy plural directory. Benchmark assets in video/ are tracked.
+# Ignore only the legacy plural directory. Benchmark assets in scenarios/final/video/ are tracked.
 videos/
 
 # Runtime output

@@ -109,7 +109,9 @@ def resolve_video_path(video_reference, video_dir=None):
         return os.path.abspath(reference)
 
     root = video_dir or os.environ.get("EGOBENCH_VIDEO_DIR")
-    root = os.path.abspath(root or os.path.join(project_root, "video"))
+    root = os.path.abspath(
+        root or os.path.join(project_root, "scenarios", "final", "video")
+    )
     basename = os.path.basename(reference.split("?", 1)[0])
     basename = urllib.parse.unquote(basename)
     candidate = os.path.join(root, basename)
@@ -902,8 +904,11 @@ if __name__ == "__main__":
 
     parser.add_argument(
         "--video_dir",
-        default=os.environ.get("EGOBENCH_VIDEO_DIR", os.path.join(project_root, "video")),
-        help="Directory containing benchmark videos (default: ./video)",
+        default=os.environ.get(
+            "EGOBENCH_VIDEO_DIR",
+            os.path.join(project_root, "scenarios", "final", "video"),
+        ),
+        help="Directory containing benchmark videos (default: ./scenarios/final/video)",
     )
 
     args = parser.parse_args()

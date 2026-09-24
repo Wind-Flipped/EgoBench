@@ -110,12 +110,12 @@ Each scenario variant provides a different database configuration (product catal
 │   └── user_words.py             # Extra phrases for hard-mode user agent
 ├── scenarios/
 │   └── final/                    # Task definitions and ground truth (JSON)
+│       ├── video/                    # Version-controlled benchmark video assets
 │       ├── retail1.json .. retail10.json
 │       ├── kitchen1.json .. kitchen4.json
 │       ├── restaurant1.json .. restaurant6.json
 │       ├── warehouse1.json .. warehouse25.json
 │       └── household1.json .. household18.json
-├── video/                        # Version-controlled benchmark video assets
 ├── analysis_scripts/             # Evaluation & visualization
 │   ├── evaluate_interaction.py   # Core evaluation script
 │   ├── print_eval.py             # Pretty-print evaluation results
@@ -201,27 +201,12 @@ All API keys and base URLs are managed through environment variables. A `.env.ex
 
 ### Video Configuration
 
-Our video files are available at [EgoBench Dataset](https://www.kaggle.com/datasets/egobench/egobench/data?select=EgoCentricVideos).
-The video information and tool library content corresponding to each task are stored in the `scenarios/final` folder.
-This framework reads the version-controlled benchmark videos from the local
-`video/` directory.
+The required video files are version-controlled in this Git repository under
+`scenarios/final/video/`. Clone the repository to download them together with
+the task definitions and ground truth.
 
-#### Step 1: Verify Videos
-
-The repository includes the required video files in `video/`. The scenarios use
-the following videos:
-
-| Scenario | Required Videos |
-|----------|----------------|
-| **retail** | retail1.mp4 - retail10.mp4 |
-| **kitchen** | kitchen1.mp4, deep_fried.mp4, Green Pepper Chicken.mp4, dumplings.mp4 |
-| **restaurant** | restaurant1.mp4 - restaurant5.mp4; Restaurant 6 uses afrikana_greek.mp4, butcher_greek.mp4, greek_annie_1.mp4, meraki_greek.mp4, pauhana_greek.mp4, sunny_greek.mp4 |
-| **warehouse** | warehouse1.mp4 - warehouse25.mp4 |
-| **household** | household1.mp4 - household18.mp4 |
-
-#### Step 2: Optional Custom Location
-
-The default path is `<repository>/video`. To keep the videos elsewhere, pass
+The framework uses `<repository>/scenarios/final/video` by default. To keep the
+videos elsewhere, pass
 `--video_dir` or set `EGOBENCH_VIDEO_DIR`:
 
 ```bash
