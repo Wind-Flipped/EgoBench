@@ -1,0 +1,865 @@
+[
+  {
+    "Instruction": "Your user ID is household_user_01, and today is 13 days before the last day of August 2026. First, determine whether the retrievable use time of the small yellow piece on the edge of the basin overlaps June 14 through July 29, 2026, with containment also counting as an overlap. If so, you explain that it will be retired on August 23, 2026 and that you will acquire a new item exactly identical to it to replace it; add this replacement plan to the action list, due on August 23, 2026. If not, you explain that it will leave household use on August 21, 2026, be removed directly from the home, and not be replaced with a brand-new identical item; add an item not to retain the current item, due on August 21, 2026. Next, determine whether its purchase price is no higher than 200. If so, among all household textiles, find the latest-purchased items, retaining the lower-priced if dates tie and retaining all if prices also tie; you explain that they are clean and dry and can be ironed, and ask the AI Service Agent to create ironing actions, due on August 21, 2026. If above 200, among all clothing, find the lowest-priced items, retaining the later-purchased if prices tie and retaining all if dates also tie; you explain that they have been washed and still need to dry thoroughly, and ask the AI Service Agent to add drying-after-washing items, due on August 24, 2026. Next, among all storage supplies, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie. Check their manuals' routine care requirements using each action's most recent maintenance completion time. If overdue actions exist, add all separately due today; if none exist, record the earliest-due action, including all same-date ties. Finally, based on the latest action list, delete all items on the latest due date overall.",
+    "analysis": "1. Identify Kitchen Sponge from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Kitchen Sponge, due on 2026-08-23.\n4. Add an action to iron Workshop Blackout Door Curtain, due on 2026-08-21.\n5. Add an action to disinfect Glass Jar, due on 2026-08-18.\n6. Add an action to inspect Glass Jar, due on 2026-08-18.\n7. Add an action to clean Glass Jar, due on 2026-08-18.\n8. Remove an action to replace Kitchen Sponge, due on 2026-08-23.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Kitchen Sponge",
+          "required_action": "replace",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Workshop Blackout Door Curtain",
+          "required_action": "iron",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Glass Jar",
+          "required_action": "disinfect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Glass Jar",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Glass Jar",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Kitchen Sponge",
+          "required_action": "replace",
+          "due_date": "2026-08-23"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Kitchen Sponge"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the 7th day before September 1, 2026. First, find the end date of the most recent retrievable use record for the curved metal piece in the center of the frame and determine whether it has been idle for more than 21 days as of today; if still in use today, treat it as not idle. If so, among all household textiles, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie; you explain that they have been washed and remain damp, and ask the AI Service Agent to record an arrangement to dry them completely, due on August 31, 2026. If not, you explain that the metal piece is stored temporarily on the inner side of the balcony and will be retained; look up its ideal storage location and add a return-to-location plan, due on August 29, 2026. In addition, for every care action required by its manual, use that action's most recent maintenance record to determine whether it is overdue as of today. If overdue actions exist, add every one due today; if none exist, select the action with the earliest prescribed date, including all same-date ties. Finally, organize the latest list by date; if the number of different due dates is odd, delete all items on the middle date, and if even, delete all items on the later of the two middle dates.",
+    "analysis": "1. Identify Faucet from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Faucet, due on 2026-08-29.\n4. Add an action to condition Faucet, due on 2026-08-25.\n5. Add an action to inspect Faucet, due on 2026-08-25.\n6. Add an action to clean Faucet, due on 2026-08-25.\n7. Remove an action to relocate Kitchen Sponge, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Faucet",
+          "required_action": "relocate",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Faucet",
+          "required_action": "condition",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Faucet",
+          "required_action": "inspect",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Faucet",
+          "required_action": "clean",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Kitchen Sponge",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Faucet"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is August 17, 2026. First, find the longest retrievable continuous period of use of the flat tableware with a wooden handle last seen at the lower right and determine whether it has reached 365 days. If so, you explain that it will leave household use upon reaching its maximum service life, afterward will not be retained, and will not be replaced with a brand-new identical item; add this removal plan using its maximum-service-life date, changed to today if already past. If not, you explain that it has a repairable problem still awaiting resolution and that you explicitly will not replace it because of this; add repair of the original to the action list, due on August 22, 2026. Next, among all electronic supplies, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie. Check their manuals' routine care requirements using each action's most recent maintenance completion time. If overdue actions exist, add all separately due today; if none exist, record the earliest-due action, including all same-date ties. Finally, delete out-of-scope old actions: drying after washing if the item is not clothing, a household textile, or washable bedding, or ironing if the item is not clothing or a household textile. If none exists, delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Spatula from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Spatula, due on 2026-08-22.\n4. Add an action to clean Essential E-Ink Notice Display, due on 2026-09-29.\n5. Remove an action to dry Spatula, due on 2026-08-18.\n6. Remove an action to iron Forks, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Spatula",
+          "required_action": "repair",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Essential E-Ink Notice Display",
+          "required_action": "clean",
+          "due_date": "2026-09-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Spatula",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Forks",
+          "required_action": "iron",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Spatula"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the 8th day before September 1, 2026. First, determine whether every day from February 24, 2026 through today is covered by retrievable use time for the large cookware item on the right. If so, you explain that it is only temporarily placed on the living-room side cabinet and that the original is still needed later; after finding its ideal storage location in the records, record a relocation item due on August 28, 2026. If not, among all bedding, find the lowest-priced items, retaining the later-purchased if prices tie and retaining all if dates also tie; you explain that they have just been washed and still contain moisture, and ask the AI Service Agent to list making them completely dry as a household arrangement, due on August 26, 2026. Next, among all items in the Other category, find the highest-priced items, retaining the earlier-purchased if prices tie and retaining all if dates also tie. Check each selected item's routine care actions, using the most recent same-action maintenance record and the manual. If overdue actions exist, add the action overdue by the most days due today, including all ties; if none exist, add the earliest-due action on that date, including all same-date ties. Finally, sort the latest list's different due dates from earliest to latest and postpone all items on the second-earliest date by one day; if fewer than two dates exist, postpone all items on the only date by one day.",
+    "analysis": "1. Identify Metal Pot from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dry Commercial Contour Neck Pillow, due on 2026-08-26.\n4. Add an action to condition Faucet, due on 2026-08-24.\n5. Remove an action to disinfect Premium Fold-Flat Side Table, due on 2026-08-20.\n6. Add an action to disinfect Premium Fold-Flat Side Table, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Commercial Contour Neck Pillow",
+          "required_action": "dry",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Faucet",
+          "required_action": "condition",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Premium Fold-Flat Side Table",
+          "required_action": "disinfect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Premium Fold-Flat Side Table",
+          "required_action": "disinfect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Metal Pot"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the 5th Monday of August 2026. First, separately count the cumulative days from January 1, 2026 through today that the group of silver tableware seen last and the curved metal piece in the center of the frame fall within their retrievable periods of use, and determine whether the former has at least 30 more days. If so, you explain that the former item is placed on the entryway storage rack only as a temporary measure and will continue to be used; add a subsequent return-to-location arrangement according to its ideal storage location, due on September 3, 2026. If not, you explain that the former item will be retired on September 6, 2026 and then replaced by a brand-new item of the same model that will take over its current use; record a replacement arrangement due on September 6, 2026. In addition, check each action in both visual items' manuals against its most recent maintenance record. If any are overdue, record the least-overdue action across both items due today, including all ties; if all are on time, record the next action due first across both items on its prescribed date. Finally, move every action item on the latest due date in the latest list to tomorrow.",
+    "analysis": "1. Identify Forks, Faucet from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Forks, due on 2026-09-06.\n4. Add an action to clean Faucet, due on 2026-08-31.\n5. Remove an action to replace Forks, due on 2026-09-06.\n6. Add an action to replace Forks, due on 2026-09-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Forks",
+          "required_action": "replace",
+          "due_date": "2026-09-06"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Faucet",
+          "required_action": "clean",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Forks",
+          "required_action": "replace",
+          "due_date": "2026-09-06"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Forks",
+          "required_action": "replace",
+          "due_date": "2026-09-01"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Forks",
+      "Faucet"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the 9th day before September 1, 2026. First, separately determine whether the wooden flat board at the left end of the countertop and the round-opening object being rinsed under running water each have retrievable use-time coverage today, and confirm whether exactly one remains in use. If so, you explain that the former item will be retired on August 29, 2026 and that a brand-new item of the same model will then continue its original function; add an arrangement to replace the current item, due on August 29, 2026. If not, you explain that the former item is stored temporarily on the inner side of the balcony and will be retained; look up its ideal storage location and add a return-to-location plan, due on August 27, 2026. In addition, among all cleaning supplies, find the highest-priced items, retaining the earlier-purchased if prices tie and retaining all if dates also tie. For every care action required by their manuals, use that action's most recent maintenance record to determine whether it is overdue as of today. If overdue actions exist, add every one due today; if none exist, select the action with the earliest prescribed date, including all same-date ties. Finally, move every action item on the latest due date in the latest list to tomorrow.",
+    "analysis": "1. Identify Cutting Board, Brown Bowl from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Cutting Board, due on 2026-08-27.\n4. Add an action to wash Dishwashing Liquid, due on 2026-08-23.\n5. Add an action to disinfect Dishwashing Liquid, due on 2026-08-23.\n6. Add an action to inspect Dishwashing Liquid, due on 2026-08-23.\n7. Remove an action to relocate Cutting Board, due on 2026-08-27.\n8. Add an action to relocate Cutting Board, due on 2026-08-24.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Cutting Board",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Dishwashing Liquid",
+          "required_action": "wash",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Dishwashing Liquid",
+          "required_action": "disinfect",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Dishwashing Liquid",
+          "required_action": "inspect",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Cutting Board",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Cutting Board",
+          "required_action": "relocate",
+          "due_date": "2026-08-24"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Cutting Board",
+      "Brown Bowl"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the 2nd day before September 1, 2026. First, separately find the longest retrievable continuous periods of use for the round-opening object being rinsed under running water and the large cookware item on the right, and determine whether the former has at least 180 more days. If so, you explain that the latter item has a confirmed repairable functional fault that remains unaddressed and that you do not intend to replace it; add an action to restore the original item's function, due on September 5, 2026. If not, among all household textiles, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie; you explain that they have been washed and dried and are suitable for ironing, and ask the AI Service Agent to add ironing items to the action list, due on September 3, 2026. Next, among all household appliances, find the latest-purchased items, retaining the lower-priced if dates tie and retaining all if prices also tie. List every required care action, then use each action's most recent historical completion record to determine which have exceeded the manual's required interval as of today. If any are overdue, select the one that has only recently become overdue and set its due date to today, including all equal overdue durations; if none are overdue, record the action that needs completion first on its due date, including all same-date ties. Next, among all bedding, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie. Check their manuals' routine care requirements using each action's most recent maintenance completion time. If overdue actions exist, add all separately due today; if none exist, record the earliest-due action, including all same-date ties. Finally, delete out-of-scope old actions: drying after washing if the item is not clothing, a household textile, or washable bedding, or ironing if the item is not clothing or a household textile. If none exists, delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Brown Bowl, Metal Pot from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Studio Waffle-Weave Bath Sheet, due on 2026-09-03.\n4. Add an action to inspect Essential Heated Towel Rail, due on 2026-08-30.\n5. Add an action to inspect Compact Striped Duvet Cover, due on 2026-08-31.\n6. Remove an action to dry Spatula, due on 2026-08-18.\n7. Remove an action to iron Forks, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Studio Waffle-Weave Bath Sheet",
+          "required_action": "iron",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Essential Heated Towel Rail",
+          "required_action": "inspect",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Compact Striped Duvet Cover",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Spatula",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Forks",
+          "required_action": "iron",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Brown Bowl",
+      "Metal Pot"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the 4th Saturday of August 2026. First, compare the maximum-service-life dates of the transparent container beside the deep black vessel and the small yellow piece on the basin edge, and determine whether they are no more than 1 calendar year apart. If so, you explain that the current earlier-expiring item is placed on the living-room side cabinet only as a temporary measure and will continue to be used; create an arrangement to adjust its storage location according to the ideal location in the records, due on August 25, 2026. If not, you explain that the current earlier-expiring item will leave household use upon reaching its maximum service life, that the household will no longer retain it, and that no brand-new identical replacement will be installed; create a removal-from-household-use arrangement using its maximum-service-life date, changed to today if already past. In addition, for every care action required by both manuals, use that action's most recent maintenance record to determine whether it is overdue as of today. If any are overdue, add the one delayed the longest due today, including all ties; if none are, add the action with the earliest prescribed date on that original date, including all same-date ties. Finally, sort the latest list's different due dates from earliest to latest and postpone all items on the second-earliest date by one day; if fewer than two dates exist, postpone all items on the only date by one day.",
+    "analysis": "1. Identify Glass Jar, Kitchen Sponge from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose Kitchen Sponge, due on 2028-10-29.\n4. Add an action to disinfect Glass Jar, due on 2026-08-22.\n5. Add an action to disinfect Kitchen Sponge, due on 2026-08-22.\n6. Remove an action to disinfect Premium Fold-Flat Side Table, due on 2026-08-20.\n7. Add an action to disinfect Premium Fold-Flat Side Table, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Kitchen Sponge",
+          "required_action": "dispose",
+          "due_date": "2028-10-29"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Glass Jar",
+          "required_action": "disinfect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Kitchen Sponge",
+          "required_action": "disinfect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Premium Fold-Flat Side Table",
+          "required_action": "disinfect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Premium Fold-Flat Side Table",
+          "required_action": "disinfect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Glass Jar",
+      "Kitchen Sponge"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is 2 days before the last day of August 2026. First, compare the purchase prices of the bottle containing teal liquid beside the basin and the wooden flat board at the left end of the countertop, and determine whether the former costs at least twice as much as the latter. If so, you explain that the former item will leave household use upon reaching its maximum service life, afterward will no longer be needed, and will not be replaced with a brand-new identical item; create a removal-from-household-use arrangement using its maximum-service-life date, changed to today if already past. If not, you explain that the former current item has an unaddressed repairable fault and that you still want to retain it; record an item to repair and retain the original, due on September 1, 2026. Next, among all lighting supplies, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie. Read their routine care requirements and compare each action's most recent maintenance completion date. If any are overdue, add all separately due today; if none are, add the earliest-required action on its due date, including all same-date ties. Finally, read the latest action list after the foregoing operations and delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Dishwashing Liquid, Cutting Board from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Dishwashing Liquid, due on 2026-09-01.\n4. Add an action to condition Studio Low-Glare Reading Lamp, due on 2026-08-29.\n5. Remove an action to clean Brown Bowl, due on 2026-08-16.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Dishwashing Liquid",
+          "required_action": "repair",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Studio Low-Glare Reading Lamp",
+          "required_action": "condition",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Brown Bowl",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Dishwashing Liquid",
+      "Cutting Board"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the 11th day before September 1, 2026. First, for the small yellow piece on the basin edge, compare its purchase date with the start date of its first retrievable period of use and determine whether the latter is at least 6 calendar months later. If so, among all household textiles, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie; you explain that they have been washed and remain damp, and ask the AI Service Agent to record an arrangement to dry them completely, due on August 27, 2026. If not, you explain that the item is stored temporarily on the inner side of the balcony and will be retained; look up its ideal storage location and add a return-to-location plan, due on August 25, 2026. In addition, among all household appliances, find the highest-priced items, retaining the earlier-purchased if prices tie and retaining all if dates also tie. For every care action required by their manuals, use that action's most recent maintenance record. If overdue actions exist, add the one delayed the longest due today, including all ties; if none exist, add the action with the earliest prescribed date on that original date, including all same-date ties. Next, calculate the yellow piece's maximum-service-life date and determine whether it is no later than December 31, 2029. If no later, you explain that the visual item will leave household use then, be removed directly from the home, and not be replaced with a brand-new identical item; add an item not to retain the current item using its maximum-service-life date, changed to today if already past. If later, you explain that the visual item will leave use then and be replaced by a brand-new item of the same model that will take over its current use; create a replacement-with-identical-new-item action using its maximum-service-life date, changed to today if already past. Finally, delete all latest-list items due later than October 5, 2026; if none exist, delete all items on the latest due date overall.",
+    "analysis": "1. Identify Kitchen Sponge from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dry Studio Waffle-Weave Bath Sheet, due on 2026-08-27.\n4. Add an action to condition Everyday Countertop Dehumidifier, due on 2026-08-30.\n5. Add an action to dispose Kitchen Sponge, due on 2028-10-29.\n6. Remove an action to dispose Kitchen Sponge, due on 2028-10-29.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Studio Waffle-Weave Bath Sheet",
+          "required_action": "dry",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Everyday Countertop Dehumidifier",
+          "required_action": "condition",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Kitchen Sponge",
+          "required_action": "dispose",
+          "due_date": "2028-10-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Kitchen Sponge",
+          "required_action": "dispose",
+          "due_date": "2028-10-29"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Kitchen Sponge"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is August 28, 2026. First, for the curved metal piece in the center of the frame, find the retrievable period of use currently covering today; if one exists, determine whether its start date is at least 8 calendar months later than the purchase date, and if none exists, treat the condition as not met. If so, you explain that it has a confirmed repairable abnormality that has not been addressed and that you will continue using the original after repair; add a plan to repair the original to the to-do list, due on August 30, 2026. If not, you explain that it will be retired on September 2, 2026 and then replaced by a brand-new item of the same model that will take over its current use; record a replacement arrangement due on September 2, 2026. In addition, check each action in its manual against its most recent maintenance record. If overdue actions exist, add the one delayed the longest due today, including all ties; if none exist, add the action with the earliest prescribed date on that original date, including all same-date ties. Finally, delete out-of-scope old actions: drying after washing if the item is not clothing, a household textile, or washable bedding, or ironing if the item is not clothing or a household textile. If none exists, delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Faucet from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Faucet, due on 2026-09-02.\n4. Add an action to condition Faucet, due on 2026-08-28.\n5. Remove an action to dry Spatula, due on 2026-08-18.\n6. Remove an action to iron Forks, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Faucet",
+          "required_action": "replace",
+          "due_date": "2026-09-02"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Faucet",
+          "required_action": "condition",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Spatula",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Forks",
+          "required_action": "iron",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Faucet"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the 12th day before September 1, 2026. First, count the cumulative days from January 1, 2026 through today that the flat tableware with a wooden handle last seen at the lower right falls within retrievable periods of use, and determine whether the count has reached 120 days. If so, you explain that it is only temporarily placed on the living-room side cabinet and will continue to be used; look up its ideal storage location and record a return-to-location arrangement due on August 24, 2026. If not, you explain that it will be retired on August 22, 2026 and that the household will install a brand-new item identical to the existing one to replace it; add this replacement plan due on August 22, 2026. Next, among all tableware, find the highest-priced items, retaining the earlier-purchased if prices tie and retaining all if dates also tie. For every care action required by their manuals, use the most recent completion record for the same action with the maintenance history. If overdue actions exist, add all separately due today; if none exist, add the earliest-required action on its due date, including all same-date ties. Finally, based on the latest action list, delete all items on the latest due date overall.",
+    "analysis": "1. Identify Spatula from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Spatula, due on 2026-08-24.\n4. Add an action to wash Forks, due on 2026-08-20.\n5. Add an action to disinfect Forks, due on 2026-08-20.\n6. Add an action to inspect Forks, due on 2026-08-20.\n7. Remove an action to relocate Spatula, due on 2026-08-24.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Spatula",
+          "required_action": "relocate",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Forks",
+          "required_action": "wash",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Forks",
+          "required_action": "disinfect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Forks",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Spatula",
+          "required_action": "relocate",
+          "due_date": "2026-08-24"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Spatula"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the 5th day before September 1, 2026. First, find the end date of the most recent retrievable use record for the large cookware item on the right and determine whether it is no earlier than July 24, 2026. If so, among all clothing, find the lowest-priced items, retaining the later-purchased if prices tie and retaining all if dates also tie; you explain that they have been washed and dried and need ironing, and ask the AI Service Agent to record ironing as a household to-do, due on September 2, 2026. If not, you explain that the current cookware item has an unaddressed repairable fault and that you still want to retain it; record an item to repair and retain the original, due on August 31, 2026. Next, among all storage supplies, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie. Read their routine care requirements and compare each action's most recent maintenance completion date. If any are overdue, add the longest-overdue one due today, including all ties; if none are, add the earliest-required action on its due date, including all same-date ties. Finally, delete out-of-scope old actions: drying after washing if the item is not clothing, a household textile, or washable bedding, or ironing if the item is not clothing or a household textile. If none exists, delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Metal Pot from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Heavy-Duty Linen Overshirt, due on 2026-09-02.\n4. Add an action to disinfect Glass Jar, due on 2026-08-27.\n5. Remove an action to clean Brown Bowl, due on 2026-08-16.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Heavy-Duty Linen Overshirt",
+          "required_action": "iron",
+          "due_date": "2026-09-02"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Glass Jar",
+          "required_action": "disinfect",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Brown Bowl",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Metal Pot"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the 3rd Wednesday of August 2026. First, determine whether the group of silver tableware seen last was purchased before January 1, 2023. If so, you explain that it will leave household use upon reaching its maximum service life, be removed directly from the home, and not be replaced with a brand-new identical item; record a removal arrangement using its maximum-service-life date, changed to today if already past. If not, among all household textiles, find the latest-purchased items, retaining the lower-priced if dates tie and retaining all if prices also tie; you explain that they are clean and dry and can be ironed, and ask the AI Service Agent to create ironing actions, due on August 25, 2026. Next, for the silver tableware, inspect every care action required by the manual using the most recent completion record for the same action with the maintenance history. If overdue actions exist, add all separately due today; if none exist, add the earliest-required action on its due date, including all same-date ties. In addition, among all bedding, find the lowest-priced items, retaining the later-purchased if prices tie and retaining all if dates also tie. Check their required routine care using the manual cycles and each action's most recent maintenance record. If overdue actions exist, add the one with the shortest overdue duration due today, including all ties; if none exist, record the action with the nearest due date on that date, including all same-date actions. Finally, find the due date in the latest list with the fewest days' distance from today, choosing the later date if the distances before and after today tie, and delete all action items on that date.",
+    "analysis": "1. Identify Forks from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose Forks, due on 2031-01-08.\n4. Add an action to wash Forks, due on 2026-08-19.\n5. Add an action to disinfect Forks, due on 2026-08-19.\n6. Add an action to inspect Forks, due on 2026-08-19.\n7. Add an action to wash Commercial Contour Neck Pillow, due on 2026-08-19.\n8. Remove an action to repair Glass Jar, due on 2026-08-19.\n9. Remove an action to wash Forks, due on 2026-08-19.\n10. Remove an action to disinfect Forks, due on 2026-08-19.\n11. Remove an action to inspect Forks, due on 2026-08-19.\n12. Remove an action to wash Commercial Contour Neck Pillow, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Forks",
+          "required_action": "dispose",
+          "due_date": "2031-01-08"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Forks",
+          "required_action": "wash",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Forks",
+          "required_action": "disinfect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Forks",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Commercial Contour Neck Pillow",
+          "required_action": "wash",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Glass Jar",
+          "required_action": "repair",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Forks",
+          "required_action": "wash",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Forks",
+          "required_action": "disinfect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Forks",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Commercial Contour Neck Pillow",
+          "required_action": "wash",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Forks"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the 6th day before September 1, 2026. First, determine whether the wooden flat board at the left end of the countertop is still within a retrievable period of use today. If so, you explain that it has a confirmed repairable abnormality that has not been addressed and that you will continue using the original after repair; add a plan to repair the original to the to-do list, due on September 1, 2026. If not, among all household textiles, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie; you explain that they have been washed and dried and are suitable for ironing, and ask the AI Service Agent to add an ironing arrangement, due on August 30, 2026. In addition, among all household appliances, find the earliest-purchased items, retaining the higher-priced if dates tie and retaining all if prices also tie. Check each action in their manuals against its most recent maintenance record. If overdue actions exist, add every one due today; if none exist, select the action with the earliest prescribed date, including all same-date ties. Finally, delete out-of-scope old actions: drying after washing if the item is not clothing, a household textile, or washable bedding, or ironing if the item is not clothing or a household textile. If none exists, delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Cutting Board from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Cutting Board, due on 2026-09-01.\n4. Add an action to condition Everyday Countertop Dehumidifier, due on 2026-08-30.\n5. Remove an action to dry Spatula, due on 2026-08-18.\n6. Remove an action to iron Forks, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Cutting Board",
+          "required_action": "repair",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Everyday Countertop Dehumidifier",
+          "required_action": "condition",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Spatula",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Forks",
+          "required_action": "iron",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household12",
+    "image_path": "household12.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Cutting Board"
+    ],
+    "scenario_id": 15
+  }
+]

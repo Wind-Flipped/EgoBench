@@ -3,7 +3,8 @@
 """
 All-Scenario Error Reason Analysis Script - Based on eval_result data
 
-Supported scenarios: retail, restaurant, order, kitchen
+Supported scenarios: retail, restaurant (including multi-restaurant variant 6),
+kitchen, warehouse, household
 
 Error reasons are determined for each sample in the following order:
 1. Syntax format error
@@ -19,7 +20,6 @@ Correct sample: both tool-based evaluation and result-based evaluation are corre
 import json
 import os
 import sys
-import re
 from collections import defaultdict
 from typing import Dict, List, Optional, Tuple
 
@@ -33,16 +33,32 @@ from tools.retail.retail_init import (
 )
 from tools.restaurant.restaurant_db import RestaurantDB
 from tools.restaurant.restaurant_init import restaurant_init_data, restaurant_init_data5
-from tools.order.order_db import OrderDB
-from tools.order.order_init import order_init_data
+from tools.restaurant.restaurant6_db import Restaurant6DB
+from tools.restaurant.restaurant6_init import restaurant6_init_data
 from tools.kitchen.kitchen_db import KitchenDB
 from tools.kitchen.kitchen_init import kitchen_init_data
+from tools.warehouse.warehouse_db import WarehouseDB
+from tools.warehouse import warehouse_init
+from tools.household.household_db import HouseholdDB
+from tools.household import household_init
 
 
 MODELS = [
-    'qwen3-vl-225b', 'Qwen3.5-397B-A17B', 'gemini-3.1-pro-preview',
-    'kimi-k2.5', 'mimo-v2-omni', 'qwen3.6-plus', 'glm-5v-turbo', 'doubao-seed-2-0-pro-260215'
+    'qwen3-vl-235b', 'Qwen3.5-397B-A17B', 'gemini-3.1-pro-preview',
+    'kimi-k2.6', 'mimo-v2.5-omni', 'qwen3.6-plus', 'glm-5v-turbo', 'doubao-seed-2-0-pro-260215'
 ]
+
+# ===================== Configurable I/O Roots =====================
+# Defaults preserve the original behaviour (reading results/ + eval_result/,
+# writing error_analysis/). Override via CLI (see main()) to analyse a
+# different run, e.g. the GPT-user run:
+#   --results_root GPT_user_results --eval_root GPT_user_eval_result
+#   --output_root error_analysis_gpt_user
+RESULTS_ROOT = 'results'
+EVAL_ROOT = 'eval_result'
+OUTPUT_ROOT = 'error_analysis'
+ACTIVE_MODELS = list(MODELS)
+INCLUDE_PARTIAL = False
 
 ERROR_TYPES = {
     'syntax_error': 'Syntax format error in tool calls',
@@ -74,29 +90,15 @@ SCENARIO_CONFIG = {
         },
     },
     'restaurant': {
-        'scenario_numbers': list(range(1, 6)),
+        'scenario_numbers': list(range(1, 7)),
         'init_data_map': {
             1: restaurant_init_data, 2: restaurant_init_data,
             3: restaurant_init_data, 4: restaurant_init_data,
-            5: restaurant_init_data5
+            5: restaurant_init_data5,
+            6: restaurant6_init_data,
         },
         'db_class': RestaurantDB,
-        'query_tools': {
-            'get_dish_price', 'get_dish_discount', 'get_dish_nutrition',
-            'get_dish_allergens', 'get_tax_rate', 'get_dish_taste_profile',
-            'get_user_order_summary', 'get_set_meal_details',
-            'find_dishes_by_category', 'find_dishes_by_nutritional_tag',
-            'find_dishes_by_taste', 'find_set_meals_containing_dish',
-            'list_all_discounted_dishes', 'filter_dishes_by_price_range',
-            'compute_total_payment', 'compute_total_tax', 'compute_total_nutrition'
-        },
-    },
-    'order': {
-        'scenario_numbers': list(range(1, 3)),
-        'init_data_map': {
-            1: order_init_data, 2: order_init_data
-        },
-        'db_class': OrderDB,
+        'db_class_map': {6: Restaurant6DB},
         'query_tools': {
             'get_dish_price', 'get_dish_discount', 'get_dish_nutrition',
             'get_dish_allergens', 'get_tax_rate', 'get_dish_taste_profile',
@@ -128,15 +130,67 @@ SCENARIO_CONFIG = {
             'compute_total_nutritions'
         },
     },
+    'warehouse': {
+        'scenario_numbers': list(range(1, 26)),
+        'init_data_map': {
+            number: getattr(warehouse_init, f'warehouse_init_data{number}')
+            for number in range(1, 26)
+        },
+        'db_class': WarehouseDB,
+        'query_tools': {
+            'get_all_equipment', 'get_equipment_category',
+            'find_equipment_by_category', 'get_equipment_brand',
+            'find_equipment_by_brand', 'get_equipment_country_of_origin',
+            'find_equipment_by_country_of_origin', 'get_equipment_purchase_date',
+            'find_equipment_by_purchase_date_range',
+            'get_equipment_ideal_storage_location',
+            'find_equipment_by_ideal_storage_location',
+            'get_equipment_usage_history',
+            'get_equipment_maintenance_and_usage_instructions',
+            'get_equipment_maintenance_history', 'get_equipment_action_list',
+        },
+    },
+    'household': {
+        'scenario_numbers': list(range(1, 19)),
+        'init_data_map': {
+            number: getattr(household_init, f'household_init_data{number}')
+            for number in range(1, 19)
+        },
+        'db_class': HouseholdDB,
+        'query_tools': {
+            'get_all_item_names', 'get_item_category', 'find_items_by_category',
+            'get_item_ideal_storage_location',
+            'find_items_by_ideal_storage_location', 'get_item_purchase_date',
+            'find_items_by_purchase_date_range', 'get_item_purchase_price',
+            'find_items_by_purchase_price_range', 'get_item_usage_history',
+            'find_items_used_during_date_range', 'get_item_maintenance_history',
+            'get_item_maintenance_and_usage_instructions',
+            'get_household_action_list',
+        },
+    },
 }
 
 ALL_SCENARIO_TYPES = list(SCENARIO_CONFIG.keys())
+
+# Ground-truth annotations and tool schemas do not always use the same field
+# name for the visually grounded entity.  In particular, household annotations
+# store the target under ``name``, while household query tools accept
+# ``item_name``.  Treat these as aliases so a correctly grounded query is not
+# mislabeled as a multimodal recognition error.
+MULTIMODAL_PARAMETER_ALIASES = {
+    'household': {
+        'name': ('name', 'item_name'),
+    },
+}
 
 
 def load_init_db(scenario_type: str, scenario_number: int):
     """Initialize database based on scenario type and number"""
     config = SCENARIO_CONFIG[scenario_type]
-    db = config['db_class']()
+    db_class = config.get('db_class_map', {}).get(
+        scenario_number, config['db_class']
+    )
+    db = db_class()
     init_data = config['init_data_map'].get(scenario_number)
     if init_data:
         db.init_from_json(init_data)
@@ -161,7 +215,7 @@ def load_ground_truth(scenario_type: str, scenario_number: int) -> List[Dict]:
 def load_interaction_log(model_name: str, scenario_type: str, scenario_number: int, mode: str) -> Optional[List[Dict]]:
     """Load interaction log"""
     log_path = os.path.join(
-        os.path.dirname(__file__), '..', 'results', model_name,
+        os.path.dirname(__file__), '..', RESULTS_ROOT, model_name,
         f'{scenario_type}{scenario_number}_{mode}.json'
     )
     log_path = os.path.normpath(log_path)
@@ -176,7 +230,7 @@ def load_interaction_log(model_name: str, scenario_type: str, scenario_number: i
 def load_eval_result(model_name: str, scenario_type: str, scenario_number: int, mode: str) -> Optional[Dict]:
     """Load evaluation result"""
     eval_path = os.path.join(
-        os.path.dirname(__file__), '..', 'eval_result', model_name,
+        os.path.dirname(__file__), '..', EVAL_ROOT, model_name,
         f'{scenario_type}{scenario_number}_{mode}_eval.json'
     )
     eval_path = os.path.normpath(eval_path)
@@ -186,6 +240,22 @@ def load_eval_result(model_name: str, scenario_type: str, scenario_number: int, 
 
     with open(eval_path, 'r', encoding='utf-8') as f:
         return json.load(f)
+
+
+def is_complete_eval_result(eval_result: Dict) -> bool:
+    """Return whether an evaluated result file covered every ground-truth task."""
+    if "is_complete" in eval_result:
+        return bool(eval_result["is_complete"])
+    total = eval_result.get("total_scenarios", 0)
+    valid = eval_result.get("valid_scenarios", 0)
+    return total > 0 and valid == total and not eval_result.get("invalid_scenarios")
+
+
+def is_usable_eval_result(eval_result: Dict) -> bool:
+    """Return whether an eval file may contribute to the selected analysis."""
+    if is_complete_eval_result(eval_result):
+        return True
+    return INCLUDE_PARTIAL and eval_result.get("valid_scenarios", 0) > 0
 
 
 def extract_all_tool_calls(tool_calls: List[Dict]) -> List[Dict]:
@@ -269,18 +339,13 @@ def check_multimodal_error(
     and if the value list has multiple values, tool calls containing all these
     parameters must be present.
 
-    For order scenarios, also check if the restaurant selection is correct:
-    - order1 should select "Annie Italian Restaurant"
-    - order2 should select "Mediterranean Greek Restaurant"
+    For Restaurant 6, also check whether the selected restaurant is correct.
 
     Returns: (has_multimodal_error, error_description)
     """
-    # For order scenarios, first check if restaurant selection is correct
-    if scenario_type == "order" and scenario_number in [1, 2]:
-        expected_restaurant = (
-            "Annie Italian Restaurant" if scenario_number == 1
-            else "Mediterranean Greek Restaurant"
-        )
+    # Restaurant 6 is the multi-restaurant selection scenario.
+    if scenario_type == "restaurant" and scenario_number == 6:
+        expected_restaurant = "Mediterranean Greek Restaurant"
 
         # Find the last tool call with restaurant_name parameter
         last_restaurant_choice = None
@@ -302,6 +367,9 @@ def check_multimodal_error(
     if not interaction_calls:
         return False, "No tool calls"
 
+    parameter_keys = MULTIMODAL_PARAMETER_ALIASES.get(
+        scenario_type, {}
+    ).get(key, (key,))
     matched_values = set()
 
     for call in interaction_calls:
@@ -310,20 +378,26 @@ def check_multimodal_error(
             continue
 
         params = call.get("parameters", {})
-        if key not in params:
+        parameter_key = next(
+            (candidate for candidate in parameter_keys if candidate in params),
+            None,
+        )
+        if parameter_key is None:
             continue
 
-        param_value = params[key]
-        for expected_value in value:
-            if isinstance(param_value, str) and isinstance(expected_value, str):
-                if param_value.lower().strip() == expected_value.lower().strip():
+        param_value = params[parameter_key]
+        param_values = param_value if isinstance(param_value, list) else [param_value]
+        for actual_value in param_values:
+            for expected_value in value:
+                if isinstance(actual_value, str) and isinstance(expected_value, str):
+                    if actual_value.lower().strip() == expected_value.lower().strip():
+                        matched_values.add(expected_value)
+                    elif expected_value.lower() in actual_value.lower():
+                        matched_values.add(expected_value)
+                    elif fuzzy_match_name(actual_value, expected_value):
+                        matched_values.add(expected_value)
+                elif actual_value == expected_value:
                     matched_values.add(expected_value)
-                elif expected_value.lower() in param_value.lower():
-                    matched_values.add(expected_value)
-                elif fuzzy_match_name(param_value, expected_value):
-                    matched_values.add(expected_value)
-            elif param_value == expected_value:
-                matched_values.add(expected_value)
 
     unmatched_values = set(value) - matched_values
     if unmatched_values:
@@ -351,22 +425,27 @@ def check_hallucination_error(gt_entry: Dict, interaction_calls: List[Dict]) -> 
 
     Returns: (has_hallucination_error, error_description)
     """
-    instruction = gt_entry.get("Instruction", "")
-    user_id_match = re.search(r'User ID:\s*(\w+)', instruction)
+    correct_user_ids = {
+        call.get("parameters", {}).get("user_id")
+        for call in gt_entry.get("ground_truth", [])
+        if call.get("parameters", {}).get("user_id") is not None
+    }
 
-    if not user_id_match:
+    if not correct_user_ids:
         return False, "No user_id requirement"
-
-    correct_user_id = user_id_match.group(1)
 
     wrong_user_ids = []
     for call in interaction_calls:
         params = call.get("parameters", {})
-        if "user_id" in params and params["user_id"] != correct_user_id:
+        if "user_id" in params and params["user_id"] not in correct_user_ids:
             wrong_user_ids.append(params["user_id"])
 
     if wrong_user_ids:
-        return True, f"user_id should be '{correct_user_id}', but found {set(wrong_user_ids)}"
+        expected = sorted(correct_user_ids)
+        actual = sorted(set(wrong_user_ids))
+        if len(expected) == 1:
+            return True, f"user_id should be '{expected[0]}', but found {actual}"
+        return True, f"user_id should be one of {expected}, but found {actual}"
 
     return False, ""
 
@@ -521,6 +600,11 @@ def analyze_model_performance(
     eval_result: Dict
 ) -> Dict:
     """Analyze model performance in a specific scenario"""
+    if not is_usable_eval_result(eval_result):
+        return {
+            "error": f"Incomplete result file excluded: {scenario_type}{scenario_number}_{mode}.json"
+        }
+
     interaction_log = load_interaction_log(model_name, scenario_type, scenario_number, mode)
 
     if interaction_log is None:
@@ -529,6 +613,10 @@ def analyze_model_performance(
     results = []
 
     for i, interaction_entry in enumerate(interaction_log):
+        # Reconstructed result files may contain None placeholders for tasks that
+        # were never (re)run; skip them — there is nothing to analyze.
+        if interaction_entry is None:
+            continue
         scenario_id = interaction_entry.get("scenario_id", i + 1)
 
         gt_entry = None
@@ -676,7 +764,7 @@ def generate_report(all_results: List[Dict]) -> str:
     report_lines.append(header)
     report_lines.append("-" * 120)
 
-    for model in MODELS:
+    for model in ACTIVE_MODELS:
         if model not in model_stats:
             continue
 
@@ -698,7 +786,7 @@ def generate_report(all_results: List[Dict]) -> str:
     report_lines.append("-" * 120)
     report_lines.append("")
 
-    for model in MODELS:
+    for model in ACTIVE_MODELS:
         if model not in model_stats:
             continue
 
@@ -759,7 +847,7 @@ def generate_report(all_results: List[Dict]) -> str:
             header = f"{'Model':<30} {'Total':>6} {'Syntax':>6} {'MultiM':>7} {'Halluc':>7} {'Logic':>7} {'Memory':>7} {'OverOp':>10} {'Correct':>7}"
             report_lines.append(header)
 
-            for model in MODELS:
+            for model in ACTIVE_MODELS:
                 if model not in scenario_model_stats[scenario_type][scenario]:
                     continue
 
@@ -849,7 +937,44 @@ def generate_report(all_results: List[Dict]) -> str:
 
 def main():
     """Main function"""
+    import argparse
+
+    parser = argparse.ArgumentParser(description="All-scenario error reason analysis")
+    parser.add_argument("--results_root", type=str, default=None,
+                        help="Root dir holding per-model interaction logs (default: results). "
+                             "Set to GPT_user_results to analyse the GPT-user run.")
+    parser.add_argument("--eval_root", type=str, default=None,
+                        help="Root dir holding per-model eval output (default: eval_result). "
+                             "Set to GPT_user_eval_result to analyse the GPT-user run.")
+    parser.add_argument("--output_root", type=str, default=None,
+                        help="Output dir for report + details JSON (default: error_analysis). "
+                             "Set to error_analysis_gpt_user to keep GPT-user results separate.")
+    parser.add_argument("--models", type=str, default=None,
+                        help="Comma-separated model names to analyse (default: built-in MODELS list).")
+    parser.add_argument(
+        "--include_partial",
+        action="store_true",
+        help="Analyse every valid trajectory in incomplete evaluation files.",
+    )
+    args = parser.parse_args()
+
+    global RESULTS_ROOT, EVAL_ROOT, OUTPUT_ROOT, ACTIVE_MODELS, INCLUDE_PARTIAL
+    if args.results_root is not None:
+        RESULTS_ROOT = args.results_root
+    if args.eval_root is not None:
+        EVAL_ROOT = args.eval_root
+    if args.output_root is not None:
+        OUTPUT_ROOT = args.output_root
+    if args.models is not None and args.models.strip():
+        ACTIVE_MODELS = [m.strip() for m in args.models.split(',') if m.strip()]
+    INCLUDE_PARTIAL = args.include_partial
+
     print("Starting all-scenario error reason analysis...")
+    print(f"  results_root : {RESULTS_ROOT}")
+    print(f"  eval_root    : {EVAL_ROOT}")
+    print(f"  output_root  : {OUTPUT_ROOT}")
+    print(f"  models       : {ACTIVE_MODELS}")
+    print(f"  include_partial: {INCLUDE_PARTIAL}")
     print("")
 
     all_results = []
@@ -866,9 +991,13 @@ def main():
                 continue
 
             for mode in MODES:
-                for model in MODELS:
+                for model in ACTIVE_MODELS:
                     eval_result = load_eval_result(model, scenario_type, scenario_number, mode)
                     if eval_result is None:
+                        continue
+
+                    if not is_usable_eval_result(eval_result):
+                        print(f"    Skipped incomplete file: {model}/{scenario_type}{scenario_number}_{mode}.json")
                         continue
 
                     result = analyze_model_performance(
@@ -881,7 +1010,7 @@ def main():
     report = generate_report(all_results)
     print(report)
 
-    output_dir = os.path.join(os.path.dirname(__file__), '..', 'error_analysis')
+    output_dir = os.path.join(os.path.dirname(__file__), '..', OUTPUT_ROOT)
     os.makedirs(output_dir, exist_ok=True)
 
     output_path = os.path.join(output_dir, 'all_scenarios_error_analysis_report.txt')

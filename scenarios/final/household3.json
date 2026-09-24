@@ -1,0 +1,829 @@
+[
+  {
+    "Instruction": "Your user ID is household_user_01, and today is August 18, 2026. First, you ask the AI Service Agent to separately find the end dates of the most recent retrievable use records for the large patterned item laid out at the beginning and the cushions arranged side by side against the wall, and calculate each item's current retrievable number of idle days as of today. If the large patterned item has been idle at least fourteen days longer than the cushions, you explain that this set of cushions has just been washed and is still damp, and ask the AI Service Agent to record an arrangement to dry it thoroughly in the action list, with a due date of August 19, 2026. If it has not been idle fourteen days longer, you explain that the large patterned item is only temporarily placed in the living room and will continue to be used later, and ask the AI Service Agent to look up its ideal storage location in the records and add a return-to-location arrangement to the action list, also with a due date of August 19, 2026. Next, you ask the AI Service Agent to select the one of the two items with the longer current retrievable idle time and, for every routine care action required by its manual, use the most recent completion record for the same action together with the maintenance history to determine whether any overdue actions have not been performed as of today. If there are, ask the AI Service Agent to add the longest-overdue action to the action list with a due date of today, adding all actions tied in overdue duration; if there are not, ask the AI Service Agent to add the action that should be performed earliest using its prescribed date, adding all actions tied on the same date. Next, you ask the AI Service Agent to compare the dates on which the two items reach their maximum service lives. If they are more than one calendar year apart, you explain that after the current earlier-expiring item is retired, a brand-new item exactly identical to it will be purchased for continued use; ask the AI Service Agent to add a replacement arrangement to the action list, using the earlier expiration date as the due date and changing it to today if it has already passed. If they are no more than one calendar year apart, you explain that the earlier-expiring item will no longer be retained at that time and that a brand-new identical item will not be purchased to replace it; ask the AI Service Agent to record a removal arrangement accordingly, using the same expiration date as the due date and changing it to today if it has already passed. Finally, you ask the AI Service Agent to delete all action items on the earliest due date overall in the latest action list.",
+    "analysis": "1. Identify Bedspread, Pillow from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dry Pillow, due on 2026-08-19.\n4. Add an action to wash Bedspread, due on 2026-08-18.\n5. Add an action to replace Bedspread, due on 2032-04-28.\n6. Remove an action to clean Bedspread, due on 2026-08-16.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pillow",
+          "required_action": "dry",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Bedspread",
+          "required_action": "wash",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Bedspread",
+          "required_action": "replace",
+          "due_date": "2032-04-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Bedspread",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Bedspread",
+      "Pillow"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the third Wednesday of August 2026. First, you ask the AI Service Agent to find the longest retrievable continuous period of use of the clothing item that you put into the cabinet midway through the video and determine whether it has reached eighty days. If it has reached eighty days, you explain that this clothing item has been washed, is completely dry, and has been confirmed suitable for ironing, and ask the AI Service Agent to create a new action arrangement accordingly, with a due date of August 21, 2026. If it is fewer than eighty days, you explain that it has just been washed and is still damp, and ask the AI Service Agent to add an arrangement to dry it thoroughly to the action list, also with a due date of August 21, 2026. Next, based on this clothing item's maintenance history and the routine care requirements in the manual, you ask the AI Service Agent to determine for each required care action, using its most recent completion record, whether any overdue actions have not been performed as of today. If there are, ask the AI Service Agent to add the longest-overdue action to the action list and set its due date to today, adding all actions tied in overdue duration; if there are not, ask the AI Service Agent to add the action that should be performed earliest using its prescribed date, adding all actions tied on the same date. Next, you ask the AI Service Agent to determine whether the date on which this clothing item reaches its maximum service life falls within three calendar months from today. If it does, you explain that the current clothing item will no longer be retained at that time and that you will not purchase a brand-new identical clothing item to replace it; ask the AI Service Agent to record an arrangement for removing it from household use in the action list, using its maximum-service-life date as the due date and changing it to today if it has already passed. If it does not, you explain that after the current item expires, it will be replaced with a newly purchased clothing item exactly identical to it; ask the AI Service Agent to record a replacement arrangement in the action list, using the same date as the due date and changing it to today if it has already passed. Finally, you ask the AI Service Agent to delete all action items on the latest due date in the latest action list after the foregoing operations.",
+    "analysis": "1. Identify Blue Top from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Blue Top, due on 2026-08-21.\n4. Add an action to clean Blue Top, due on 2026-08-19.\n5. Add an action to dispose Blue Top, due on 2026-11-13.\n6. Remove an action to dispose Blue Top, due on 2026-11-13.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Blue Top",
+          "required_action": "iron",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Blue Top",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Blue Top",
+          "required_action": "dispose",
+          "due_date": "2026-11-13"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Blue Top",
+          "required_action": "dispose",
+          "due_date": "2026-11-13"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Blue Top"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the third Thursday of August 2026. First, you ask the AI Service Agent to separately find the retrievable periods of use that currently still cover today for the black rectangular object at the edge of the bed and the thin white cord coiled beside it, and compare the start dates of the two periods. If the black rectangular object's current period began at least two hundred days earlier than the white cord's, you explain that it now has an unaddressed screen fault that has been confirmed to be repairable and that you want to continue retaining the current item; ask the AI Service Agent to record a repair action accordingly, with a due date of August 24, 2026. If it did not begin two hundred days earlier, you explain that the white cord is only temporarily placed beside the bed and will still be retained later, and ask the AI Service Agent to look up its ideal storage location in the records and add a return-to-location arrangement to the action list, also with a due date of August 24, 2026. Next, for every routine care action required by each item's manual, you ask the AI Service Agent to use the most recent completion record for the same action together with the maintenance history to compare all overdue actions that have not been performed as of today. If overdue actions exist, ask the AI Service Agent to add the longest-overdue action with a due date of today, adding all ties; if neither item has overdue actions, ask the AI Service Agent to add the action that should be performed earliest using its prescribed date, adding all same-date ties. Next, compare the dates on which the two items reach their maximum service lives. If they are more than one calendar year apart, you explain that after the current earlier-expiring item is retired, a brand-new item exactly identical to it will take its place; ask the AI Service Agent to add a replacement arrangement using the earlier expiration date, changed to today if already past. If they are no more than one calendar year apart, you explain that the earlier-expiring item will leave household use at that time and no brand-new identical item will be purchased; ask the AI Service Agent to add a removal arrangement using the same expiration date, changed to today if already past. Finally, ask the AI Service Agent to read the latest action list and delete all items on the latest due date overall.",
+    "analysis": "1. Identify Mobile Phone, Earphone Cable from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Mobile Phone, due on 2026-08-24.\n4. Add an action to condition Mobile Phone, due on 2026-08-20.\n5. Add an action to replace Mobile Phone, due on 2027-11-26.\n6. Remove an action to replace Mobile Phone, due on 2027-11-26.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "repair",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "condition",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "replace",
+          "due_date": "2027-11-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "replace",
+          "due_date": "2027-11-26"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Mobile Phone",
+      "Earphone Cable"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the third Friday of August 2026. First, you ask the AI Service Agent to separately find the end dates of the most recent retrievable use records for the small item hanging from the right edge of the bed and the soft item stacked on the left at the bottom of the cabinet, and calculate each item's current retrievable number of idle days as of today. If the bed-edge item has been idle at least fourteen days longer than the soft cabinet-bottom item, you explain that the bed-edge item has just been washed and is still damp, and ask the AI Service Agent to record an arrangement to dry it thoroughly, due on August 22, 2026. If it has not been idle fourteen days longer, you explain that the soft cabinet-bottom item has been washed, is completely dry, and has been confirmed suitable for ironing, and ask the AI Service Agent to add an action accordingly, also due on August 22, 2026. Next, select the one of the two items with the longer current retrievable idle time and, for every routine care action required by its manual, use the most recent completion record for the same action together with the maintenance history to determine whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the longest-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, compare the items' maximum-service-life dates. If they are no more than two calendar years apart, you explain that the current earlier-expiring item will, upon expiration, be replaced with a newly purchased item exactly identical to it; ask the AI Service Agent to record a replacement arrangement using the earlier expiration date, changed to today if already past. If they are more than two calendar years apart, you explain that the earlier-expiring item will no longer be retained and no brand-new identical item will be acquired; ask the AI Service Agent to record a removal arrangement using the same date, changed to today if already past. Finally, identify the due date with the most action items in the latest list, selecting the earlier date if tied, and delete every action item on the selected date.",
+    "analysis": "1. Identify Teal Cloth, Green Cloth from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dry Teal Cloth, due on 2026-08-22.\n4. Add an action to inspect Teal Cloth, due on 2026-08-21.\n5. Add an action to replace Teal Cloth, due on 2027-12-29.\n6. Remove an action to dispose Water Bottle, due on 2026-08-21.\n7. Remove an action to inspect Teal Cloth, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Teal Cloth",
+          "required_action": "dry",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Teal Cloth",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Teal Cloth",
+          "required_action": "replace",
+          "due_date": "2027-12-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Water Bottle",
+          "required_action": "dispose",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Teal Cloth",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Teal Cloth",
+      "Green Cloth"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the fourth Saturday of August 2026. First, for the gray-brown length of fabric hanging beside the floor-to-ceiling glass, you ask the AI Service Agent to determine whether every day from September 15, 2025 through today falls within its retrievable periods of use. If coverage is continuous, you explain that the fabric has been washed, is completely dry, and has been confirmed suitable for ironing, and ask the AI Service Agent to add an action arrangement accordingly, due on August 24, 2026. If coverage is not continuous, you explain that it is only temporarily hung somewhere other than the bedroom and will continue to be used later, and ask the AI Service Agent to look up its ideal storage location in the records and record a return-to-location arrangement, also due on August 24, 2026. Next, based on this fabric's maintenance history and the routine care requirements in the manual, determine for every required action, using its most recent completion record, whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the least-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, determine whether this fabric's maximum-service-life date falls within two calendar years from today. If it does, you explain that the current item will no longer be retained after expiration and that no brand-new identical length of fabric will be acquired; ask the AI Service Agent to add a removal arrangement using its maximum-service-life date, changed to today if already past. If it does not, you explain that after the current item is retired upon expiration, it will be replaced with a brand-new item exactly identical to it; ask the AI Service Agent to record a replacement arrangement using the same date, changed to today if already past. Finally, sort the latest action list's different due dates from latest to earliest and delete every item on the second-latest date; if there are fewer than two different dates, delete every item on the only date.",
+    "analysis": "1. Identify Curtain from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Curtain, due on 2026-08-24.\n4. Add an action to wash Curtain, due on 2026-08-22.\n5. Add an action to dispose Curtain, due on 2028-06-29.\n6. Remove an action to iron Curtain, due on 2026-08-24.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Curtain",
+          "required_action": "iron",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Curtain",
+          "required_action": "wash",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Curtain",
+          "required_action": "dispose",
+          "due_date": "2028-06-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Curtain",
+          "required_action": "iron",
+          "due_date": "2026-08-24"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Curtain"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the fourth Sunday of August 2026. First, you ask the AI Service Agent to find the longest retrievable continuous period of use of the row of dark clothing hanging in the cabinet and determine whether it has reached one hundred eighty days. If it has, you explain that these clothing items have been washed, are completely dry, and have been confirmed suitable for ironing, and ask the AI Service Agent to record an ironing arrangement in the action list, due on August 25, 2026. If it is fewer than one hundred eighty days, you explain that they have just been washed and are still damp, and ask the AI Service Agent to add an arrangement to dry them thoroughly, also due on August 25, 2026. Next, based on these clothing items' maintenance history and the routine care requirements in the manual, determine for each required action, using its most recent completion record, whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add all of them separately and uniformly set their due dates to today; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, compare the purchase prices of these dark clothing items with those of the other clothing items in the database. If their price is the highest, you explain that the current clothing items will be retired on October 1, 2026 and that a brand-new set exactly identical to them will then be purchased for continued use; ask the AI Service Agent to add a replacement arrangement due on October 1, 2026. If their price is not the highest, you explain that the current clothing items will no longer be retained on that same day and that no brand-new identical clothing items will be purchased; ask the AI Service Agent to record a removal arrangement, also due on October 1, 2026. Finally, delete every action item on the earliest due date overall in the latest action list.",
+    "analysis": "1. Identify Black Garments from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Black Garments, due on 2026-08-25.\n4. Add an action to wash Black Garments, due on 2026-08-23.\n5. Add an action to clean Black Garments, due on 2026-08-23.\n6. Add an action to inspect Black Garments, due on 2026-08-23.\n7. Add an action to replace Black Garments, due on 2026-10-01.\n8. Remove an action to dry Black Garments, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Black Garments",
+          "required_action": "iron",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Black Garments",
+          "required_action": "wash",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Black Garments",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Black Garments",
+          "required_action": "inspect",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Black Garments",
+          "required_action": "replace",
+          "due_date": "2026-10-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Black Garments",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Black Garments"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is seven days before the last Monday of August 2026. First, you ask the AI Service Agent to separately find the longest retrievable continuous periods of use for the clothing item that you put into the cabinet midway through the video and the black-and-white domed object on top of the wooden rack in the distance. If the domed object's longest continuous period is at least sixty days longer than the cabinet clothing item's, you explain that the cabinet clothing item has an unaddressed seam fault that has been confirmed to be repairable and that you will continue to retain the current item; ask the AI Service Agent to record a repair action accordingly, due on August 27, 2026. If it is not sixty days longer, you explain that the domed object is only temporarily placed on top of the wooden rack and will continue to be used later, and ask the AI Service Agent to look up its ideal storage location in the records and add a return-to-location arrangement, also due on August 27, 2026. Next, select the one of the two items with the shorter longest continuous period of use and, for every routine care action required by its manual, use the most recent completion record for the same action together with the maintenance history to determine whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the least-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, compare the dates on which the two items reach their maximum service lives. If they are more than five calendar years apart, you explain that the earlier-expiring item will no longer be retained and no brand-new identical item will be purchased; ask the AI Service Agent to add a removal arrangement using the earlier expiration date, changed to today if already past. If they are no more than five calendar years apart, you explain that the current earlier-expiring item will be replaced by a newly purchased item exactly identical to it; ask the AI Service Agent to record a replacement arrangement using the same date, changed to today if already past. Finally, delete all action items due today from the latest action list; if no items are due today, delete all items with the earliest due date.",
+    "analysis": "1. Identify Blue Top, Hat from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Blue Top, due on 2026-08-27.\n4. Add an action to inspect Blue Top, due on 2026-08-24.\n5. Add an action to dispose Blue Top, due on 2026-11-13.\n6. Remove an action to inspect Blue Top, due on 2026-08-24.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Blue Top",
+          "required_action": "repair",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Blue Top",
+          "required_action": "inspect",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Blue Top",
+          "required_action": "dispose",
+          "due_date": "2026-11-13"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Blue Top",
+          "required_action": "inspect",
+          "due_date": "2026-08-24"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Blue Top",
+      "Hat"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is August 25, 2026. First, for the blue container on the desk surface, you ask the AI Service Agent to find the end date of its most recent retrievable use record and determine whether, as of today, it has continuously spent more than three weeks outside every retrievable period of use. If it has been more than three weeks, you explain that this container is only temporarily placed on the desk and will continue to be used later, and ask the AI Service Agent to look up its ideal storage location in the records and record a return-to-location arrangement, due on August 28, 2026. If it has not been more than three weeks, you explain that it has an unaddressed lid fault that has been confirmed to be repairable and that you want to retain the current item; ask the AI Service Agent to add a repair action accordingly, also due on August 28, 2026. Next, based on the blue container's maintenance history and the routine care requirements in the manual, determine for each required action, using its most recent completion record, whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the longest-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, determine whether the container's maximum-service-life date is later than the date four calendar years from today. If it is later, you explain that after the current container is retired upon expiration, it will be replaced with a brand-new container exactly identical to it; ask the AI Service Agent to record a replacement arrangement using its maximum-service-life date, changed to today if already past. If it is not later, you explain that the current container will no longer be retained and no brand-new identical container will be purchased; ask the AI Service Agent to add a removal arrangement using the same date, changed to today if already past. Finally, sort the latest action list's different due dates from earliest to latest and move all items on the earliest date to the day after the second-earliest date; if the list has only one different date, postpone all items on that date by one day.",
+    "analysis": "1. Identify Water Bottle from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Water Bottle, due on 2026-08-28.\n4. Add an action to disinfect Water Bottle, due on 2026-08-25.\n5. Add an action to replace Water Bottle, due on 2030-10-17.\n6. Remove an action to condition Chair, due on 2026-08-19.\n7. Add an action to condition Chair, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Water Bottle",
+          "required_action": "relocate",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Water Bottle",
+          "required_action": "disinfect",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Water Bottle",
+          "required_action": "replace",
+          "due_date": "2030-10-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Water Bottle"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is five days before the last Monday of August 2026. First, you ask the AI Service Agent to separately find the end dates of the most recent retrievable use records for the thin metal rod protruding from the drawer cabinet and the black wheeled seat in front, and calculate each item's current retrievable number of idle days as of today. If the black seat has been idle at least twenty-one days longer than the thin metal rod, you explain that the black seat has an unresolved caster fault that has been confirmed to be repairable and that you still want to retain the current item; ask the AI Service Agent to record a repair action accordingly, due on August 29, 2026. If it has not been idle twenty-one days longer, you explain that the thin metal rod is only temporarily placed on the drawer cabinet and will still be used later, and ask the AI Service Agent to look up its ideal storage location in the records and add a return-to-location arrangement, also due on August 29, 2026. Next, select the one of the two items with the longer current retrievable idle time and, for every routine care action required by its manual, use the most recent completion record for the same action together with the maintenance history to determine whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the longest-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, determine whether the black seat's maximum-service-life date falls within two calendar months from today. If it does, you explain that after the current seat is retired, a brand-new seat exactly identical to it will be acquired for continued use; ask the AI Service Agent to add a replacement arrangement using its maximum-service-life date, changed to today if already past. If it does not, you explain that the current seat will no longer be retained and no brand-new identical seat will be acquired; ask the AI Service Agent to record a removal arrangement using the same date, changed to today if already past. Finally, delete all action items on the latest due date in the updated action list.",
+    "analysis": "1. Identify Reading Lamp, Chair from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Chair, due on 2026-08-29.\n4. Add an action to condition Chair, due on 2026-08-26.\n5. Add an action to replace Chair, due on 2026-10-25.\n6. Remove an action to replace Chair, due on 2026-10-25.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Chair",
+          "required_action": "repair",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Chair",
+          "required_action": "replace",
+          "due_date": "2026-10-25"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Chair",
+          "required_action": "replace",
+          "due_date": "2026-10-25"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Reading Lamp",
+      "Chair"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is August 27, 2026. First, for the large patterned item laid out at the beginning, you ask the AI Service Agent to find the end date of its most recent retrievable use record and determine whether it has spent more than three weeks outside every retrievable period of use as of today. If it has been more than three weeks, you explain that the large patterned item has just been washed and is still damp, and ask the AI Service Agent to add an arrangement to dry it thoroughly, due on August 28, 2026. If it has not been more than three weeks, you explain that it is only temporarily placed on the sofa and will continue to be used later, and ask the AI Service Agent to look up its ideal storage location in the records and record a return-to-location arrangement, also due on August 28, 2026. Next, based on the item's maintenance history and the routine care requirements in the manual and using the most recent completion record for each required action, determine whether any action is overdue and unperformed as of today with a prescribed date earlier than January 1, 2026. If such actions exist, ask the AI Service Agent to add them separately and uniformly set their due dates to today. If none exist, ask the AI Service Agent to add all overdue actions due today; if there are no overdue actions at all, add the earliest-required action on its prescribed date, adding all same-date ties. Next, determine whether this large patterned item was purchased before January 1, 2024. If it was, you explain that you will stop retaining the current item on September 30, 2026 and will not purchase a brand-new identical item; ask the AI Service Agent to add a removal-from-household-use arrangement due on September 30, 2026. If it was not, you explain that on that day a brand-new item of the same model will replace the current one; ask the AI Service Agent to record a replacement arrangement, also due on September 30, 2026. Finally, delete all action items on the earliest due date overall in the latest action list.",
+    "analysis": "1. Identify Bedspread from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dry Bedspread, due on 2026-08-28.\n4. Add an action to wash Bedspread, due on 2026-08-27.\n5. Add an action to disinfect Bedspread, due on 2026-08-27.\n6. Add an action to dispose Bedspread, due on 2026-09-30.\n7. Remove an action to wash Teal Cloth, due on 2026-08-17.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Bedspread",
+          "required_action": "dry",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Bedspread",
+          "required_action": "wash",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Bedspread",
+          "required_action": "disinfect",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Bedspread",
+          "required_action": "dispose",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Teal Cloth",
+          "required_action": "wash",
+          "due_date": "2026-08-17"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Bedspread"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the last Friday of August 2026. First, for the two cushions arranged side by side against the wall, you ask the AI Service Agent to determine whether every day from this day one year ago through today is covered by a retrievable period of use. If every day is covered, you explain that the cushions have an unaddressed zipper fault that has been confirmed to be repairable and that you want to continue retaining the current items; ask the AI Service Agent to record a repair action accordingly, due on August 31, 2026. If any date is not covered, you explain that the cushions are only temporarily placed somewhere other than beside the bed and will still be used later, and ask the AI Service Agent to look up their ideal storage location in the records and add a return-to-location arrangement, also due on August 31, 2026. Next, based on the cushions' maintenance history and the routine care requirements in the manual, determine for each required action, using its most recent completion record, whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the least-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, determine whether the cushions' maximum-service-life date is later than December 31, 2033. If it is later, you explain that the current cushions will no longer be retained after expiration and that no brand-new identical cushions will be acquired; ask the AI Service Agent to record a removal arrangement using their maximum-service-life date, changed to today if already past. If it is not later, you explain that after the current cushions are retired upon expiration, they will be replaced with a brand-new set exactly identical to them; ask the AI Service Agent to add a replacement arrangement using the same date, changed to today if already past. Finally, identify the due date with the most action items in the latest list, selecting the latest date if tied, and delete every action item on the selected date.",
+    "analysis": "1. Identify Pillow from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Pillow, due on 2026-08-31.\n4. Add an action to inspect Pillow, due on 2026-08-28.\n5. Add an action to dispose Pillow, due on 2034-01-08.\n6. Remove an action to dispose Pillow, due on 2034-01-08.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pillow",
+          "required_action": "repair",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pillow",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pillow",
+          "required_action": "dispose",
+          "due_date": "2034-01-08"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pillow",
+          "required_action": "dispose",
+          "due_date": "2034-01-08"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Pillow"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is August 29, 2026. First, for the gray-brown length of fabric hanging beside the floor-to-ceiling glass, you ask the AI Service Agent to find the other item in the same category with the lowest purchase price, selecting the item with the later purchase date if prices are tied, and then separately find the longest retrievable continuous periods of use for the gray-brown fabric and the selected item. If the gray-brown fabric's longest continuous period is at least one hundred twenty days longer, you explain that the selected textile has been washed, is completely dry, and has been confirmed suitable for ironing, and ask the AI Service Agent to add an action accordingly, due on August 31, 2026. If its longest continuous period is not one hundred twenty days longer, you explain that the gray-brown fabric has just been washed and is still damp, and ask the AI Service Agent to record an arrangement to dry it thoroughly, also due on August 31, 2026. Next, based on the gray-brown fabric's maintenance history and the routine care requirements in the manual, determine for each required action, using its most recent completion record, whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the longest-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, compare the maximum-service-life dates of the gray-brown fabric and the selected item. If they are no more than one calendar year apart, you explain that the earlier-expiring item will no longer be retained and no brand-new identical item will be purchased; ask the AI Service Agent to add a removal-from-household-use arrangement using the earlier expiration date, changed to today if already past. If they are more than one calendar year apart, you explain that after the current earlier-expiring item is removed, a brand-new item exactly identical to it will take its place; ask the AI Service Agent to record a replacement arrangement using the same date, changed to today if already past. Finally, sort the latest action list's different due dates from earliest to latest and move every item on the earliest date to the day after the second-earliest date; if there is only one different date, postpone all items on that date by one day.",
+    "analysis": "1. Identify Curtain from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Teal Cloth, due on 2026-08-31.\n4. Add an action to disinfect Curtain, due on 2026-08-29.\n5. Add an action to dispose Teal Cloth, due on 2027-12-29.\n6. Remove an action to dry Black Garments, due on 2026-08-18.\n7. Add an action to dry Black Garments, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Teal Cloth",
+          "required_action": "iron",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Curtain",
+          "required_action": "disinfect",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Teal Cloth",
+          "required_action": "dispose",
+          "due_date": "2027-12-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Black Garments",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Black Garments",
+          "required_action": "dry",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Curtain"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the last Sunday of August 2026. First, for the black rectangular object placed at the edge of the bed, you ask the AI Service Agent to determine whether its retrievable period of use has continuously covered the period from its purchase date through today. If it has, you explain that this item currently has an unaddressed battery fault that has been confirmed to be repairable and that you want to continue retaining the current item; ask the AI Service Agent to record a repair action accordingly, due on September 2, 2026. If it has not, you explain that it is only temporarily placed beside the bed and will continue to be used later, and ask the AI Service Agent to look up its ideal storage location in the records and add a return-to-location arrangement, also due on September 2, 2026. Next, based on this black rectangular object's maintenance history and the routine care requirements in the manual, determine for each required action, using its most recent completion record, whether it is overdue and unperformed by more than six calendar months as of today. If such actions exist, ask the AI Service Agent to add them separately and uniformly set their due dates to today. If none exist, ask the AI Service Agent to add all overdue actions due today; if there are no overdue actions at all, add the earliest-required action on its prescribed date, adding all same-date ties. Next, determine whether this item's maximum-service-life date falls within eighteen calendar months from today. If it does, you explain that after the current item expires, it will be replaced by a newly purchased item exactly identical to it; ask the AI Service Agent to add a replacement arrangement using its maximum-service-life date, changed to today if already past. If it does not, you explain that the current item will no longer be retained and no brand-new identical item will be purchased; ask the AI Service Agent to record a removal arrangement using the same date, changed to today if already past. Finally, identify the due date with the most action items in the latest list, selecting the earliest date if tied, and delete every action item on the selected date.",
+    "analysis": "1. Identify Mobile Phone from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Mobile Phone, due on 2026-09-02.\n4. Add an action to condition Mobile Phone, due on 2026-08-30.\n5. Add an action to inspect Mobile Phone, due on 2026-08-30.\n6. Add an action to replace Mobile Phone, due on 2027-11-26.\n7. Remove an action to condition Mobile Phone, due on 2026-08-30.\n8. Remove an action to inspect Mobile Phone, due on 2026-08-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "repair",
+          "due_date": "2026-09-02"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "condition",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "inspect",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "replace",
+          "due_date": "2027-11-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "condition",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "inspect",
+          "due_date": "2026-08-30"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Mobile Phone"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the last day of August 2026. First, you ask the AI Service Agent to determine whether the black-and-white domed clothing item on top of the wooden rack in the distance still has a retrievable period of use covering today. If it does, you explain that this clothing item has been washed, is completely dry, and has been confirmed suitable for ironing, and ask the AI Service Agent to record an ironing arrangement, due on September 2, 2026. If it does not cover today, you explain that it has just been washed and is still damp, and ask the AI Service Agent to add an arrangement to dry it thoroughly, also due on September 2, 2026. Next, based on this clothing item's maintenance history and the routine care requirements in the manual, determine for each required action, using its most recent completion record, whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the longest-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, determine whether this clothing item's purchase price is lower than 100. If it is, you explain that the current item will be retired on October 15, 2026 and that a brand-new clothing item exactly identical to it will then be purchased for continued use; ask the AI Service Agent to update or create a replacement arrangement due on October 15, 2026. If it is not lower, you explain that the current item will no longer be retained on that same day and that no brand-new identical clothing item will be acquired; ask the AI Service Agent to add a removal arrangement, also due on October 15, 2026. Finally, sort the latest action list's different due dates from earliest to latest; if the number of dates is odd, delete every action item on the middle date, and if it is even, delete every item on the later of the two middle dates.",
+    "analysis": "1. Identify Hat from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Hat, due on 2026-09-02.\n4. Add an action to inspect Hat, due on 2026-08-31.\n5. Add an action to replace Hat, due on 2026-10-15.\n6. Remove an action to clean Reading Lamp, due on 2026-08-22.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Hat",
+          "required_action": "iron",
+          "due_date": "2026-09-02"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Hat",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Hat",
+          "required_action": "replace",
+          "due_date": "2026-10-15"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Reading Lamp",
+          "required_action": "clean",
+          "due_date": "2026-08-22"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Hat"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is August 31, 2026. First, for the soft item stacked on the left at the bottom of the cabinet, you ask the AI Service Agent to find the retrievable period of use that currently still covers today and determine whether that period's start date is earlier than January 1, 2025. If it is earlier, you explain that this soft item is currently only temporarily placed at the bottom of the cabinet and will continue to be used later, and ask the AI Service Agent to look up its ideal storage location in the records and record a return-to-location arrangement, due on September 3, 2026. If it is not earlier, you explain that it has an unaddressed edging fault that has been confirmed to be repairable and that you want to retain the current item; ask the AI Service Agent to add a repair action accordingly, also due on September 3, 2026. Next, based on this soft item's maintenance history and the routine care requirements in the manual, determine for each required action, using its most recent completion record, whether it is overdue and unperformed as of today. If overdue actions exist, ask the AI Service Agent to add the least-overdue action due today, adding all ties; if none exist, add the earliest-required action on its prescribed date, adding all same-date ties. Next, determine whether this soft item's maximum-service-life date is later than the date two calendar years from today. If it is later, you explain that after the current item is retired upon expiration, it will be replaced with a brand-new soft item exactly identical to it; ask the AI Service Agent to record a replacement arrangement using its maximum-service-life date, changed to today if already past. If it is not later, you explain that the current item will no longer be retained and no brand-new identical item will be purchased; ask the AI Service Agent to add a removal arrangement using the same date, changed to today if already past. Finally, delete every action item on the latest due date in the latest action list.",
+    "analysis": "1. Identify Green Cloth from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Green Cloth, due on 2026-09-03.\n4. Add an action to inspect Green Cloth, due on 2026-08-31.\n5. Add an action to replace Green Cloth, due on 2029-07-07.\n6. Remove an action to replace Green Cloth, due on 2029-07-07.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Green Cloth",
+          "required_action": "relocate",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Green Cloth",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Green Cloth",
+          "required_action": "replace",
+          "due_date": "2029-07-07"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Green Cloth",
+          "required_action": "replace",
+          "due_date": "2029-07-07"
+        }
+      }
+    ],
+    "image_name": "household3",
+    "image_path": "household3.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Green Cloth"
+    ],
+    "scenario_id": 15
+  }
+]

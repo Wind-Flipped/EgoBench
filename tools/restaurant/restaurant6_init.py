@@ -1,4 +1,4 @@
-order_init_data = {
+restaurant6_init_data = {
   "dishes": [
     {
       "name": "Salame Milano",

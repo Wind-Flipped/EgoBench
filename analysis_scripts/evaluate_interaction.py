@@ -4,6 +4,8 @@ from typing import Any, Dict, List
 from collections import Counter
 import argparse
 import inspect
+import re
+from dataclasses import asdict
 
 # 1. Import database classes
 import sys
@@ -16,15 +18,59 @@ from tools.kitchen.kitchen_db import KitchenDB
 from tools.kitchen.kitchen_init import kitchen_init_data
 from tools.restaurant.restaurant_db import RestaurantDB
 from tools.restaurant.restaurant_init import restaurant_init_data, restaurant_init_data5
-from tools.order.order_db import OrderDB
-from tools.order.order_init import order_init_data
+from tools.restaurant.restaurant6_db import Restaurant6DB
+from tools.restaurant.restaurant6_init import restaurant6_init_data
+from tools.warehouse.warehouse_db import WarehouseDB
+from tools.warehouse import warehouse_init
+from tools.household.household_db import HouseholdDB
+from tools.household import household_init
+
+
+SUPPORTED_SCENARIOS = ("retail", "kitchen", "restaurant", "warehouse", "household")
+SCENARIO_NUMBER_RANGES = {
+    "retail": (1, 10),
+    "kitchen": (1, 4),
+    "restaurant": (1, 6),
+    "warehouse": (1, 25),
+    "household": (1, 18),
+}
+RESULT_FILE_PATTERN = re.compile(r'^([a-z]+)(\d+)_(easy|hard|static)\.json$')
+USER_PERFORMANCE_KEYS = (
+    "role_consistency",
+    "instruction_following",
+    "resilience",
+    "contextual_robustness",
+)
+
+
+def parse_result_filename(filename):
+    """Return ``(scenario, variant, mode)`` for a supported result filename.
+
+    The numeric suffix is always the variant number, so ``restaurant6`` is
+    classified as scenario ``restaurant`` with variant ``6``.
+    """
+    match = RESULT_FILE_PATTERN.fullmatch(filename)
+    if not match:
+        return None
+
+    scenario = match.group(1)
+    scenario_number = int(match.group(2))
+    mode = match.group(3)
+    if scenario not in SUPPORTED_SCENARIOS:
+        return None
+
+    min_number, max_number = SCENARIO_NUMBER_RANGES[scenario]
+    if not min_number <= scenario_number <= max_number:
+        return None
+    return scenario, scenario_number, mode
 
 # ===================== Core Configuration: Fuzzy Match Fields & Scenario Mapping =====================
 FUZZY_KEYS = {
     "retail": ["product_name"],
     "kitchen": ["ingredient_name", "recipe_name", "recipes"],
-    "restaurant": ["dish_name", "set_meal_name"],
-    "order": ["dish_name", "set_meal_name", "restaurant_name"],
+    "restaurant": ["dish_name", "set_meal_name", "restaurant_name"],
+    "warehouse": ["equipment"],
+    "household": ["item_name", "name"],
 }
 
 # Database match method mapping
@@ -32,7 +78,8 @@ DB_MATCH_METHOD = {
     "retail": "_find_matching_products",
     "kitchen": None,  # Kitchen uses exact matching, not fuzzy matching
     "restaurant": "_find_matching_dishes",
-    "order": "_find_matching_dishes"
+    "warehouse": None,
+    "household": None,
 }
 
 # Set meal match method mapping (dish_name may be a set meal name, need to match both dishes and set meals)
@@ -40,15 +87,34 @@ DB_SET_MEAL_MATCH_METHOD = {
     "retail": None,
     "kitchen": None,
     "restaurant": "_find_matching_set_meals",
-    "order": "_find_matching_set_meals"
+    "warehouse": None,
+    "household": None,
 }
 
 # Scenario fuzzy match field config (for fuzzy matching within evaluate_interaction.py)
 SCENARIO_FUZZY_FIELDS = {
     "retail": ["product_name"],
     "kitchen": ["ingredient_name", "recipe_name"],
-    "restaurant": ["dish_name", "set_meal_name"],
-    "order": ["dish_name", "set_meal_name", "restaurant_name"],
+    "restaurant": ["dish_name", "set_meal_name", "restaurant_name"],
+    "warehouse": ["equipment"],
+    "household": ["item_name", "name"],
+}
+
+# ===================== Merge Similar Items Configuration =====================
+MERGE_NAME_KEYS = [
+    "product_name",
+    "ingredient_name",
+    "equipment",
+    "item_name",
+    "dish_name",
+    "set_meal_name",
+    "restaurant_name",
+    "recipe_name",
+    "name",
+]
+
+MERGE_SUM_KEYS = {
+    "quantity",
 }
 
 
@@ -66,6 +132,387 @@ def normalize_for_hash(value):
     if isinstance(value, float):
         return int(value) if value.is_integer() else value
     return value
+
+
+# ===================== Generic Helpers =====================
+def try_parse_number(value):
+    try:
+        if isinstance(value, bool):
+            return None
+        if isinstance(value, (int, float)):
+            return float(value)
+        if isinstance(value, str):
+            v = value.strip()
+            if v == "":
+                return None
+            return float(v)
+    except Exception:
+        return None
+    return None
+
+
+def canonical_string(value: Any) -> str:
+    if value is None:
+        return ""
+    return str(value).strip().lower()
+
+
+# ===================== Fuzzy Match Function =====================
+def fuzzy_match_str(query: str, target: str) -> bool:
+    """Generic string fuzzy matching: lowercase containment check"""
+    if not query or not target:
+        return False
+    return query.lower() in target.lower() or target.lower() in query.lower()
+
+
+# ===================== Scenario-based Fuzzy Matching Core Function =====================
+def fuzzy_match_field(gt_name: str, inter_name: str, db_instance: Any, scenario: str) -> bool:
+    """
+    Perform fuzzy matching based on scenario; dish_name matches both dishes and set meals, either match counts as correct
+    """
+    # No database instance: fallback to string fuzzy matching
+    if not db_instance:
+        return fuzzy_match_str(inter_name, gt_name)
+
+    if scenario == "kitchen":
+        # Kitchen scenario: use exact matching (KitchenDB has no fuzzy match method)
+        return gt_name.lower().strip() == inter_name.lower().strip()
+
+    match_method = DB_MATCH_METHOD.get(scenario)
+    set_meal_method = DB_SET_MEAL_MATCH_METHOD.get(scenario)
+
+    def _collect_matching_names(name: str) -> set:
+        """Collect all matching names for dishes and set meals"""
+        all_names = set()
+
+        # Dish matching
+        if match_method and hasattr(db_instance, match_method):
+            try:
+                match_func = getattr(db_instance, match_method)
+                if isinstance(db_instance, Restaurant6DB):
+                    # Restaurant6DB needs to iterate over all restaurants.
+                    for r_name in db_instance.restaurants:
+                        matches = match_func(r_name, name)
+                        all_names.update(m.name for m in matches)
+                else:
+                    matches = match_func(name)
+                    all_names.update(m.name for m in matches)
+            except Exception:
+                pass
+
+        # Set meal matching
+        if set_meal_method and hasattr(db_instance, set_meal_method):
+            try:
+                sm_func = getattr(db_instance, set_meal_method)
+                if isinstance(db_instance, Restaurant6DB):
+                    for r_name in db_instance.restaurants:
+                        matches = sm_func(r_name, name)
+                        all_names.update(m.name for m in matches)
+                else:
+                    matches = sm_func(name)
+                    all_names.update(m.name for m in matches)
+            except Exception:
+                pass
+
+        return all_names
+
+    gt_names = _collect_matching_names(gt_name)
+    inter_names = _collect_matching_names(inter_name)
+
+    # Match succeeds if dishes or set meals have intersection
+    if len(gt_names) > 0 and len(inter_names) > 0:
+        return len(gt_names & inter_names) > 0
+
+    # Database methods all returned empty lists, fallback to string fuzzy matching
+    return fuzzy_match_str(inter_name, gt_name)
+
+
+# ===================== Merge Similar Items Before Matching =====================
+def get_merge_identity_key(item: dict):
+    """
+    Return the first available name-like key for grouping similar dict items.
+    """
+    for key in MERGE_NAME_KEYS:
+        if key in item and item[key] is not None:
+            return key
+    return None
+
+
+def merge_two_dict_items(base: dict, incoming: dict) -> dict:
+    """
+    Merge two similar dict items:
+    - sum numeric quantity-like fields in MERGE_SUM_KEYS
+    - for other fields, keep existing non-empty value; otherwise fill from incoming
+    """
+    merged = dict(base)
+
+    for k, v in incoming.items():
+        if k in MERGE_SUM_KEYS:
+            a = try_parse_number(merged.get(k))
+            b = try_parse_number(v)
+            if a is not None and b is not None:
+                summed = a + b
+                merged[k] = int(summed) if summed.is_integer() else summed
+            elif merged.get(k) is None:
+                merged[k] = v
+        else:
+            existing = merged.get(k)
+            if existing is None or (isinstance(existing, str) and existing.strip() == ""):
+                merged[k] = v
+
+    return merged
+
+
+def merge_similar_items_in_list(items, db_instance=None, scenario="retail", current_key=None):
+    """
+    Merge similar dict items in a list before matching.
+    Typical use case:
+    [
+        {"dish_name": "apple", "quantity": 1},
+        {"dish_name": "apple", "quantity": 2}
+    ]
+    =>
+    [
+        {"dish_name": "apple", "quantity": 3}
+    ]
+
+    注意：
+    为保证 list 参数评估时是"无序精准匹配"，这里的"similar"也只按严格相等合并，
+    不再对 name 类字段使用模糊匹配合并。
+    """
+    if not isinstance(items, list):
+        return items
+
+    normalized_items = [
+        merge_similar_items_in_value(item, db_instance=db_instance, scenario=scenario, current_key=current_key)
+        for item in items
+    ]
+
+    if not normalized_items:
+        return normalized_items
+
+    if not all(isinstance(x, dict) for x in normalized_items):
+        return normalized_items
+
+    merged_groups = []
+
+    for item in normalized_items:
+        name_key = get_merge_identity_key(item)
+        if not name_key:
+            merged_groups.append(item)
+            continue
+
+        current_name = item.get(name_key)
+        merged = False
+
+        for idx, existing in enumerate(merged_groups):
+            if not isinstance(existing, dict):
+                continue
+            existing_name_key = get_merge_identity_key(existing)
+            if existing_name_key != name_key:
+                continue
+
+            existing_name = existing.get(existing_name_key)
+            if isinstance(current_name, str) and isinstance(existing_name, str):
+                same = canonical_string(existing_name) == canonical_string(current_name)
+
+                if same:
+                    merged_groups[idx] = merge_two_dict_items(existing, item)
+                    merged = True
+                    break
+            else:
+                if current_name == existing_name:
+                    merged_groups[idx] = merge_two_dict_items(existing, item)
+                    merged = True
+                    break
+
+        if not merged:
+            merged_groups.append(item)
+
+    def sort_key(x):
+        if isinstance(x, dict):
+            name_key = get_merge_identity_key(x)
+            if name_key:
+                return canonical_string(x.get(name_key))
+        return json.dumps(normalize_for_hash(x), ensure_ascii=False, sort_keys=True, default=str)
+
+    return sorted(merged_groups, key=sort_key)
+
+
+def merge_similar_items_in_value(value, db_instance=None, scenario="retail", current_key=None):
+    """
+    Recursively merge similar items in complex parameter values.
+    """
+    if isinstance(value, dict):
+        return {
+            k: merge_similar_items_in_value(v, db_instance=db_instance, scenario=scenario, current_key=k)
+            for k, v in value.items()
+        }
+    if isinstance(value, list):
+        return merge_similar_items_in_list(value, db_instance=db_instance, scenario=scenario, current_key=current_key)
+    if isinstance(value, tuple):
+        return [
+            merge_similar_items_in_value(v, db_instance=db_instance, scenario=scenario, current_key=current_key)
+            for v in value
+        ]
+    return value
+
+
+def normalize_call_parameters_before_match(params, db_instance=None, scenario="retail"):
+    """
+    Normalize parameters before comparison:
+    1. recursively process nested values
+    2. merge similar items in lists
+    """
+    if not isinstance(params, dict):
+        return params
+    return merge_similar_items_in_value(params, db_instance=db_instance, scenario=scenario)
+
+
+# ===================== Strict / Exact Comparison Helpers =====================
+def compare_parameters_recursive_exact(
+    gt_val: Any,
+    inter_val: Any,
+    db_instance: Any = None,
+    scenario: str = "retail",
+    current_key: str = None
+) -> bool:
+    """
+    Exact recursive comparison.
+    For list:
+    - unordered exact matching only
+    For fuzzy keys:
+    - exact means normalized string equality, NOT fuzzy db matching
+    """
+    if type(gt_val) != type(inter_val):
+        try:
+            if isinstance(gt_val, (str, int, float)) and isinstance(inter_val, (str, int, float)):
+                return float(gt_val) == float(inter_val)
+        except (ValueError, TypeError):
+            pass
+        return False
+
+    if isinstance(gt_val, list):
+        gt_val = merge_similar_items_in_list(gt_val, db_instance, scenario, current_key)
+        inter_val = merge_similar_items_in_list(inter_val, db_instance, scenario, current_key)
+
+        if len(gt_val) != len(inter_val):
+            return False
+
+        inter_used = [False] * len(inter_val)
+        for gt_item in gt_val:
+            found = False
+            for j, inter_item in enumerate(inter_val):
+                if inter_used[j]:
+                    continue
+                if compare_parameters_recursive_exact(gt_item, inter_item, db_instance, scenario, current_key):
+                    inter_used[j] = True
+                    found = True
+                    break
+            if not found:
+                return False
+        return True
+
+    if isinstance(gt_val, dict):
+        gt_val = merge_similar_items_in_value(gt_val, db_instance, scenario, current_key)
+        inter_val = merge_similar_items_in_value(inter_val, db_instance, scenario, current_key)
+
+        if set(gt_val.keys()) != set(inter_val.keys()):
+            return False
+
+        for key, g_val in gt_val.items():
+            i_val = inter_val[key]
+            if not compare_parameters_recursive_exact(g_val, i_val, db_instance, scenario, key):
+                return False
+        return True
+
+    if isinstance(gt_val, str):
+        if current_key in FUZZY_KEYS.get(scenario, []):
+            return canonical_string(gt_val) == canonical_string(inter_val)
+        return gt_val == inter_val
+
+    return gt_val == inter_val
+
+
+# ===================== Recursive Parameter Comparison =====================
+def compare_parameters_recursive(
+    gt_val: Any,
+    inter_val: Any,
+    db_instance: Any = None,
+    scenario: str = "retail",
+    current_key: str = None
+) -> bool:
+    """
+    Recursively compare two parameter values, supporting:
+    1. Array/list: unordered comparison, ignoring order
+    2. Dict/object: recursive field-by-field comparison
+    3. Specified fields: scenario-based fuzzy matching
+    4. Basic types: exact comparison
+
+    关键修改：
+    当参数是 list 时，严格按照"无序精准匹配"进行评估，
+    不再使用任何模糊匹配。
+    """
+    # When types differ, try numeric-compatible comparison (str/int/float mix, e.g. "2" vs 2.0)
+    if type(gt_val) != type(inter_val):
+        try:
+            if isinstance(gt_val, (str, int, float)) and isinstance(inter_val, (str, int, float)):
+                return float(gt_val) == float(inter_val)
+        except (ValueError, TypeError):
+            pass
+        return False
+
+    # 1. Handle array/list type: unordered exact matching
+    if isinstance(gt_val, list):
+        return compare_parameters_recursive_exact(gt_val, inter_val, db_instance, scenario, current_key)
+
+    # 2. Handle dict/object type
+    if isinstance(gt_val, dict):
+        gt_val = merge_similar_items_in_value(gt_val, db_instance, scenario, current_key)
+        inter_val = merge_similar_items_in_value(inter_val, db_instance, scenario, current_key)
+
+        if set(gt_val.keys()) != set(inter_val.keys()):
+            return False
+
+        for key, g_val in gt_val.items():
+            i_val = inter_val[key]
+            # Check if current field needs fuzzy matching
+            if key in FUZZY_KEYS.get(scenario, []):
+                # If value is string, use fuzzy matching directly
+                if isinstance(g_val, str):
+                    if not fuzzy_match_field(g_val, i_val, db_instance, scenario):
+                        return False
+                else:
+                    # If value is list or other type, continue recursive comparison (keep current key for subsequent string comparison)
+                    if not compare_parameters_recursive(g_val, i_val, db_instance, scenario, key):
+                        return False
+            else:
+                if not compare_parameters_recursive(g_val, i_val, db_instance, scenario, key):
+                    return False
+        return True
+
+    # 3. Basic types: special string handling
+    if isinstance(gt_val, str):
+        # If current field is in FUZZY_KEYS, use case-insensitive comparison
+        if current_key in FUZZY_KEYS.get(scenario, []):
+            return gt_val.lower().strip() == inter_val.lower().strip()
+        return gt_val == inter_val
+
+    # 4. Other basic types: exact comparison directly
+    return gt_val == inter_val
+
+
+# ===================== Parameter Comparison Wrapper =====================
+def compare_parameters_with_fuzzy_match(
+    gt_params: Dict[str, Any],
+    interaction_params: Dict[str, Any],
+    db_instance: Any = None,
+    scenario: str = "retail"
+) -> bool:
+    """Upper-level wrapper: compatible with original function parameters, added scenario parameter"""
+    gt_params = normalize_call_parameters_before_match(gt_params, db_instance, scenario)
+    interaction_params = normalize_call_parameters_before_match(interaction_params, db_instance, scenario)
+    return compare_parameters_recursive(gt_params, interaction_params, db_instance, scenario)
 
 
 # ===================== Database Hash Calculation =====================
@@ -114,7 +561,7 @@ def calculate_db_hash(db_instance):
                                        key=lambda x: x['dish_name'])
                            for k, v in db_instance.user_orders.items()}
         }
-    elif isinstance(db_instance, OrderDB):
+    elif isinstance(db_instance, Restaurant6DB):
         db_data = {
             'restaurants': {}
         }
@@ -132,6 +579,32 @@ def calculate_db_hash(db_instance):
                                            key=lambda x: x['dish_name'])
                                for k, v in store['user_orders'].items()}
             }
+    elif isinstance(db_instance, WarehouseDB):
+        db_data = {
+            'equipment': {name: asdict(item) for name, item in db_instance.equipment.items()},
+            'user_action_lists': {
+                user_id: sorted(
+                    (asdict(action) for action in actions),
+                    key=lambda action: (
+                        action['equipment'], action['required_action'], action['due_date']
+                    ),
+                )
+                for user_id, actions in db_instance.user_action_lists.items()
+            },
+        }
+    elif isinstance(db_instance, HouseholdDB):
+        db_data = {
+            'items': {name: asdict(item) for name, item in db_instance.items.items()},
+            'user_action_lists': {
+                user_id: sorted(
+                    (asdict(action) for action in actions),
+                    key=lambda action: (
+                        action['name'], action['required_action'], action['due_date']
+                    ),
+                )
+                for user_id, actions in db_instance.user_action_lists.items()
+            },
+        }
     elif hasattr(db_instance, 'get_all_data'):
         db_data = db_instance.get_all_data()
     else:
@@ -142,7 +615,7 @@ def calculate_db_hash(db_instance):
                 try:
                     json.dumps(attr_value, sort_keys=True, default=str)
                     db_data[attr] = attr_value
-                except:
+                except Exception:
                     continue
 
     json_str = json.dumps(normalize_for_hash(db_data), sort_keys=True, ensure_ascii=False, default=str)
@@ -150,10 +623,10 @@ def calculate_db_hash(db_instance):
 
 
 # ===================== Ground Truth Tool Call Simplification =====================
-def simplify_tool_calls(db_instance, tool_calls):
+def simplify_tool_calls(db_instance, tool_calls, scenario="retail"):
     """
-    Simplify ground truth tool calls, keeping only parameters needed by database methods
-    Use actual database method signatures as reference, discard extra parameters
+    Simplify ground truth tool calls, keeping only parameters needed by database methods.
+    Also normalize parameters by merging similar items before matching/execution.
     """
     simplified_calls = []
     for tool_call in tool_calls:
@@ -170,6 +643,7 @@ def simplify_tool_calls(db_instance, tool_calls):
                     k: v for k, v in params.items()
                     if k in sig.parameters
                 }
+                valid_params = normalize_call_parameters_before_match(valid_params, db_instance, scenario)
 
                 simplified_calls.append({
                     "tool_name": method_name,
@@ -177,8 +651,13 @@ def simplify_tool_calls(db_instance, tool_calls):
                 })
             else:
                 # If method does not exist, keep original call (for subsequent error statistics)
-                simplified_calls.append(tool_call)
-        except Exception as e:
+                tool_call_copy = dict(tool_call)
+                if "parameters" in tool_call_copy:
+                    tool_call_copy["parameters"] = normalize_call_parameters_before_match(
+                        tool_call_copy.get("parameters", {}), db_instance, scenario
+                    )
+                simplified_calls.append(tool_call_copy)
+        except Exception:
             # Keep original call on error
             simplified_calls.append(tool_call)
 
@@ -186,8 +665,8 @@ def simplify_tool_calls(db_instance, tool_calls):
 
 
 # ===================== Tool Execution Function =====================
-def execute_tool_chain(db_instance, tool_calls):
-    """Execute tool call chain (generic adapter) - with parameter filtering, keeping only method-accepted parameters"""
+def execute_tool_chain(db_instance, tool_calls, scenario="retail"):
+    """Execute tool call chain (generic adapter) - with parameter filtering and pre-merge normalization."""
     results = []
     for tool_call in tool_calls:
         try:
@@ -203,6 +682,7 @@ def execute_tool_chain(db_instance, tool_calls):
                     k: v for k, v in params.items()
                     if k in sig.parameters
                 }
+                valid_params = normalize_call_parameters_before_match(valid_params, db_instance, scenario)
 
                 result = method(**valid_params)
                 results.append({
@@ -228,160 +708,6 @@ def execute_tool_chain(db_instance, tool_calls):
     return results
 
 
-# ===================== Fuzzy Match Function =====================
-def fuzzy_match_str(query: str, target: str) -> bool:
-    """Generic string fuzzy matching: lowercase containment check"""
-    if not query or not target:
-        return False
-    return query.lower() in target.lower() or target.lower() in query.lower()
-
-
-# ===================== Recursive Parameter Comparison =====================
-def compare_parameters_recursive(
-    gt_val: Any,
-    inter_val: Any,
-    db_instance: Any = None,
-    scenario: str = "retail",
-    current_key: str = None
-) -> bool:
-    """
-    Recursively compare two parameter values, supporting:
-    1. Array/list: unordered comparison, ignoring order
-    2. Dict/object: recursive field-by-field comparison
-    3. Specified fields: scenario-based fuzzy matching
-    4. Basic types: exact comparison
-    """
-    # When types differ, try numeric-compatible comparison (str/int/float mix, e.g. "2" vs 2.0)
-    if type(gt_val) != type(inter_val):
-        try:
-            if isinstance(gt_val, (str, int, float)) and isinstance(inter_val, (str, int, float)):
-                return float(gt_val) == float(inter_val)
-        except (ValueError, TypeError):
-            pass
-        return False
-
-    # 1. Handle array/list type: unordered comparison
-    if isinstance(gt_val, list):
-        if len(gt_val) != len(inter_val):
-            return False
-
-        gt_matched = [False] * len(gt_val)
-        inter_matched = [False] * len(inter_val)
-
-        for i, gt_item in enumerate(gt_val):
-            for j, inter_item in enumerate(inter_val):
-                if not inter_matched[j] and compare_parameters_recursive(gt_item, inter_item, db_instance, scenario, current_key):
-                    gt_matched[i] = True
-                    inter_matched[j] = True
-                    break
-        return all(gt_matched)
-
-    # 2. Handle dict/object type
-    if isinstance(gt_val, dict):
-        if set(gt_val.keys()) != set(inter_val.keys()):
-            return False
-
-        for key, g_val in gt_val.items():
-            i_val = inter_val[key]
-            # Check if current field needs fuzzy matching
-            if key in FUZZY_KEYS.get(scenario, []):
-                # If value is string, use fuzzy matching directly
-                if isinstance(g_val, str):
-                    if not fuzzy_match_field(g_val, i_val, db_instance, scenario):
-                        return False
-                else:
-                    # If value is list or other type, continue recursive comparison (keep current key for subsequent string comparison)
-                    if not compare_parameters_recursive(g_val, i_val, db_instance, scenario, key):
-                        return False
-            else:
-                if not compare_parameters_recursive(g_val, i_val, db_instance, scenario, key):
-                    return False
-        return True
-
-    # 3. Basic types: special string handling
-    if isinstance(gt_val, str):
-        # If current field is in FUZZY_KEYS, use case-insensitive comparison
-        if current_key in FUZZY_KEYS.get(scenario, []):
-            return gt_val.lower().strip() == inter_val.lower().strip()
-        return gt_val == inter_val
-
-    # 4. Other basic types: exact comparison directly
-    return gt_val == inter_val
-
-
-# ===================== Scenario-based Fuzzy Matching Core Function =====================
-def fuzzy_match_field(gt_name: str, inter_name: str, db_instance: Any, scenario: str) -> bool:
-    """
-    Perform fuzzy matching based on scenario; dish_name matches both dishes and set meals, either match counts as correct
-    """
-    # No database instance: fallback to string fuzzy matching
-    if not db_instance:
-        return fuzzy_match_str(inter_name, gt_name)
-
-    if scenario == "kitchen":
-        # Kitchen scenario: use exact matching (KitchenDB has no fuzzy match method)
-        return gt_name.lower().strip() == inter_name.lower().strip()
-
-    match_method = DB_MATCH_METHOD.get(scenario)
-    set_meal_method = DB_SET_MEAL_MATCH_METHOD.get(scenario)
-
-    def _collect_matching_names(name: str) -> set:
-        """Collect all matching names for dishes and set meals"""
-        all_names = set()
-
-        # Dish matching
-        if match_method and hasattr(db_instance, match_method):
-            try:
-                match_func = getattr(db_instance, match_method)
-                if scenario == "order":
-                    # OrderDB needs to iterate over all restaurants
-                    for r_name in db_instance.restaurants:
-                        matches = match_func(r_name, name)
-                        all_names.update(m.name for m in matches)
-                else:
-                    matches = match_func(name)
-                    all_names.update(m.name for m in matches)
-            except:
-                pass
-
-        # Set meal matching
-        if set_meal_method and hasattr(db_instance, set_meal_method):
-            try:
-                sm_func = getattr(db_instance, set_meal_method)
-                if scenario == "order":
-                    for r_name in db_instance.restaurants:
-                        matches = sm_func(r_name, name)
-                        all_names.update(m.name for m in matches)
-                else:
-                    matches = sm_func(name)
-                    all_names.update(m.name for m in matches)
-            except:
-                pass
-
-        return all_names
-
-    gt_names = _collect_matching_names(gt_name)
-    inter_names = _collect_matching_names(inter_name)
-
-    # Match succeeds if dishes or set meals have intersection
-    if len(gt_names) > 0 and len(inter_names) > 0:
-        return len(gt_names & inter_names) > 0
-
-    # Database methods all returned empty lists, fallback to string fuzzy matching
-    return fuzzy_match_str(inter_name, gt_name)
-
-
-# ===================== Parameter Comparison Wrapper =====================
-def compare_parameters_with_fuzzy_match(
-    gt_params: Dict[str, Any],
-    interaction_params: Dict[str, Any],
-    db_instance: Any = None,
-    scenario: str = "retail"
-) -> bool:
-    """Upper-level wrapper: compatible with original function parameters, added scenario parameter"""
-    return compare_parameters_recursive(gt_params, interaction_params, db_instance, scenario)
-
-
 # ===================== Tool Call Comparison =====================
 def compare_tool_calls(ground_truth_calls, interaction_calls, db_instance=None, scenario="retail"):
     """
@@ -405,14 +731,18 @@ def compare_tool_calls(ground_truth_calls, interaction_calls, db_instance=None, 
             try:
                 method = getattr(db, tool_name)
                 sig = inspect.signature(method)
-                return {k: v for k, v in params.items() if k in sig.parameters}
-            except:
+                params = {k: v for k, v in params.items() if k in sig.parameters}
+            except Exception:
                 pass
-        return params
+        return normalize_call_parameters_before_match(params, db, scenario)
 
     try:
-        # Ground truth calls have been simplified in the main evaluation function, use directly here
+        # Ground truth calls: normalize parameters
         gt_calls = [extract_call_info(call) for call in ground_truth_calls]
+        for call in gt_calls:
+            call["parameters"] = normalize_call_parameters_before_match(
+                call.get("parameters", {}), db_instance, scenario
+            )
 
         # Extract model calls and filter parameters
         # New format: {"turn": 0, "calls": [...], "results": [...]}
@@ -460,7 +790,7 @@ def compare_tool_calls(ground_truth_calls, interaction_calls, db_instance=None, 
                         break
 
         return matches, len(gt_calls), len(interaction_only_calls)
-    except:
+    except Exception:
         return 0, 0, 0
 
 
@@ -488,14 +818,29 @@ def get_init_db(scenario, scenario_number):
             db = KitchenDB()
             db.init_from_json(kitchen_init_data)
         elif scenario == "restaurant":
-            db = RestaurantDB()
+            if scenario_number == 6:
+                db = Restaurant6DB()
+                db.init_from_json(restaurant6_init_data)
+            else:
+                db = RestaurantDB()
             if 1 <= scenario_number <= 4:
                 db.init_from_json(restaurant_init_data)
             elif scenario_number == 5:
                 db.init_from_json(restaurant_init_data5)
-        elif scenario == "order":
-            db = OrderDB()
-            db.init_from_json(order_init_data)
+        elif scenario == "warehouse":
+            db = WarehouseDB()
+            init_data = getattr(warehouse_init, f"warehouse_init_data{scenario_number}", None)
+            if init_data is None:
+                raise ValueError(f"warehouse initialization data {scenario_number} not found")
+            db.init_from_json(init_data)
+        elif scenario == "household":
+            db = HouseholdDB()
+            init_data = getattr(household_init, f"household_init_data{scenario_number}", None)
+            if init_data is None:
+                raise ValueError(f"household initialization data {scenario_number} not found")
+            db.init_from_json(init_data)
+        else:
+            raise ValueError(f"unsupported scenario: {scenario}")
         return db
     finally:
         sys.stdout = old_stdout
@@ -509,7 +854,7 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
     Args:
         ground_truth_file: Ground truth file path
         interaction_log_file: Interaction log file path
-        scenario: Scenario type (kitchen, retail, restaurant, order)
+        scenario: Scenario type (kitchen, retail, restaurant, warehouse, household)
         args: Argument object containing scenario_number
         silent: Whether to run in silent mode
         num_samples: Number of samples per scenario to test, 0 means test all samples
@@ -545,23 +890,9 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
             "avg_input_tokens": 0.0,
             "avg_output_tokens": 0.0,
             "avg_tool_calls_count": 0.0,
-            "avg_user_performance": {
-                "original_role_consistency_avg": 0.0,
-                "original_instruction_following_avg": 0.0,
-                "original_resilience_avg": 0.0,
-                "original_contextual_robustness_avg": 0.0,
-                "final_role_consistency_avg": 0.0,
-                "final_instruction_following_avg": 0.0,
-                "final_resilience_avg": 0.0,
-                "final_contextual_robustness_avg": 0.0
-            }
+            "avg_user_performance": {key: 0.0 for key in USER_PERFORMANCE_KEYS},
+            "user_performance_sample_counts": {key: 0 for key in USER_PERFORMANCE_KEYS},
         },
-        # Scenario-level statistics
-        "scenario_stats": {
-            "per_scenario": [],  # Tool call count and token consumption per scenario
-            "success_scenarios": {"total_tool_calls": 0, "total_tokens": 0, "count": 0},
-            "failure_scenarios": {"total_tool_calls": 0, "total_tokens": 0, "count": 0}
-        }
     }
 
     total_correct_calls = total_gt_calls = total_interaction_calls = 0
@@ -572,31 +903,36 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
     total_input_tokens = 0
     total_output_tokens = 0
     total_tool_calls_count = 0
-    total_user_performance = {
-        "original_role_consistency_avg": 0.0,
-        "original_instruction_following_avg": 0.0,
-        "original_resilience_avg": 0.0,
-        "original_contextual_robustness_avg": 0.0,
-        "final_role_consistency_avg": 0.0,
-        "final_instruction_following_avg": 0.0,
-        "final_resilience_avg": 0.0,
-        "final_contextual_robustness_avg": 0.0
-    }
+    total_user_performance = {key: 0.0 for key in USER_PERFORMANCE_KEYS}
+    user_performance_counts = {key: 0 for key in USER_PERFORMANCE_KEYS}
     valid_interaction_count = 0
 
-    for scenario_idx in range(len(ground_truth_data)):
-        if scenario_idx >= len(interaction_data):
+    # Match interaction results to ground truth by scenario_id (not by sequential
+    # index). Reruns write back only the tasks they executed, so the interaction
+    # file may contain a non-contiguous, sparse subset of scenario_ids (e.g. only
+    # the reran tasks), which index-aligned matching would mis-pair. Falling back
+    # to positional scenario_id when an entry lacks the field keeps behavior
+    # identical for fully-run files (where ids are 1..N and position-stable).
+    interaction_by_id = {}
+    for _i, _entry in enumerate(interaction_data):
+        if isinstance(_entry, dict):
+            _sid = _entry.get("scenario_id", _i + 1)
+        else:
+            _sid = _i + 1
+        interaction_by_id[_sid] = _entry
+
+    for _gt_idx, gt_scenario in enumerate(ground_truth_data):
+        scenario_id = gt_scenario.get("scenario_id", _gt_idx + 1) if isinstance(gt_scenario, dict) else _gt_idx + 1
+        interaction_scenario = interaction_by_id.get(scenario_id)
+        if interaction_scenario is None:
+            # This ground-truth task was not (re)run, so no interaction result exists.
             if not silent:
-                print(f"Warning: interaction log missing scenario {scenario_idx + 1} data, skipped")
+                print(f"Warning: interaction log missing scenario {scenario_id} data, skipped")
             results["invalid_scenarios"].append({
-                "scenario_id": scenario_idx + 1,
+                "scenario_id": scenario_id,
                 "reason": "Missing interaction data"
             })
             continue
-
-        gt_scenario = ground_truth_data[scenario_idx]
-        interaction_scenario = interaction_data[scenario_idx]
-        scenario_id = gt_scenario.get("scenario_id", scenario_idx + 1)
 
         # Data format validation
         gt_tool_calls_raw = gt_scenario.get("ground_truth", [])
@@ -623,8 +959,13 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
 
         user_perf = interaction_scenario.get("user_performance", {})
         if user_perf:
-            for k in total_user_performance:
-                total_user_performance[k] += user_perf.get(k, 0.0)
+            for key in USER_PERFORMANCE_KEYS:
+                value = user_perf.get(f"original_{key}_avg")
+                if value is None:
+                    value = user_perf.get(key)
+                if isinstance(value, (int, float)) and not isinstance(value, bool):
+                    total_user_performance[key] += float(value)
+                    user_performance_counts[key] += 1
 
         detailed_result = {
             "scenario_id": scenario_id,
@@ -637,7 +978,7 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
         db_instance_for_matching = get_init_db(scenario, args.scenario_number)
 
         # Simplify ground truth tool calls: keep only parameters needed by database methods
-        gt_tool_calls = simplify_tool_calls(db_instance_for_matching, gt_tool_calls_raw)
+        gt_tool_calls = simplify_tool_calls(db_instance_for_matching, gt_tool_calls_raw, scenario=scenario)
 
         # Tool call evaluation (using simplified ground truth)
         matches, total_gt, total_interactions = compare_tool_calls(
@@ -661,7 +1002,7 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
         result_success = False
         try:
             gt_db = get_init_db(scenario, args.scenario_number)
-            gt_tool_calls = execute_tool_chain(gt_db, gt_tool_calls)
+            gt_tool_calls = execute_tool_chain(gt_db, gt_tool_calls, scenario=scenario)
             gt_hash = calculate_db_hash(gt_db)
 
             interaction_db = get_init_db(scenario, args.scenario_number)
@@ -676,7 +1017,7 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
                     elif "call" in entry:
                         # Old format: backward compatible
                         interaction_only_calls.append(entry["call"])
-            interaction_only_calls = execute_tool_chain(interaction_db, interaction_only_calls)
+            interaction_only_calls = execute_tool_chain(interaction_db, interaction_only_calls, scenario=scenario)
             interaction_hash = calculate_db_hash(interaction_db)
 
             detailed_result["result_based"].update({"gt_hash": gt_hash, "interaction_hash": interaction_hash})
@@ -693,39 +1034,6 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
             results["joint_success"]["success_count"] += 1
             detailed_result["joint_success"] = True
 
-        # Check if user has issues (any metric in corrected_scores is 0)
-        corrected_scores = interaction_scenario.get("corrected_scores", {})
-        user_has_issue = False
-        if corrected_scores:
-            for score_key in ["role_consistency", "instruction_following", "resilience", "contextual_robustness"]:
-                if corrected_scores.get(score_key, 1) == 0:
-                    user_has_issue = True
-                    break
-        detailed_result["user_has_issue"] = user_has_issue
-
-        # Scenario-level statistics: tool call count and token consumption
-        scenario_tokens = interaction_scenario.get("tokens_consumed", 0)
-        scenario_tool_calls = len(interaction_tool_calls)
-
-        # Add to per_scenario list
-        results["scenario_stats"]["per_scenario"].append({
-            "scenario_id": scenario_id,
-            "tool_calls": scenario_tool_calls,
-            "tokens_consumed": scenario_tokens,
-            "is_success": tool_success and result_success,
-            "user_has_issue": user_has_issue
-        })
-
-        # Separate statistics for success and failure scenarios
-        if tool_success and result_success:
-            results["scenario_stats"]["success_scenarios"]["total_tool_calls"] += scenario_tool_calls
-            results["scenario_stats"]["success_scenarios"]["total_tokens"] += scenario_tokens
-            results["scenario_stats"]["success_scenarios"]["count"] += 1
-        else:
-            results["scenario_stats"]["failure_scenarios"]["total_tool_calls"] += scenario_tool_calls
-            results["scenario_stats"]["failure_scenarios"]["total_tokens"] += scenario_tokens
-            results["scenario_stats"]["failure_scenarios"]["count"] += 1
-
         results["detailed_results"].append(detailed_result)
 
     # Calculate rates
@@ -733,28 +1041,6 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
         results["tool_based"]["success_rate"] = results["tool_based"]["success_count"] / results["valid_scenarios"]
         results["result_based"]["success_rate"] = results["result_based"]["success_count"] / results["valid_scenarios"]
         results["joint_success"]["success_rate"] = results["joint_success"]["success_count"] / results["valid_scenarios"]
-
-    # Calculate average tool calls and tokens for success/failure scenarios
-    success_count = results["scenario_stats"]["success_scenarios"]["count"]
-    failure_count = results["scenario_stats"]["failure_scenarios"]["count"]
-
-    if success_count > 0:
-        results["scenario_stats"]["success_scenarios"]["avg_tool_calls"] = \
-            results["scenario_stats"]["success_scenarios"]["total_tool_calls"] / success_count
-        results["scenario_stats"]["success_scenarios"]["avg_tokens"] = \
-            results["scenario_stats"]["success_scenarios"]["total_tokens"] / success_count
-    else:
-        results["scenario_stats"]["success_scenarios"]["avg_tool_calls"] = 0.0
-        results["scenario_stats"]["success_scenarios"]["avg_tokens"] = 0.0
-
-    if failure_count > 0:
-        results["scenario_stats"]["failure_scenarios"]["avg_tool_calls"] = \
-            results["scenario_stats"]["failure_scenarios"]["total_tool_calls"] / failure_count
-        results["scenario_stats"]["failure_scenarios"]["avg_tokens"] = \
-            results["scenario_stats"]["failure_scenarios"]["total_tokens"] / failure_count
-    else:
-        results["scenario_stats"]["failure_scenarios"]["avg_tool_calls"] = 0.0
-        results["scenario_stats"]["failure_scenarios"]["avg_tokens"] = 0.0
 
     # Micro tool call success rate: use actual evaluated task count as denominator
     task_count = len(results["detailed_results"])  # Actual number of evaluated tasks
@@ -778,36 +1064,21 @@ def evaluate_interaction_success(ground_truth_file, interaction_log_file, scenar
         results["performance_metrics"]["avg_input_tokens"] = total_input_tokens / valid_interaction_count
         results["performance_metrics"]["avg_output_tokens"] = total_output_tokens / valid_interaction_count
         results["performance_metrics"]["avg_tool_calls_count"] = total_tool_calls_count / valid_interaction_count
-        for k in total_user_performance:
-            results["performance_metrics"]["avg_user_performance"][k] = total_user_performance[k] / valid_interaction_count
+    for key in USER_PERFORMANCE_KEYS:
+        count = user_performance_counts[key]
+        results["performance_metrics"]["user_performance_sample_counts"][key] = count
+        if count > 0:
+            results["performance_metrics"]["avg_user_performance"][key] = (
+                total_user_performance[key] / count
+            )
 
-    # ===================== Statistics Excluding User-Issue Samples =====================
-    filtered_details = [d for d in results["detailed_results"] if not d.get("user_has_issue", False)]
-    user_issue_count = len(results["detailed_results"]) - len(filtered_details)
-    filtered_valid = len(filtered_details)
-
-    filtered_tool_success = sum(1 for d in filtered_details if d["tool_based"]["success"])
-    filtered_result_success = sum(1 for d in filtered_details if d["result_based"]["success"])
-    filtered_joint_success = sum(1 for d in filtered_details if d.get("joint_success", False))
-    filtered_correct_calls = sum(d["tool_based"]["matches"] for d in filtered_details)
-    filtered_gt_calls = sum(d["tool_based"]["total_gt_calls"] for d in filtered_details)
-
-    results["filtered_user_issue"] = {
-        "user_issue_count": user_issue_count,
-        "total_valid_scenarios": results["valid_scenarios"],
-        "user_issue_ratio": user_issue_count / results["valid_scenarios"] if results["valid_scenarios"] > 0 else 0.0,
-        "filtered_valid_scenarios": filtered_valid,
-        "filtered_tool_based_success_count": filtered_tool_success,
-        "filtered_tool_based_success_rate": filtered_tool_success / filtered_valid if filtered_valid > 0 else 0.0,
-        "filtered_result_based_success_count": filtered_result_success,
-        "filtered_result_based_success_rate": filtered_result_success / filtered_valid if filtered_valid > 0 else 0.0,
-        "filtered_joint_success_count": filtered_joint_success,
-        "filtered_joint_success_rate": filtered_joint_success / filtered_valid if filtered_valid > 0 else 0.0,
-        "filtered_micro_accuracy": filtered_correct_calls / filtered_gt_calls if filtered_gt_calls > 0 else 0.0,
-        "filtered_avg_task_accuracy": sum(d["tool_based"]["matches"] / d["tool_based"]["total_gt_calls"]
-                                          for d in filtered_details
-                                          if d["tool_based"]["total_gt_calls"] > 0) / filtered_valid if filtered_valid > 0 else 0.0
-    }
+    # A result file is complete only when every selected ground-truth task has a
+    # valid interaction entry. Aggregate accuracy must not include partial files.
+    results["is_complete"] = (
+        results["total_scenarios"] > 0
+        and results["valid_scenarios"] == results["total_scenarios"]
+        and not results["invalid_scenarios"]
+    )
 
     return results
 
@@ -847,38 +1118,14 @@ def print_evaluation_report(results):
     for d in results['detailed_results']:
         print(f"   Scenario {d['scenario_id']}: correct {d['tool_based']['matches']}/{d['tool_based']['total_gt_calls']}")
 
-    print("\n5. Scenario-level statistics:")
-    scenario_stats = results.get("scenario_stats", {})
-    per_scenario = scenario_stats.get("per_scenario", [])
-    if per_scenario:
-        print(f"   {'Scenario ID':<12} {'Tool Calls':<12} {'Tokens':<12} {'Status':<8}")
-        print("   " + "-" * 44)
-        for s in per_scenario:
-            status = "Success" if s.get("is_success") else "Failure"
-            print(f"   Scenario {s['scenario_id']:<8} {s['tool_calls']:<12} {s['tokens_consumed']:<12} {status:<8}")
-
-    success_scenarios = scenario_stats.get("success_scenarios", {})
-    failure_scenarios = scenario_stats.get("failure_scenarios", {})
-
-    print("\n6. Success/failure scenario comparison:")
-    print(f"   Success scenario count: {success_scenarios.get('count', 0)}")
-    print(f"   Success scenario total tool calls: {success_scenarios.get('total_tool_calls', 0)}")
-    print(f"   Success scenario avg tool calls: {success_scenarios.get('avg_tool_calls', 0):.2f}")
-    print(f"   Success scenario avg tokens: {success_scenarios.get('avg_tokens', 0):.2f}")
-    print()
-    print(f"   Failure scenario count: {failure_scenarios.get('count', 0)}")
-    print(f"   Failure scenario total tool calls: {failure_scenarios.get('total_tool_calls', 0)}")
-    print(f"   Failure scenario avg tool calls: {failure_scenarios.get('avg_tool_calls', 0):.2f}")
-    print(f"   Failure scenario avg tokens: {failure_scenarios.get('avg_tokens', 0):.2f}")
-
-    print("\n7. Micro tool call success rate:")
+    print("\n5. Micro tool call success rate:")
     print(f"   Evaluated tasks: {results['micro_tool_stats']['task_count']}")
     print(f"   Total correct calls: {results['micro_tool_stats']['total_correct_calls']}")
     print(f"   Total ground truth calls: {results['micro_tool_stats']['total_ground_truth_calls']}")
     print(f"   Overall accuracy: {results['micro_tool_stats']['micro_accuracy']:.2%}")
     print(f"   Average task accuracy: {results['micro_tool_stats']['avg_task_accuracy']:.2%}")
 
-    print("\n8. Additional performance metrics:")
+    print("\n6. Overall performance metrics:")
     perf = results.get('performance_metrics', {})
     print(f"   Avg user response time: {perf.get('avg_user_response_time', 0):.2f} seconds")
     print(f"   Avg agent response time: {perf.get('avg_agent_response_time', 0):.2f} seconds")
@@ -887,45 +1134,51 @@ def print_evaluation_report(results):
     print(f"   Avg input tokens: {perf.get('avg_input_tokens', 0):.0f}")
     print(f"   Avg output tokens: {perf.get('avg_output_tokens', 0):.0f}")
     print(f"   Avg tool calls: {perf.get('avg_tool_calls_count', 0):.2f}")
-    print("   Avg user performance:")
+    print("   Simulated-user metric averages:")
     user_perf_avg = perf.get("avg_user_performance", {})
-    for k, v in user_perf_avg.items():
-        print(f"     {k}: {v:.2f}")
-
-    # Statistics excluding user-issue samples
-    fui = results.get("filtered_user_issue", {})
-    if fui:
-        print(f"\n9. Statistics excluding inaccurate simulated user samples:")
-        print(f"   User-issue samples: {fui.get('user_issue_count', 0)}/{fui.get('total_valid_scenarios', 0)} "
-              f"(ratio: {fui.get('user_issue_ratio', 0):.2%})")
-        print(f"   Filtered valid scenarios: {fui.get('filtered_valid_scenarios', 0)}")
-        print(f"   Filtered tool success rate: {fui.get('filtered_tool_based_success_rate', 0):.2%}")
-        print(f"   Filtered result success rate: {fui.get('filtered_result_based_success_rate', 0):.2%}")
-        print(f"   Filtered joint success rate: {fui.get('filtered_joint_success_rate', 0):.2%}")
-        print(f"   Filtered micro accuracy: {fui.get('filtered_micro_accuracy', 0):.2%}")
-        print(f"   Filtered avg task accuracy: {fui.get('filtered_avg_task_accuracy', 0):.2%}")
+    user_perf_counts = perf.get("user_performance_sample_counts", {})
+    for key in USER_PERFORMANCE_KEYS:
+        print(
+            f"     {key}: {user_perf_avg.get(key, 0):.2f} "
+            f"(n={user_perf_counts.get(key, 0)})"
+        )
 
 
 # ===================== Main Function =====================
 def main():
     import os
-    import re
 
     parser = argparse.ArgumentParser(description="evaluation script")
     parser.add_argument("--model_name", type=str, default="gemini-3.1-pro-preview", help="Model name (subdirectory under results folder)")
     parser.add_argument("--num_samples", type=int, default=0, help="Number of samples per scenario to test, 0 means test all samples")
+    parser.add_argument(
+        "--include_partial",
+        action="store_true",
+        help=(
+            "Include every valid trajectory from incomplete result files in "
+            "aggregate metrics. Per-file completeness is still reported."
+        ),
+    )
+    # Configurable I/O roots. Defaults preserve the original behaviour
+    # (reading ../results/{model} and writing ../eval_result/{model}).
+    # Pass --results_root ../GPT_user_results --output_root ../GPT_user_eval_result
+    # to evaluate the GPT-user run instead.
+    parser.add_argument("--results_root", type=str, default="../results",
+                        help="Root directory holding per-model result subdirs (default: ../results)")
+    parser.add_argument("--output_root", type=str, default="../eval_result",
+                        help="Root directory for per-model eval output (default: ../eval_result)")
     args = parser.parse_args()
 
     model_name = args.model_name
     num_samples = args.num_samples
-    results_dir = f"../results/{model_name}"
+    results_dir = os.path.join(args.results_root, model_name)
 
     if not os.path.exists(results_dir):
         print(f"Error: result directory '{results_dir}' does not exist")
         return
 
     # Ensure output directory exists
-    output_dir = f"../eval_result/{model_name}"
+    output_dir = os.path.join(args.output_root, model_name)
     os.makedirs(output_dir, exist_ok=True)
 
     # Get all JSON files
@@ -935,32 +1188,44 @@ def main():
         print(f"Error: no JSON files found in directory '{results_dir}'")
         return
 
-    print(f"Found {len(json_files)} result files, starting evaluation...\n")
+    supported_result_files = {
+        filename for filename in json_files
+        if parse_result_filename(filename) is not None
+    }
+    unsupported_result_files = sorted(set(json_files) - supported_result_files)
+    expected_result_files = {
+        f"{scenario}{number}_{mode}.json"
+        for scenario, (minimum, maximum) in SCENARIO_NUMBER_RANGES.items()
+        for number in range(minimum, maximum + 1)
+        for mode in ("easy", "hard", "static")
+    }
+    missing_result_files = sorted(expected_result_files - supported_result_files)
+    benchmark_total_tasks = 0
+    for scenario, (minimum, maximum) in SCENARIO_NUMBER_RANGES.items():
+        for number in range(minimum, maximum + 1):
+            ground_truth_path = os.path.join(
+                os.path.dirname(__file__), '..', 'scenarios', 'final',
+                f'{scenario}{number}.json'
+            )
+            with open(ground_truth_path, 'r', encoding='utf-8') as stream:
+                benchmark_total_tasks += len(json.load(stream)) * 3
 
-    # Filename format: {scenario}{number}_{mode}.json
-    # Scenario prefixes: kitchen, retail, restaurant, order
-    scenario_prefixes = ["kitchen", "retail", "restaurant", "order"]
+    print(f"Found {len(json_files)} result files, starting evaluation...\n")
 
     # Aggregate all results
     all_results = []
-    file_pattern = re.compile(r'^([a-z]+)(\d+)_(easy|hard|static)\.json$')
 
     for json_file in sorted(json_files):
-        match = file_pattern.match(json_file)
-        if not match:
-            print(f"Skipping unparseable file: {json_file}")
+        parsed_filename = parse_result_filename(json_file)
+        if parsed_filename is None:
+            print(f"Skipping unsupported result filename: {json_file}")
             continue
+        scenario_prefix, scenario_number, user_mode = parsed_filename
 
-        scenario_prefix = match.group(1)
-        scenario_number = int(match.group(2))
-        user_mode = match.group(3)
-
-        # Validate scenario prefix
-        if scenario_prefix not in scenario_prefixes:
-            print(f"Skipping file with unknown scenario prefix: {json_file}")
-            continue
-
-        ground_truth_file = f"../scenarios/final/{scenario_prefix}{scenario_number}.json"
+        ground_truth_file = os.path.join(
+            os.path.dirname(__file__), '..', 'scenarios', 'final',
+            f'{scenario_prefix}{scenario_number}.json'
+        )
         interaction_log_file = f"{results_dir}/{json_file}"
 
         # Check if ground truth file exists
@@ -988,18 +1253,19 @@ def main():
             print(f"Evaluation results saved to {output_file}")
 
             # Print brief report (success rates only)
-            fui = results.get("filtered_user_issue", {})
             print(f"Valid samples: {results['valid_scenarios']}/{results['total_scenarios']}, "
                   f"Tool success rate: {results['tool_based']['success_rate']:.2%}, "
                   f"Result success rate: {results['result_based']['success_rate']:.2%}, "
-                  f"Joint success rate: {results['joint_success']['success_rate']:.2%}, "
-                  f"User-issue samples: {fui.get('user_issue_count', 0)}, "
-                  f"Filtered joint success rate: {fui.get('filtered_joint_success_rate', 0):.2%}")
+                  f"Joint success rate: {results['joint_success']['success_rate']:.2%}")
+            included_in_summary = results["is_complete"] or (
+                args.include_partial and results["valid_scenarios"] > 0
+            )
+            if not included_in_summary:
+                print("Excluded from aggregate accuracy: result file is incomplete")
+            elif not results["is_complete"]:
+                print("Included available trajectories from incomplete result file")
 
-            # Extract scenario-level statistics
-            scenario_stats = results.get("scenario_stats", {})
-            success_stats = scenario_stats.get("success_scenarios", {})
-            failure_stats = scenario_stats.get("failure_scenarios", {})
+            performance = results["performance_metrics"]
 
             all_results.append({
                 "file": json_file,
@@ -1008,32 +1274,22 @@ def main():
                 "mode": user_mode,
                 "total_scenarios": results["total_scenarios"],
                 "valid_scenarios": results["valid_scenarios"],
+                "is_complete": results["is_complete"],
+                "included_in_summary": included_in_summary,
                 "tool_based_success_rate": results["tool_based"]["success_rate"],
                 "result_based_success_rate": results["result_based"]["success_rate"],
                 "joint_success_rate": results["joint_success"]["success_rate"],
                 "micro_accuracy": results["micro_tool_stats"]["micro_accuracy"],
                 "avg_task_accuracy": results["micro_tool_stats"]["avg_task_accuracy"],
-                # Scenario-level statistics
-                "success_scenario_count": success_stats.get("count", 0),
-                "failure_scenario_count": failure_stats.get("count", 0),
-                "success_avg_tool_calls": success_stats.get("avg_tool_calls", 0),
-                "failure_avg_tool_calls": failure_stats.get("avg_tool_calls", 0),
-                "success_avg_tokens": success_stats.get("avg_tokens", 0),
-                "failure_avg_tokens": failure_stats.get("avg_tokens", 0),
-                # Additional performance metrics
-                "avg_rounds_count": results["performance_metrics"]["avg_rounds_count"],
-                "avg_input_tokens": results["performance_metrics"]["avg_input_tokens"],
-                "avg_output_tokens": results["performance_metrics"]["avg_output_tokens"],
-                "avg_tool_calls_count": results["performance_metrics"]["avg_tool_calls_count"],
-                # Statistics excluding user-issue samples
-                "user_issue_count": fui.get("user_issue_count", 0),
-                "user_issue_ratio": fui.get("user_issue_ratio", 0),
-                "filtered_valid_scenarios": fui.get("filtered_valid_scenarios", 0),
-                "filtered_tool_based_success_rate": fui.get("filtered_tool_based_success_rate", 0),
-                "filtered_result_based_success_rate": fui.get("filtered_result_based_success_rate", 0),
-                "filtered_joint_success_rate": fui.get("filtered_joint_success_rate", 0),
-                "filtered_micro_accuracy": fui.get("filtered_micro_accuracy", 0),
-                "filtered_avg_task_accuracy": fui.get("filtered_avg_task_accuracy", 0)
+                "avg_user_response_time": performance["avg_user_response_time"],
+                "avg_agent_response_time": performance["avg_agent_response_time"],
+                "avg_tokens_consumed": performance["avg_tokens_consumed"],
+                "avg_rounds_count": performance["avg_rounds_count"],
+                "avg_input_tokens": performance["avg_input_tokens"],
+                "avg_output_tokens": performance["avg_output_tokens"],
+                "avg_tool_calls_count": performance["avg_tool_calls_count"],
+                "avg_user_performance": performance["avg_user_performance"],
+                "user_performance_sample_counts": performance["user_performance_sample_counts"],
             })
 
         except Exception as e:
@@ -1051,111 +1307,113 @@ def main():
         print(f"Sample limit: first {num_samples} samples per scenario")
     else:
         print("Sample limit: test all samples")
-    print(f"{'File':<40} {'Scenario':<12} {'Num':<6} {'Mode':<8} {'Valid':<10} {'Tool Rate':<10} {'Result Rate':<10} {'Joint Rate':<10} {'User Issues':<10} {'Filt.Joint':<10}")
-    print("-"*150)
+    print(f"{'File':<40} {'Scenario':<12} {'Num':<6} {'Mode':<8} {'Valid':<10} {'Tool Rate':<10} {'Result Rate':<10} {'Joint Rate':<10}")
+    print("-"*120)
 
     for r in all_results:
         if "error" in r:
             print(f"{r['file']:<40} Error: {r['error']}")
         else:
             valid_str = f"{r.get('valid_scenarios', '?')}/{r.get('total_scenarios', '?')}"
-            user_issue_str = f"{r.get('user_issue_count', 0)}/{r.get('valid_scenarios', '?')}"
             print(f"{r['file']:<40} {r['scenario']:<12} {r['scenario_number']:<6} {r['mode']:<8} "
                   f"{valid_str:<10} "
                   f"{r['tool_based_success_rate']:>8.2%}   {r['result_based_success_rate']:>8.2%}   "
-                  f"{r['joint_success_rate']:>8.2%}   {user_issue_str:<10} {r.get('filtered_joint_success_rate', 0):>8.2%}")
+                  f"{r['joint_success_rate']:>8.2%}")
 
     # Calculate average success rates
-    valid_results = [r for r in all_results if "error" not in r]
+    valid_results = [
+        r for r in all_results
+        if "error" not in r and r.get("included_in_summary", False)
+    ]
+    incomplete_results = [
+        r for r in all_results
+        if "error" not in r and not r.get("is_complete", False)
+    ]
+    excluded_incomplete_results = [
+        r for r in incomplete_results
+        if not r.get("included_in_summary", False)
+    ]
+    included_partial_results = [
+        r for r in incomplete_results
+        if r.get("included_in_summary", False)
+    ]
+    if excluded_incomplete_results:
+        print(
+            "Excluded incomplete files from aggregate accuracy: "
+            + ", ".join(r["file"] for r in excluded_incomplete_results)
+        )
+    if included_partial_results:
+        print(
+            "Included valid trajectories from incomplete files: "
+            + ", ".join(r["file"] for r in included_partial_results)
+        )
     if valid_results:
         total_valid = sum(r["valid_scenarios"] for r in valid_results)
-        avg_tool_success = sum(r["tool_based_success_rate"] * r["valid_scenarios"] for r in valid_results) / total_valid
-        avg_result_success = sum(r["result_based_success_rate"] * r["valid_scenarios"] for r in valid_results) / total_valid
-        avg_joint_success = sum(r["joint_success_rate"] * r["valid_scenarios"] for r in valid_results) / total_valid
-        avg_micro_accuracy = sum(r["micro_accuracy"] * r["valid_scenarios"] for r in valid_results) / total_valid
-        avg_task_accuracy = sum(r["avg_task_accuracy"] * r["valid_scenarios"] for r in valid_results) / total_valid
+        total_tasks = sum(r["total_scenarios"] for r in valid_results)
 
-        # Calculate avg tool calls and tokens for success/failure scenarios (weighted average)
-        total_success_count = sum(r["success_scenario_count"] for r in valid_results)
-        total_failure_count = sum(r["failure_scenario_count"] for r in valid_results)
+        def task_weighted_average(field):
+            return sum(
+                r[field] * r["valid_scenarios"] for r in valid_results
+            ) / total_valid
 
-        weighted_success_avg_tool_calls = sum(
-            r["success_avg_tool_calls"] * r["success_scenario_count"] for r in valid_results
-        ) / total_success_count if total_success_count > 0 else 0
-        weighted_success_avg_tokens = sum(
-            r["success_avg_tokens"] * r["success_scenario_count"] for r in valid_results
-        ) / total_success_count if total_success_count > 0 else 0
-        weighted_failure_avg_tool_calls = sum(
-            r["failure_avg_tool_calls"] * r["failure_scenario_count"] for r in valid_results
-        ) / total_failure_count if total_failure_count > 0 else 0
-        weighted_failure_avg_tokens = sum(
-            r["failure_avg_tokens"] * r["failure_scenario_count"] for r in valid_results
-        ) / total_failure_count if total_failure_count > 0 else 0
+        avg_tool_success = task_weighted_average("tool_based_success_rate")
+        avg_result_success = task_weighted_average("result_based_success_rate")
+        avg_joint_success = task_weighted_average("joint_success_rate")
+        avg_micro_accuracy = task_weighted_average("micro_accuracy")
+        avg_task_accuracy = task_weighted_average("avg_task_accuracy")
+        avg_user_response_time = task_weighted_average("avg_user_response_time")
+        avg_agent_response_time = task_weighted_average("avg_agent_response_time")
+        avg_tokens_consumed = task_weighted_average("avg_tokens_consumed")
+        avg_rounds_count = task_weighted_average("avg_rounds_count")
+        avg_input_tokens = task_weighted_average("avg_input_tokens")
+        avg_output_tokens = task_weighted_average("avg_output_tokens")
+        avg_tool_calls_count = task_weighted_average("avg_tool_calls_count")
 
-        # Additional metrics: weighted average by scenario count
-        total_scenario_count = sum(r["success_scenario_count"] + r["failure_scenario_count"] for r in valid_results)
-        avg_rounds_count = sum(
-            r["avg_rounds_count"] * (r["success_scenario_count"] + r["failure_scenario_count"]) for r in valid_results
-        ) / total_scenario_count if total_scenario_count > 0 else 0
-        avg_input_tokens = sum(
-            r["avg_input_tokens"] * (r["success_scenario_count"] + r["failure_scenario_count"]) for r in valid_results
-        ) / total_scenario_count if total_scenario_count > 0 else 0
-        avg_output_tokens = sum(
-            r["avg_output_tokens"] * (r["success_scenario_count"] + r["failure_scenario_count"]) for r in valid_results
-        ) / total_scenario_count if total_scenario_count > 0 else 0
-        avg_tool_calls_count = sum(
-            r["avg_tool_calls_count"] * (r["success_scenario_count"] + r["failure_scenario_count"]) for r in valid_results
-        ) / total_scenario_count if total_scenario_count > 0 else 0
+        avg_user_performance = {}
+        user_performance_sample_counts = {}
+        for key in USER_PERFORMANCE_KEYS:
+            count = sum(
+                r["user_performance_sample_counts"].get(key, 0)
+                for r in valid_results
+            )
+            user_performance_sample_counts[key] = count
+            avg_user_performance[key] = (
+                sum(
+                    r["avg_user_performance"].get(key, 0.0)
+                    * r["user_performance_sample_counts"].get(key, 0)
+                    for r in valid_results
+                ) / count
+                if count > 0 else 0.0
+            )
 
         print("-"*120)
         print(f"Average success rates: tool-based={avg_tool_success:.2%}, result-based={avg_result_success:.2%}, joint={avg_joint_success:.2%}")
         print(f"Micro tool calls: overall accuracy={avg_micro_accuracy:.2%}, avg task accuracy={avg_task_accuracy:.2%}")
+        weighting = (
+            "all available valid trajectories"
+            if args.include_partial else "complete files only"
+        )
+        print(f"   [weighting] {weighting}: tasks={total_valid}/{total_tasks}")
+        print(
+            f"   [benchmark coverage] tasks={total_valid}/{benchmark_total_tasks} "
+            f"({total_valid / benchmark_total_tasks:.2%})"
+        )
         print()
-        print(f"Summary statistics (weighted average):")
-        print(f"   Success scenario avg tool calls: {weighted_success_avg_tool_calls:.2f}, avg tokens: {weighted_success_avg_tokens:.2f}")
-        print(f"   Failure scenario avg tool calls: {weighted_failure_avg_tool_calls:.2f}, avg tokens: {weighted_failure_avg_tokens:.2f}")
+        print("Overall performance averages:")
+        print(f"   Avg user response time: {avg_user_response_time:.2f}s")
+        print(f"   Avg agent response time: {avg_agent_response_time:.2f}s")
+        print(f"   Avg tokens consumed: {avg_tokens_consumed:.0f}")
         print(f"   Avg conversation rounds: {avg_rounds_count:.2f}")
         print(f"   Avg input tokens: {avg_input_tokens:.0f}")
         print(f"   Avg output tokens: {avg_output_tokens:.0f}")
         print(f"   Avg tool calls: {avg_tool_calls_count:.2f}")
-
-        # Summary excluding user-issue samples
-        total_user_issue = sum(r.get("user_issue_count", 0) for r in valid_results)
-        total_filtered_valid = sum(r.get("filtered_valid_scenarios", 0) for r in valid_results)
-        if total_filtered_valid > 0:
-            avg_filtered_tool_success = sum(
-                r["filtered_tool_based_success_rate"] * r["filtered_valid_scenarios"] for r in valid_results
-            ) / total_filtered_valid
-            avg_filtered_result_success = sum(
-                r["filtered_result_based_success_rate"] * r["filtered_valid_scenarios"] for r in valid_results
-            ) / total_filtered_valid
-            avg_filtered_joint_success = sum(
-                r["filtered_joint_success_rate"] * r["filtered_valid_scenarios"] for r in valid_results
-            ) / total_filtered_valid
-            avg_filtered_micro_accuracy = sum(
-                r["filtered_micro_accuracy"] * r["filtered_valid_scenarios"] for r in valid_results
-            ) / total_filtered_valid
-            avg_filtered_task_accuracy = sum(
-                r["filtered_avg_task_accuracy"] * r["filtered_valid_scenarios"] for r in valid_results
-            ) / total_filtered_valid
-        else:
-            avg_filtered_tool_success = avg_filtered_result_success = avg_filtered_joint_success = 0
-            avg_filtered_micro_accuracy = avg_filtered_task_accuracy = 0
-
         print()
-        print(f"Summary excluding inaccurate simulated user samples:")
-        print(f"   Total user-issue samples: {total_user_issue}/{total_valid} (ratio: {total_user_issue / total_valid:.2%})")
-        print(f"   Filtered total valid scenarios: {total_filtered_valid}")
-        print(f"   Filtered avg success rates: tool-based={avg_filtered_tool_success:.2%}, "
-              f"result-based={avg_filtered_result_success:.2%}, joint={avg_filtered_joint_success:.2%}")
-        print(f"   Filtered micro accuracy: {avg_filtered_micro_accuracy:.2%}, avg task accuracy: {avg_filtered_task_accuracy:.2%}")
-
-        # Per-scenario user issue statistics
-        print()
-        print(f"Per-scenario user-issue sample statistics:")
-        for r in valid_results:
-            print(f"   {r['file']:<40} User-issue samples: {r.get('user_issue_count', 0)}/{r.get('valid_scenarios', 0)} "
-                  f"(ratio: {r.get('user_issue_ratio', 0):.2%})")
+        print("Simulated-user metric averages:")
+        for key in USER_PERFORMANCE_KEYS:
+            print(
+                f"   {key}: {avg_user_performance[key]:.4f} "
+                f"(n={user_performance_sample_counts[key]})"
+            )
 
     # Save summary results
     summary_file = f"{output_dir}/summary.json"
@@ -1163,32 +1421,46 @@ def main():
         json.dump({"all_results": all_results, "summary": {
             "total_files": len(all_results),
             "valid_files": len(valid_results),
+            "incomplete_files": len(incomplete_results),
+            "included_partial_files": [r["file"] for r in included_partial_results],
+            "excluded_incomplete_files": [r["file"] for r in excluded_incomplete_results],
             "num_samples": num_samples,
+            "include_partial": args.include_partial,
+            "overall_weighting": (
+                "all_available_valid_trajectories_task_weighted"
+                if args.include_partial else "complete_files_only_task_weighted"
+            ),
+            "total_valid_scenarios": total_valid if valid_results else 0,
+            "total_original_tasks": total_tasks if valid_results else 0,
+            "trajectory_coverage_rate": (
+                total_valid / total_tasks
+                if valid_results and total_tasks > 0 else 0
+            ),
+            "benchmark_total_tasks": benchmark_total_tasks,
+            "benchmark_coverage_rate": (
+                total_valid / benchmark_total_tasks
+                if valid_results and benchmark_total_tasks > 0 else 0
+            ),
+            "missing_result_files": missing_result_files,
+            "unsupported_result_files": unsupported_result_files,
             "avg_tool_based_success_rate": avg_tool_success if valid_results else 0,
             "avg_result_based_success_rate": avg_result_success if valid_results else 0,
             "avg_joint_success_rate": avg_joint_success if valid_results else 0,
             "micro_accuracy": avg_micro_accuracy if valid_results else 0,
             "avg_task_accuracy": avg_task_accuracy if valid_results else 0,
-            # Summary statistics
-            "total_success_scenarios": total_success_count if valid_results else 0,
-            "total_failure_scenarios": total_failure_count if valid_results else 0,
-            "weighted_success_avg_tool_calls": weighted_success_avg_tool_calls if valid_results else 0,
-            "weighted_success_avg_tokens": weighted_success_avg_tokens if valid_results else 0,
-            "weighted_failure_avg_tool_calls": weighted_failure_avg_tool_calls if valid_results else 0,
-            "weighted_failure_avg_tokens": weighted_failure_avg_tokens if valid_results else 0,
-            # Additional metrics
+            "avg_user_response_time": avg_user_response_time if valid_results else 0,
+            "avg_agent_response_time": avg_agent_response_time if valid_results else 0,
+            "avg_tokens_consumed": avg_tokens_consumed if valid_results else 0,
             "avg_rounds_count": avg_rounds_count if valid_results else 0,
             "avg_input_tokens": avg_input_tokens if valid_results else 0,
             "avg_output_tokens": avg_output_tokens if valid_results else 0,
             "avg_tool_calls_count": avg_tool_calls_count if valid_results else 0,
-            # Summary excluding user-issue samples
-            "total_user_issue_count": total_user_issue if valid_results else 0,
-            "filtered_valid_scenarios": total_filtered_valid if valid_results else 0,
-            "filtered_tool_based_success_rate": avg_filtered_tool_success if valid_results else 0,
-            "filtered_result_based_success_rate": avg_filtered_result_success if valid_results else 0,
-            "filtered_joint_success_rate": avg_filtered_joint_success if valid_results else 0,
-            "filtered_micro_accuracy": avg_filtered_micro_accuracy if valid_results else 0,
-            "filtered_avg_task_accuracy": avg_filtered_task_accuracy if valid_results else 0
+            "avg_user_performance": avg_user_performance if valid_results else {
+                key: 0.0 for key in USER_PERFORMANCE_KEYS
+            },
+            "user_performance_sample_counts": user_performance_sample_counts if valid_results else {
+                key: 0 for key in USER_PERFORMANCE_KEYS
+            },
         }}, f, ensure_ascii=False, indent=2)
     print(f"\nSummary results saved to {summary_file}")
 

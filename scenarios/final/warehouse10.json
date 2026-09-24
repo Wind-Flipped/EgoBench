@@ -1,0 +1,925 @@
+[
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the first Sunday of August 2026. First, using the tall teal cylinder on the left and the four-wheeled tool with a yellow seat in the middle, determine from their histories and manual requirements whether the two pieces together have at least two overdue maintenance actions. If so, specify that the tall teal cylinder will cease service at its life limit while the same function must be retained, and add a new-item takeover record due on its maximum-service-life date or today if that date has passed. If not, decide that the middle four-wheeled tool will leave the warehouse at the end of its life without replacement, using the same due-date rule. Next, for the long yellow-and-black rack leaning beside the door, find among all other equipment those whose maintenance-action sets contain all of its actions, and select the earliest-purchased; if none exists, select the rack itself, retaining all ties. Among the selected equipment, identify those with the smallest positive number of overdue actions and add each one's most overdue action due today. If none has anything overdue, add the action with the latest prescribed date and retain that date. Next, determine whether the yellow-and-black power component to the left of the pegboard has at least two overdue routine maintenance actions. If so, state that new equipment will continue its original purpose after its life limit; otherwise, state that it will not be retained after reaching its maximum service life and no replacement will be added. Add the applicable takeover or removal arrangement due on its maximum-service-life date or today if that date is earlier. Finally, examine how many records are on the latest due date overall. If at least two, group them by equipment purchase date from earliest to latest, retain the earliest group, and postpone each subsequent group by one additional day. If there is only one record, postpone it by one day.",
+    "analysis": "1. Identify Oxygen Cylinder, Golf Cart, Ladder, Impact Wrench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Oxygen Cylinder, due on 2026-12-25.\n4. Add an action to clean Essential Emergency Eye-Wash Bottle, due on 2027-04-30.\n5. Add an action to replace Impact Wrench, due on 2028-08-06.\n6. Remove the action to replace Impact Wrench that is due on 2028-08-06.\n7. Add an action to replace Impact Wrench, due on 2028-08-07.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Oxygen Cylinder",
+          "required_action": "replace",
+          "due_date": "2026-12-25"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Essential Emergency Eye-Wash Bottle",
+          "required_action": "clean",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Impact Wrench",
+          "required_action": "replace",
+          "due_date": "2028-08-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Impact Wrench",
+          "required_action": "replace",
+          "due_date": "2028-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Impact Wrench",
+          "required_action": "replace",
+          "due_date": "2028-08-07"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Oxygen Cylinder",
+      "Golf Cart",
+      "Ladder",
+      "Impact Wrench"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the second Sunday of August 2026. First, for the long yellow-and-black rack leaning beside the door and the four black posts beside the yellow-and-black power component, identify the earlier-expiring equipment and determine whether it is also the equipment with the earlier retrievable last-use date. If so, state that the four black posts will no longer occupy warehouse space after their service life and will not be repurchased; add their cessation of retention due on the cessation-of-use date or today if that date has passed. If not, require a new item to replace the leaning rack when its service life ends, and add the takeover due on its maximum-service-life date or today if that date has passed. Next, for the tall teal cylinder on the left, find the latest-purchased same-category equipment. If no other same-category equipment exists, select the teal cylinder itself; retain all purchase-date ties. For each selected item, if anything is overdue, add its most overdue action due today. If nothing is overdue, add separately every action due within ninety days from today on its prescribed date; if none qualifies, add the earliest-due maintenance action and retain that date. Finally, count action items by equipment, identify the equipment with the most, and delete their latest-due items; process all ties in count or latest date.",
+    "analysis": "1. Identify Ladder, Socket, Oxygen Cylinder from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Socket, due on 2028-10-03.\n4. Add an action to condition Workbench, due on 2026-08-09.\n5. Remove the action to lubricate Heavy-Duty Material Handling Skate that is due on 2026-08-18.\n6. Remove the action to inspect Heavy-Duty Folding Platform Cart that is due on 2026-08-19.\n7. Remove the action to inspect Reinforced Low-Profile Dolly that is due on 2026-08-20.\n8. Remove the action to inspect Reinforced Material Handling Skate that is due on 2026-08-21.\n9. Remove the action to clean Lightweight Offset Ratchet that is due on 2026-08-22.\n10. Remove the action to dispose of Socket that is due on 2028-10-03.\n11. Remove the action to condition Workbench that is due on 2026-08-09.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Socket",
+          "required_action": "dispose",
+          "due_date": "2028-10-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workbench",
+          "required_action": "condition",
+          "due_date": "2026-08-09"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Heavy-Duty Material Handling Skate",
+          "required_action": "lubricate",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Heavy-Duty Folding Platform Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Reinforced Low-Profile Dolly",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Reinforced Material Handling Skate",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Lightweight Offset Ratchet",
+          "required_action": "clean",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Socket",
+          "required_action": "dispose",
+          "due_date": "2028-10-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workbench",
+          "required_action": "condition",
+          "due_date": "2026-08-09"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Ladder",
+      "Socket",
+      "Oxygen Cylinder"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the third Sunday of August 2026. First, for the yellow-and-black power component to the left of the pegboard and the dark five-door vehicle by the wall, count their shared routine maintenance action types and determine whether that count exceeds the difference between their retrievable 2026 use counts. If so, explain that the power component is temporarily on a pallet in the handover area, will continue in use, and should return to the location in its record; add this relocation due August 19, 2026. If not, explain that the dark vehicle will not be retained after reaching its maximum service life and no replacement will be added; record its removal due on that date or today if the date is earlier. Next, for the four-wheeled tool with a yellow seat in the middle, find among same-category equipment purchased earlier than it the one with the most retrievable uses in 2026. If none exists, search all same-category equipment; if there is still no other equipment, select the middle tool itself. For each selected item, add its least overdue action due today, or, if nothing is overdue, its earliest required action on the prescribed date, retaining all ties. Then determine whether the four black posts beside the power component have both overdue and not-yet-due maintenance actions. If so, require a new item to replace them at the end of their service life, due on the maximum-service-life date or today if it has passed. If not, explain that they are temporarily on a transfer rack beside the loading and unloading passage and will remain in use; add their return to the ideal location in their records, due August 22, 2026. Finally, among equipment covering at least two due dates, find the smallest date span and move those equipment's latest-date items to the day after their earliest date. If every equipment covers only one date, postpone the latest item overall by one day.",
+    "analysis": "1. Identify Impact Wrench, SUV, Golf Cart, Socket from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Impact Wrench, due on 2026-08-19.\n4. Add an action to clean Heavy-Duty Material Handling Skate, due on 2026-08-16.\n5. Add an action to relocate Socket, due on 2026-08-22.\n6. Remove the action to relocate Socket that is due on 2026-08-22.\n7. Add an action to relocate Socket, due on 2026-08-23.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Impact Wrench",
+          "required_action": "relocate",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Heavy-Duty Material Handling Skate",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Socket",
+          "required_action": "relocate",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Socket",
+          "required_action": "relocate",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Socket",
+          "required_action": "relocate",
+          "due_date": "2026-08-23"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Impact Wrench",
+      "SUV",
+      "Golf Cart",
+      "Socket"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is two days before August 25, 2026. For the perforated folding panel in the image and the four black posts beside the yellow-and-black power component, compare purchase dates and latest retrievable use dates, and determine whether the earlier-purchased equipment is instead the more recently used one. If so, add that the four black posts currently cannot function normally, that the unresolved problem is repairable, and that they will not be replaced; ask the AI Service Agent to add restoration of the current equipment's function, due August 24, 2026. If not, specify that the perforated folding panel will leave the warehouse at its life limit without same-type replacement; add this removal due on its maximum-service-life date or today if that date has passed. Next, for the dark five-door vehicle by the wall, select the earliest-purchased other equipment with both the same brand and ideal storage location. If none meets both conditions, filter only by brand; if there is still no other equipment, select the dark vehicle itself. For each selected item, identify all maintenance with prescribed dates no later than sixty days after today: add every overdue action separately due today and all others on their respective prescribed dates. If none meets that date condition, add the action with the earliest prescribed date and retain it. Finally, compare the numbers of action items due before and after today. If the former is greater, move every item on the earliest overdue date to today. Otherwise, move the farthest-future items to the day after today; use the latter rule when counts are equal.",
+    "analysis": "1. Identify Workbench, Socket, SUV from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Workbench, due on 2028-01-14.\n4. Add an action to inspect Premium Magnetic Job Holder, due on 2026-10-31.\n5. Remove the action to clean Ladder that is due on 2026-08-16.\n6. Add an action to clean Ladder, due on 2026-08-23.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Workbench",
+          "required_action": "dispose",
+          "due_date": "2028-01-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Premium Magnetic Job Holder",
+          "required_action": "inspect",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Workbench",
+      "Socket",
+      "SUV"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the last Sunday of August 2026. First, check the yellow-and-black power component to the left of the pegboard and the four-wheeled tool with a yellow seat in the middle, and determine whether both have at least one retrievable use record from February 1, 2026 through today. If so, explain that the power component will not be retained after expiration and its function need not be replaced; add its removal due on the expiration date or today if that date is earlier. If not, explain that the middle tool is temporarily on a transfer rack beside the loading and unloading passage and will remain in use; add its return to the ideal location in its records, due September 4, 2026. Next, compare the perforated folding panel's maximum-service-life date with two years after today. If it is no later than that date, select the least recently used equipment of the same country of origin; if later, select the most recently used same-category equipment. If there is no other equipment, select the panel itself. Among the selected equipment, first identify those with the greatest number of overdue actions. If the maximum is positive, add each such equipment's least overdue action due today; if it is zero, add the earliest-prescribed action among all candidates using that date. In addition, determine whether every routine maintenance action required for the long yellow-and-black rack leaning beside the door already has a matching historical record. If so, add that it is temporarily in the inventory area, will remain in use, and should return to its recorded location, due August 31, 2026. If not, state that the current rack will retire at its maximum service life but the warehouse must maintain the same capability; add a same-type takeover record due on that date or today if it is earlier. Finally, check each cessation-of-use date represented by an existing removal or takeover arrangement. Delete any other items for the same equipment later than that date while retaining the reference arrangement. If no such conflict exists, move the latest items overall one day earlier, but not earlier than today.",
+    "analysis": "1. Identify Impact Wrench, Golf Cart, Workbench, Ladder from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Impact Wrench, due on 2028-08-06.\n4. Add an action to inspect Heavy-Duty Clamp Multimeter, due on 2026-09-30.\n5. Add an action to relocate Ladder, due on 2026-08-31.\n6. Remove the action to dispose of Impact Wrench that is due on 2028-08-06.\n7. Add an action to dispose of Impact Wrench, due on 2028-08-05.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Impact Wrench",
+          "required_action": "dispose",
+          "due_date": "2028-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Heavy-Duty Clamp Multimeter",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Ladder",
+          "required_action": "relocate",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Impact Wrench",
+          "required_action": "dispose",
+          "due_date": "2028-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Impact Wrench",
+          "required_action": "dispose",
+          "due_date": "2028-08-05"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Impact Wrench",
+      "Golf Cart",
+      "Workbench",
+      "Ladder"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the first Thursday of August 2026. First, for the long yellow-and-black rack leaning beside the door and the perforated folding panel, determine whether exactly one has a retrievable use record from March 1, 2026 through today. If so, explain that the rack will not be retained after reaching its maximum service life and no replacement will be added; record its removal due on that date or today if the date is earlier. If not, explain that the panel's current fault has a feasible repair plan and that you will retain the same equipment; add an arrangement to continue using it after repair, due August 8, 2026. Next, for the yellow-and-black power component to the left of the pegboard, find equipment whose routine-maintenance-action set is a strict subset of, and wholly contained in, its set, and select the one used least recently. If none exists, select the power component itself; retain all date ties. For each selected item, if at least two actions are overdue, add the second-most-overdue one due today; if exactly one is overdue, add it due today; if none are overdue, add the action with the earliest prescribed date using that date, retaining all ties. Finally, sort the distinct due dates from earliest to latest. If there are at least two, move all earliest-date items to the day after the second-earliest date; if there is only one, postpone all its items by one day.",
+    "analysis": "1. Identify Ladder, Workbench, Impact Wrench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Workbench, due on 2026-08-08.\n4. Add an action to inspect Essential Emergency Eye-Wash Bottle, due on 2026-09-30.\n5. Remove the action to repair Workbench that is due on 2026-08-08.\n6. Add an action to repair Workbench, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workbench",
+          "required_action": "repair",
+          "due_date": "2026-08-08"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Essential Emergency Eye-Wash Bottle",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workbench",
+          "required_action": "repair",
+          "due_date": "2026-08-08"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workbench",
+          "required_action": "repair",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Ladder",
+      "Workbench",
+      "Impact Wrench"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is two days before August 15, 2026. First, determine from maintenance histories and manuals whether both the tall teal cylinder on the left and the dark five-door vehicle by the wall each have at least one overdue routine maintenance action. If so, add that the dark vehicle is temporarily in the inventory area, will remain in use, and should return to its recorded location; record this storage adjustment due August 14, 2026. Otherwise, add that the teal cylinder cannot currently function normally, that the unresolved problem is repairable, and that it will not be replaced; record restoration of the current equipment's function due August 16, 2026. Next, for the four-wheeled tool with a yellow seat in the middle, find among other equipment with both the same country of origin and ideal storage location the one used least recently. If none meets both, filter only by country of origin; if there is still none, select the middle tool itself. For each selected item, add the most overdue maintenance action due today; if none are overdue, add the action with the latest prescribed date and retain it. Process all ties in duration or date. Then compare the perforated folding panel's earliest maintenance date with its maximum-service-life date and determine whether they fall in the same calendar year. If so, add a new-equipment succession arrangement due on its cessation-of-use date or today if that date has passed. If not, add removal without replacement due on its maximum-service-life date or today if earlier. Finally, find the least frequent action types and delete those types' earliest-due items, processing all ties in type and date.",
+    "analysis": "1. Identify Oxygen Cylinder, SUV, Golf Cart, Workbench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate SUV, due on 2026-08-14.\n4. Add an action to clean Reinforced Low-Profile Dolly, due on 2026-08-13.\n5. Add an action to dispose of Workbench, due on 2028-01-14.\n6. Remove the action to relocate SUV that is due on 2026-08-14.\n7. Remove the action to dispose of Workbench that is due on 2028-01-14.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "SUV",
+          "required_action": "relocate",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Reinforced Low-Profile Dolly",
+          "required_action": "clean",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Workbench",
+          "required_action": "dispose",
+          "due_date": "2028-01-14"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "SUV",
+          "required_action": "relocate",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Workbench",
+          "required_action": "dispose",
+          "due_date": "2028-01-14"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Oxygen Cylinder",
+      "SUV",
+      "Golf Cart",
+      "Workbench"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is Thursday of the week containing August 17, 2026. First, for the four black posts beside the yellow-and-black power component and the dark five-door vehicle by the wall, determine whether all maintenance actions of the equipment with fewer actions are contained in the other equipment's set and whether its earliest prescribed date is earlier. If so, tell the AI Service Agent that the four black posts have a definite, repairable fault and that you still want to use the originals; create the corresponding item due August 22, 2026. If not, add that the dark vehicle will remain in use but is temporarily at an unassigned workstation, and record its return to its ideal storage location due August 24, 2026. Next, for the tall teal cylinder on the left, find other equipment with exactly the same routine-maintenance-action set and select the earliest-expiring; if none exists, select the cylinder itself, processing all expiration-date ties. If any selected equipment has overdue actions, for every routine-maintenance-action type find the equipment with the earliest prescribed date and add that equipment and action, all due today. If none are overdue, for each action type add the equipment with the earliest prescribed date using that date, retaining all tied equipment. Finally, count distinct action types by equipment, identify those with the most types, and delete their latest-due items; process all ties in equipment or date.",
+    "analysis": "1. Identify Socket, SUV, Oxygen Cylinder from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate SUV, due on 2026-08-24.\n4. Add an action to inspect Premium Magnetic Job Holder, due on 2026-10-31.\n5. Remove the action to inspect Premium Magnetic Job Holder that is due on 2026-10-31.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "SUV",
+          "required_action": "relocate",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Premium Magnetic Job Holder",
+          "required_action": "inspect",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Premium Magnetic Job Holder",
+          "required_action": "inspect",
+          "due_date": "2026-10-31"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Socket",
+      "SUV",
+      "Oxygen Cylinder"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is Thursday of the week containing August 24, 2026. Pair the records of the tall teal cylinder on the left and the yellow-and-black power component to the left of the pegboard, and determine whether their maximum-service-life dates fall in the same calendar year. If so, tell the AI Service Agent that new equipment will continue the power component's original purpose after its life limit, and add this succession arrangement due on the cessation-of-use date or today if it has passed. If not, explain that the teal cylinder is temporarily on the inventory cart, will continue to be used, and must return to the ideal storage location in its records; add this relocation due September 1, 2026. Next, determine whether the four black posts beside the power component have at least two overdue maintenance actions. If so, select the latest-purchased equipment with the same country of origin; if not, select the earliest-purchased equipment with the same ideal storage location. If no other equipment meets the applicable condition, select the four black posts themselves. Compare all selected equipment's routine maintenance together: if anything is overdue, add only the action with the earliest prescribed date due today; if none is overdue, add the earliest-prescribed action using its original date, retaining all ties. Next, determine whether the dark five-door vehicle was purchased before January 1, 2021. If so, add a new-item takeover at the end of its service life, due on its maximum-service-life date or today if that date has passed. If not, explain that it is temporarily on the label-verification table and will remain in use; add its return to the ideal location in its records, due August 29, 2026. Finally, find the due date with the most items, choosing the later date in a tie, then group its items by equipment expiration date. Retain the earliest-expiring group and postpone each subsequent expiration-date group by one additional day; if there is only one group, postpone all items that day by one day.",
+    "analysis": "1. Identify Oxygen Cylinder, Impact Wrench, Socket, SUV from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Oxygen Cylinder, due on 2026-09-01.\n4. Add an action to clean Socket, due on 2026-08-27.\n5. Add an action to relocate SUV, due on 2026-08-29.\n6. Remove the action to relocate Oxygen Cylinder that is due on 2026-09-01.\n7. Add an action to relocate Oxygen Cylinder, due on 2026-09-02.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Oxygen Cylinder",
+          "required_action": "relocate",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Socket",
+          "required_action": "clean",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "SUV",
+          "required_action": "relocate",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Oxygen Cylinder",
+          "required_action": "relocate",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Oxygen Cylinder",
+          "required_action": "relocate",
+          "due_date": "2026-09-02"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Oxygen Cylinder",
+      "Impact Wrench",
+      "Socket",
+      "SUV"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the first Monday of August 2026. First, for the long yellow-and-black rack leaning beside the door and the four-wheeled tool with a yellow seat in the middle, compare the span between their purchase dates with the span between their maximum-service-life dates and determine whether the latter is larger. If so, add that the rack cannot currently function normally, that the unresolved problem is repairable, and that it will not be replaced; record restoration of its function due August 4, 2026. If not, specify that the middle tool will cease service at its life limit while the same function must be retained; add a new-item takeover record due on its maximum-service-life date or today if that date has passed. Next, for the perforated folding panel, find among same-origin equipment the one whose maximum-service-life date is closest to the panel's. If none exists, select the panel itself; retain all ties in date difference. For each selected item, if actions are overdue, sort by overdue duration and add the middle one when the count is odd or the middle two when even, all due today. If none are overdue, sort by prescribed date, apply the same median rule, and retain each selected action's prescribed date. Finally, sort equipment by each equipment's action-item date, using its latest date when it has multiple actions, and select the middle equipment; when the number of distinct equipment is even, select the middle two tiers. Delete those equipment's earliest-due items, deleting all due-date ties within each equipment.",
+    "analysis": "1. Identify Ladder, Golf Cart, Workbench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Golf Cart, due on 2030-08-02.\n4. Add an action to clean Everyday Arc-Rated Face Shield, due on 2027-01-29.\n5. Remove the action to inspect Reinforced Material Handling Skate that is due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Golf Cart",
+          "required_action": "replace",
+          "due_date": "2030-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Everyday Arc-Rated Face Shield",
+          "required_action": "clean",
+          "due_date": "2027-01-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Reinforced Material Handling Skate",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Ladder",
+      "Golf Cart",
+      "Workbench"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the third day after August 7, 2026. First, for the perforated folding panel and the four-wheeled tool with a yellow seat in the middle, determine whether both have overdue maintenance and whether each one's most overdue item is the same routine maintenance action type. If so, add that the panel will remain in use but is temporarily at an unassigned workstation, and record its return to its ideal storage location due August 12, 2026. If not, explain that although the middle tool will retire, the related work cannot stop, and add a new-equipment takeover arrangement due on its maximum-service-life date or today if that date is earlier. Next, for the tall teal cylinder on the left, find among equipment with the same ideal storage location the one with the latest maximum-service-life date. If none exists, select the cylinder itself; retain all date ties. For each selected item, add every overdue routine maintenance action separately due today; if none are overdue, add the action with the earliest prescribed date using that date, retaining all same-day ties. Then determine whether the yellow-and-black power component to the left of the pegboard has three routine maintenance action types. If so, add that it is temporarily on a pallet in the handover area, will remain in use, and should return to its recorded location, due August 13, 2026. If not, state that the current power component will retire at its maximum service life but the warehouse must maintain the same capability; add a same-type replacement record due on that date or today if it is earlier. Finally, identify separately the due dates with the fewest and most items. If different, move the least-populated date's records to the day after the most-populated date. If identical, postpone all that day's items by one day. In all count ties choose the earlier date.",
+    "analysis": "1. Identify Workbench, Golf Cart, Oxygen Cylinder, Impact Wrench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Golf Cart, due on 2030-08-02.\n4. Add an action to inspect Essential Portable Work Screen, due on 2026-09-30.\n5. Add an action to relocate Impact Wrench, due on 2026-08-13.\n6. Remove the action to relocate Impact Wrench that is due on 2026-08-13.\n7. Add an action to relocate Impact Wrench, due on 2026-08-14.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Golf Cart",
+          "required_action": "replace",
+          "due_date": "2030-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Essential Portable Work Screen",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Impact Wrench",
+          "required_action": "relocate",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Impact Wrench",
+          "required_action": "relocate",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Impact Wrench",
+          "required_action": "relocate",
+          "due_date": "2026-08-14"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Workbench",
+      "Golf Cart",
+      "Oxygen Cylinder",
+      "Impact Wrench"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is three days before August 20, 2026. First, for the tall teal cylinder on the left and the four black posts beside the yellow-and-black power component, find each one's least overdue maintenance action and determine whether their prescribed dates are no more than twenty-three days apart; the condition is false if either has nothing overdue. If true, explain that the teal cylinder will retire at its maximum service life but its original capability remains needed, and add a same-type new-equipment takeover due on that date or today if earlier. If false, explain that the four black posts' current fault has a feasible repair plan and that you will retain the same equipment; add an arrangement to continue using them after repair, due August 21, 2026. Next, for the dark five-door vehicle by the wall, find among same-origin equipment the one with the earliest retrievable latest-use date. If there is no other equipment, select the dark vehicle itself; retain all ties. Prioritize actions shared by each candidate and the dark vehicle: if a shared action is overdue, add the most overdue one due today; if none is overdue, add the earliest-prescribed shared action. If they share no actions, apply the same rule to all the candidate's maintenance. Finally, count the distinct due dates covered by each action type. For every tied type covering the most dates, move its earliest-date items to the day after its latest date; if it covers only one day, postpone all of it by one day.",
+    "analysis": "1. Identify Oxygen Cylinder, Socket, SUV from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Socket, due on 2026-08-21.\n4. Add an action to inspect Heavy-Duty Clamp Multimeter, due on 2026-09-30.\n5. Remove the action to inspect Oxygen Cylinder that is due on 2026-08-17.\n6. Add an action to inspect Oxygen Cylinder, due on 2026-10-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Socket",
+          "required_action": "repair",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Heavy-Duty Clamp Multimeter",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Oxygen Cylinder",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Oxygen Cylinder",
+          "required_action": "inspect",
+          "due_date": "2026-10-01"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Oxygen Cylinder",
+      "Socket",
+      "SUV"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the fourth Monday of August 2026. Jointly check the long yellow-and-black rack leaning beside the door and the yellow-and-black power component to the left of the pegboard, and determine whether their latest retrievable use dates fall in the same calendar month. If so, specify that the rack will cease service at its life limit while the same function must be retained; add a new-item takeover record due on its maximum-service-life date or today if that date has passed. If not, decide that the power component will leave the warehouse at the end of its life with no replacement, using the same due-date rule. Next, for the four black posts beside the power component, find among equipment with the same ideal storage location and purchased no later than January 1, 2023 the one with the latest maximum-service-life date. If none meets both conditions, filter only by ideal storage location; if there is still none, select the four posts themselves. For each selected item, if maintenance is overdue, add the overdue action whose latest completion record is most recent, due today. If none is overdue, add the action whose prescribed date is farthest from today and retain that date. Process all ties in record date or prescribed date. In addition, determine whether the middle four-wheeled tool has at least two overdue routine maintenance actions. If so, add a new-equipment succession arrangement due on its cessation-of-use date or today if that date has passed. If not, add removal without replacement due on its maximum-service-life date or today if earlier. Finally, sort all distinct due dates. If their count is odd, postpone the middle date's items by one day; if even, move the earlier middle date's items to the day after the later middle date; if only one date exists, still postpone it by one day.",
+    "analysis": "1. Identify Ladder, Impact Wrench, Socket, Golf Cart from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Impact Wrench, due on 2028-08-06.\n4. Add an action to inspect Heavy-Duty Long-Reach Pliers, due on 2027-07-31.\n5. Add an action to dispose of Golf Cart, due on 2030-08-02.\n6. Remove the action to inspect SUV that is due on 2026-08-20.\n7. Add an action to inspect SUV, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Impact Wrench",
+          "required_action": "dispose",
+          "due_date": "2028-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Heavy-Duty Long-Reach Pliers",
+          "required_action": "inspect",
+          "due_date": "2027-07-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Golf Cart",
+          "required_action": "dispose",
+          "due_date": "2030-08-02"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "SUV",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "SUV",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Ladder",
+      "Impact Wrench",
+      "Socket",
+      "Golf Cart"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the last Monday of August 2026. First, retrieve the records of the perforated folding panel and the dark five-door vehicle by the wall, compare each equipment's retrievable use counts in 2025 and 2026, and determine whether both changed in the same direction. If so, state that the dark vehicle will no longer occupy warehouse space after its service life and will not be repurchased; add its cessation of retention due on the cessation-of-use date or today if that date has passed. If not, require a new item to replace the panel at the end of its service life and add the takeover due on its maximum-service-life date or today if that date has passed. Next, for the long yellow-and-black rack leaning beside the door, compare each same-category equipment's retrievable 2026 use count with the rack's and select the smallest difference. If there is no other same-category equipment, select the rack itself; process all ties. For each selected item, add its most overdue action due today, or, if none is overdue, add its earliest-prescribed action using that date, retaining all ties. Finally, find the due date with the fewest items and move those items to the day before the date with the most items. If the new date would precede today, use today. If the least- and most-populated dates coincide, postpone all items on that day by one day.",
+    "analysis": "1. Identify Workbench, SUV, Ladder from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Workbench, due on 2028-01-14.\n4. Add an action to clean Ladder, due on 2026-08-31.\n5. Remove the action to lubricate Heavy-Duty Material Handling Skate that is due on 2026-08-18.\n6. Add an action to lubricate Heavy-Duty Material Handling Skate, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workbench",
+          "required_action": "replace",
+          "due_date": "2028-01-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Heavy-Duty Material Handling Skate",
+          "required_action": "lubricate",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Heavy-Duty Material Handling Skate",
+          "required_action": "lubricate",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Workbench",
+      "SUV",
+      "Ladder"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the first Friday of August 2026. First, for the four-wheeled tool with a yellow seat in the middle and the dark five-door vehicle by the wall, determine whether the equipment whose manual requires more maintenance actions will reach its maximum service life earlier. If so, explain that the middle tool is temporarily in the short-term display area for turnover, will continue in use, and should return to its recorded location; add this relocation due August 10, 2026. If not, explain that the dark vehicle will not be retained after reaching its maximum service life and no replacement will be added; record its removal due on that date or today if earlier. Next, for the yellow-and-black power component to the left of the pegboard, find the currently longest-idle equipment of the same brand. If there is no other same-brand equipment, select the component itself; retain all idle-duration ties. If a selected item has at least two overdue actions, add the second-least-overdue one due today; if exactly one, add it due today; if none, add the action with the second-earliest prescribed date, or the only action if there is just one, retaining its prescribed date. Then determine whether the long yellow-and-black rack leaning beside the door has both overdue and not-yet-due maintenance. If so, require a new item to replace it at the end of its service life and add the takeover due on its maximum-service-life date or today if that date has passed. If not, explain that the rack is temporarily in the filming-record area and will remain in use; add its return to the ideal location in its records, due August 10, 2026. Finally, identify the equipment with the fewest action items and delete its earliest-due items, processing all ties in count or date.",
+    "analysis": "1. Identify Golf Cart, SUV, Impact Wrench, Ladder from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Golf Cart, due on 2026-08-10.\n4. Add an action to clean Essential Emergency Eye-Wash Bottle, due on 2027-04-30.\n5. Add an action to relocate Ladder, due on 2026-08-10.\n6. Remove the action to inspect Lightweight Non-Sparking Mallet that is due on 2026-08-19.\n7. Remove the action to clean Lightweight Long-Reach Pliers that is due on 2026-08-20.\n8. Remove the action to inspect Heavy-Duty Offset Ratchet that is due on 2026-08-21.\n9. Remove the action to relocate Golf Cart that is due on 2026-08-10.\n10. Remove the action to clean Essential Emergency Eye-Wash Bottle that is due on 2027-04-30.\n11. Remove the action to relocate Ladder that is due on 2026-08-10.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Golf Cart",
+          "required_action": "relocate",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Essential Emergency Eye-Wash Bottle",
+          "required_action": "clean",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Ladder",
+          "required_action": "relocate",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Lightweight Non-Sparking Mallet",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Lightweight Long-Reach Pliers",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Heavy-Duty Offset Ratchet",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Golf Cart",
+          "required_action": "relocate",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Essential Emergency Eye-Wash Bottle",
+          "required_action": "clean",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Ladder",
+          "required_action": "relocate",
+          "due_date": "2026-08-10"
+        }
+      }
+    ],
+    "image_name": "warehouse10",
+    "image_path": "warehouse10.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Golf Cart",
+      "SUV",
+      "Impact Wrench",
+      "Ladder"
+    ],
+    "scenario_id": 15
+  }
+]

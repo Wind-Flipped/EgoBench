@@ -1,0 +1,1163 @@
+[
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the first Monday of August 2026. You ask the AI Service Agent to compare the dates on which the transparent oval object in the center of the ceiling and the dark hanging strip ahead reach their maximum service lives. If the difference is more than two years, you explain that the old-vehicle project to which the earlier-expiring equipment belongs will end at that time, that the equipment will no longer be retained, and that no replacement will be provided; ask the AI Service Agent to add its removal from the warehouse to the action list, with the earlier expiration date as the due date, or today if that date has passed. If the difference is no more than two years, you explain that the switch assembly of the transparent oval object currently does not work, that the fault has been confirmed repairable, and that the original is to be retained; ask the AI Service Agent to add a repair action accordingly, due August 5, 2026. You then ask the AI Service Agent to check the sets of routine maintenance actions for the two pieces of equipment and compare their retrievable use records in 2026. If the sets are identical and exactly one has a use record, add all overdue actions for the one without a record, all due today. Otherwise, add only the most overdue action among the two pieces of equipment; for either piece with nothing overdue, instead add its action with the earliest prescribed date and use that date. Next, ask the AI Service Agent, using the brands of the two pieces of equipment as criteria, to find the piece of manual equipment with the most maintenance actions. If it has overdue actions, add the least overdue one; if it has none, add the one with the earliest prescribed date, with the due date being today or that prescribed date, respectively. Finally, ask the AI Service Agent to identify the equipment with the greatest number of action items and delete the latest-due items for all such equipment; delete all ties in equipment count or date.",
+    "analysis": "1. Identify Interior Light, Rearview Mirror from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Rearview Mirror, due on 2026-12-17.\n4. Add an action to clean Rearview Mirror, due on 2026-08-03.\n5. Add an action to inspect Rearview Mirror, due on 2026-08-03.\n6. Add an action to sharpen Residential Offset Ratchet, due on 2026-08-03.\n7. Remove the action to dispose of Rearview Mirror that is due on 2026-12-17.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Rearview Mirror",
+          "required_action": "dispose",
+          "due_date": "2026-12-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Rearview Mirror",
+          "required_action": "clean",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Rearview Mirror",
+          "required_action": "inspect",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Residential Offset Ratchet",
+          "required_action": "sharpen",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Rearview Mirror",
+          "required_action": "dispose",
+          "due_date": "2026-12-17"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Interior Light",
+      "Rearview Mirror"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the first Thursday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the fabric strip running diagonally across the image on the right and the pink fabric at the front right, and determine whether they are no more than two years apart. If so, you explain that after the earlier-expiring item is retired, the warehouse still needs an item of the same kind to continue serving its original purpose; ask the AI Service Agent to add an arrangement for a new item to take over to the action list, due on the earlier expiration date. If the dates are more than two years apart, you explain that the fabric strip crossing the image diagonally will no longer be retained after it expires and that no replacement will be purchased; ask the AI Service Agent to add its removal from the warehouse, due on its expiration date. Use today if the applicable date has passed. Next, ask the AI Service Agent to check the maintenance-action sets of the two items and determine whether their latest retrievable use dates are more than one month apart. If the sets are identical and the dates are more than one month apart, add all overdue routine maintenance actions for the item used earlier, all due today. Otherwise, add for each item its least overdue action; if an item has nothing overdue, instead add its action with the earliest prescribed date and retain that date. Then ask the AI Service Agent, using the brand of the pink fabric as a criterion, to select from handling and lifting equipment the item with the most maintenance actions and the latest purchase date. If it has overdue actions, sort them by overdue duration and add the middle action; if it has none, sort by prescribed date and add the middle action. The due date is today or the applicable prescribed date, respectively. Finally, ask the AI Service Agent to find the due date with the most action items, choosing the later date in a tie. Group that day's items by the total number of actions for their equipment in the latest list: retain the original date for the group with the most actions and postpone successively lower distinct groups by one additional day each, keeping items in the same group on the same date. If there is only one action-count group that day, postpone all its items by one day.",
+    "analysis": "1. Identify Seat Belt, Clothing from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Clothing, due on 2026-10-12.\n4. Add an action to clean Seat Belt, due on 2026-08-06.\n5. Add an action to inspect Seat Belt, due on 2026-08-06.\n6. Add an action to lubricate Commercial Folding Platform Cart, due on 2026-08-06.\n7. Remove the action to lubricate Commercial Folding Platform Cart that is due on 2026-08-06.\n8. Add an action to lubricate Commercial Folding Platform Cart, due on 2026-08-07.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clothing",
+          "required_action": "replace",
+          "due_date": "2026-10-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Seat Belt",
+          "required_action": "clean",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Seat Belt",
+          "required_action": "inspect",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Commercial Folding Platform Cart",
+          "required_action": "lubricate",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Commercial Folding Platform Cart",
+          "required_action": "lubricate",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Commercial Folding Platform Cart",
+          "required_action": "lubricate",
+          "due_date": "2026-08-07"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Seat Belt",
+      "Clothing"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the second Sunday of August 2026. You ask the AI Service Agent to determine whether all routine maintenance actions required by the flat plate with a warning label above the front row are included among the maintenance actions for the thin black strip along the lower edge of the front window. If so, you explain that the pivot of the flat plate currently cannot hold its position, that the problem has been confirmed repairable, and that you will retain the original; ask the AI Service Agent to create a repair record in the action list accordingly, due August 11, 2026. If not, you explain that the thin black strip will no longer be retained and that no similar part will be arranged to replace it; ask the AI Service Agent to add its removal from the warehouse, due today. Then ask the AI Service Agent to process the maintenance actions unique to the equipment with more actions: add any overdue action to the action list due today, and add any not-yet-overdue action with its prescribed date. If there are no unique actions, add for each piece of equipment its most overdue action; if there is nothing overdue, add its action with the earliest prescribed date, retaining all ties. Next, using the brand shared by the two pieces of equipment as a criterion, ask the AI Service Agent to find among measurement and inspection equipment the item with the most maintenance actions and the earliest purchase date. If it has overdue actions, add the least overdue one; otherwise, add the one with the earliest prescribed date, due today or on that prescribed date, respectively. Finally, ask the AI Service Agent to count, for each action type, how many distinct due dates it covers. For every tied type covering the most dates, move the items on its earliest date to the day after its latest date; if it covers only one date, postpone them by one day.",
+    "analysis": "1. Identify Sun Visor, Windshield Wiper from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Sun Visor, due on 2026-08-11.\n4. Add an action to condition Windshield Wiper, due on 2026-08-09.\n5. Add an action to calibrate Commercial Clamp Multimeter, due on 2027-01-31.\n6. Remove the action to clean Commercial Low-Profile Dolly that is due on 2026-08-18.\n7. Remove the action to inspect Commercial Material Handling Skate that is due on 2026-08-19.\n8. Add an action to clean Commercial Low-Profile Dolly, due on 2026-08-23.\n9. Add an action to inspect Commercial Material Handling Skate, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Sun Visor",
+          "required_action": "repair",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Windshield Wiper",
+          "required_action": "condition",
+          "due_date": "2026-08-09"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Commercial Clamp Multimeter",
+          "required_action": "calibrate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Commercial Low-Profile Dolly",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Commercial Material Handling Skate",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Commercial Low-Profile Dolly",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Commercial Material Handling Skate",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Sun Visor",
+      "Windshield Wiper"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the second Wednesday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the dark hanging strip ahead and the pink fabric at the front right. If they are no more than three months apart, you explain that after the earlier-expiring item is retired, the warehouse still needs an item of the same kind to continue serving its original purpose; ask the AI Service Agent to add a takeover arrangement to the action list, due on the earlier expiration date, or today if that date has passed. If they are more than three months apart, you explain that the dark strip is only temporarily placed on the image-verification table and will continue to be used; ask the AI Service Agent to add an action to return it to the ideal storage location in its records, due August 14, 2026. Then ask the AI Service Agent to compare the retrievable 2026 use records of the two items. If exactly one has a record, add all overdue routine maintenance actions for the one without a record, all due today. Otherwise, for each item add its least overdue action; if there is nothing overdue, instead add the action with the earliest prescribed date and use that date. Next, from other equipment whose maintenance-action set is identical to those of the two items and whose maximum-service-life date falls in 2026, ask the AI Service Agent to find the one with the latest retrievable last-use date. Based on its maintenance history and manual requirements, add its least overdue action; if it has nothing overdue, add its action with the earliest prescribed date. If there is no candidate, process the earlier-expiring anchor item. Finally, if the action list contains at least two distinct due dates, ask the AI Service Agent to move every item on the earliest date to the day after the second-earliest date; if it contains only one date, postpone all items on that date by one day.",
+    "analysis": "1. Identify Rearview Mirror, Clothing from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Clothing, due on 2026-10-12.\n4. Add an action to clean Rearview Mirror, due on 2026-08-12.\n5. Add an action to inspect Rearview Mirror, due on 2026-08-12.\n6. Add an action to inspect Artisan Wet Floor Squeegee, due on 2026-10-31.\n7. Remove the action to clean Rearview Mirror that is due on 2026-08-12.\n8. Add an action to clean Rearview Mirror, due on 2026-08-20.\n9. Remove the action to inspect Rearview Mirror that is due on 2026-08-12.\n10. Add an action to inspect Rearview Mirror, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clothing",
+          "required_action": "replace",
+          "due_date": "2026-10-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Rearview Mirror",
+          "required_action": "clean",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Rearview Mirror",
+          "required_action": "inspect",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Artisan Wet Floor Squeegee",
+          "required_action": "inspect",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Rearview Mirror",
+          "required_action": "clean",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Rearview Mirror",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Rearview Mirror",
+          "required_action": "inspect",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Rearview Mirror",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Rearview Mirror",
+      "Clothing"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the third Saturday of August 2026. You ask the AI Service Agent to compare the latest retrievable use dates of the transparent oval object in the center of the ceiling and the fabric strip running diagonally across the image on the right, and determine whether they are no more than twenty days apart. If so, you explain that the clasp on the fabric strip currently cannot close reliably, that the fault has been confirmed repairable, and that you want to retain the original; ask the AI Service Agent to add a repair item to the action list accordingly, due August 17, 2026. If they are more than twenty days apart, you explain that after the transparent oval object expires, new equipment is still needed to maintain the lighting function; ask the AI Service Agent to add an item for new equipment to take over, due on its expiration date, or today if that date has passed. Next, ask the AI Service Agent to determine whether the two pieces of equipment have identical maintenance-action sets and whether their maximum-service-life dates are less than two years apart. If both conditions hold, add the most overdue action for each piece, due today. Otherwise, add only the least overdue action for the earlier-expiring piece; if it has nothing overdue, instead add its action with the earliest prescribed date and retain that date. Then, using the fabric strip's country of origin as a criterion, ask the AI Service Agent to find the piece of cleaning equipment with the latest retrievable last-use date. Based on its maintenance history and manual requirements, add its least overdue action if it has overdue actions, or its action with the earliest prescribed date otherwise; process all ties in date or equipment. Finally, ask the AI Service Agent to identify the equipment with the fewest action items and move those equipment's latest-due items to the day after the latest due date overall; adjust all ties in count or date.",
+    "analysis": "1. Identify Interior Light, Seat Belt from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Seat Belt, due on 2026-08-17.\n4. Add an action to clean Seat Belt, due on 2026-08-15.\n5. Add an action to clean Interior Light, due on 2026-08-15.\n6. Add an action to inspect Artisan Wet Floor Squeegee, due on 2026-10-31.\n7. Remove the action to clean Interior Light that is due on 2026-08-15.\n8. Add an action to clean Interior Light, due on 2026-11-01.\n9. Remove the action to inspect Artisan Wet Floor Squeegee that is due on 2026-10-31.\n10. Add an action to inspect Artisan Wet Floor Squeegee, due on 2026-11-01.\n11. Remove the action to inspect Sun Visor that is due on 2026-08-17.\n12. Remove the action to condition Windshield Wiper that is due on 2026-08-18.\n13. Remove the action to inspect Clothing that is due on 2026-08-19.\n14. Remove the action to clean Residential Folding Platform Cart that is due on 2026-08-20.\n15. Add an action to clean Residential Folding Platform Cart, due on 2026-11-01.\n16. Add an action to inspect Clothing, due on 2026-11-01.\n17. Add an action to condition Windshield Wiper, due on 2026-11-01.\n18. Add an action to inspect Sun Visor, due on 2026-11-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Seat Belt",
+          "required_action": "repair",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Seat Belt",
+          "required_action": "clean",
+          "due_date": "2026-08-15"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Interior Light",
+          "required_action": "clean",
+          "due_date": "2026-08-15"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Artisan Wet Floor Squeegee",
+          "required_action": "inspect",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Interior Light",
+          "required_action": "clean",
+          "due_date": "2026-08-15"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Interior Light",
+          "required_action": "clean",
+          "due_date": "2026-11-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Artisan Wet Floor Squeegee",
+          "required_action": "inspect",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Artisan Wet Floor Squeegee",
+          "required_action": "inspect",
+          "due_date": "2026-11-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Sun Visor",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Windshield Wiper",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Clothing",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Residential Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Residential Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-11-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Clothing",
+          "required_action": "inspect",
+          "due_date": "2026-11-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Windshield Wiper",
+          "required_action": "condition",
+          "due_date": "2026-11-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Sun Visor",
+          "required_action": "inspect",
+          "due_date": "2026-11-01"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Interior Light",
+      "Seat Belt"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is two days before August 20, 2026. You ask the AI Service Agent to check whether the dark hanging strip ahead and the thin black strip along the lower edge of the front window have the same category, brand, and ideal storage location, and whether their maximum-service-life dates differ by more than five years. If those attributes are the same and the dates differ by more than five years, you explain that the vehicle model to which the earlier-expiring equipment belongs will cease to be maintained, that the equipment will no longer be retained, and that no replacement will be purchased; ask the AI Service Agent to add its removal from the warehouse to the action list, due on the earlier expiration date, or today if that date has passed. Otherwise, you explain that the thin black strip is only temporarily at the replacement station and will continue to be used; ask the AI Service Agent to add an action to move it back to the location registered in its records, due August 20, 2026. Then ask the AI Service Agent to compare the maintenance-action sets of the two pieces. If one contains all the other's actions, add the actions unique to the piece with more actions according to its history and manual requirements, due today if overdue or on the prescribed date if not overdue. If neither contains the other, add each piece's most overdue action; if it has nothing overdue, add its action with the earliest prescribed date. Next, from other equipment whose brand and ideal storage location both match those of the two pieces, find the one with the most retrievable uses in 2026 and add one maintenance action for it under the overdue-first rule. Process all ties in use count or date; an overdue action is due today. Finally, using the removal date of the earlier-expiring equipment as the reference, delete all its other action items after that date. If there are none, move every item with the latest due date overall to the day before the removal date.",
+    "analysis": "1. Identify Rearview Mirror, Windshield Wiper from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Rearview Mirror, due on 2026-12-17.\n4. Add an action to condition Windshield Wiper, due on 2026-08-18.\n5. Add an action to inspect Sun Visor, due on 2026-08-18.\n6. Remove the action to dispose of Rearview Mirror that is due on 2026-12-17.\n7. Add an action to dispose of Rearview Mirror, due on 2026-12-16.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Rearview Mirror",
+          "required_action": "dispose",
+          "due_date": "2026-12-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Windshield Wiper",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Sun Visor",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Rearview Mirror",
+          "required_action": "dispose",
+          "due_date": "2026-12-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Rearview Mirror",
+          "required_action": "dispose",
+          "due_date": "2026-12-16"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Rearview Mirror",
+      "Windshield Wiper"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the third Friday of August 2026. You first ask the AI Service Agent to compare the latest retrievable use dates of the flat plate with a warning label above the front row and the pink fabric on the right. If they are no more than twenty days apart, you explain that the pink fabric is only temporarily on the front-row seat and will continue to be used; ask the AI Service Agent to add an arrangement to return it to the ideal storage location in its records, due August 23, 2026. If they are more than twenty days apart, you explain that the pivot of the warning-label plate currently has a repairable fault and that you want to retain the original; ask the AI Service Agent to add a repair item, also due August 23, 2026. Next, ask the AI Service Agent to determine whether the two items' maximum-service-life dates differ by more than seven years. If so, add all overdue routine maintenance actions for the earlier-expiring item, all due today. If not, add only the least overdue action for the later-expiring item. If the target item has nothing overdue, instead add its action with the earliest prescribed date and use that date. Then, using the brand of the pink fabric as a criterion, ask the AI Service Agent to select from handling and lifting equipment the item with the most maintenance actions and the latest purchase date. If it has overdue actions, sort them by overdue duration and add the middle action; if it has none, sort them by prescribed date and add the middle action, due today or on that prescribed date, respectively. Finally, ask the AI Service Agent to count the action items on each due date and move every record on the date with the fewest items to the day after the date with the most items. If they are the same date, postpone all items by one day; in count ties, choose the later date in both cases.",
+    "analysis": "1. Identify Sun Visor, Clothing from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Clothing, due on 2026-08-23.\n4. Add an action to clean Clothing, due on 2026-08-21.\n5. Add an action to Lubricate Commercial Folding Platform Cart, due on 2026-08-21.\n6. Remove the action to relocate Clothing that is due on 2026-08-23.\n7. Add an action to relocate Clothing, due on 2026-08-22.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Clothing",
+          "required_action": "relocate",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Clothing",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Commercial Folding Platform Cart",
+          "required_action": "Lubricate",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Clothing",
+          "required_action": "relocate",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Clothing",
+          "required_action": "relocate",
+          "due_date": "2026-08-22"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Sun Visor",
+      "Clothing"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the fourth Monday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the transparent oval object in the center of the ceiling and the thin black strip along the lower edge of the front window. If they are no more than three years apart, you explain that after the earlier-expiring equipment is retired, new equipment is still needed to continue its function; ask the AI Service Agent to add a takeover arrangement to the action list, due on the earlier expiration date. If they are more than three years apart, you explain that the thin black strip will no longer be retained and that no replacement will be provided; ask the AI Service Agent to add its removal from the warehouse, due on its expiration date. Use today if the applicable date has passed. Then ask the AI Service Agent to determine whether all maintenance actions for the transparent oval object are included among those for the thin black strip. If so, compare the prescribed-date gap between the two pieces for each shared action, find the action with the largest gap, and add the equipment whose prescribed date for that action is earlier together with the action; make it due today if overdue, otherwise retain the prescribed date. If not, add each piece's most overdue action, or its action with the earliest prescribed date if it has nothing overdue. Next, using the brands of the two pieces as criteria, find among measurement and inspection equipment the item with the most maintenance actions and the earliest maximum-service-life date. Add its least overdue action if it has overdue actions, or its action with the earliest prescribed date otherwise, due today or on that prescribed date, respectively. Finally, identify the equipment with the most action items and delete those equipment's earliest-due items; process all ties in count or date.",
+    "analysis": "1. Identify Interior Light, Windshield Wiper from the video.\n2. Evaluate maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Interior Light, due on 2029-12-09.\n4. Add an action to inspect Windshield Wiper, due on 2026-08-24.\n5. Add an action to calibrate Commercial Clamp Multimeter, due on 2027-01-31.\n6. Remove the action to clean Interior Light that is due on 2026-08-16.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Interior Light",
+          "required_action": "replace",
+          "due_date": "2029-12-09"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Windshield Wiper",
+          "required_action": "inspect",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Commercial Clamp Multimeter",
+          "required_action": "calibrate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Interior Light",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Interior Light",
+      "Windshield Wiper"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the last Thursday of August 2026. You ask the AI Service Agent to compare the latest retrievable use dates of the fabric strip running diagonally across the image on the right and the dark hanging strip ahead, and determine whether they are more than four months apart. If so, you explain that the dark strip is currently only temporarily on the insurance-claim evidence table and will continue to be used; ask the AI Service Agent to add its return to the ideal storage location in its records to the action list, due August 29, 2026. If not, you explain that the retraction mechanism of the fabric strip currently does not work, that the fault has been confirmed repairable, and that the original will be retained; ask the AI Service Agent to add a repair action accordingly, also due August 29, 2026. Then ask the AI Service Agent to determine whether the maximum-service-life dates of the two pieces of equipment are no more than two years apart. If so, add all overdue routine maintenance actions for the earlier-expiring piece, all due today. If not, add only the least overdue action for the later-expiring piece. If the target has nothing overdue, instead add its action with the earliest prescribed date and retain that date. Next, from other storage equipment with the same country of origin as the fabric strip, find the one with the earliest maximum-service-life date. Based on its maintenance history and manual requirements, add its least overdue action, or its action with the earliest prescribed date if nothing is overdue. If there is no other candidate, process the earlier-expiring anchor item; overdue actions are due today. Finally, identify the action type covering the greatest number of distinct due dates and move that type's items on its earliest date to the day after its latest date. If it covers only one date, postpone the items by one day; adjust every tied type.",
+    "analysis": "1. Identify Seat Belt, Rearview Mirror from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Rearview Mirror, due on 2026-08-29.\n4. Add an action to clean Rearview Mirror, due on 2026-08-27.\n5. Add an action to inspect Rearview Mirror, due on 2026-08-27.\n6. Add an action to clean Clothing, due on 2026-08-27.\n7. Remove the action to inspect Sun Visor that is due on 2026-08-17.\n8. Add an action to inspect Sun Visor, due on 2026-08-28.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Rearview Mirror",
+          "required_action": "relocate",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Rearview Mirror",
+          "required_action": "clean",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Rearview Mirror",
+          "required_action": "inspect",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Clothing",
+          "required_action": "clean",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Sun Visor",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Sun Visor",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Seat Belt",
+      "Rearview Mirror"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the last Sunday of August 2026. You ask the AI Service Agent to check the routine maintenance-action sets of the flat plate with a warning label above the front row and the transparent oval object in the center of the ceiling, and compare their latest retrievable use dates. If the action sets are identical and the two uses are more than one month apart, you explain that the switch wiring of the transparent oval object currently has an unresolved but repairable fault and that the original is to remain in use; ask the AI Service Agent to add a repair item to the action list accordingly, due September 1, 2026. Otherwise, you explain that the warning-label plate will no longer be retained and that no replacement will be purchased; ask the AI Service Agent to add its removal from the warehouse, due today. Then ask the AI Service Agent to compare the numbers of overdue routine maintenance actions for the two pieces. If the numbers are equal, find each piece's least overdue action and add only the one with the later prescribed date. If the numbers differ, add the most overdue action for the piece with more overdue actions. If there is nothing overdue, instead add the action with the earliest prescribed date. Overdue items are due today; other items retain their prescribed dates. Next, using the brands of the two pieces as criteria, find the piece of manual equipment with the most maintenance actions. Based on its history and manual requirements, add its least overdue action if any are overdue, or its action with the earliest prescribed date otherwise, due today or on that prescribed date, respectively. Finally, count items by action type and delete the latest-due items from every type with the most items; delete all ties in type or date.",
+    "analysis": "1. Identify Sun Visor, Interior Light from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Interior Light, due on 2026-09-01.\n4. Add an action to clean Sun Visor, due on 2026-08-30.\n5. Add an action to sharpen Residential Offset Ratchet, due on 2026-08-30.\n6. Remove the action to clean Sun Visor that is due on 2026-08-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Interior Light",
+          "required_action": "repair",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Sun Visor",
+          "required_action": "clean",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Residential Offset Ratchet",
+          "required_action": "sharpen",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Sun Visor",
+          "required_action": "clean",
+          "due_date": "2026-08-30"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Sun Visor",
+      "Interior Light"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is August 1, 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the pink fabric at the front right and the thin black strip along the lower edge of the front window. If the difference is more than six years, you explain that the earlier-expiring item will no longer be retained afterward and that no replacement will be added; ask the AI Service Agent to add its removal from the warehouse to the action list, due on the earlier expiration date. If the difference is no more than six years, you explain that after the thin black strip expires, a new part is still needed to continue its original function; ask the AI Service Agent to add a takeover arrangement, due on its expiration date. If the applicable date has passed, use today. Then ask the AI Service Agent to compare the numbers of routine maintenance actions required by the two items' manuals. If the numbers differ, add all overdue actions for the item with more actions, all due today. If the numbers are equal, add each item's most overdue action; if it has nothing overdue, instead add its action with the earliest prescribed date and retain that date. Next, jointly filter other equipment by the pink fabric's ideal storage location and the thin black strip's brand, and find the one with the latest last-use date in 2026. Based on its history and manual requirements, add its least overdue action due today, or, if it has nothing overdue, its action with the earliest prescribed date and retain that date. If there is no candidate, process the anchor item used more recently. Finally, find the due date with the most action items, choosing the earlier date in a tie. Group that day's items by the purchase year of their equipment: retain the original date for the earliest year, postpone each later distinct year by one additional day in sequence, and keep items from the same year on the same date. If the day's items involve only one purchase year, postpone all of them by one day.",
+    "analysis": "1. Identify Clothing, Windshield Wiper from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Clothing, due on 2026-10-12.\n4. Add an action to clean Windshield Wiper, due on 2026-08-01.\n5. Add an action to condition Windshield Wiper, due on 2026-08-01.\n6. Add an action to inspect Windshield Wiper, due on 2026-08-01.\n7. Add an action to inspect Urban Parts Cleaning Basin, due on 2027-04-30.\n8. Remove the action to clean Windshield Wiper that is due on 2026-08-01.\n9. Remove the action to condition Windshield Wiper that is due on 2026-08-01.\n10. Remove the action to inspect Windshield Wiper that is due on 2026-08-01.\n11. Add an action to clean Windshield Wiper, due on 2026-08-02.\n12. Add an action to condition Windshield Wiper, due on 2026-08-02.\n13. Add an action to inspect Windshield Wiper, due on 2026-08-02.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clothing",
+          "required_action": "dispose",
+          "due_date": "2026-10-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "clean",
+          "due_date": "2026-08-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "condition",
+          "due_date": "2026-08-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "inspect",
+          "due_date": "2026-08-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Urban Parts Cleaning Basin",
+          "required_action": "inspect",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "clean",
+          "due_date": "2026-08-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "condition",
+          "due_date": "2026-08-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "inspect",
+          "due_date": "2026-08-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "clean",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "condition",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Windshield Wiper",
+          "required_action": "inspect",
+          "due_date": "2026-08-02"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Clothing",
+      "Windshield Wiper"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is August 4, 2026. You ask the AI Service Agent first to confirm whether the dark hanging strip ahead and the flat warning-label plate above the front row have the same category, brand, ideal storage location, and routine maintenance-action set, and then compare their maximum-service-life dates. If all those attributes are identical and the expiration dates differ by more than seven years, you explain that after the earlier-expiring equipment is retired, new equipment is still needed to maintain the same field-of-view function; ask the AI Service Agent to add a takeover arrangement to the action list, due on the earlier expiration date, or today if that date has passed. Otherwise, you explain that the warning-label plate is only temporarily in the in-vehicle modification area and will continue to be used; ask the AI Service Agent to add an action to return it to its recorded location, due August 6, 2026. Then ask the AI Service Agent to compare the two pieces' retrievable use records in 2026. If exactly one has a record, add all overdue routine maintenance actions for the piece without a record, all due today. Otherwise, add each piece's least overdue action; if it has nothing overdue, instead add its action with the earliest prescribed date and use that date. Next, from other equipment with the same maintenance-action set and a purchase date no earlier than January 1, 2025, find the one with the latest retrievable last-use date. Based on its history and manual requirements, add its least overdue action due today, or, if it has nothing overdue, its action with the earliest prescribed date and use that date. If there is no candidate, process the anchor item used later. Finally, identify the equipment with the fewest action items and delete those equipment's latest-due items; process all ties in count or date.",
+    "analysis": "1. Identify Rearview Mirror, Sun Visor from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Rearview Mirror, due on 2026-12-17.\n4. Add an action to clean Rearview Mirror, due on 2026-08-04.\n5. Add an action to inspect Rearview Mirror, due on 2026-08-04.\n6. Add an action to inspect Urban Parts Cleaning Basin, due on 2027-04-30.\n7. Remove the action to inspect Sun Visor that is due on 2026-08-17.\n8. Remove the action to condition Windshield Wiper that is due on 2026-08-18.\n9. Remove the action to inspect Clothing that is due on 2026-08-19.\n10. Remove the action to clean Residential Folding Platform Cart that is due on 2026-08-20.\n11. Remove the action to inspect Urban Parts Cleaning Basin that is due on 2027-04-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Rearview Mirror",
+          "required_action": "replace",
+          "due_date": "2026-12-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Rearview Mirror",
+          "required_action": "clean",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Rearview Mirror",
+          "required_action": "inspect",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Urban Parts Cleaning Basin",
+          "required_action": "inspect",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Sun Visor",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Windshield Wiper",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Clothing",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Residential Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Urban Parts Cleaning Basin",
+          "required_action": "inspect",
+          "due_date": "2027-04-30"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Rearview Mirror",
+      "Sun Visor"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the first Friday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the fabric strip running diagonally across the image on the right and the thin black strip along the lower edge of the front window, and determine whether they differ by more than four years. If so, you explain that the fabric strip's clasp-retraction mechanism is currently damaged, that the fault has been confirmed repairable, and that you want to retain the original; ask the AI Service Agent to create a repair item in the action list accordingly, due August 9, 2026. If not, you explain that the thin black strip will no longer be retained and that no replacement will be provided; ask the AI Service Agent to add its removal from the warehouse, due today. Next, ask the AI Service Agent to determine whether all maintenance actions for the fabric strip are included among those for the thin black strip. If so, identify the most overdue shared action for each piece and add only the one with the earlier prescribed date, due today. If not, add each piece's most overdue action. If there is nothing overdue, add the action with the earliest prescribed date and retain that date. Then, using the fabric strip's brand as a criterion, find the piece of handling and lifting equipment with the most maintenance actions. If it has both overdue and not-yet-due actions, add the not-yet-due action with the earliest prescribed date. If all are overdue, add the least overdue one. If all are not yet due, add the one with the earliest prescribed date. The due date is today or the applicable prescribed date, respectively. Finally, identify the equipment with the largest span between its earliest and latest due dates and move those equipment's earliest-date items to the day after their latest date; if an equipment has only one date, postpone all its items by one day.",
+    "analysis": "1. Identify Seat Belt, Windshield Wiper from the video.\n2. Evaluate maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Seat Belt, due on 2026-08-09.\n4. Add an action to inspect Windshield Wiper, due on 2026-08-07.\n5. Add an action to lubricate Compact Low-Profile Dolly, due on 2027-01-10.\n6. Remove the action to lubricate Compact Low-Profile Dolly that is due on 2026-08-21.\n7. Add an action to lubricate Compact Low-Profile Dolly, due on 2027-01-11.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Seat Belt",
+          "required_action": "repair",
+          "due_date": "2026-08-09"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Windshield Wiper",
+          "required_action": "inspect",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Compact Low-Profile Dolly",
+          "required_action": "lubricate",
+          "due_date": "2027-01-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Compact Low-Profile Dolly",
+          "required_action": "lubricate",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Compact Low-Profile Dolly",
+          "required_action": "lubricate",
+          "due_date": "2027-01-11"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Seat Belt",
+      "Windshield Wiper"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the second Monday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the transparent oval object in the center of the ceiling and the pink fabric at the front right. If the difference is more than three years, you explain that after the earlier-expiring item is retired, a new item is still needed to take over its current purpose; ask the AI Service Agent to add a takeover item to the action list, due on the earlier expiration date, or today if that date has passed. If the difference is no more than three years, you explain that the transparent oval object is only temporarily installed on the inspection panel and will continue to be used; ask the AI Service Agent to add an action to return it to the ideal storage location in its records, due August 12, 2026. Then ask the AI Service Agent to determine whether the two items' latest retrievable use dates are no more than twenty days apart. If so, add each item's least overdue routine maintenance action, both due today. If not, add only the most overdue action for the item used earlier. If there is nothing overdue, instead add the action with the earliest prescribed date and use that date. Next, using the transparent oval object's brand as a criterion, find among measurement and inspection equipment the item with the most maintenance actions and the earliest maximum-service-life date. Add its least overdue action if it has overdue actions, or its action with the earliest prescribed date if it has none, due today or on that prescribed date, respectively. Finally, identify the due date appearing most often among action items, choosing the later date in a tie, and postpone all items on that date by one day.",
+    "analysis": "1. Identify Interior Light, Clothing from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Clothing, due on 2026-10-12.\n4. Add an action to inspect Interior Light, due on 2026-08-10.\n5. Add an action to clean Clothing, due on 2026-08-10.\n6. Add an action to calibrate Commercial Clamp Multimeter, due on 2027-01-31.\n7. Remove the action to inspect Interior Light that is due on 2026-08-10.\n8. Remove the action to clean Clothing that is due on 2026-08-10.\n9. Add an action to inspect Interior Light, due on 2026-08-11.\n10. Add an action to clean Clothing, due on 2026-08-11.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clothing",
+          "required_action": "replace",
+          "due_date": "2026-10-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Interior Light",
+          "required_action": "inspect",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clothing",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Commercial Clamp Multimeter",
+          "required_action": "calibrate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Interior Light",
+          "required_action": "inspect",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clothing",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Interior Light",
+          "required_action": "inspect",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clothing",
+          "required_action": "clean",
+          "due_date": "2026-08-11"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Interior Light",
+      "Clothing"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the second Thursday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the dark hanging strip ahead and the fabric strip running diagonally across the image on the right, and determine whether they are no more than eighteen months apart. If so, you explain that the vehicle model to which the earlier-expiring equipment belongs will cease use at that time, that the equipment will no longer be retained, and that no replacement will be purchased; ask the AI Service Agent to add its removal from the warehouse to the action list, due on the earlier expiration date, or today if that date has passed. If they are more than eighteen months apart, you explain that the fabric strip currently has a clasp fault confirmed to be repairable and that the original is still to be retained; ask the AI Service Agent to add a repair action accordingly, due August 15, 2026. Then ask the AI Service Agent to check the two pieces' maintenance-action sets and compare their retrievable numbers of uses in 2026. If the sets are identical and the counts differ, add all overdue routine maintenance actions for the more-used piece, all due today. If the sets are identical and the counts are equal, add each piece's most overdue action. If the sets differ, process the actions unique to the piece with more actions. Whenever there is nothing overdue, instead add the action with the earliest prescribed date and retain that date. Next, using the dark strip's country of origin as a criterion, find the piece of power equipment with the latest retrievable last-use date. Based on its history and manual requirements, if it has overdue actions, add the least overdue one due today; otherwise, add the action with the earliest prescribed date and use that date. Process all ties in equipment or date. Finally, delete every action item with the latest due date in the updated action list.",
+    "analysis": "1. Identify Rearview Mirror, Seat Belt from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Rearview Mirror, due on 2026-12-17.\n4. Add an action to clean Seat Belt, due on 2026-08-13.\n5. Add an action to inspect Seat Belt, due on 2026-08-13.\n6. Add an action to inspect Residential Portable Air Blower, due on 2026-09-30.\n7. Remove the action to dispose of Rearview Mirror that is due on 2026-12-17.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Rearview Mirror",
+          "required_action": "dispose",
+          "due_date": "2026-12-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Seat Belt",
+          "required_action": "clean",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Seat Belt",
+          "required_action": "inspect",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Residential Portable Air Blower",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Rearview Mirror",
+          "required_action": "dispose",
+          "due_date": "2026-12-17"
+        }
+      }
+    ],
+    "image_name": "warehouse8",
+    "image_path": "warehouse8.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Rearview Mirror",
+      "Seat Belt"
+    ],
+    "scenario_id": 15
+  }
+]

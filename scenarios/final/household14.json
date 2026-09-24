@@ -1,0 +1,721 @@
+[
+  {
+    "Instruction": "Your user ID is household_user_03, and today is August 26, 2026. First, ask the AI Service Agent to compare the types of routine care actions required by the manuals for the black rack standing on the floor and the wooden furniture under the window, without requiring the care intervals to be the same, and determine whether the types are completely identical. If the result holds, explain that the former item will leave use when it reaches its maximum service life and that you will acquire another new item exactly like it to replace it, then ask the AI Service Agent to list this replacement plan in the action list, using the date it reaches its maximum service life as the due date, or today instead if that date has passed; otherwise, ask the AI Service Agent to find, among all bedding, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all of them if the date is also the same; explain that the screened items have been washed but are not yet completely dry, then ask the AI Service Agent to record drying in the action list, due August 31, 2026. Next, ask the AI Service Agent to find, among all furniture, the item with the earliest purchase date, retaining the one with the higher purchase price in a date tie and all of them if the price is also the same; then check each routine care requirement in the manuals of the screened items and, based on the most recent completion time of each action in the historical maintenance records, determine its overdue status as of today. If any are overdue, add the action with the fewest overdue days for today, including all ties; if none are overdue, register the action with the earliest required date using that date, including all same-date ties. Finally, delete all items in the latest action list due later than October 10, 2026; if none exist, delete all items with the globally latest due date.",
+    "analysis": "1. Identify Folding Ladder, Desk from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Folding Ladder, due on 2031-08-01.\n4. Add an action to clean Desk, due on 2026-08-26.\n5. Remove an action to replace Folding Ladder, due on 2031-08-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Folding Ladder",
+          "required_action": "replace",
+          "due_date": "2031-08-01"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Desk",
+          "required_action": "clean",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Folding Ladder",
+          "required_action": "replace",
+          "due_date": "2031-08-01"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Folding Ladder",
+      "Desk"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the 14th day before September 1, 2026. First, for the pink square stool below the left wall, ask the AI Service Agent to compare its purchase date with the start date of its first queryable usage period and determine whether the latter is at least 9 calendar months later. If yes, find, among all clothing, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all of them if the date is also the same; explain that these items have been washed and completely dried and are confirmed suitable for ironing, then register ironing in the action list, due August 24, 2026. If no, explain that the item is temporarily placed in the study corner and that you still want to keep the current item, then add a subsequent return-to-place arrangement according to its ideal storage location, due August 22, 2026. Next, check every type of routine care for the pink square stool below the left wall, using the most recent historical operation of the same type for each action and the manual to determine whether it is overdue as of today. If any are overdue, list the action with the greatest number of overdue days for today, including all ties; if none are overdue, register the action with the earliest required date using that date, including all same-date ties. Next, determine whether the purchase price of the pink square stool below the left wall is no higher than 200. If it is no higher, find, among all clothing, the item with the earliest purchase date, retaining the one with the higher price in a date tie and all of them if the price is also the same; explain that the screened items have just been washed and are not yet dry enough to store, then register an arrangement to make them completely dry, due August 22, 2026. If it is higher, find, among all clothing, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all of them if the date is also the same; explain that these items have been washed and completely dried and are confirmed suitable for ironing, then register ironing, due August 20, 2026. Finally, delete all items in the latest action list due later than October 2, 2026; if none exist, delete all items with the globally latest due date.",
+    "analysis": "1. Identify Storage Ottoman from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Storage Ottoman, due on 2026-08-22.\n4. Add an action to condition Storage Ottoman, due on 2026-08-18.\n5. Add an action to iron Space-Saving Merino Base-Layer Top, due on 2026-08-20.\n6. Remove an action to relocate Storage Ottoman, due on 2026-08-22.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Storage Ottoman",
+          "required_action": "relocate",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Storage Ottoman",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Space-Saving Merino Base-Layer Top",
+          "required_action": "iron",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Storage Ottoman",
+          "required_action": "relocate",
+          "due_date": "2026-08-22"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Storage Ottoman"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the 4th Tuesday of August 2026. First, for the wooden furniture under the window, ask the AI Service Agent to find the current queryable usage period covering today; if it exists, determine whether its start date is at least 4 calendar months later than the purchase date, and if it does not exist, treat the condition as not met. If the condition is met, find, among all clothing, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all of them if the date is also the same; explain that these items have been washed and dried and are confirmed to need ironing, then register ironing as a household to-do, due August 28, 2026. If the condition is not met, explain that the current item has a repairable fault still awaiting handling and that you still want to keep it, then register an action to repair and retain the original item, due August 31, 2026. Next, find, among all furniture, the item with the earliest purchase date, retaining the one with the higher purchase price in a date tie and all of them if the price is also the same; then read the routine care requirements in the manuals of the screened items and compare each action with its most recent completion date in the historical maintenance records to determine whether it is overdue as of today. If any are overdue, add the action overdue the longest for today, including all ties; if none are overdue, add the earliest action that needs to be done using its required date, including all same-date ties. Finally, move all items with the earliest due date in the latest action list to the day after the second-earliest date; if there is only one distinct date, uniformly postpone all items on that date by one day.",
+    "analysis": "1. Identify Desk from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Portable Packable Rain Trousers, due on 2026-08-28.\n4. Add an action to condition Desk, due on 2026-08-25.\n5. Remove an action to clean Folding Ladder, due on 2026-08-16.\n6. Add an action to clean Folding Ladder, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Portable Packable Rain Trousers",
+          "required_action": "iron",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Desk",
+          "required_action": "condition",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Folding Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Folding Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Desk"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the 3rd Monday of August 2026. First, ask the AI Service Agent to calculate the cumulative number of days from January 1, 2026 through today that the blue-handled tool held in your right hand falls within queryable usage periods, and determine whether it has reached 120 days. If yes, explain that the item will leave household use on August 20, 2026, will then be removed directly from the home, and that no brand-new item of the same type will be added to take its place, then register an action to remove it without purchasing a replacement of the same type, due August 20, 2026. If no, explain that the item will leave use on August 23, 2026 and that you plan to buy a new item completely identical to the current one to continue using, then add a plan to purchase a brand-new item of the same type and replace the current item, due August 23, 2026. Next, find, among all household textiles, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all of them if the date is also the same; for each screened item, check every type of routine care using the most recent historical operation of the same type and the manual to determine whether it is overdue as of today. If overdue actions are found, separately list all of them with today as the due date; if none are overdue, register the action with the earliest required date, including all same-date ties. Finally, arrange the distinct due dates in the latest action list from latest to earliest and delete all items on the second-latest date; if there are fewer than two distinct dates, delete all items on the only date.",
+    "analysis": "1. Identify Pliers from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose Pliers, due on 2026-08-20.\n4. Add an action to disinfect Commercial Blackout Door Curtain, due on 2026-08-17.\n5. Remove an action to repair Storage Ottoman, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Pliers",
+          "required_action": "dispose",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Commercial Blackout Door Curtain",
+          "required_action": "disinfect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Storage Ottoman",
+          "required_action": "repair",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Pliers"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the 8th day before September 1, 2026. First, for the colorful works arranged on the wall, ask the AI Service Agent to find the end date of the most recent queryable usage record and determine whether that date is no earlier than August 2, 2026. If yes, explain that the item currently has an unresolved local fault that has been confirmed repairable and that you will continue to keep the current item, then create an arrangement to repair it, due August 28, 2026. If no, find, among all clothing, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all of them if the date is also the same; explain that the screened items have been washed but are not yet completely dry, then record drying in the action list, due August 26, 2026. Next, read the routine care requirements in the manual for the colorful works arranged on the wall and compare each action with its most recent completion date in the historical maintenance records to determine whether it is overdue as of today. If any are overdue, add the action overdue the longest for today, including all ties; if none are overdue, add the earliest action that needs to be done using its required date, including all same-date ties. Finally, delete all items due later than October 8, 2026; if none exist, delete all items with the globally latest due date.",
+    "analysis": "1. Identify Picture Frames from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Picture Frames, due on 2026-08-28.\n4. Add an action to condition Picture Frames, due on 2026-08-24.\n5. Remove an action to repair Picture Frames, due on 2026-08-28.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Picture Frames",
+          "required_action": "repair",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Picture Frames",
+          "required_action": "condition",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Picture Frames",
+          "required_action": "repair",
+          "due_date": "2026-08-28"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Picture Frames"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is August 31, 2026. First, for the brown furniture with a mirror on the right, ask the AI Service Agent to determine whether it was purchased before January 1, 2025. If yes, find, among all bedding, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all of them if the date is also the same; explain that these items have just been washed and are still damp, then record drying in the action list, due September 2, 2026. If no, explain that the item will leave use when it reaches its maximum service life and that you plan to buy a new item completely identical to the current one to continue using, then add a plan to purchase a brand-new item of the same type and replace the current item, using its maximum-service-life date as the due date, or today if that date has passed. Next, find, among all furniture, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all of them if the date is also the same; check every type of routine care for the screened items using the most recent historical operation of the same type and the manual. If any are overdue, list the action with the greatest number of overdue days for today, including all ties; if none are overdue, register the action with the earliest required date using that date, including all same-date ties. In addition, find, among all electronic products, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all of them if the date is also the same; based on the historical maintenance records and routine care requirements in the manuals of the screened items, determine action by action whether each is overdue as of today using the most recent completion record of each required action. If there are overdue actions, select one that has only recently become overdue and set its due date to today, registering all with equal overdue duration; if none are overdue, register the action that needs to be completed first using its required date, retaining all same-date actions. Finally, find the due date with the fewest days of separation from today, choose the later date when the distances before and after today are equal, and delete all items on the selected date.",
+    "analysis": "1. Identify Dressing Table from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Dressing Table, due on 2027-01-11.\n4. Add an action to clean Dressing Table, due on 2026-08-31.\n5. Add an action to inspect Professional Indoor Air Sensor, due on 2026-08-31.\n6. Remove an action to clean Dressing Table, due on 2026-08-31.\n7. Remove an action to inspect Professional Indoor Air Sensor, due on 2026-08-31.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Dressing Table",
+          "required_action": "replace",
+          "due_date": "2027-01-11"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Dressing Table",
+          "required_action": "clean",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Professional Indoor Air Sensor",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Dressing Table",
+          "required_action": "clean",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Professional Indoor Air Sensor",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Dressing Table"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the 9th day before September 1, 2026. First, for the circular device in the center of the ceiling, ask the AI Service Agent to determine whether it is still within a queryable usage period today. If yes, explain that it is now only temporarily placed on the entryway storage shelf and will continue to be used later, then look up its ideal storage location and list a return-to-place plan in the action list, due August 27, 2026. If no, explain that it will leave household use on August 25, 2026, will no longer be kept afterward, and that no brand-new identical item will be purchased to take over, then register an action to remove it without purchasing a replacement of the same type, due August 25, 2026. Next, find, among all items whose category is Other, the item with the earliest purchase date, retaining the one with the higher purchase price in a date tie and all of them if the price is also the same; read their routine care requirements and compare each action with its most recent completion date to determine whether it is overdue as of today. If any are overdue, add the action with the shortest overdue duration for today, including all ties; if none are overdue, add the earliest action that needs to be done using its required date, including all same-date ties. Finally, find the due date carrying the greatest number of action items; if multiple dates are tied, take the earlier one and delete all items on it.",
+    "analysis": "1. Identify Ceiling Light Plate from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Ceiling Light Plate, due on 2026-08-27.\n4. Add an action to condition Pliers, due on 2026-08-23.\n5. Remove an action to clean Folding Ladder, due on 2026-08-16.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Ceiling Light Plate",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pliers",
+          "required_action": "condition",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Folding Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Ceiling Light Plate"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the last Sunday of August 2026. First, for the black rack standing on the floor, ask the AI Service Agent to determine whether its queryable usage time overlaps the date interval from July 9, 2026 through August 13, 2026. If yes, explain that it has a functional fault confirmed repairable that remains unhandled and that you do not plan to replace the current item, then register an action to repair and retain the original item, due September 3, 2026. If no, find, among all household textiles, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all of them if the date is also the same; explain that the screened items have been washed and air-dried and their materials are confirmed suitable for ironing, then list ironing in the household action list, due September 1, 2026. Next, determine whether the purchase price of the black rack standing on the floor is no higher than 200. If it is no higher, find, among all clothing, the item with the earliest purchase date, retaining the one with the higher price in a date tie and all of them if the price is also the same; explain that the items have just been washed and are not yet dry enough to store, then register an arrangement to make them completely dry, due September 1, 2026. If it is higher, find, among all clothing, the item with the highest price, retaining the one with the earlier purchase date in a price tie and all if the date is also the same; explain that the items have been washed and completely dried and are confirmed suitable for ironing, then register ironing, due September 4, 2026. Next, check every type of routine care for the black rack standing on the floor using the most recent historical operation of the same type and the manual. If any are overdue, list the action with the greatest number of overdue days for today, including all ties; if none are overdue, register the action with the earliest required date using that date, including all same-date ties. Finally, inspect the latest action list and delete old items outside the applicable item scope: delete post-wash drying if it does not belong to clothing, household textiles, or washable bedding, or ironing if it does not belong to clothing or household textiles; if no such items exist, delete all items with the globally earliest due date.",
+    "analysis": "1. Identify Folding Ladder from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Folding Ladder, due on 2026-09-03.\n4. Add an action to iron Space-Saving Merino Base-Layer Top, due on 2026-09-04.\n5. Add an action to condition Folding Ladder, due on 2026-08-30.\n6. Remove an action to wash Desk, due on 2026-08-17.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Folding Ladder",
+          "required_action": "repair",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Space-Saving Merino Base-Layer Top",
+          "required_action": "iron",
+          "due_date": "2026-09-04"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Folding Ladder",
+          "required_action": "condition",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Desk",
+          "required_action": "wash",
+          "due_date": "2026-08-17"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Folding Ladder"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is 9 days before the last day of August 2026. First, for the pink square stool below the left wall, ask the AI Service Agent to find the end date of the most recent queryable usage record and determine whether it has been idle for more than 21 days as of today; if still in use today, treat it as not idle. If yes, explain that the item will leave use on August 27, 2026 and afterward a brand-new item of the same type will continue to perform its original purpose, then add a plan to purchase a brand-new item of the same type and replace the current item, due August 27, 2026. If no, find, among all household textiles, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all of them if the date is also the same; explain that the screened items have been washed but are not yet completely dry, then register thorough post-wash drying in the action list, due August 25, 2026. In addition, find, among all bedding, the item with the earliest purchase date, retaining the one with the higher price in a date tie and all if the price is also the same; check each action in the manuals using the respective most recent historical maintenance record as the starting point. If any are overdue, add every overdue action with today as the due date; if none are overdue, select the action with the earliest prescribed date, including all same-date ties. Finally, delete all action items with the globally earliest due date.",
+    "analysis": "1. Identify Storage Ottoman from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dry Commercial Blackout Door Curtain, due on 2026-08-25.\n4. Add an action to disinfect Ergonomic Lightweight Summer Quilt, due on 2026-08-22.\n5. Add an action to inspect Ergonomic Lightweight Summer Quilt, due on 2026-08-22.\n6. Remove an action to dry Studio Amber Dessert Bowl, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Commercial Blackout Door Curtain",
+          "required_action": "dry",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Ergonomic Lightweight Summer Quilt",
+          "required_action": "disinfect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Ergonomic Lightweight Summer Quilt",
+          "required_action": "inspect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Studio Amber Dessert Bowl",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Storage Ottoman"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is 2 days before the last day of August 2026. First, for the wooden furniture under the window, ask the AI Service Agent to find its longest queryable continuous usage period and determine whether it has reached 365 days. If yes, explain that it will leave use when it reaches its maximum service life and that you will acquire another new item exactly like it to replace it, then register an arrangement for a brand-new identical item to continue its use, using its maximum-service-life date as the due date, or today if that date has passed. If no, find, among all household textiles, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all if the date is also the same; explain that the screened items have been washed and air-dried and their materials are confirmed suitable for ironing, then register ironing as a household to-do, due September 1, 2026. Next, find, among all clothing, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all if the date is also the same; check every type of routine care using the most recent historical operation of the same type and the manual. If overdue actions are found, separately list all of them for today; if none are overdue, register the action with the earliest required date, including all same-date ties. Finally, delete all items due later than October 13, 2026; if none exist, delete all items with the globally latest due date.",
+    "analysis": "1. Identify Desk from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Desk, due on 2030-08-04.\n4. Add an action to wash Space-Saving Merino Base-Layer Top, due on 2026-08-29.\n5. Add an action to inspect Space-Saving Merino Base-Layer Top, due on 2026-08-29.\n6. Remove an action to replace Desk, due on 2030-08-04.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Desk",
+          "required_action": "replace",
+          "due_date": "2030-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Space-Saving Merino Base-Layer Top",
+          "required_action": "wash",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Space-Saving Merino Base-Layer Top",
+          "required_action": "inspect",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Desk",
+          "required_action": "replace",
+          "due_date": "2030-08-04"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Desk"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the 3rd Friday of August 2026. First, for the blue-handled tool held in your right hand, ask the AI Service Agent to determine whether every day from March 21, 2026 through today is covered by its queryable usage periods. If yes, find, among all clothing, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all if the date is also the same; explain that the items have been washed and dried and are confirmed to need ironing, then list ironing in the household action list, due August 24, 2026. If no, explain that the item is temporarily placed in the storage-room passage and that you still want to keep it, then create an arrangement to adjust its storage location according to the ideal storage location in its record, due August 27, 2026. Next, check each routine care requirement in the manual for the blue-handled tool held in your right hand and determine its overdue status as of today based on the most recent completion time of each action. If overdue actions are found, separately list all of them for today; if none are overdue, register the action with the earliest required date, including all same-date ties. Finally, arrange the distinct due dates from earliest to latest and postpone all items on the second-earliest date by one day; if there are fewer than two distinct dates, postpone all items on the only date by one day.",
+    "analysis": "1. Identify Pliers from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Pliers, due on 2026-08-27.\n4. Add an action to inspect Pliers, due on 2026-08-21.\n5. Add an action to clean Pliers, due on 2026-08-21.\n6. Add an action to condition Pliers, due on 2026-08-21.\n7. Remove an action to condition Pliers, due on 2026-08-17.\n8. Add an action to condition Pliers, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pliers",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pliers",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pliers",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pliers",
+          "required_action": "condition",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pliers",
+          "required_action": "condition",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Pliers",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Pliers"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is 3 days before the last day of August 2026. First, ask the AI Service Agent to separately calculate the cumulative numbers of days from January 1, 2026 through today that the colorful works arranged on the wall and the black rack standing on the floor fall within their queryable usage periods, and determine whether the former has at least 14 more days. If yes, explain that the former item will leave use on September 2, 2026 and that a new item exactly identical to it will then be purchased to continue being used, then register a replacement arrangement, due September 2, 2026. If no, find, among all household textiles, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all if the date is also the same; explain that the items have been washed and air-dried and their materials are confirmed suitable for ironing, then register ironing as a household to-do, due August 31, 2026. Next, find, among all lighting supplies, the item with the highest purchase price, retaining the one with the earlier purchase date in a price tie and all if the date is also the same; inspect every routine care action required by the manual, using the most recent completion record of the same action to determine whether it is overdue as of today. If any are overdue, add the action overdue the longest for today, including all ties; if none are overdue, add the earliest action needed using its required date, including all same-date ties. Finally, arrange the latest action list by date; if there is an odd number of distinct due dates, delete all items on the middle date, and if there is an even number, delete all items on the later of the two middle dates.",
+    "analysis": "1. Identify Picture Frames, Folding Ladder from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Compact Waffle-Weave Bath Sheet, due on 2026-08-31.\n4. Add an action to clean Ceiling Light Plate, due on 2026-08-28.\n5. Remove an action to relocate Picture Frames, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Compact Waffle-Weave Bath Sheet",
+          "required_action": "iron",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Ceiling Light Plate",
+          "required_action": "clean",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Picture Frames",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Picture Frames",
+      "Folding Ladder"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is 11 days before the last day of August 2026. First, ask the AI Service Agent to separately determine whether the brown furniture with a mirror on the right and the pink square stool below the left wall each have queryable usage-time coverage today, and confirm whether exactly one is still in use. If yes, explain that the former item will leave household use on August 25, 2026, that the current item will no longer be needed, and that no brand-new identical item will be bought to take over, then create an arrangement for it to leave household use, due August 25, 2026. Otherwise, explain that the former item will leave use on August 23, 2026 and that the household will provide a brand-new item identical to it to take over, then register an arrangement for a brand-new identical item to continue its use, due August 23, 2026. Next, find, among all furniture, the item with the earliest purchase date, retaining the one with the higher price in a date tie and all if the price is also the same; read the routine care requirements and compare each action with its most recent completion date. If overdue actions exist, add the one with the shortest overdue duration for today, including all ties; if none are overdue, add the earliest action needed using its required date, including all same-date ties. Finally, delete all action items with the globally earliest due date.",
+    "analysis": "1. Identify Dressing Table, Storage Ottoman from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose Dressing Table, due on 2026-08-25.\n4. Add an action to clean Desk, due on 2026-08-20.\n5. Remove an action to dry Studio Amber Dessert Bowl, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Dressing Table",
+          "required_action": "dispose",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Desk",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Studio Amber Dessert Bowl",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Dressing Table",
+      "Storage Ottoman"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is August 27, 2026. First, ask the AI Service Agent to separately find the longest queryable continuous usage periods of the circular device in the center of the ceiling and the wooden furniture under the window, and determine whether the former is at least 30 days longer. If yes, explain that the latter item has an unresolved local fault confirmed repairable and that you will continue keeping it, then register a repair arrangement, due August 29, 2026. If no, find, among all household textiles, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all if the date is also the same; explain that the items have been washed and air-dried and their materials are confirmed suitable for ironing, then list ironing in the household action list, due September 1, 2026. Next, find, among all furniture, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all if the date is also the same; check each routine care action using the manual interval and most recent completion of that action. If overdue actions exist, add the one with the shortest overdue duration for today, including all ties; if none exist, register the nearest required date, including all same-date actions. Next, for the circular device in the center of the ceiling and the wooden furniture under the window, inspect every routine care action required by their manuals and use the most recent completion record of the same action to determine whether it is overdue as of today. If any are overdue, add, across both items together, the action with the shortest overdue duration for today, including all ties; if none are overdue, add, across both items together, the earliest action needed using its required date, including all same-date ties. Finally, inspect the latest action list and delete old items outside the applicable item scope: delete post-wash drying if it does not belong to clothing, household textiles, or washable bedding, or ironing if it does not belong to clothing or household textiles; if no such items exist, delete all items with the globally earliest due date.",
+    "analysis": "1. Identify Ceiling Light Plate, Desk from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Desk, due on 2026-08-29.\n4. Add an action to clean Storage Ottoman, due on 2026-08-27.\n5. Add an action to inspect Ceiling Light Plate, due on 2026-08-27.\n6. Remove an action to condition Heavy-Duty Silicone Steaming Basket, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Desk",
+          "required_action": "repair",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Storage Ottoman",
+          "required_action": "clean",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Ceiling Light Plate",
+          "required_action": "inspect",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Heavy-Duty Silicone Steaming Basket",
+          "required_action": "condition",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Ceiling Light Plate",
+      "Desk"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the 13th day before September 1, 2026. First, ask the AI Service Agent to compare the dates on which the black rack standing on the floor and the wooden furniture under the window reach their maximum service life, and determine whether the dates are no more than 3 calendar years apart. If yes, find, among all bedding, the item with the lowest purchase price, retaining the one with the later purchase date in a price tie and all if the date is also the same; explain that the items have been washed and still need to dry thoroughly, then add complete post-wash drying to the action list, due August 25, 2026. If no, explain that the current item among them reaching the limit earlier will leave use when it reaches its maximum service life and that you plan to buy a new item completely identical to it to continue using, then add an arrangement to replace the current item, using its maximum-service-life date as the due date, or today if that date has passed. Next, find, among all household textiles, the item with the earliest purchase date, retaining the one with the higher price in a date tie and all if the price is also the same; check each routine care requirement and determine its overdue status based on the most recent completion time. If overdue actions are found, separately list all of them for today; if none are overdue, register the action with the earliest required date, including all same-date ties. Finally, delete all items due later than October 3, 2026; if none exist, delete all items with the globally latest due date.",
+    "analysis": "1. Identify Folding Ladder, Desk from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dry Reinforced Contour Neck Pillow, due on 2026-08-25.\n4. Add an action to disinfect Commercial Blackout Door Curtain, due on 2026-08-19.\n5. Remove an action to dry Reinforced Contour Neck Pillow, due on 2026-08-25.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Reinforced Contour Neck Pillow",
+          "required_action": "dry",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Commercial Blackout Door Curtain",
+          "required_action": "disinfect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Reinforced Contour Neck Pillow",
+          "required_action": "dry",
+          "due_date": "2026-08-25"
+        }
+      }
+    ],
+    "image_name": "household14",
+    "image_path": "household14.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Folding Ladder",
+      "Desk"
+    ],
+    "scenario_id": 15
+  }
+]

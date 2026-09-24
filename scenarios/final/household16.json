@@ -1,0 +1,883 @@
+[
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the 13th day before September 1, 2026. First, for the dark-green metal object at the distant entrance, find the end date of its most recent queryable usage record and determine whether it has been idle for more than 21 days as of today; if still in use today, treat it as not idle. If yes, find, among all clothing, the item with the lowest purchase price, retaining the later purchase date in a price tie and all if the date also ties; explain that the items are washed but still need to dry thoroughly, then list making them completely dry as a household arrangement, due August 25, 2026. If no, explain that the item is temporarily being rotated in the storage-room passage and you do not intend to discard it, then find its recorded ideal storage location and register relocation, due August 23, 2026. Next, find, among all furniture, the item with the earliest purchase date, retaining the higher price in a date tie and all if price also ties; read its routine care requirements and compare each action with its most recent completion date. If overdue actions exist, separately add all for today; if none exist, add the earliest action needed using its required date, including all same-date ties. Finally, move all items with the latest due date to tomorrow.",
+    "analysis": "1. Identify Gate from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Gate, due on 2026-08-23.\n4. Add an action to clean Plastic Chair, due on 2026-08-19.\n5. Add an action to inspect Plastic Chair, due on 2026-08-19.\n6. Add an action to condition Plastic Chair, due on 2026-08-19.\n7. Remove an action to relocate Gate, due on 2026-08-23.\n8. Add an action to relocate Gate, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Gate",
+          "required_action": "relocate",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Plastic Chair",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Plastic Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Plastic Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Gate",
+          "required_action": "relocate",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Gate",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Gate"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the 6th day before September 1, 2026. First, check every type of routine care for the dark-green seat on the right at the beginning, using the most recent historical operation of the same type and the manual to determine whether it is overdue as of today. If any are overdue, list the action with the greatest number of overdue days for today, including all ties; if none are overdue, register the action with the earliest required date using that date, including all same-date ties. Next, find this item's longest queryable continuous usage period and determine whether it has reached 365 days. If yes, find, among all clothing, the item with the earliest purchase date, retaining the higher price in a date tie and all if price also ties; explain that the items are washed, fully dry, and confirmed suitable for ironing, then add ironing, due September 1, 2026. If no, explain that the item will leave use at its maximum service life and that you plan to buy a completely identical new item to continue using, then add a plan to purchase a brand-new same-type item and replace the current one, using its maximum-service-life date, or today if that date has passed. Finally, arrange the dates; with an odd number of distinct due dates, delete all items on the middle date; with an even number, delete all on the later of the two middle dates.",
+    "analysis": "1. Identify Plastic Chair from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to inspect Plastic Chair, due on 2026-08-26.\n4. Add an action to iron Modular Merino Base-Layer Top, due on 2026-09-01.\n5. Remove an action to relocate Workshop Double-Wall Juice Glass, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Modular Merino Base-Layer Top",
+          "required_action": "iron",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Workshop Double-Wall Juice Glass",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Plastic Chair"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the 14th day before September 1, 2026. First, for the item you are wiping, determine whether every day from February 18, 2026 through today is covered by its queryable usage periods. If yes, explain that it will leave household use on August 22, 2026, that you have decided not to keep it, and that you will not repurchase a new identical item, then create a removal arrangement, due August 22, 2026. If no, explain that it will leave use on August 20, 2026 and the household will provide a brand-new identical item to take over, then register that replacement, due August 20, 2026. Next, find, among all bedding, the item with the earliest purchase date, retaining the higher price in a date tie and all if price also ties; read its routine care requirements and compare each action with its most recent completion date. If overdue actions exist, separately add all for today; if none exist, add the earliest action needed using its required date, including all same-date ties. Finally, arrange distinct due dates from latest to earliest and delete all items on the second-latest date; if fewer than two dates, delete all items on the only date.",
+    "analysis": "1. Identify Wooden Handrail from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose Wooden Handrail, due on 2026-08-22.\n4. Add an action to wash Portable Contour Neck Pillow, due on 2026-08-18.\n5. Add an action to inspect Portable Contour Neck Pillow, due on 2026-08-18.\n6. Remove an action to dispose Commercial Amber Dessert Bowl, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Wooden Handrail",
+          "required_action": "dispose",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Portable Contour Neck Pillow",
+          "required_action": "wash",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Portable Contour Neck Pillow",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Commercial Amber Dessert Bowl",
+          "required_action": "dispose",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Wooden Handrail"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the 4th Tuesday of August 2026. First, separately calculate the cumulative numbers of days from January 1, 2026 through today that the square hard blocks arranged in front of the steps and the dark-green seat on the right at the beginning fall within queryable usage periods, and determine whether the former has at least 14 more days. If yes, explain that the former will leave household use on August 28, 2026, be removed directly, and not be replaced by a brand-new same-type item, then register removal, due August 28, 2026. If no, explain that the former current item has a repairable fault awaiting handling and that you still want to keep it, then add an action to restore the original item's function, due August 31, 2026. Next, find, among all furniture, the item with the highest purchase price, retaining the earlier purchase date in a price tie and all if date also ties; inspect every manual routine care action using the most recent completion of the same action. If overdue actions exist, separately add all for today; if none exist, add the earliest action needed using its required date, including all same-date ties. Finally, move all items on the earliest due date to the day after the second-earliest date; if only one distinct date exists, uniformly postpone all items on it by one day.",
+    "analysis": "1. Identify Floor Tiles, Plastic Chair from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Floor Tiles, due on 2026-08-31.\n4. Add an action to clean Plastic Chair, due on 2026-08-25.\n5. Add an action to inspect Plastic Chair, due on 2026-08-25.\n6. Add an action to condition Plastic Chair, due on 2026-08-25.\n7. Remove an action to condition Space-Saving Acacia Dough Board, due on 2026-08-19.\n8. Add an action to condition Space-Saving Acacia Dough Board, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Floor Tiles",
+          "required_action": "repair",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Plastic Chair",
+          "required_action": "clean",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Plastic Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Plastic Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Space-Saving Acacia Dough Board",
+          "required_action": "condition",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Space-Saving Acacia Dough Board",
+          "required_action": "condition",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Floor Tiles",
+      "Plastic Chair"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is August 17, 2026. First, check every routine care requirement for the yellow wheeled tool placed diagonally in the distance and the square hard blocks arranged in front of the steps, using the most recent completion of each action. If overdue actions are found, separately list all for today; if none are overdue, register the earliest required action, including all same-date ties. Next, separately determine whether the two items each have queryable usage-time coverage today and confirm whether exactly one is still in use. If yes, find, among all bedding, the item with the lowest purchase price, retaining the later purchase date in a price tie and all if date also ties; explain that the items are washed but still need to dry thoroughly, then add complete post-wash drying, due August 19, 2026. If no, explain that the former item will leave use on August 22, 2026 and that you plan to buy a completely identical new item to continue using, then add replacement, due August 22, 2026. Finally, with an odd number of distinct due dates delete all items on the middle date; with an even number delete all on the later of the two middle dates.",
+    "analysis": "1. Identify Handcart, Floor Tiles from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Handcart, due on 2026-08-17.\n4. Add an action to inspect Handcart, due on 2026-08-17.\n5. Add an action to condition Handcart, due on 2026-08-17.\n6. Add an action to clean Floor Tiles, due on 2026-08-17.\n7. Add an action to inspect Floor Tiles, due on 2026-08-17.\n8. Add an action to condition Floor Tiles, due on 2026-08-17.\n9. Add an action to dry Modular Contour Neck Pillow, due on 2026-08-19.\n10. Remove an action to disinfect Gate, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Handcart",
+          "required_action": "clean",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Handcart",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Handcart",
+          "required_action": "condition",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Floor Tiles",
+          "required_action": "clean",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Floor Tiles",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Floor Tiles",
+          "required_action": "condition",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Modular Contour Neck Pillow",
+          "required_action": "dry",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Gate",
+          "required_action": "disinfect",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Handcart",
+      "Floor Tiles"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is 7 days before the last day of August 2026. First, separately find the longest queryable continuous usage periods of the thing you are holding and the dark-green seat on the right at the beginning, and determine whether the former is at least 30 days longer. If yes, explain that the latter has an unhandled functional fault confirmed repairable and that you do not plan to replace it, then register repair and retention of the original, due August 29, 2026. If no, explain that the latter will leave use on August 27, 2026 and that you plan to buy a completely identical new item to continue using, then add a plan to purchase a brand-new same-type item and replace it, due August 27, 2026. Next, find, among all cookware, the item with the lowest purchase price, retaining the later purchase date in a price tie and all if date also ties; using its records and manual, determine for each required action whether it is overdue. If any are overdue, choose an action that has only recently become overdue for today, including all equal-duration ties; if none are overdue, register the first action needing completion using its required date, retaining all same-date actions. Next, find, among all household appliances, the item with the highest purchase price, retaining the earlier date in a price tie and all if date also ties; check every type of routine care. If overdue actions exist, add the one with the fewest overdue days for today, including all ties; if none exist, register the earliest required action, including all same-date ties. Finally, with an odd number of distinct dates delete the middle date; with an even number delete the later of the two middle dates.",
+    "analysis": "1. Identify Metal Sheet, Plastic Chair from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Plastic Chair, due on 2026-08-27.\n4. Add an action to wash Portable Silicone Steaming Basket, due on 2026-08-24.\n5. Add an action to inspect Workshop Countertop Dehumidifier, due on 2026-08-24.\n6. Remove an action to relocate Workshop Double-Wall Juice Glass, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "replace",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Portable Silicone Steaming Basket",
+          "required_action": "wash",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Workshop Countertop Dehumidifier",
+          "required_action": "inspect",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Workshop Double-Wall Juice Glass",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Metal Sheet",
+      "Plastic Chair"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the 5th Monday of August 2026. First, compare the dates on which the dark-green metal object at the distant entrance and the yellow wheeled tool placed diagonally in the distance reach their maximum service life, and determine whether the dates are no more than 3 calendar years apart. If yes, explain that the current item among them reaching the limit earlier is only temporarily on the entryway storage shelf and the original is still needed, then find its ideal storage location and add return-to-place, due September 3, 2026. If no, explain that the current item among them reaching the limit earlier will leave household use at its maximum service life, will no longer be kept, and will not be replaced with a brand-new same-type item, then add an action not to retain it using that date, or today if it has passed. Next, find, among all storage supplies, the item with the earliest purchase date, retaining the higher price in a date tie and all if price also ties; check every routine care requirement. If overdue actions are found, separately list all for today; if none exist, register the earliest required action, including all same-date ties. Finally, find the due date carrying the greatest number of items; if dates tie, take the earlier one and delete all items on it.",
+    "analysis": "1. Identify Gate, Handcart from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Gate, due on 2026-09-03.\n4. Add an action to disinfect Lidded Cable Basket, due on 2026-08-31.\n5. Remove an action to dry Residential Amber Dessert Bowl, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Gate",
+          "required_action": "relocate",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Lidded Cable Basket",
+          "required_action": "disinfect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Residential Amber Dessert Bowl",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Gate",
+      "Handcart"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the 4th Sunday of August 2026. First, check every type of routine care for the dark-green seat on the right at the beginning and the thing you are holding, using the most recent same-type historical operation and the manual. If overdue actions exist, add the one with the fewest overdue days for today, including all ties; if none exist, register the earliest required action using that date, including all same-date ties. Next, compare the types of routine care actions required by the manuals for the two items, without requiring their intervals to be the same, and determine whether the types are completely identical. If yes, find, among all clothing, the item with the highest purchase price, retaining the earlier purchase date in a price tie and all if date also ties; explain that the items are washed, completely dry, and suitable for ironing, then add ironing, due August 26, 2026. If no, explain that the former item will leave use at its maximum service life and that you plan to buy a completely identical new item to continue using, then add a replacement plan using that date, or today if it has passed. Finally, arrange dates from latest to earliest and delete the second-latest date; if fewer than two dates, delete the only date.",
+    "analysis": "1. Identify Plastic Chair, Metal Sheet from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to condition Plastic Chair, due on 2026-08-23.\n4. Add an action to clean Metal Sheet, due on 2026-08-23.\n5. Add an action to inspect Metal Sheet, due on 2026-08-23.\n6. Add an action to iron Modular Merino Base-Layer Top, due on 2026-08-26.\n7. Remove an action to condition Plastic Chair, due on 2026-08-23.\n8. Remove an action to clean Metal Sheet, due on 2026-08-23.\n9. Remove an action to inspect Metal Sheet, due on 2026-08-23.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Plastic Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Metal Sheet",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Metal Sheet",
+          "required_action": "inspect",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Modular Merino Base-Layer Top",
+          "required_action": "iron",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Plastic Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Metal Sheet",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Metal Sheet",
+          "required_action": "inspect",
+          "due_date": "2026-08-23"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Plastic Chair",
+      "Metal Sheet"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the last Sunday of August 2026. First, for the item you are wiping, compare its purchase date with the start date of its first queryable usage period and determine whether the latter is at least 3 calendar months later. If yes, explain that it is now only temporarily on the entryway storage shelf and will continue to be used, then look up its ideal storage location and list return-to-place, due September 3, 2026. If no, explain that it will leave household use on September 1, 2026, will no longer be kept, and will not be replaced with a brand-new identical item, then register removal without repurchase, due September 1, 2026. Next, find, among all other items, the item with the earliest purchase date, retaining the higher price in a date tie and all if price also ties; read routine care requirements and compare each with its most recent completion date. If overdue actions exist, add the shortest-overdue one for today, including all ties; if none exist, add the earliest needed action using its date, including all same-date ties. Next, determine whether the wiped item's purchase price is no higher than 600. If no higher, find the household textile with the latest purchase date, retaining lower price in a date tie and all if price also ties; explain it is washed but not dry, then list drying, due September 1, 2026. If higher, find the clothing item with the lowest price, retaining later date in a price tie and all if date also ties; explain it is washed and dried and confirmed to need ironing, then list ironing, due September 4, 2026. Finally, delete the second-latest distinct due date; if fewer than two dates, delete the only date.",
+    "analysis": "1. Identify Wooden Handrail from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose Wooden Handrail, due on 2026-09-01.\n4. Add an action to clean Floor Tiles, due on 2026-08-30.\n5. Add an action to iron Modular Packable Rain Trousers, due on 2026-09-04.\n6. Remove an action to dispose Wooden Handrail, due on 2026-09-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Wooden Handrail",
+          "required_action": "dispose",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Floor Tiles",
+          "required_action": "clean",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Modular Packable Rain Trousers",
+          "required_action": "iron",
+          "due_date": "2026-09-04"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Wooden Handrail",
+          "required_action": "dispose",
+          "due_date": "2026-09-01"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Wooden Handrail"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is August 22, 2026. First, for the square hard blocks arranged in front of the steps, find the current queryable usage period covering today; if it exists, determine whether its start date is at least 4 calendar months later than the purchase date, and if none exists treat the condition as not met. If yes, explain that the item will leave use on August 24, 2026 and a completely identical new item will then be purchased to continue being used, then register replacement, due August 24, 2026. If no, explain that the current item has a repairable fault awaiting handling and that you still want to keep it, then add an action to restore its function, due August 27, 2026. Next, find, among all furniture, the highest-priced item, retaining earlier purchase date in a price tie and all if date also ties; inspect each routine care action using its most recent completion. If overdue actions exist, separately add all for today; if none exist, add the earliest needed action using its date, including all same-date ties. Finally, delete the second-latest distinct due date; if fewer than two dates, delete the only date.",
+    "analysis": "1. Identify Floor Tiles from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Floor Tiles, due on 2026-08-27.\n4. Add an action to clean Plastic Chair, due on 2026-08-22.\n5. Add an action to inspect Plastic Chair, due on 2026-08-22.\n6. Add an action to condition Plastic Chair, due on 2026-08-22.\n7. Remove an action to clean Plastic Chair, due on 2026-08-22.\n8. Remove an action to inspect Plastic Chair, due on 2026-08-22.\n9. Remove an action to condition Plastic Chair, due on 2026-08-22.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Floor Tiles",
+          "required_action": "repair",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "clean",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "clean",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-22"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Floor Tiles"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the last Saturday of August 2026. First, check each action in the manual for the yellow wheeled tool placed diagonally in the distance using its most recent historical maintenance record. If overdue actions exist, add the one delayed the longest for today, including all ties; if none exist, add the action with the earliest prescribed date using its original date, including all same-date actions. Next, calculate the cumulative number of days from January 1, 2026 through today that the tool falls within queryable usage periods and determine whether it has reached 240 days. If yes, explain that placing it on the entryway storage shelf is only temporary and it will continue to be used, then add subsequent return-to-place according to its ideal storage location, due September 2, 2026. If no, explain that it will leave use on August 31, 2026 and a brand-new same-type item will then take over its current purpose, then register replacement, due August 31, 2026. Finally, delete all items with the globally earliest due date.",
+    "analysis": "1. Identify Handcart from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Handcart, due on 2026-08-29.\n4. Add an action to replace Handcart, due on 2026-08-31.\n5. Remove an action to dry Residential Amber Dessert Bowl, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Handcart",
+          "required_action": "clean",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Handcart",
+          "required_action": "replace",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Residential Amber Dessert Bowl",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Handcart"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the 11th day before September 1, 2026. First, for the thing you are holding, find the end date of its most recent queryable usage record and determine whether it is no earlier than July 28, 2026. If yes, explain that placing it on the living-room side cabinet is only temporary and it will continue to be used, then create an arrangement to adjust its storage location according to its recorded ideal location, due August 27, 2026. If no, explain that it has an unhandled repairable component abnormality and that you want to continue using the original after repair, then create a repair arrangement, due August 25, 2026. In addition, find, among all household textiles, the highest-priced item, retaining earlier purchase date in a price tie and all if date also ties; for each required routine care action, use its most recent completion record to check whether overdue. If overdue, add every action for today; if none, select the earliest prescribed action, including all same-date ties. Finally, move all items on the earliest due date to the day after the second-earliest date; if only one date exists, postpone all items on it by one day.",
+    "analysis": "1. Identify Metal Sheet from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Metal Sheet, due on 2026-08-27.\n4. Add an action to disinfect Reinforced Blackout Door Curtain, due on 2026-08-21.\n5. Remove an action to condition Space-Saving Acacia Dough Board, due on 2026-08-19.\n6. Add an action to condition Space-Saving Acacia Dough Board, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Metal Sheet",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Reinforced Blackout Door Curtain",
+          "required_action": "disinfect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Space-Saving Acacia Dough Board",
+          "required_action": "condition",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Space-Saving Acacia Dough Board",
+          "required_action": "condition",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Metal Sheet"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the last Friday of August 2026. First, determine whether the dark-green metal object at the distant entrance was purchased before January 1, 2025. If yes, explain that it has an unhandled functional fault confirmed repairable and you do not plan to replace it, then add an action to restore the original item's function, due September 1, 2026. If no, explain that it is temporarily in the storage-room passage and that you still want to keep it, then create an arrangement to adjust storage according to its recorded ideal location, due August 30, 2026. Next, find the bedding with the earliest purchase date, retaining higher price in a date tie and all if price also ties; check each routine care requirement. If overdue actions are found, separately list all for today; if none, register the earliest required action, including same-date ties. In addition, find, among all other items, the latest-purchased item, retaining lower price in a date tie and all if price also ties; list required care actions and determine overdue status from each most recent completion. If overdue, choose one only recently overdue for today, including equal-duration ties; if none, register the first action needed using its date, retaining same-date actions. Finally, delete the second-latest distinct due date; if fewer than two dates, delete the only date.",
+    "analysis": "1. Identify Gate from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Gate, due on 2026-09-01.\n4. Add an action to wash Portable Contour Neck Pillow, due on 2026-08-28.\n5. Add an action to inspect Portable Contour Neck Pillow, due on 2026-08-28.\n6. Add an action to inspect Handcart, due on 2026-08-28.\n7. Remove an action to wash Portable Contour Neck Pillow, due on 2026-08-28.\n8. Remove an action to inspect Portable Contour Neck Pillow, due on 2026-08-28.\n9. Remove an action to inspect Handcart, due on 2026-08-28.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Gate",
+          "required_action": "repair",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Portable Contour Neck Pillow",
+          "required_action": "wash",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Portable Contour Neck Pillow",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Handcart",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Portable Contour Neck Pillow",
+          "required_action": "wash",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Portable Contour Neck Pillow",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Handcart",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Gate"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is August 20, 2026. First, for every routine care action required by the manual for the dark-green seat on the right at the beginning, use its most recent historical completion to check whether overdue. If overdue actions exist, add the one delayed the longest for today, including all ties; if none, add the action with the earliest prescribed date using its original date, including same-date actions. Next, determine whether this item is still within a queryable usage period today. If yes, find the household textile with the earliest purchase date, retaining higher price in a date tie and all if price also ties; explain that the items have been washed and are still wet, then register complete drying, due August 22, 2026. If no, explain that it is temporarily stored inside the balcony and will continue to be kept, then look up its ideal storage location and list return-to-place, due August 25, 2026. Finally, arrange dates earliest to latest and postpone the second-earliest by one day; if fewer than two dates, postpone the only date by one day.",
+    "analysis": "1. Identify Plastic Chair from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to inspect Plastic Chair, due on 2026-08-20.\n4. Add an action to dry Reinforced Braided Cotton Runner, due on 2026-08-22.\n5. Remove an action to inspect Handcart, due on 2026-08-18.\n6. Add an action to inspect Handcart, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Plastic Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Reinforced Braided Cotton Runner",
+          "required_action": "dry",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Handcart",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Handcart",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Plastic Chair"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the last Thursday of August 2026. First, for the item you are wiping, determine whether its queryable usage time overlaps July 1, 2026 through August 15, 2026. If yes, explain that it will leave use on August 31, 2026 and a completely identical new item will then be purchased to continue being used, then create a replacement action, due August 31, 2026. If no, find the household textile with the earliest purchase date, retaining higher price in a date tie and all if price also ties; explain it is washed and dried and suitable for ironing, then add ironing, due August 29, 2026. Next, determine whether its purchase price is no higher than 600. If no higher, find the household textile with the latest purchase date, retaining lower price in a date tie and all if price also ties; explain it is washed but not dry, then create post-wash drying, due August 29, 2026. If higher, find the clothing item with the lowest price, retaining later date in a price tie and all if date also ties; explain it is washed and dried and confirmed to need ironing, then register ironing, due September 1, 2026. Next, find the furniture with the earliest purchase date, retaining higher price in a date tie and all if price also ties; read routine care requirements and compare each with its most recent completion date. If overdue actions exist, add the shortest-overdue one for today, including all ties; if none, add the earliest needed action using its date, including same-date ties. Finally, delete all items with the globally earliest due date.",
+    "analysis": "1. Identify Wooden Handrail from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Wooden Handrail, due on 2026-08-31.\n4. Add an action to iron Modular Packable Rain Trousers, due on 2026-09-01.\n5. Add an action to condition Plastic Chair, due on 2026-08-27.\n6. Remove an action to dry Residential Amber Dessert Bowl, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Wooden Handrail",
+          "required_action": "replace",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Modular Packable Rain Trousers",
+          "required_action": "iron",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Plastic Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Residential Amber Dessert Bowl",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household16",
+    "image_path": "household16.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Wooden Handrail"
+    ],
+    "scenario_id": 15
+  }
+]

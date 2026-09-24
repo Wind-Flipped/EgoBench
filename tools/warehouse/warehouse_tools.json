@@ -1,0 +1,435 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_all_equipment",
+      "description": "Returns the names of all equipment in the warehouse. It takes no input parameters. The result contains only a list of equipment names and no other information.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {},
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_category",
+      "description": "Returns the category of a specified equipment item. Its only required parameter is equipment, which must be non-empty and exactly match an equipment name in the records. The result contains only the category string.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          }
+        },
+        "required": [
+          "equipment"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_equipment_by_category",
+      "description": "Exactly matches a category and returns all equipment names in it. Its only required parameter is category, which must be one of manual_equipment, power_equipment, measuring_and_testing_equipment, lifting_and_moving_equipment, access_equipment, safety_equipment, cleaning_equipment, storage_equipment, consumable, or other. The parameter cannot be empty or omitted, and new categories cannot be invented. The result contains only a list of equipment names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "manual_equipment",
+              "power_equipment",
+              "measuring_and_testing_equipment",
+              "lifting_and_moving_equipment",
+              "access_equipment",
+              "safety_equipment",
+              "cleaning_equipment",
+              "storage_equipment",
+              "consumable",
+              "other"
+            ]
+          }
+        },
+        "required": [
+          "category"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_brand",
+      "description": "Returns the brand of a specified equipment item. Its only required parameter is equipment, which must be non-empty and exactly match an equipment name in the records. The result contains only the brand string.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          }
+        },
+        "required": [
+          "equipment"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_equipment_by_brand",
+      "description": "Exactly matches a brand and returns all equipment names made by it. Its only required parameter is brand, which cannot be empty or omitted. The result contains only a list of equipment names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "brand": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "brand"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_country_of_origin",
+      "description": "Returns the country of origin of a specified equipment item. Its only required parameter is equipment, which must be non-empty and exactly match an equipment name in the records. The result contains only the English country name.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          }
+        },
+        "required": [
+          "equipment"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_equipment_by_country_of_origin",
+      "description": "Exactly matches a country of origin and returns all equipment names from that country. Its only required parameter is country, which must be a non-empty English country name and cannot be omitted. The result contains only a list of equipment names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "country": {
+            "type": "string",
+            "minLength": 1,
+            "description": "English country name."
+          }
+        },
+        "required": [
+          "country"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_purchase_date",
+      "description": "Returns the purchase date of a specified equipment item. Its only required parameter is equipment, which must be non-empty and exactly match an equipment name in the records. The result contains only a date string in strict YYYY-MM-DD format.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          }
+        },
+        "required": [
+          "equipment"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_equipment_by_purchase_date_range",
+      "description": "Returns all equipment names whose purchase dates fall within the specified inclusive range. Its two required parameters are start_date and end_date, both non-empty YYYY-MM-DD strings; start_date cannot be later than end_date. The result contains only a list of equipment names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive start date in YYYY-MM-DD format."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive end date in YYYY-MM-DD format."
+          }
+        },
+        "required": [
+          "start_date",
+          "end_date"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_ideal_storage_location",
+      "description": "Returns the ideal_storage_location of a specified equipment item. Its only required parameter is equipment, which must be non-empty and exactly match an equipment name in the records. The result contains only the ideal storage-location string.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          }
+        },
+        "required": [
+          "equipment"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_equipment_by_ideal_storage_location",
+      "description": "Exactly matches a location and returns all equipment names assigned to it. Its only required parameter is location, which must be one of dry_equipment_cabinet, locked_equipment_cabinet, wall_rack, pegboard, drawer_unit, parts_bin, shelving_unit, floor_storage_area, charging_station, safety_equipment_cabinet, chemical_storage_cabinet, or outdoor_storage_shed. The parameter cannot be empty or omitted, and new locations cannot be invented. The result contains only a list of equipment names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "location": {
+            "type": "string",
+            "enum": [
+              "dry_equipment_cabinet",
+              "locked_equipment_cabinet",
+              "wall_rack",
+              "pegboard",
+              "drawer_unit",
+              "parts_bin",
+              "shelving_unit",
+              "floor_storage_area",
+              "charging_station",
+              "safety_equipment_cabinet",
+              "chemical_storage_cabinet",
+              "outdoor_storage_shed"
+            ]
+          }
+        },
+        "required": [
+          "location"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_usage_history",
+      "description": "Returns the usage dates of a specified equipment item. Its only required parameter is equipment, which must be non-empty and exactly match an equipment name in the records. The result is a list of YYYY-MM-DD strings, or an empty list when there is no usage history.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          }
+        },
+        "required": [
+          "equipment"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_maintenance_and_usage_instructions",
+      "description": "Returns a dictionary of maintenance and usage instructions for the requested equipment, including periodic maintenance actions and the maximum service life. Its only required parameter is equipment, which must be a non-empty list of exact equipment names from the records. Each result key is an equipment name and its value is that equipment's instructions.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "equipment": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Non-empty list of exact equipment names."
+          }
+        },
+        "required": [
+          "equipment"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_maintenance_history",
+      "description": "Returns the maintenance records of a specified equipment item. Each record contains only date and action. Its only required parameter is equipment, which must be non-empty and exactly match an equipment name in the records.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          }
+        },
+        "required": [
+          "equipment"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "add_to_equipment_action_list",
+      "description": "Appends one new equipment action on every successful call and never updates, replaces, or removes an existing entry. The same equipment and required_action may therefore have multiple scheduled entries, including entries with different due dates. Its four required parameters are user_id, equipment, required_action, and due_date. equipment must exactly match an equipment name in the records. required_action must be either a periodic maintenance action prescribed for that equipment (clean, inspect, lubricate, calibrate, sharpen, or condition) or a lifecycle action (replace, repair, relocate, or dispose). due_date must be a YYYY-MM-DD date. No parameter may be empty or omitted. The result contains only an addition success message.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          },
+          "required_action": {
+            "type": "string",
+            "enum": [
+              "clean",
+              "inspect",
+              "lubricate",
+              "calibrate",
+              "sharpen",
+              "condition",
+              "replace",
+              "repair",
+              "relocate",
+              "dispose"
+            ]
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Due date in YYYY-MM-DD format."
+          }
+        },
+        "required": [
+          "user_id",
+          "equipment",
+          "required_action",
+          "due_date"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "remove_from_equipment_action_list",
+      "description": "Removes only the action whose equipment, required_action, and due_date all exactly match an entry in the specified user's list. Its four required parameters are user_id, equipment, required_action, and due_date. required_action must be one of clean, inspect, lubricate, calibrate, sharpen, condition, replace, repair, relocate, or dispose. due_date must be a YYYY-MM-DD date and exactly match the stored due date. No parameter may be empty or omitted. The result contains only a removal success message; an error is returned when no action matches all three fields.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "equipment": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact equipment name."
+          },
+          "required_action": {
+            "type": "string",
+            "enum": [
+              "clean",
+              "inspect",
+              "lubricate",
+              "calibrate",
+              "sharpen",
+              "condition",
+              "replace",
+              "repair",
+              "relocate",
+              "dispose"
+            ]
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Due date of the exact action to remove in YYYY-MM-DD format."
+          }
+        },
+        "required": [
+          "user_id",
+          "equipment",
+          "required_action",
+          "due_date"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_equipment_action_list",
+      "description": "Returns all current equipment actions for a specified user. Its only required parameter is user_id, which cannot be empty or omitted. Each returned entry contains only equipment, required_action, and due_date.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "user_id"
+        ]
+      }
+    }
+  }
+]

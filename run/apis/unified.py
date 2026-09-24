@@ -14,6 +14,7 @@ from .mimo import MimoAPI
 from .kimi import KimiAPI
 from .doubao import DoubaoAPI
 from .qwen3_5 import Qwen3_5_API
+from .gpt import call_gpt_api
 
 # Video URL mapping - original URL to public Cloud URL
 # To customize these URLs, set the VIDEO_URL_MAPPING environment variable with a JSON object
@@ -198,7 +199,13 @@ def extract_video_url_from_messages(messages):
     return None
 
 
-def call_llm(messages, agent_type="service", service_model_name="qwen3-vl-225b", enable_thinking=False):
+def call_llm(
+    messages,
+    agent_type="service",
+    service_model_name="qwen3-vl-235b",
+    enable_thinking=False,
+    user_model_name="Qwen3.5-397B-A17B",
+):
     """
     Unified LLM call interface
 
@@ -216,25 +223,46 @@ def call_llm(messages, agent_type="service", service_model_name="qwen3-vl-225b",
 
     if agent_type == "user":
         # User model only uses Qwen3.5-397B-A17B
-        return _call_user_model(messages, MAX_RETRIES, BASE_DELAY, enable_thinking)
+        return _call_user_model(
+            messages,
+            MAX_RETRIES,
+            BASE_DELAY,
+            enable_thinking,
+            user_model_name,
+        )
     else:
         # Service model
         return _call_service_model(messages, service_model_name, MAX_RETRIES, BASE_DELAY, enable_thinking)
 
 
-def _call_user_model(messages, max_retries, base_delay, enable_thinking):
-    """Call user model - only uses Qwen3.5-397B-A17B"""
+def _call_user_model(
+    messages,
+    max_retries,
+    base_delay,
+    enable_thinking,
+    user_model_name="Qwen3.5-397B-A17B",
+):
+    """Call the configured simulated-user model."""
+    if user_model_name == "GPT-5.5":
+        return call_gpt_api(
+            messages,
+            video_url=None,
+            max_retries=max_retries,
+            base_delay=base_delay,
+        )
+
+    config = MODEL_CONFIGS.get(user_model_name, USER_MODEL_CONFIG)
     last_error = None
 
     for attempt in range(max_retries):
         try:
             headers = {
                 "Content-Type": "application/json",
-                "Authorization": f"Bearer {USER_MODEL_CONFIG['token']}"
+                "Authorization": f"Bearer {config.get('token', '')}"
             }
 
             payload = {
-                "model": USER_MODEL_CONFIG["name"],
+                "model": config.get("name", user_model_name),
                 "messages": messages,
                 "stream": False,
                 "chat_template_kwargs": {
@@ -278,15 +306,15 @@ def _call_service_model(messages, model_name, max_retries, base_delay, enable_th
         return _call_zhipu_api(messages, video_url, NEWLINE, max_retries, base_delay, enable_thinking)
     elif model_name in ["qwen", "qwen3.6-plus"]:
         return _call_qwen_api(messages, video_url, NEWLINE, max_retries, base_delay, enable_thinking)
-    elif model_name in ["mimo", "mimo-v2-omni"]:
+    elif model_name in ["mimo", "mimo-v2.5-omni"]:
         return _call_mimo_api(messages, video_url, NEWLINE, max_retries, base_delay, enable_thinking)
-    elif model_name in ["kimi", "kimi-k2.5"]:
+    elif model_name in ["kimi", "kimi-k2.6"]:
         return _call_kimi_api(messages, video_url, NEWLINE, max_retries, base_delay, enable_thinking)
     elif model_name in ["doubao", "doubao-seed-2-0-pro-260215"]:
         return _call_doubao_api(messages, video_url, NEWLINE, max_retries, base_delay, enable_thinking)
     elif model_name == "gemini-3.1-pro-preview":
         return _call_gemini_api(messages, video_url, max_retries, base_delay)
-    elif model_name == "qwen3-vl-225b":
+    elif model_name == "qwen3-vl-235b":
         return _call_qwen3_vl_api(messages, max_retries, base_delay, enable_thinking)
     elif model_name == "Qwen3.5-397B-A17B":
         return _call_qwen3_5_api(messages, video_url, NEWLINE, max_retries, base_delay, enable_thinking)
@@ -456,7 +484,7 @@ def _call_gemini_api(messages, video_url, max_retries, base_delay):
 
 
 def _call_qwen3_vl_api(messages, max_retries, base_delay, enable_thinking):
-    """Call Qwen3-VL-225B API"""
+    """Call Qwen3-VL-235B API"""
     API_KEY = os.environ.get("API_KEY", "")
     if not API_KEY:
         raise ValueError("API_KEY environment variable not set for Qwen3-VL API.")
@@ -499,8 +527,11 @@ MODEL_CONFIGS = {
     "DeepSeek-R1": {"name": "DeepSeek-R1", "token": os.environ.get("API_KEY", "")},
     "DeepSeek-V3": {"name": "DeepSeek-V3", "token": os.environ.get("API_KEY", "")},
     "DeepSeek-V3.2": {"name": "DeepSeek-V3.2", "token": os.environ.get("API_KEY", "")},
-    "qwen3-vl-225b": {"name": "Qwen3-VL-235B-A22B-Instruct", "token": os.environ.get("API_KEY", "")},
+    "qwen3-vl-235b": {"name": "Qwen3-VL-235B-A22B-Instruct", "token": os.environ.get("API_KEY", "")},
     "glm-4.5v": {"name": "GLM-4.5V", "token": os.environ.get("API_KEY", "")},
+    "Qwen3.6-35B-A3B": {"name": "Qwen3.6-35B-A3B", "token": os.environ.get("API_KEY", "")},
+    "Qwen3.5-35B-A3B": {"name": "Qwen3.5-35B-A3B", "token": os.environ.get("API_KEY", "")},
+    "Qwen3.5-122B-A10B": {"name": "Qwen3.5-122B-A10B", "token": os.environ.get("API_KEY", "")},
 }
 
 

@@ -1,0 +1,1208 @@
+[
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the first Sunday of August 2026. You ask the AI Service Agent to check whether the instrument in your hand and the string of metal objects at the lower left of the bed surface have the same country of origin and compare their maximum-service-life dates. If their countries of origin are the same and the dates are no more than one calendar year apart, you explain that the function provided by the earlier-expiring item will still be needed later; ask the AI Service Agent to record an arrangement for a new item to take over in the action list, using the earlier expiration date as the due date. Otherwise, you explain that the instrument in your hand will no longer be retained after expiration and no replacement will be purchased; ask the AI Service Agent to add its removal from the warehouse, using its expiration date as the due date. Change every date that has passed to today. Next, you ask the AI Service Agent to count both items’ retrievable uses in 2026. If the counts are equal, register all overdue routine maintenance actions for the item with the earlier latest-use date, with all due dates set to today. If the counts differ, handle only the less-used item and register its longest-overdue action. If the target item has no overdue actions, instead register the action with the earliest prescribed date using that date. Next, using the later-used item’s brand as the reference, ask the AI Service Agent to find, among manual equipment, the piece with the greatest number of maintenance actions required by the manual and the latest purchase date. If overdue actions exist, register the least-overdue action, due today. If none exists, sort the prescribed dates and register the middle action; process all ties in equipment or date. Finally, you ask the AI Service Agent to sort the action list’s different due dates from earliest to latest. If at least two dates exist, change all items on the earliest date to the day after the second-earliest date. If only one date exists, postpone all items by one day.",
+    "analysis": "1. Identify Ukulele, Keys from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Keys, due on 2027-01-13.\n4. Add an action to clean Keys, due on 2026-08-02.\n5. Add an action to condition Keys, due on 2026-08-02.\n6. Add an action to sharpen Urban Offset Ratchet, due on 2026-10-31.\n7. Remove the action to clean Keys that is due on 2026-08-02.\n8. Remove the action to condition Keys that is due on 2026-08-02.\n9. Add an action to clean Keys, due on 2026-08-20.\n10. Add an action to condition Keys, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Keys",
+          "required_action": "replace",
+          "due_date": "2027-01-13"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Keys",
+          "required_action": "clean",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Keys",
+          "required_action": "condition",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Urban Offset Ratchet",
+          "required_action": "sharpen",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Keys",
+          "required_action": "clean",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Keys",
+          "required_action": "condition",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Keys",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Keys",
+          "required_action": "condition",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Ukulele",
+      "Keys"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is August 4, 2026. First, you ask the AI Service Agent to determine whether the maximum-service-life dates of the black device at the center of the tabletop and the green-glowing peripheral on the right are no more than nine months apart. If they are, you explain that the desktop setup to which the earlier-expiring equipment belongs will stop being used then, that equipment will no longer be retained, and no equipment of the same type will replace it; ask the AI Service Agent to list its removal from the warehouse in the action list, using the earlier expiration date and today if it has passed. If they are more than nine months apart, you explain that the green-glowing peripheral currently has a button fault confirmed to be repairable and that you want to continue using the original; ask the AI Service Agent to register a repair action accordingly, due on August 6, 2026. Next, compare the two pieces’ sets of routine maintenance actions. If one contains all of the other’s actions, add only the actions unique to the equipment with more actions according to the history and manual, due today if overdue or on their prescribed dates otherwise. If the sets are the same, register the longest-overdue common action across the two pieces, or the action with the earliest prescribed date if none is overdue; retain all ties. Then, using both pieces’ brand as a condition, ask the AI Service Agent among measuring and inspection equipment first to find the group with the most maintenance actions, then select the piece with the fewest retrievable uses in 2026, choosing the earliest-purchased if use counts tie. Register the least-overdue action if overdue or the action with the earliest prescribed date otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to find the action type covering the most different due dates and change all items of that type on its earliest date to the day after its latest date. If it covers only one date, postpone the type’s items by one day; adjust all tied types.",
+    "analysis": "1. Identify Computer Keyboard, Computer Mouse from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Computer Keyboard, due on 2026-11-04.\n4. Add an action to condition Computer Keyboard, due on 2026-08-04.\n5. Add an action to calibrate Urban Laser Distance Meter, due on 2026-09-30.\n6. Remove the action to clean Game Controller that is due on 2026-08-19.\n7. Add an action to clean Game Controller, due on 2026-08-23.\n8. Remove the action to inspect Keys that is due on 2026-08-20.\n9. Add an action to inspect Keys, due on 2026-08-22.\n10. Remove the action to condition Computer Keyboard that is due on 2026-08-04.\n11. Add an action to condition Computer Keyboard, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Computer Keyboard",
+          "required_action": "dispose",
+          "due_date": "2026-11-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Computer Keyboard",
+          "required_action": "condition",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Urban Laser Distance Meter",
+          "required_action": "calibrate",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Game Controller",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Game Controller",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Keys",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Keys",
+          "required_action": "inspect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Computer Keyboard",
+          "required_action": "condition",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Computer Keyboard",
+          "required_action": "condition",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Computer Keyboard",
+      "Computer Mouse"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the first Thursday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the exposed silver item at the upper right and the black cable pinning down documents on the right side of the tabletop. If they differ by no more than three years, you explain that after the earlier-expiring equipment is retired, its existing document-processing capability must continue to be provided by new equipment; ask the AI Service Agent to add a replacement arrangement to the action list, using the earlier expiration date and today if that date has passed. If they differ by more than three years, you explain that the black cable is currently only being kept temporarily on the wiring workbench and will continue to be used; ask the AI Service Agent to register an action to move it back to the ideal storage location in the files, due on August 8, 2026. Then, determine whether the two pieces’ latest retrievable use dates are no more than two months apart. If they are, register every overdue routine maintenance action for the earlier-used equipment separately, due today. If they are not, register the later-used equipment’s least-overdue action. If the target equipment has no overdue actions, instead register the action with the earliest prescribed date using that date. Next, using the brand shared by the two pieces as a condition, ask the AI Service Agent to find the piece of powered equipment with the most routine maintenance actions. If overdue actions exist, sort by overdue duration and register the middle action. If none exists, sort by prescribed date and register the middle action, using today or that prescribed date respectively. Finally, you ask the AI Service Agent to find the due date with the most action items, choosing the later day if tied. Group its items by their equipment’s retrievable use counts in 2026: the most-used tier keeps the original date, successively lower tiers are postponed by one day, and a tier uses the same date. If there is only one use-count tier that day, postpone all its items by one day.",
+    "analysis": "1. Identify Notebook, Data Cable from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Notebook, due on 2029-05-10.\n4. Add an action to clean Notebook, due on 2026-08-06.\n5. Add an action to inspect Notebook, due on 2026-08-06.\n6. Add an action to lubricate Urban Portable Air Blower, due on 2027-01-31.\n7. Remove the action to clean Notebook that is due on 2026-08-06.\n8. Remove the action to inspect Notebook that is due on 2026-08-06.\n9. Add an action to clean Notebook, due on 2026-08-07.\n10. Add an action to inspect Notebook, due on 2026-08-07.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Notebook",
+          "required_action": "replace",
+          "due_date": "2029-05-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Notebook",
+          "required_action": "clean",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Notebook",
+          "required_action": "inspect",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Urban Portable Air Blower",
+          "required_action": "lubricate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Notebook",
+          "required_action": "clean",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Notebook",
+          "required_action": "inspect",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Notebook",
+          "required_action": "clean",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Notebook",
+          "required_action": "inspect",
+          "due_date": "2026-08-07"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Notebook",
+      "Data Cable"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the second Saturday of August 2026. You ask the AI Service Agent to compare the latest retrievable use dates of the brown lens-like object at the front left of the tabletop and the transparent device to the left of the keyboard and determine whether they are less than two months apart. If they are, you explain that the transparent device’s mount currently cannot lock, that the problem has been confirmed to be repairable, and that you want to retain the current equipment; ask the AI Service Agent to add a repair record to the action list accordingly, due on August 10, 2026. If they are not, you explain that the brown lens-like object will no longer be retained and no replacement will be purchased; ask the AI Service Agent to register its removal from the warehouse, due today. Next, separately find each piece’s longest-overdue routine maintenance action and compare whether those actions’ originally prescribed dates are more than one year apart. If they are, register only the action with the earlier prescribed date, due today. If not, register both. If one piece has no overdue actions, substitute its action with the earliest prescribed date and retain that date; add all ties. Then, among other equipment with both the same category and maintenance-action set as these two pieces, ask the AI Service Agent to find the piece that reaches its maximum service life latest and register its least-overdue action according to its history and manual, due today, or its earliest-prescribed action if none is overdue. If no other candidate exists, handle the later-used anchor. Finally, you ask the AI Service Agent to find the equipment with the greatest number of action items and delete those pieces’ items with the latest due date; delete all ties in count or date within each equipment dimension.",
+    "analysis": "1. Identify Sunglasses, Action Camera from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Action Camera, due on 2026-08-10.\n4. Add an action to clean Action Camera, due on 2026-08-08.\n5. Add an action to clean Game Controller, due on 2026-08-08.\n6. Remove the action to repair Action Camera that is due on 2026-08-10.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Action Camera",
+          "required_action": "repair",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Action Camera",
+          "required_action": "clean",
+          "due_date": "2026-08-08"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Game Controller",
+          "required_action": "clean",
+          "due_date": "2026-08-08"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Action Camera",
+          "required_action": "repair",
+          "due_date": "2026-08-10"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Sunglasses",
+      "Action Camera"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the second Monday of August 2026. First, you ask the AI Service Agent to check whether the black block under the left side of the table and the blue item on the lower shelf of the bedside cabinet have the same country of origin, then compare their maximum-service-life dates. If their countries of origin are the same and the dates are no more than two years apart, you explain that the black block is currently only being kept temporarily in the demonstration area and will continue to be used; ask the AI Service Agent to add an arrangement to move it back to the location registered in the files to the action list, due on August 12, 2026. If they are more than two years apart, you explain that after the blue item expires, new equipment must continue its control function; ask the AI Service Agent to register an item for new equipment to take over, using its expiration date and today if that date has passed. Next, check whether the two pieces require exactly the same routine maintenance actions and compare their numbers of overdue actions. If the sets and counts are the same, register only the longest-overdue action among all actions for both pieces. If the sets or counts differ, register the least-overdue action for the piece with more overdue actions. If nothing is overdue, instead register the action with the earliest prescribed date; overdue items are due today and others use the prescribed date. Then, among other equipment with the same ideal storage location as both pieces and purchased before January 1, 2020, ask the AI Service Agent to find the piece with the latest latest retrievable use date and register its longest-overdue action according to its history and manual, due today, or its earliest-prescribed action if none is overdue. If the candidate set is empty, handle the earlier-expiring anchor. Finally, you ask the AI Service Agent to find the date with the most action items, choosing the earlier day if tied, and postpone every action item on that date by one day.",
+    "analysis": "1. Identify Speaker, Game Controller from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Speaker, due on 2026-08-12.\n4. Add an action to inspect Speaker, due on 2026-08-10.\n5. Add an action to clean Action Camera, due on 2026-08-10.\n6. Remove the action to inspect Speaker that is due on 2026-08-10.\n7. Remove the action to clean Action Camera that is due on 2026-08-10.\n8. Add an action to inspect Speaker, due on 2026-08-11.\n9. Add an action to clean Action Camera, due on 2026-08-11.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Speaker",
+          "required_action": "relocate",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Speaker",
+          "required_action": "inspect",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Action Camera",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Speaker",
+          "required_action": "inspect",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Action Camera",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Speaker",
+          "required_action": "inspect",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Action Camera",
+          "required_action": "clean",
+          "due_date": "2026-08-11"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Speaker",
+      "Game Controller"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the second Wednesday of August 2026. First, you ask the AI Service Agent to determine whether the routine maintenance action sets of the green-glowing peripheral on the right and the silver item at the upper right are exactly the same. If they are, you explain that the green-glowing peripheral is only being kept temporarily on the test table and will still be used later; ask the AI Service Agent to create an arrangement in the action list to return it to the ideal storage location in the files, due on August 14, 2026. If they are not, you explain that the silver item currently has a binding-structure fault confirmed to be repairable and that you will retain the original; ask the AI Service Agent to register a repair item accordingly, also due on August 14, 2026. Then determine whether the two pieces’ latest retrievable use dates are no more than fifteen days apart. If they are, add every overdue routine maintenance action for both pieces separately to the action list, all due today. If they are not, register only the earlier-used equipment’s longest-overdue action. If one piece has no overdue actions, instead register its earliest-prescribed action using that date. Next, among other equipment with the same maintenance-action set as both pieces and purchased no earlier than January 1, 2025, find the piece with the latest latest-use date and register its least-overdue action according to the history and manual, due today, or its earliest-prescribed action if none is overdue. If no candidate exists, handle the later-used anchor. Finally, you ask the AI Service Agent to find the least frequent action types and delete the items of those types with the earliest due date; process all ties in type or date.",
+    "analysis": "1. Identify Computer Mouse, Notebook from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Computer Mouse, due on 2026-08-14.\n4. Add an action to inspect Computer Mouse, due on 2026-08-12.\n5. Add an action to clean Computer Mouse, due on 2026-08-12.\n6. Add an action to inspect Notebook, due on 2026-08-12.\n7. Add an action to clean Notebook, due on 2026-08-12.\n8. Add an action to inspect Ukulele, due on 2026-08-12.\n9. Remove the action to relocate Computer Mouse that is due on 2026-08-14.\n10. Remove the action to condition Speaker that is due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Computer Mouse",
+          "required_action": "relocate",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Computer Mouse",
+          "required_action": "inspect",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Computer Mouse",
+          "required_action": "clean",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Notebook",
+          "required_action": "inspect",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Notebook",
+          "required_action": "clean",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Ukulele",
+          "required_action": "inspect",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Computer Mouse",
+          "required_action": "relocate",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Speaker",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Computer Mouse",
+      "Notebook"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the second Friday of August 2026. For the black device at the center of the tabletop and the brown lens-like object at the front left, you ask the AI Service Agent to determine whether their routine maintenance action sets are the same and, at the same time, whether their maximum-service-life dates differ by more than five years. If both determinations are true, you explain that the desktop configuration to which the earlier-expiring equipment belongs will stop being used, will no longer be retained, and will not be replaced; ask the AI Service Agent to register its removal from the warehouse in the action list, using the earlier expiration date and today if it has passed. Otherwise, you explain that the brown lens-like object’s temple connection is currently damaged, that the fault is repairable, and that you want to retain the original; ask the AI Service Agent to add a repair action accordingly, due on August 16, 2026. Next, separately find the two pieces’ longest-overdue routine maintenance actions and add only the one with the longer overdue duration to the action list, due today. If neither is overdue, register the action with the earliest prescribed date; process all ties in overdue duration or date. Then, using both pieces’ brand as a condition, ask the AI Service Agent to find the piece of powered equipment with the most maintenance actions. Register the middle action by overdue duration if overdue, or the middle action by prescribed date otherwise, due today or on that prescribed date respectively. Finally, using the earlier-expiring equipment’s retirement date as the reference in the action list, you ask the AI Service Agent to delete all of that equipment’s other action items later than its retirement date. If none exists, move the globally latest-due item one day earlier.",
+    "analysis": "1. Identify Computer Keyboard, Sunglasses from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Computer Keyboard, due on 2026-11-04.\n4. Add an action to inspect Computer Keyboard, due on 2026-08-14.\n5. Add an action to lubricate Urban Portable Air Blower, due on 2027-01-31.\n6. Remove the action to lubricate Urban Portable Air Blower that is due on 2027-01-31.\n7. Add an action to lubricate Urban Portable Air Blower, due on 2027-01-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Keyboard",
+          "required_action": "dispose",
+          "due_date": "2026-11-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Keyboard",
+          "required_action": "inspect",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Urban Portable Air Blower",
+          "required_action": "lubricate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Urban Portable Air Blower",
+          "required_action": "lubricate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Urban Portable Air Blower",
+          "required_action": "lubricate",
+          "due_date": "2027-01-30"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Computer Keyboard",
+      "Sunglasses"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the third Sunday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the transparent device to the left of the keyboard and the black block under the table. If they are no more than six months apart, you explain that after the earlier-expiring equipment is retired, the same audiovisual capability must still be retained; ask the AI Service Agent to list an item for new equipment to take over in the action list, using the earlier expiration date. If they are more than six months apart, you explain that the transparent device will no longer be retained then and no replacement will be purchased; ask the AI Service Agent to register its removal from the warehouse using its expiration date. Use today for dates that have passed. Next, check the two pieces’ maintenance-action sets and separately find their longest-overdue actions. If the sets are the same and the two actions’ prescribed dates are no more than six months apart, add both to the action list, due today. Otherwise, register only the action with the earlier prescribed date. If one piece has no overdue actions, substitute its earliest-prescribed action and use that date. Then, among other equipment with the same maintenance-action set and retrievable use records in 2026, find the piece that reaches its maximum service life earliest and register its least-overdue action according to the history and manual, due today, or its earliest-prescribed action if none is overdue. If no candidate exists, handle the earlier-expiring anchor. Finally, you ask the AI Service Agent to count each equipment’s action items, find the equipment with the fewest, and change those pieces’ latest-due items to the day after the globally latest due date; adjust all ties in count or date.",
+    "analysis": "1. Identify Action Camera, Speaker from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Speaker, due on 2027-02-02.\n4. Add an action to clean Action Camera, due on 2026-08-16.\n5. Add an action to inspect Speaker, due on 2026-08-16.\n6. Add an action to condition Computer Keyboard, due on 2026-08-16.\n7. Remove the action to clean Action Camera that is due on 2026-08-16.\n8. Remove the action to clean Ukulele that is due on 2026-08-16.\n9. Remove the action to clean Computer Mouse that is due on 2026-08-18.\n10. Add an action to clean Action Camera, due on 2027-02-03.\n11. Add an action to clean Ukulele, due on 2027-02-03.\n12. Add an action to clean Computer Mouse, due on 2027-02-03.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Speaker",
+          "required_action": "replace",
+          "due_date": "2027-02-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Action Camera",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Speaker",
+          "required_action": "inspect",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Computer Keyboard",
+          "required_action": "condition",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Action Camera",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Ukulele",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Computer Mouse",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Action Camera",
+          "required_action": "clean",
+          "due_date": "2027-02-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Ukulele",
+          "required_action": "clean",
+          "due_date": "2027-02-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Computer Mouse",
+          "required_action": "clean",
+          "due_date": "2027-02-03"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Action Camera",
+      "Speaker"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is two days before August 20, 2026. You ask the AI Service Agent to determine whether the maximum-service-life dates of the blue item on the bedside cabinet’s lower shelf and the small metal string at the lower left of the bed surface are no more than two years apart. If they are, you explain that the metal string is currently only being kept temporarily at the issue-registration desk and will continue to be used; ask the AI Service Agent to add an item to return it to the location in the files to the action list, due on August 20, 2026. If they are not, you explain that the blue item will no longer be retained and no replacement of the same type will be purchased; ask the AI Service Agent to register its removal from the warehouse, due today. Then compare the two items’ routine-maintenance action sets and overdue-action counts. If the sets are the same but the counts differ, register all overdue actions for the item with more, all due today. If the sets and counts are the same, register each item’s longest-overdue action. If the sets differ, register only the unique actions of the item with more actions. If the relevant scope has no overdue actions, instead register the earliest-prescribed action using that date. Next, using the brand shared by the two items, select among manual equipment the piece with the most maintenance actions and the latest purchase date. Register its least-overdue action if overdue or the middle action by prescribed date otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to find the equipment with the most action items and delete those pieces’ earliest-due items; delete all ties in count or date.",
+    "analysis": "1. Identify Game Controller, Keys from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Remove the action to relocate Keys that is due on 2026-08-20.\n4. Add an action to inspect Game Controller, due on 2026-08-18.\n5. Add an action to condition Game Controller, due on 2026-08-18.\n6. Add an action to clean Game Controller, due on 2026-08-18.\n7. Add an action to sharpen Urban Offset Ratchet, due on 2026-10-31.\n8. Remove the action to inspect Game Controller that is due on 2026-08-18.\n9. Remove the action to condition Game Controller that is due on 2026-08-18.\n10. Remove the action to clean Game Controller that is due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Keys",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Game Controller",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Game Controller",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Game Controller",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Urban Offset Ratchet",
+          "required_action": "sharpen",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Game Controller",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Game Controller",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Game Controller",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Game Controller",
+      "Keys"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the Thursday of the week containing August 17, 2026. You ask the AI Service Agent to compare the latest retrievable use dates of the instrument in your hand and the black cable on the right side of the tabletop and determine whether they are no more than one month apart. If they are, you explain that the black cable’s connector currently cannot make a stable connection, that the problem has been confirmed to be repairable, and that you want to retain this current cable; ask the AI Service Agent to add a repair item to the action list accordingly, due on August 22, 2026. If they are not, you explain that after the instrument reaches its maximum service life, equipment of the same type must continue its use function; ask the AI Service Agent to register an item for new equipment to take over, using its expiration date and today if it has passed. Next, confirm whether the two pieces require the same routine maintenance actions and find the common action with the earliest prescribed date. If that action is overdue, add it to the action list with today as the due date; if not, retain its prescribed date. If the action sets differ, separately register each piece’s longest-overdue action, or each piece’s earliest-prescribed action if none is overdue. Then, using both pieces’ brand as a condition, find the piece of material-handling and lifting equipment with the most retrievable uses in 2026. Based on its history and manual, register its least-overdue action due today, or its earliest-prescribed action due on that date; add all ties in count or date. Finally, you ask the AI Service Agent to find the least frequent action types in the action list and delete the items of those types with the earliest due date; process all ties in type or date.",
+    "analysis": "1. Identify Ukulele, Data Cable from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Data Cable, due on 2026-08-22.\n4. Add an action to clean Data Cable, due on 2026-08-20.\n5. Add an action to inspect Studio Low-Profile Dolly, due on 2026-09-30.\n6. Remove the action to repair Data Cable that is due on 2026-08-22.\n7. Remove the action to condition Speaker that is due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Data Cable",
+          "required_action": "repair",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Data Cable",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Studio Low-Profile Dolly",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Data Cable",
+          "required_action": "repair",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Speaker",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Ukulele",
+      "Data Cable"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the fourth Saturday of August 2026. You ask the AI Service Agent to determine whether all routine maintenance actions required by the green-glowing peripheral on the right are included among the brown lens-like object’s maintenance actions. If they are, you explain that after the green-glowing peripheral reaches its maximum service life, new equipment must continue to provide pointing-control functionality; ask the AI Service Agent to record the replacement arrangement in the action list, using its expiration date. If they are not, you explain that the brown lens-like object will no longer be retained and that you do not plan to purchase a replacement; ask the AI Service Agent to register its removal from the warehouse, using its expiration date. Change the date to today if it has passed. Next, handle the maintenance actions unique to the equipment with more actions. If a unique action is overdue, add it to the action list, due today. If it is not overdue, add it on its prescribed date. If no unique action exists, instead register the longest-overdue common action across the two pieces, or the earliest-prescribed common action if none is overdue. Then, using both pieces’ brand as a condition, find among measuring and inspection equipment the piece with the most maintenance actions and latest purchase date. Register its least-overdue action if overdue, or sort the prescribed dates and register the middle action otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to find the equipment with the greatest span between its earliest and latest due dates and change those pieces’ earliest-date items to the day after their latest dates. For equipment with only one date, postpone its items by one day.",
+    "analysis": "1. Identify Computer Mouse, Sunglasses from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Computer Mouse, due on 2027-07-23.\n4. Add an action to condition Sunglasses, due on 2026-08-22.\n5. Add an action to calibrate Studio Laser Distance Meter, due on 2027-01-31.\n6. Remove the action to clean Everyday Podium Step Ladder that is due on 2026-08-19.\n7. Remove the action to inspect Everyday Telescoping Work Platform that is due on 2026-08-20.\n8. Remove the action to condition Everyday Compact Access Stool that is due on 2026-08-21.\n9. Remove the action to replace Computer Mouse that is due on 2027-07-23.\n10. Remove the action to condition Sunglasses that is due on 2026-08-22.\n11. Remove the action to calibrate Studio Laser Distance Meter that is due on 2027-01-31.\n12. Add an action to clean Everyday Podium Step Ladder, due on 2026-08-20.\n13. Add an action to inspect Everyday Telescoping Work Platform, due on 2026-08-21.\n14. Add an action to condition Everyday Compact Access Stool, due on 2026-08-22.\n15. Add an action to replace Computer Mouse, due on 2027-07-24.\n16. Add an action to condition Sunglasses, due on 2026-08-23.\n17. Add an action to calibrate Studio Laser Distance Meter, due on 2027-02-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Mouse",
+          "required_action": "replace",
+          "due_date": "2027-07-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Sunglasses",
+          "required_action": "condition",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Laser Distance Meter",
+          "required_action": "calibrate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Podium Step Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Telescoping Work Platform",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Compact Access Stool",
+          "required_action": "condition",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Mouse",
+          "required_action": "replace",
+          "due_date": "2027-07-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Sunglasses",
+          "required_action": "condition",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Laser Distance Meter",
+          "required_action": "calibrate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Podium Step Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Telescoping Work Platform",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Compact Access Stool",
+          "required_action": "condition",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Mouse",
+          "required_action": "replace",
+          "due_date": "2027-07-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Sunglasses",
+          "required_action": "condition",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Laser Distance Meter",
+          "required_action": "calibrate",
+          "due_date": "2027-02-01"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Computer Mouse",
+      "Sunglasses"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the fourth Monday of August 2026. You ask the AI Service Agent to check whether the silver item at the upper right and the blue item on the bedside cabinet’s lower shelf have the same country of origin and compare their latest retrievable use dates. If their countries of origin are the same and the uses are no more than one month apart, you explain that the silver item is currently only being kept temporarily in the bedside records area and will still be used; ask the AI Service Agent to register an arrangement to move it back to its ideal storage location in the files, due on August 26, 2026. Otherwise, you explain that the blue item currently has a control-component fault confirmed to be repairable and that you want to retain the original; ask the AI Service Agent to list a repair action accordingly, also due on August 26, 2026. Then compare the two pieces’ numbers of overdue routine maintenance actions, select the one with more, and register its least-overdue action with today as the due date. If the counts are the same, handle both. If a target piece has no overdue actions, register its earliest-prescribed action using that date. Next, determine whether the two pieces’ maximum-service-life dates are no more than one year apart. If they are, you explain that the project served by the earlier-expiring equipment will end then and it will neither be retained nor replaced; ask the AI Service Agent to register its removal from the warehouse using the earlier expiration date. If they are not, you still need the later-expiring equipment’s function; ask the AI Service Agent to register an item for new equipment to take over using its expiration date. Use today if the date has passed. Finally, using the earlier-expiring equipment’s retirement item as the reference, you ask the AI Service Agent to delete all its other action items after the retirement date. If none exists, delete all action items with the latest due date in the entire list.",
+    "analysis": "1. Identify Notebook, Game Controller from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Notebook, due on 2026-08-26.\n4. Add an action to clean Game Controller, due on 2026-08-24.\n5. Add an action to dispose of Game Controller, due on 2028-09-21.\n6. Remove the action to dispose of Game Controller that is due on 2028-09-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Notebook",
+          "required_action": "relocate",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Game Controller",
+          "required_action": "clean",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Game Controller",
+          "required_action": "dispose",
+          "due_date": "2028-09-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Game Controller",
+          "required_action": "dispose",
+          "due_date": "2028-09-21"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Notebook",
+      "Game Controller"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the last Wednesday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the black device at the center of the tabletop and the small metal string at the lower left of the bed surface. If they are no more than three months apart, you explain that after the earlier-expiring equipment is retired, new equipment of the same type must still perform its original function; ask the AI Service Agent to add a replacement item to the action list, using the earlier expiration date. If they are more than three months apart, you explain that the metal string will no longer be retained and no replacement will be provided; ask the AI Service Agent to register its removal from the warehouse using its expiration date. Use today if the expiration date has passed. Next, check the two pieces’ maintenance-action sets and compare their overdue-action counts. If the sets are the same and the counts differ, add every overdue action for the piece with more, all due today. If the sets and counts are the same, add each piece’s longest-overdue action. If the sets differ, handle the actions unique to the equipment with more actions. When nothing is overdue, instead register the earliest-prescribed action using that date. Then, among other equipment with both the same brand and ideal storage location as the two pieces, find the piece with the latest purchase date and register its least-overdue action according to its history and manual, or its earliest-prescribed action if none is overdue. If no other candidate exists, handle the later-purchased anchor. Finally, you ask the AI Service Agent to delete all action items with the latest due date from the updated action list.",
+    "analysis": "1. Identify Computer Keyboard, Keys from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Computer Keyboard, due on 2026-11-04.\n4. Add an action to clean Computer Keyboard, due on 2026-08-26.\n5. Add an action to inspect Computer Keyboard, due on 2026-08-26.\n6. Add an action to condition Computer Keyboard, due on 2026-08-26.\n7. Add an action to clean Data Cable, due on 2026-08-26.\n8. Remove the action to replace Computer Keyboard that is due on 2026-11-04.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Keyboard",
+          "required_action": "replace",
+          "due_date": "2026-11-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Keyboard",
+          "required_action": "clean",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Keyboard",
+          "required_action": "inspect",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Keyboard",
+          "required_action": "condition",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Data Cable",
+          "required_action": "clean",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer Keyboard",
+          "required_action": "replace",
+          "due_date": "2026-11-04"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Computer Keyboard",
+      "Keys"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the last Friday of August 2026. First, you ask the AI Service Agent to compare the maximum-service-life dates of the transparent device to the left of the keyboard and the black cable on the right side of the tabletop. If they differ by more than four years, you explain that the transparent device will no longer be retained after expiration and no replacement will be purchased; ask the AI Service Agent to register its removal from the warehouse in the action list, using its expiration date and today if that date has passed. If they do not differ by more than four years, you explain that the black cable currently has a repairable connector fault and that the current original will still be retained; ask the AI Service Agent to add a repair action accordingly, due on August 30, 2026. Next, determine whether the two pieces’ latest retrievable use dates are more than four months apart. If they are, register every overdue routine maintenance action for the earlier-used equipment, due today. If they are not, register only the later-used equipment’s longest-overdue action. If the target equipment has no overdue actions, instead register its earliest-prescribed action using that date. Then, using both pieces’ brand as a condition, find the piece of powered equipment with the most maintenance actions. Register the middle action by overdue duration if overdue, or the middle action by prescribed date otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to find the due dates with the fewest and most action items, choosing the later day for each if tied. Move all records on the date with the fewest items to the day after the date with the most items; if they are the same day, postpone everything by one day.",
+    "analysis": "1. Identify Action Camera, Data Cable from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Action Camera, due on 2027-06-25.\n4. Add an action to clean Action Camera, due on 2026-08-28.\n5. Add an action to inspect Action Camera, due on 2026-08-28.\n6. Add an action to condition Action Camera, due on 2026-08-28.\n7. Add an action to lubricate Urban Portable Air Blower, due on 2027-01-31.\n8. Remove the action to dispose of Action Camera that is due on 2027-06-25.\n9. Add an action to dispose of Action Camera, due on 2026-08-29.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Action Camera",
+          "required_action": "dispose",
+          "due_date": "2027-06-25"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Action Camera",
+          "required_action": "clean",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Action Camera",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Action Camera",
+          "required_action": "condition",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Urban Portable Air Blower",
+          "required_action": "lubricate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Action Camera",
+          "required_action": "dispose",
+          "due_date": "2027-06-25"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Action Camera",
+          "required_action": "dispose",
+          "due_date": "2026-08-29"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Action Camera",
+      "Data Cable"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the last Sunday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the black block under the left side of the table and the brown lens-like object at the front left of the tabletop and determine whether they differ by more than five years. If they do, you explain that the black block currently has an unresolved but confirmed repairable magnifying-component fault and that you want to continue using the original; ask the AI Service Agent to create a new repair item in the action list accordingly, due on September 1, 2026. If they do not, you explain that the brown lens-like object is currently only being kept temporarily on the filming table and will continue to be retained and used; ask the AI Service Agent to register an action to return it to the location recorded in the files, also due on September 1, 2026. Next, check the two pieces’ routine-maintenance action sets and determine whether their latest retrievable use dates are no more than seven days apart. If the sets are the same and the dates are no more than seven days apart, register the longest-overdue action among all overdue actions for both pieces, due today. Otherwise, separately register each piece’s least-overdue action. If none is overdue, register the earliest-prescribed action using that date. Then, using the brand shared by the two pieces as a condition, find the piece of manual equipment with the most maintenance actions and latest purchase date. Register its least-overdue action if overdue, or sort the prescribed dates and register the middle action otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to chronologically find the pair of adjacent due dates with the largest gap and change all action items on the earlier date to the day before the later date. If gaps tie, choose the later pair. If no gap exceeds one day, postpone the items on the latest date by one day.",
+    "analysis": "1. Identify Speaker, Sunglasses from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Speaker, due on 2026-09-01.\n4. Add an action to inspect Speaker, due on 2026-08-30.\n5. Add an action to sharpen Urban Offset Ratchet, due on 2026-10-31.\n6. Remove the action to repair Speaker that is due on 2026-09-01.\n7. Add an action to repair Speaker, due on 2026-10-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Speaker",
+          "required_action": "repair",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Speaker",
+          "required_action": "inspect",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Urban Offset Ratchet",
+          "required_action": "sharpen",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Speaker",
+          "required_action": "repair",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Speaker",
+          "required_action": "repair",
+          "due_date": "2026-10-30"
+        }
+      }
+    ],
+    "image_name": "warehouse6",
+    "image_path": "warehouse6.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Speaker",
+      "Sunglasses"
+    ],
+    "scenario_id": 15
+  }
+]

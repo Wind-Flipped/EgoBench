@@ -21,7 +21,7 @@ class MimoAPI:
             api_key=self.api_key,
             base_url=os.environ.get("MIMO_API_BASE_URL", "https://api.xiaomimimo.com/v1")
         )
-        self.default_model = "mimo-v2-omni"
+        self.default_model = "mimo-v2.5-omni"
         self.default_system_prompt = "You are MiMo, an AI assistant developed by Xiaomi. Today is date: Tuesday, December 16, 2025. Your knowledge cutoff date is December 2024."
 
     def chat_with_video(self, video_url, text, model=None, system_prompt=None,
@@ -32,7 +32,7 @@ class MimoAPI:
         Args:
             video_url: Video URL
             text: User question text
-            model: Model name, default is mimo-v2-omni
+            model: Model name, default is mimo-v2.5-omni
             system_prompt: System prompt
             fps: Video frame rate
             media_resolution: Media resolution

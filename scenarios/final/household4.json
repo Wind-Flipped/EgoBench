@@ -1,0 +1,792 @@
+[
+  {
+    "Instruction": "Your user ID is household_user_01, and today is August 18, 2026. First, you ask the AI Service Agent to separately determine whether the pink textile you repeatedly use for wiping and the blue flat device behind the tabletop each have a retrievable period of use covering today. If exactly one is still in use, find the latest-purchased clothing item among those within a retrievable period of use today; you explain that it has been washed, is completely dry, and is suitable for ironing, and ask the AI Service Agent to record an action accordingly, due on August 20, 2026. If both are in use or neither is, find the earliest-purchased item in the same clothing scope; you explain that it has just been washed and is still damp, and ask the AI Service Agent to add an arrangement to dry it thoroughly, also due on August 20, 2026. Next, for every routine care action required by the pink textile's manual, use the most recent completion record for the same action together with the maintenance history to determine whether it is overdue and unperformed as of today. If overdue actions exist, add all separately, uniformly due today; if none exist, add the earliest-required action on its prescribed date, including all same-date ties. Next, compare the maximum-service-life dates of the pink textile and blue device. If they are no more than one calendar year apart, you explain that after the current earlier-expiring item is retired, a newly purchased item exactly identical to it will be used; ask the AI Service Agent to record a replacement arrangement using the earlier expiration date, changed to today if already past. If they are more than one calendar year apart, you explain that the earlier-expiring item will no longer be retained and no brand-new identical item will be purchased; add a removal arrangement using the same date, changed to today if already past. Finally, read the latest action list and delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Cleaning Cloth, Laptop Computer from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Premium Packable Rain Trousers, due on 2026-08-20.\n4. Add an action to wash Cleaning Cloth, due on 2026-08-18.\n5. Add an action to inspect Cleaning Cloth, due on 2026-08-18.\n6. Add an action to disinfect Cleaning Cloth, due on 2026-08-18.\n7. Add an action to replace Cleaning Cloth, due on 2026-12-30.\n8. Remove an action to clean Cleaning Cloth, due on 2026-08-16.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Premium Packable Rain Trousers",
+          "required_action": "iron",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "wash",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "disinfect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "replace",
+          "due_date": "2026-12-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Cleaning Cloth",
+      "Laptop Computer"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the third Wednesday of August 2026. First, find the right-side black curved peripheral's longest retrievable continuous period of use and determine whether it has reached two hundred days. If it has, you explain that the peripheral has an unaddressed wheel fault confirmed to be repairable and that you want to retain it; add a repair action due on August 22, 2026. If it has not, you explain that it is only temporarily placed beside the dining table and will still be used; look up its ideal storage location in the records and add a return-to-location action, also due on August 22, 2026. Next, based on its maintenance history and manual, inspect every required routine care action using its most recent completion record and determine whether it is overdue and unperformed as of today. If overdue actions exist, add the least-overdue one due today, including all ties; if none exist, add the action with the earliest prescribed date on that date, retaining all ties. Next, find other items in the same category and compare their purchase prices. If other same-category items exist and the peripheral's price is no more than one fiftieth of the highest price among them, you explain that it will no longer be retained upon reaching its maximum service life and no brand-new identical peripheral will be acquired; record a removal-from-household-use arrangement using its maximum-service-life date, changed to today if already past. If no other same-category item exists or the price condition is not met, you explain that after the current peripheral is retired, a newly purchased peripheral exactly identical to it will replace it; add a replacement arrangement using the same date, changed to today if already past. Finally, sort the latest list's different due dates from latest to earliest and delete all items on the second-latest date; if fewer than two dates exist, delete all items on the only date.",
+    "analysis": "1. Identify Computer Mouse from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Computer Mouse, due on 2026-08-22.\n4. Add an action to condition Computer Mouse, due on 2026-08-19.\n5. Add an action to dispose Computer Mouse, due on 2027-11-22.\n6. Remove an action to repair Computer Mouse, due on 2026-08-22.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Computer Mouse",
+          "required_action": "repair",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Computer Mouse",
+          "required_action": "condition",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Computer Mouse",
+          "required_action": "dispose",
+          "due_date": "2027-11-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Computer Mouse",
+          "required_action": "repair",
+          "due_date": "2026-08-22"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Computer Mouse"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the third Thursday of August 2026. First, for the white roll-shaped item at the lower left, determine whether every day from November 20, 2025 through today falls within its retrievable periods of use. If all days are covered, you explain that the current roll will be retired on August 24, 2026 and that a brand-new roll exactly identical to it will then be acquired for continued use; record a replacement arrangement due on August 24, 2026. If any date is not covered, you explain that the current roll will no longer be retained on that same day and no brand-new identical item will be purchased; add a removal arrangement, also due on August 24, 2026. Next, based on this roll-shaped item's maintenance history and manual, determine for each required care action, using its most recent completion record, whether it is overdue and unperformed as of today. If overdue actions exist, add the longest-overdue one due today, including all ties; if none exist, add the earliest-required one on its prescribed date, including all same-date ties. Finally, sort the latest list's different due dates from earliest to latest; if their number is odd, delete all items on the middle date, and if even, delete all items on the later of the two middle dates.",
+    "analysis": "1. Identify Kitchen Paper Roll from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Kitchen Paper Roll, due on 2026-08-24.\n4. Add an action to disinfect Kitchen Paper Roll, due on 2026-08-20.\n5. Remove an action to repair Phone Stand, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Kitchen Paper Roll",
+          "required_action": "replace",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Kitchen Paper Roll",
+          "required_action": "disinfect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Phone Stand",
+          "required_action": "repair",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Kitchen Paper Roll"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the third Friday of August 2026. First, separately count the cumulative days from July 1, 2025 through today that fall within the retrievable periods of use of the blue flat device behind the tabletop and the black curved peripheral on the right. If the blue device has at least twenty more days, you explain that it has an unresolved charging fault confirmed to be repairable and that you still want to retain it; record a repair action due on August 25, 2026. If it does not have twenty more days, you explain that the black peripheral is only temporarily placed in the living room and will continue to be used; look up its ideal storage location and add a return-to-location arrangement, also due on August 25, 2026. Next, for every routine care action required by both items' manuals, use the most recent completion record for the same action together with the maintenance history to compare all overdue and unperformed actions as of today. If any exist, add the longest-overdue one due today, including all ties; if neither item has any, add the action with the earliest prescribed date on that date, including all same-date ties. Finally, move every item on the earliest due date in the latest action list to the day after the second-earliest date; if there is only one different date, postpone every item on it by one day.",
+    "analysis": "1. Identify Laptop Computer, Computer Mouse from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Laptop Computer, due on 2026-08-25.\n4. Add an action to clean Computer Mouse, due on 2026-08-21.\n5. Remove an action to wash Kitchen Paper Roll, due on 2026-08-17.\n6. Add an action to wash Kitchen Paper Roll, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Laptop Computer",
+          "required_action": "repair",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Computer Mouse",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Kitchen Paper Roll",
+          "required_action": "wash",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Kitchen Paper Roll",
+          "required_action": "wash",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Laptop Computer",
+      "Computer Mouse"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the fourth Saturday of August 2026. First, determine whether every day in the past two calendar years has retrievable use-time coverage for the soft black bag in the middle compartment. If all days are covered, you explain that the bag will no longer be retained upon reaching its maximum service life and no brand-new identical storage bag will be purchased; record a removal-from-household-use arrangement using its maximum-service-life date, changed to today if already past. If not all days are covered, you explain that after the current bag is retired, a new bag exactly identical to it will be repurchased for continued use; record a replacement arrangement using the same date, changed to today if already past. Next, based on the bag's maintenance history and manual, determine for each required care action, using its most recent completion record, whether it is overdue and unperformed as of today. If any are overdue, add the longest-overdue one due today, including all ties; if none are, add the earliest-required one on its prescribed date, including all same-date ties. Next, determine whether the bag's purchase price is no higher than 30. If it is, find the highest-priced clothing item among those still within a retrievable period of use today, selecting the earlier-purchased item if tied; you explain that it has just been washed and is still damp, and ask the AI Service Agent to add an arrangement to dry it thoroughly, due on August 24, 2026. If the price is above 30, find the lowest-priced item in the same clothing scope, selecting the later-purchased item if tied; you explain that it has been washed, is completely dry, and is suitable for ironing, and ask the AI Service Agent to create an action accordingly, also due on August 24, 2026. Finally, delete from the latest action list every old drying-after-washing or ironing item whose item is not clothing, a household textile, or washable bedding; if none exists, delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Storage Pouch from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose Storage Pouch, due on 2027-02-25.\n4. Add an action to clean Storage Pouch, due on 2026-08-22.\n5. Add an action to dry Contemporary Merino Base-Layer Top, due on 2026-08-24.\n6. Remove an action to dry Mobile Phone, due on 2026-08-18.\n7. Remove an action to iron Narrow Bamboo Console, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Storage Pouch",
+          "required_action": "dispose",
+          "due_date": "2027-02-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Storage Pouch",
+          "required_action": "clean",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Contemporary Merino Base-Layer Top",
+          "required_action": "dry",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Mobile Phone",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Narrow Bamboo Console",
+          "required_action": "iron",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Storage Pouch"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the fourth Sunday of August 2026. First, determine whether any retrievable period of use of the pink textile you repeatedly use for wiping overlaps March 1 through April 1, 2026. If none overlaps, you explain that the textile has just been washed and is still damp, and ask the AI Service Agent to record an arrangement to dry it thoroughly, due on August 24, 2026. If an overlap exists, you explain that it has been washed, is completely dry, and is suitable for ironing, and ask the AI Service Agent to list a household arrangement accordingly, also due on August 24, 2026. Next, based on the pink textile's maintenance history and manual, determine for each required care action, using its most recent completion record, whether it is overdue and unperformed as of today. If any are overdue, add the least-overdue one due today, including all ties; if none are, add the action with the earliest prescribed date on that date, including all same-date ties. Next, determine whether the textile's purchase price is no higher than 15. If it is, you explain that it is only temporarily placed on the desk and will still be retained; look up its ideal storage location and add a return-to-location arrangement, due on August 26, 2026. If its price is not no higher than 15, you explain that it has an unaddressed but repairable split edging and that you want to continue using the current item; record a repair arrangement, also due on August 26, 2026. Finally, sort the latest list's different due dates from latest to earliest and delete all items on the second-latest date; if fewer than two dates exist, delete all items on the only date.",
+    "analysis": "1. Identify Cleaning Cloth from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dry Cleaning Cloth, due on 2026-08-24.\n4. Add an action to inspect Cleaning Cloth, due on 2026-08-23.\n5. Add an action to relocate Cleaning Cloth, due on 2026-08-26.\n6. Remove an action to dry Cleaning Cloth, due on 2026-08-24.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "dry",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "inspect",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "relocate",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Cleaning Cloth",
+          "required_action": "dry",
+          "due_date": "2026-08-24"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Cleaning Cloth"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is August 24, 2026. First, determine whether the black device behind and under the table has retrievable use time continuously covering its purchase date through today. If it does, you explain that after reaching its maximum service life, the current device will be replaced by a newly purchased device exactly identical to it; add a replacement arrangement using its maximum-service-life date, changed to today if already past. If it does not, you explain that the device will no longer be retained then and no brand-new identical device will be acquired; record a removal arrangement using the same date, changed to today if already past. Next, inspect every routine care action required by its manual, using each action's most recent completion record with its maintenance history. If overdue and unperformed actions exist as of today, add all separately, uniformly due today; if none exist, add the earliest-required action on its prescribed date, including all same-date ties. Next, determine whether the device's purchase price is between 150 and 200, inclusive. If it is, among furniture with the same ideal storage location and purchased after January 1, 2025, find the lowest-priced item, selecting the later-purchased if tied; if that scope is empty, apply the same rule to all furniture with that ideal location. You explain that the selected furniture has an unaddressed loose connection confirmed to be repairable and that you will retain it; add a repair action due on August 28, 2026. If the price is outside 150 to 200, find the highest-priced furniture item with the same ideal location; you explain that it is only temporarily placed in the corridor and will continue to be used; add an arrangement to return it to its ideal recorded location, also due on August 28, 2026. Finally, identify the due date with the most action items, selecting the earlier if tied, and delete every item on that date.",
+    "analysis": "1. Identify Table Lamp from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Table Lamp, due on 2029-04-25.\n4. Add an action to clean Table Lamp, due on 2026-08-24.\n5. Add an action to condition Table Lamp, due on 2026-08-24.\n6. Add an action to inspect Table Lamp, due on 2026-08-24.\n7. Add an action to repair Fold-Flat Side Table, due on 2026-08-28.\n8. Remove an action to clean Table Lamp, due on 2026-08-24.\n9. Remove an action to condition Table Lamp, due on 2026-08-24.\n10. Remove an action to inspect Table Lamp, due on 2026-08-24.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Table Lamp",
+          "required_action": "replace",
+          "due_date": "2029-04-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Table Lamp",
+          "required_action": "clean",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Table Lamp",
+          "required_action": "condition",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Table Lamp",
+          "required_action": "inspect",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Fold-Flat Side Table",
+          "required_action": "repair",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Table Lamp",
+          "required_action": "clean",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Table Lamp",
+          "required_action": "condition",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Table Lamp",
+          "required_action": "inspect",
+          "due_date": "2026-08-24"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Table Lamp"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is August 25, 2026. First, separately find the retrievable periods of use currently covering today for the wooden stand on the left and the rectangular item on the wooden surface beside the cat ornament, and compare their start dates. If they are more than two calendar years apart, you explain that the earlier-started rectangular item is only temporarily placed on the dining table and will still be retained; look up its ideal storage location and record a return-to-location arrangement due on August 28, 2026. If they are no more than two calendar years apart, you explain that the wooden stand has an unaddressed support fault confirmed to be repairable and that you will continue to retain it; record a repair action, also due on August 28, 2026. Next, for every routine care action required by the two items' manuals, use the most recent completion record for the same action with the maintenance history to separately find each item's longest-overdue action as of today and add it due today, including all ties; if neither item has overdue actions, add the action with the earliest prescribed date on that date, including all same-date ties. Next, compare their purchase prices. If the rectangular item's price is at least fifty times the wooden stand's, you explain that the wooden stand will leave household use on September 10, 2026 and no brand-new identical stand will be purchased; add a removal arrangement due on September 10, 2026. If it is less than fifty times, you explain that on that day a brand-new stand of the same model will replace the current one; record a replacement arrangement, also due on September 10, 2026. Finally, delete all latest-list action items due later than September 1, 2026; if none exist, delete all items on the earliest due date overall.",
+    "analysis": "1. Identify Phone Stand, Mobile Phone from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Mobile Phone, due on 2026-08-28.\n4. Add an action to inspect Phone Stand, due on 2026-08-25.\n5. Add an action to inspect Mobile Phone, due on 2026-08-25.\n6. Add an action to dispose Phone Stand, due on 2026-09-10.\n7. Remove an action to dispose Phone Stand, due on 2026-09-10.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "relocate",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Phone Stand",
+          "required_action": "inspect",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Mobile Phone",
+          "required_action": "inspect",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Phone Stand",
+          "required_action": "dispose",
+          "due_date": "2026-09-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Phone Stand",
+          "required_action": "dispose",
+          "due_date": "2026-09-10"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Phone Stand",
+      "Mobile Phone"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is the fourth Wednesday of August 2026. First, count the cumulative days from this day one year ago through today that the rectangular item on the wooden surface beside the cat ornament falls within retrievable periods of use. If no fewer than 360 days, you explain that it has an unresolved battery fault confirmed to be repairable and that you want to retain it; add a repair action due on August 30, 2026. If fewer than 360 days, you explain that it is only temporarily placed on the living-room side table and will still be used; look up its ideal storage location and record a return-to-location arrangement, also due on August 30, 2026. Next, based on its maintenance history and manual, determine for each required care action, using its most recent completion record, whether it is overdue and unperformed as of today with a prescribed date earlier than January 1, 2025. If such actions exist, add them separately due today. If none exist, add the longest-overdue action due today; if no action is overdue at all, add the earliest-required action on its prescribed date, including all same-date ties. Finally, sort the latest list's different due dates from earliest to latest; if their number is odd, delete all items on the middle date, and if even, delete all items on the later of the two middle dates.",
+    "analysis": "1. Identify Mobile Phone from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Mobile Phone, due on 2026-08-30.\n4. Add an action to inspect Mobile Phone, due on 2026-08-26.\n5. Remove an action to disinfect Computer Mouse, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Mobile Phone",
+          "required_action": "repair",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Mobile Phone",
+          "required_action": "inspect",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Computer Mouse",
+          "required_action": "disinfect",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Mobile Phone"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is August 27, 2026. First, determine whether the blue flat device behind the tabletop has retrievable use time continuously covering its purchase date through today and whether that continuous time has reached eight calendar months. If both conditions hold, you explain that the current device will be retired on September 1, 2026 and that a new device exactly identical to it will then be repurchased for continued use; record a replacement arrangement due on September 1, 2026. If either condition fails, you explain that the current device will no longer be retained on that same day and no brand-new identical device will be acquired; add a removal arrangement, also due on September 1, 2026. Next, based on its maintenance history and manual, determine for each required care action, using its most recent completion record, whether it is overdue and unperformed as of today. If any are overdue, add the least-overdue one due today, including all ties; if none are, add the earliest-required one on its prescribed date, including all same-date ties. Next, among items with the same ideal storage location as the blue device and purchased before January 1, 2023, find the highest-priced item; if none qualifies, select the highest-priced among all other items with that ideal location. If the blue device's purchase price is no lower than 4000, you explain that the selected item has an unaddressed charging-port fault confirmed to be repairable and that you still want to retain it; create a repair arrangement due on August 31, 2026. If its price is below 4000, you explain that the selected item is only temporarily placed on the sideboard and will still be used; add an arrangement to return it to its ideal recorded location, also due on August 31, 2026. Finally, delete all latest-list items on the latest due date.",
+    "analysis": "1. Identify Laptop Computer from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Laptop Computer, due on 2026-09-01.\n4. Add an action to inspect Laptop Computer, due on 2026-08-27.\n5. Add an action to repair Mobile Phone, due on 2026-08-31.\n6. Remove an action to replace Laptop Computer, due on 2026-09-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Laptop Computer",
+          "required_action": "replace",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Laptop Computer",
+          "required_action": "inspect",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Mobile Phone",
+          "required_action": "repair",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Laptop Computer",
+          "required_action": "replace",
+          "due_date": "2026-09-01"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Laptop Computer"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is the last Friday of August 2026. First, find the end date of the right-side black curved peripheral's most recent retrievable use record and determine whether it has been idle for at least three weeks as of today. If it has, you explain that the current peripheral will be retired on September 5, 2026 and that a brand-new peripheral exactly identical to it will then be purchased for continued use; record a replacement arrangement due on September 5, 2026. If it has not, you explain that the peripheral will no longer be retained that day and no brand-new identical peripheral will be purchased; add a removal arrangement, also due on September 5, 2026. Next, inspect every care action required by its manual using each action's most recent completion record with the maintenance history. If overdue actions with prescribed dates in 2025 exist, add them separately due today. If none of those exist but other overdue actions do, add the least-overdue one due today, including all ties. If none are overdue, add the action with the earliest prescribed date on that date. Next, find other items in the same category and compare purchase prices. If such items exist and the peripheral is priced higher than all of them, you explain that it has an unaddressed button fault confirmed to be repairable and that you will retain it; add a repair action due on August 31, 2026. If no other same-category item exists or the peripheral is not the highest-priced, you explain that it is only temporarily placed on the television cabinet and will continue to be used; look up its ideal storage location and add a return-to-location arrangement, also due on August 31, 2026. Finally, sort the latest list's different due dates from latest to earliest and delete all items on the second-latest date; if fewer than two dates exist, delete all items on the only date.",
+    "analysis": "1. Identify Computer Mouse from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Computer Mouse, due on 2026-09-05.\n4. Add an action to clean Computer Mouse, due on 2026-08-28.\n5. Add an action to relocate Computer Mouse, due on 2026-08-31.\n6. Remove an action to relocate Computer Mouse, due on 2026-08-31.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Computer Mouse",
+          "required_action": "replace",
+          "due_date": "2026-09-05"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Computer Mouse",
+          "required_action": "clean",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Computer Mouse",
+          "required_action": "relocate",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Computer Mouse",
+          "required_action": "relocate",
+          "due_date": "2026-08-31"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Computer Mouse"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is household_user_01, and today is August 29, 2026. First, compare the maximum-service-life dates of the white roll-shaped item at the lower left and the black device behind and under the table. If they are no more than one calendar year apart, you explain that after the current earlier-expiring item is retired, a newly purchased item exactly identical to it will replace it; record a replacement arrangement using the earlier expiration date, changed to today if already past. If they are more than one calendar year apart, you explain that the earlier-expiring item will no longer be retained and no brand-new identical item will be purchased; add a removal arrangement using the same date, changed to today if already past. Next, separately find their longest retrievable continuous periods of use. If the black device's is at least five hundred days longer, you explain that it has an unresolved switch fault confirmed to be repairable and that you want to retain it; add a repair action due on August 31, 2026. If it is less than five hundred days longer, you explain that the roll-shaped item is only temporarily placed beside the desk and will continue to be used; look up its ideal storage location and record a return-to-location arrangement, also due on August 31, 2026. Next, for every care action required by both manuals, use the most recent completion record for the same action with the maintenance history to compare all overdue and unperformed actions as of today. If any exist, add the least-overdue one due today, including all ties; if neither item has any, add the action with the earliest prescribed date on that date, including all same-date ties. Finally, delete all latest-list items due later than December 31, 2027; if none exist, move every item on the latest due date overall to tomorrow.",
+    "analysis": "1. Identify Kitchen Paper Roll, Table Lamp from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Table Lamp, due on 2029-04-25.\n4. Add an action to repair Table Lamp, due on 2026-08-31.\n5. Add an action to wash Kitchen Paper Roll, due on 2026-08-29.\n6. Remove an action to replace Table Lamp, due on 2029-04-25.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Table Lamp",
+          "required_action": "replace",
+          "due_date": "2029-04-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Table Lamp",
+          "required_action": "repair",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Kitchen Paper Roll",
+          "required_action": "wash",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_01",
+          "name": "Table Lamp",
+          "required_action": "replace",
+          "due_date": "2029-04-25"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Kitchen Paper Roll",
+      "Table Lamp"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is household_user_02, and today is the last Sunday of August 2026. First, determine whether any retrievable period of use of the wooden stand on the left overlaps April 1, 2024 through May 1, 2025. If none overlaps, you explain that the stand is only temporarily placed on a bedroom side table and will still be used; look up its ideal storage location and record a return-to-location arrangement due on September 2, 2026. If an overlap exists, you explain that the stand has an unaddressed pivot fault confirmed to be repairable and that you want to retain it; add a repair action, also due on September 2, 2026. Next, based on its maintenance history and manual, determine for each required care action, using its most recent completion record, whether it is overdue and unperformed as of today. If any are overdue, add the longest-overdue one due today, including all ties; if none are, add the earliest-required one on its prescribed date, including all same-date ties. Finally, sort the latest list's different due dates from earliest to latest and delete all items on the second-earliest date; if fewer than two dates exist, postpone all items on the only date by one day.",
+    "analysis": "1. Identify Phone Stand from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Phone Stand, due on 2026-09-02.\n4. Add an action to inspect Phone Stand, due on 2026-08-30.\n5. Remove an action to inspect Table Lamp, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Phone Stand",
+          "required_action": "relocate",
+          "due_date": "2026-09-02"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Phone Stand",
+          "required_action": "inspect",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_02",
+          "name": "Table Lamp",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Phone Stand"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is household_user_04, and today is the last day of August 2026. First, determine whether the soft black bag in the middle compartment has retrievable use time continuously covering the period from this day two years ago through today. If it does, you explain that the bag will no longer be retained upon reaching its maximum service life and no brand-new identical storage bag will be purchased; record a removal-from-household-use arrangement using its maximum-service-life date, changed to today if already past. If it does not, you explain that after the current bag is retired, a brand-new storage bag exactly identical to it will be acquired for continued use; add a replacement arrangement using the same date, changed to today if already past. Next, based on the bag's maintenance history and manual, determine for each required care action, using its most recent completion record, whether it is overdue and unperformed as of today. If any are overdue, add the least-overdue one due today, including all ties; if none are, add the action with the earliest prescribed date on that date, including all same-date ties. Next, determine whether the bag's purchase price is below 30. If it is, you explain that it has an unresolved zipper fault confirmed to be repairable and that you want to retain it; add a repair action due on September 3, 2026. If it is not below 30, you explain that it is only temporarily placed in the entryway and will still be used; look up its ideal storage location and record a return-to-location arrangement, also due on September 3, 2026. Finally, delete all action items on the earliest due date overall in the latest action list.",
+    "analysis": "1. Identify Storage Pouch from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose Storage Pouch, due on 2027-02-25.\n4. Add an action to inspect Storage Pouch, due on 2026-08-31.\n5. Add an action to repair Storage Pouch, due on 2026-09-03.\n6. Remove an action to condition Classic Upholstered Reading Bench, due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Storage Pouch",
+          "required_action": "dispose",
+          "due_date": "2027-02-25"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Storage Pouch",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Storage Pouch",
+          "required_action": "repair",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_04",
+          "name": "Classic Upholstered Reading Bench",
+          "required_action": "condition",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Storage Pouch"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is household_user_03, and today is August 31, 2026. First, count the cumulative days from January 1, 2026 through today that the pink textile you repeatedly use for wiping falls within retrievable periods of use. If no fewer than 150 days, you explain that it has been washed, is completely dry, and is suitable for ironing, and ask the AI Service Agent to add an action accordingly, due on September 2, 2026. If fewer than 150 days, you explain that it has just been washed and is still damp, and ask the AI Service Agent to add an arrangement to dry it thoroughly, also due on September 2, 2026. Next, based on the pink textile's maintenance history and manual, inspect every required care action using each action's most recent completion record and determine whether it is overdue and unperformed as of today. If any are overdue, add the longest-overdue one due today, including all ties; if none are, add the earliest-required one on its prescribed date, including all same-date ties. Finally, identify the due date with the most action items in the latest list, selecting the earliest date if tied, and delete every action item on the selected date.",
+    "analysis": "1. Identify Cleaning Cloth from the video.\n2. Evaluate usage history, purchase information, maintenance history and manual care requirements, maximum service-life dates, retain/replace/dispose decisions, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to iron Cleaning Cloth, due on 2026-09-02.\n4. Add an action to wash Cleaning Cloth, due on 2026-08-31.\n5. Remove an action to dry Mobile Phone, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Cleaning Cloth",
+          "required_action": "iron",
+          "due_date": "2026-09-02"
+        }
+      },
+      {
+        "tool_name": "add_to_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Cleaning Cloth",
+          "required_action": "wash",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_household_action_list",
+        "parameters": {
+          "user_id": "household_user_03",
+          "name": "Mobile Phone",
+          "required_action": "dry",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "household4",
+    "image_path": "household4.mp4",
+    "image_description": "You are currently at home.",
+    "key": "name",
+    "value": [
+      "Cleaning Cloth"
+    ],
+    "scenario_id": 15
+  }
+]

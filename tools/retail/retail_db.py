@@ -169,14 +169,14 @@ class RetailDB:
                         for item in list_info.get("items", [])
                     ]
 
-    def add_product(self, name: str, category: str, price: float, tax_rate: float, discount: float,
+    def add_product(self, product_name: str, category: str, price: float, tax_rate: float, discount: float,
                     nutritional_characteristics: List[str], taste: List[str], country_of_origin: str,
                     nutrition: Dict[str, Any], allergens: Optional[List[str]] = None, sell_type: str = "single_item") -> Dict[str, Any]:
         """Add or update a product in the global catalog (adapt to new tool parameters)."""
         try:
             nutrition_obj = NutritionInfo(**nutrition)
             product = Product(
-                name=name.lower(),
+                name=product_name.lower(),
                 category=category.lower(),
                 sell_type=sell_type.lower(),
                 price=price,
@@ -188,16 +188,16 @@ class RetailDB:
                 nutrition=nutrition_obj,
                 allergens=allergens if allergens else []
             )
-            self.catalog[name.lower()] = product
-            return {"status": "success", "message": f"Product '{name}' added/updated successfully."}
+            self.catalog[product_name.lower()] = product
+            return {"status": "success", "message": f"Product '{product_name}' added/updated successfully."}
         except Exception as e:
             return {"status": "error", "message": f"Failed to add/update product: {str(e)}"}
 
-    def delete_product(self, name: str) -> Dict[str, Any]:
+    def delete_product(self, product_name: str) -> Dict[str, Any]:
         """Delete a product from the catalog by name (use fuzzy matching, return all matching results)."""
-        matches = self._find_matching_products(name)
+        matches = self._find_matching_products(product_name)
         if not matches:
-            return {"status": "error", "message": f"No matching products found for '{name}'."}
+            return {"status": "error", "message": f"No matching products found for '{product_name}'."}
         
         deleted_names = []
         for product in matches:

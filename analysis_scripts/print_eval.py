@@ -37,6 +37,15 @@ FIGURES_DIR = os.path.join(EVAL_RESULT_DIR, "figures")
 
 os.makedirs(FIGURES_DIR, exist_ok=True)
 
+
+def save_figure_pair(png_path, *, dpi=200, bbox_inches="tight"):
+    """Save the current Matplotlib figure as both PNG and vector PDF."""
+    stem, extension = os.path.splitext(png_path)
+    if extension.lower() != ".png":
+        raise ValueError(f"Expected a .png output path, got: {png_path}")
+    plt.savefig(png_path, dpi=dpi, bbox_inches=bbox_inches)
+    plt.savefig(f"{stem}.pdf", bbox_inches=bbox_inches)
+
 # =========================
 # Global Plot Configuration
 # =========================
@@ -51,51 +60,51 @@ plt.rcParams["font.size"] = 12
 # =========================
 MODEL_NAMES = {
     "glm-5v-turbo": "GLM-5V-Turbo",
-    "qwen3-vl-225b": "Qwen3-VL-225B",
+    "qwen3-vl-235b": "Qwen3-VL-235B",
     "qwen3.6-plus": "Qwen3.6-Plus",
     "Qwen3.5-397B-A17B": "Qwen3.5-397B",
     "gemini-3.1-pro-preview": "Gemini-3.1-Pro",
-    "kimi-k2.5": "Kimi-K2.5",
-    "mimo-v2-omni": "Xiaomi-Mimo",
+    "kimi-k2.6": "Kimi-K2.6",
+    "mimo-v2.5-omni": "MiMo-V2.5-Omni",
     "doubao-seed-2-0-pro-260215": "Doubao"
 }
 
 LOGO_FILES = {
     "glm-5v-turbo": "chatglm-color.png",
-    "qwen3-vl-225b": "qwen-color.png",
+    "qwen3-vl-235b": "qwen-color.png",
     "qwen3.6-plus": "qwen-color.png",
     "Qwen3.5-397B-A17B": "qwen-color.png",
     "gemini-3.1-pro-preview": "gemini-color.png",
-    "kimi-k2.5": "kimi.png",
-    "mimo-v2-omni": "xiaomimimo.png",
+    "kimi-k2.6": "kimi.png",
+    "mimo-v2.5-omni": "xiaomimimo.png",
     "doubao-seed-2-0-pro-260215": "doubao-color.png"
 }
 
 MODEL_COLORS = {
     "glm-5v-turbo": "#A23B72",
-    "qwen3-vl-225b": "#F18F01",
+    "qwen3-vl-235b": "#F18F01",
     "qwen3.6-plus": "#C73E1D",
     "Qwen3.5-397B-A17B": "#3B1F2B",
     "gemini-3.1-pro-preview": "#0F4C5C",
-    "kimi-k2.5": "#9BC53D",
-    "mimo-v2-omni": "#E55934",
+    "kimi-k2.6": "#9BC53D",
+    "mimo-v2.5-omni": "#E55934",
     "doubao-seed-2-0-pro-260215": "#5BC0EB"
 }
 
 LIGHT_COLORS = {
     "glm-5v-turbo": "#E6A8D7",
-    "qwen3-vl-225b": "#F9C74F",
+    "qwen3-vl-235b": "#F9C74F",
     "qwen3.6-plus": "#FFB4A2",
     "Qwen3.5-397B-A17B": "#A89F91",
     "gemini-3.1-pro-preview": "#8DCAE0",
-    "kimi-k2.5": "#C7E9B4",
-    "mimo-v2-omni": "#FFC8A2",
+    "kimi-k2.6": "#C7E9B4",
+    "mimo-v2.5-omni": "#FFC8A2",
     "doubao-seed-2-0-pro-260215": "#B5E2F0"
 }
 
 MODEL_ORDER = list(MODEL_NAMES.keys())
 
-SCENARIOS = ["retail", "restaurant", "order", "kitchen"]
+SCENARIOS = ["retail", "restaurant", "kitchen", "warehouse", "household"]
 DIFFICULTIES = ["easy", "hard", "static"]
 
 
@@ -169,6 +178,17 @@ def normalize_rate(x):
     return x
 
 
+def is_complete_summary_item(item):
+    """Exclude partial result files from every reported accuracy aggregate."""
+    if item.get("error"):
+        return False
+    if "included_in_summary" in item:
+        return bool(item["included_in_summary"])
+    total = item.get("total_scenarios", 0)
+    valid = item.get("valid_scenarios", 0)
+    return total > 0 and valid == total
+
+
 def load_logo_image(model, zoom=0.12):
     logo_file = LOGO_FILES.get(model)
     if not logo_file:
@@ -190,6 +210,7 @@ def load_logo_image(model, zoom=0.12):
 def get_four_rates_by_difficulty(summary):
     """
     Extract four metrics by difficulty: micro_accuracy, tool_based_success_rate, result_based_success_rate, joint_success_rate
+    Only complete files are included and each file is weighted by its valid task count.
     Returns: {difficulty: {"micro": x, "tool": x, "result": x, "joint": x}}
     """
     result = {d: {"micro": 0.0, "tool": 0.0, "result": 0.0, "joint": 0.0} for d in DIFFICULTIES}
@@ -197,19 +218,34 @@ def get_four_rates_by_difficulty(summary):
         return result
 
     all_results = summary.get("all_results", [])
-    buckets = {d: {"micro": [], "tool": [], "result": [], "joint": []} for d in DIFFICULTIES}
+    buckets = {
+        d: {"micro": [], "tool": [], "result": [], "joint": [], "weights": []}
+        for d in DIFFICULTIES
+    }
 
     for item in all_results:
+        if not is_complete_summary_item(item):
+            continue
         mode = item.get("mode")
         if mode in DIFFICULTIES:
+            buckets[mode]["weights"].append(item.get("valid_scenarios", 0))
             buckets[mode]["micro"].append(normalize_rate(item.get("micro_accuracy", 0)))
             buckets[mode]["tool"].append(normalize_rate(item.get("tool_based_success_rate", 0)))
             buckets[mode]["result"].append(normalize_rate(item.get("result_based_success_rate", 0)))
             buckets[mode]["joint"].append(normalize_rate(item.get("joint_success_rate", 0)))
 
     for d in DIFFICULTIES:
+        total_weight = sum(buckets[d]["weights"])
         for key in ["micro", "tool", "result", "joint"]:
-            result[d][key] = mean_or_zero(buckets[d][key])
+            if total_weight > 0:
+                result[d][key] = sum(
+                    rate * weight
+                    for rate, weight in zip(
+                        buckets[d][key], buckets[d]["weights"]
+                    )
+                ) / total_weight
+            else:
+                result[d][key] = mean_or_zero(buckets[d][key])
     return result
 
 
@@ -233,20 +269,41 @@ def get_joint_success_rate_by_scenario(summary):
     bucket = defaultdict(list)
 
     for item in all_results:
+        if not is_complete_summary_item(item):
+            continue
         scenario = item.get("scenario")
         if scenario in SCENARIOS:
-            bucket[scenario].append(normalize_rate(item.get("joint_success_rate", 0)))
+            bucket[scenario].append((
+                normalize_rate(item.get("joint_success_rate", 0)),
+                item.get("valid_scenarios", 0),
+            ))
 
     for s in SCENARIOS:
-        result[s] = mean_or_zero(bucket[s])
+        total_weight = sum(weight for _, weight in bucket[s])
+        if total_weight > 0:
+            result[s] = sum(
+                rate * weight for rate, weight in bucket[s]
+            ) / total_weight
+        else:
+            result[s] = mean_or_zero([rate for rate, _ in bucket[s]])
     return result
 
 
 def get_overall_joint_success_rate(summary):
     if not summary:
         return 0.0
-    s = summary.get("summary", {})
-    return normalize_rate(s.get("avg_joint_success_rate", 0))
+    complete_items = [
+        item for item in summary.get("all_results", [])
+        if is_complete_summary_item(item)
+    ]
+    total = sum(item.get("valid_scenarios", 0) for item in complete_items)
+    if total <= 0:
+        return 0.0
+    return sum(
+        normalize_rate(item.get("joint_success_rate", 0))
+        * item.get("valid_scenarios", 0)
+        for item in complete_items
+    ) / total
 
 
 def get_metrics_from_summary(summary):
@@ -256,6 +313,27 @@ def get_metrics_from_summary(summary):
     """
     if not summary:
         return {"avg_tokens": 0.0, "avg_rounds": 0.0, "avg_tool_calls": 0.0}
+
+    complete_items = [
+        item for item in summary.get("all_results", [])
+        if is_complete_summary_item(item)
+    ]
+    if summary.get("all_results"):
+        total = sum(item.get("valid_scenarios", 0) for item in complete_items)
+        if total <= 0:
+            return {"avg_tokens": 0.0, "avg_rounds": 0.0, "avg_tool_calls": 0.0}
+
+        def weighted(key):
+            return sum(
+                (item.get(key, 0) or 0) * item.get("valid_scenarios", 0)
+                for item in complete_items
+            ) / total
+
+        return {
+            "avg_tokens": float(weighted("avg_input_tokens") + weighted("avg_output_tokens")),
+            "avg_rounds": float(weighted("avg_rounds_count")),
+            "avg_tool_calls": float(weighted("avg_tool_calls_count")),
+        }
 
     s = summary.get("summary", {})
 
@@ -413,7 +491,7 @@ def plot_chart2_joint_success_by_scenario(models):
     print("Plotting Chart 2: Joint success rate by scenario (bar chart)")
 
     x = np.arange(len(models))
-    width = 0.18
+    width = 0.8 / len(SCENARIOS)
 
     scenario_data = {s: [] for s in SCENARIOS}
     for model in models:
@@ -427,35 +505,36 @@ def plot_chart2_joint_success_by_scenario(models):
     colors = {
         "retail": "#2E86AB",
         "restaurant": "#E55934",
-        "order": "#3B1F2B",
-        "kitchen": "#9BC53D"
+        "kitchen": "#9BC53D",
+        "warehouse": "#7B61A8",
+        "household": "#F2B134",
     }
 
     for idx, scenario in enumerate(SCENARIOS):
         ax.bar(
-            x + (idx - 1.5) * width,
+            x + (idx - (len(SCENARIOS) - 1) / 2) * width,
             scenario_data[scenario],
             width=width,
-            label=scenario,
+            label=scenario.capitalize(),
             color=colors[scenario],
             edgecolor="white",
             linewidth=1.2
         )
 
-    ax.set_xlabel("Models", fontsize=15)
-    ax.set_ylabel("Joint Success Rate (%)", fontsize=15)
+    ax.set_ylabel("Joint Success Rate (%)", fontsize=19)
     # No title
     ax.set_xticks(x)
     ax.grid(True, axis="y", linestyle="--", alpha=0.3)
-    ax.legend(fontsize=12)
+    ax.tick_params(axis="y", labelsize=16)
+    ax.legend(fontsize=15)
 
     ymax = max([max(v) if v else 0 for v in scenario_data.values()] + [5])
     ax.set_ylim(0, min(100, ymax + 10))
 
-    add_model_logos_below_axis(ax, models, y_offset_axes=-0.14, zoom=0.06, fontsize=9)
+    add_model_logos_below_axis(ax, models, y_offset_axes=-0.14, zoom=0.06, fontsize=10)
 
     save_path = os.path.join(FIGURES_DIR, "chart2_joint_success_by_scenario.png")
-    plt.savefig(save_path, dpi=200, bbox_inches="tight")
+    save_figure_pair(save_path)
     plt.close()
 
 
@@ -615,13 +694,15 @@ def _draw_single_donut(ax, props, model, logo_zoom=0.10, name_fontsize=10, pct_f
 
 
 def plot_chart3a_pie_by_model(models):
-    """Chart 3a: Overall error reason donut for 8 models, 2x4 grid"""
-    print("Plotting Chart 3a: Overall error reason donut for 8 models (2x4)")
+    """Chart 3a: Overall error reason donuts in a dynamic grid."""
+    print(f"Plotting Chart 3a: Overall error reason donuts for {len(models)} models")
 
     _, overall_data = load_all_error_analysis()
 
-    nrows, ncols = 2, 4
-    fig, axes = plt.subplots(nrows, ncols, figsize=(20, 11))
+    ncols = min(4, max(1, len(models)))
+    nrows = math.ceil(len(models) / ncols)
+    fig, axes = plt.subplots(nrows, ncols, figsize=(ncols * 5, nrows * 5.5))
+    axes = np.asarray(axes, dtype=object).reshape(nrows, ncols)
 
     for idx, model in enumerate(models):
         r, c = divmod(idx, ncols)
@@ -646,24 +727,25 @@ def plot_chart3a_pie_by_model(models):
     plt.tight_layout(rect=[0, 0.03, 1, 1.0])
 
     save_path = os.path.join(FIGURES_DIR, "chart3a_error_pie_by_model.png")
-    plt.savefig(save_path, dpi=200, bbox_inches="tight")
+    save_figure_pair(save_path)
     plt.close()
     print(f"Saved: {save_path}")
 
 
 def plot_chart3b_pie_by_model_scenario(models):
-    """Chart 3b: Error reason donut for 4 scenarios x 8 models, 4x8 grid"""
-    print("Plotting Chart 3b: Error reason donut for 4 scenarios x 8 models (4x8)")
+    """Chart 3b: Error reason donuts by scenario and model."""
+    print(f"Plotting Chart 3b: Error reason donuts for {len(SCENARIOS)} scenarios")
 
     per_scenario, _ = load_all_error_analysis()
 
     scenario_labels = {
         "retail": "Retail", "restaurant": "Restaurant",
-        "order": "Order", "kitchen": "Kitchen"
+        "kitchen": "Kitchen", "warehouse": "Warehouse",
+        "household": "Household",
     }
 
-    nrows = len(SCENARIOS)  # 4
-    ncols = len(models)     # 8
+    nrows = len(SCENARIOS)
+    ncols = len(models)
     fig, axes = plt.subplots(nrows, ncols, figsize=(ncols * 3, nrows * 3.5))
 
     for row, scenario in enumerate(SCENARIOS):
@@ -688,7 +770,7 @@ def plot_chart3b_pie_by_model_scenario(models):
     plt.tight_layout(rect=[0.03, 0.03, 1, 1.0])
 
     save_path = os.path.join(FIGURES_DIR, "chart3b_error_pie_by_model_scenario.png")
-    plt.savefig(save_path, dpi=200, bbox_inches="tight")
+    save_figure_pair(save_path)
     plt.close()
     print(f"Saved: {save_path}")
 
@@ -768,7 +850,7 @@ def plot_chart4_tokens_vs_success(models):
     ax.set_ylim(max(0, ymin - 2), min(100, ymax + 4))
 
     save_path = os.path.join(FIGURES_DIR, "chart4_tokens_vs_success.png")
-    plt.savefig(save_path, dpi=200, bbox_inches="tight")
+    save_figure_pair(save_path)
     plt.close()
 
 
@@ -802,7 +884,7 @@ def plot_chart5_rounds_vs_success(models):
     ax.set_ylim(max(0, ymin - 2), min(100, ymax + 4))
 
     save_path = os.path.join(FIGURES_DIR, "chart5_rounds_vs_success.png")
-    plt.savefig(save_path, dpi=200, bbox_inches="tight")
+    save_figure_pair(save_path)
     plt.close()
 
 
@@ -836,7 +918,7 @@ def plot_chart6_tool_calls_vs_success(models):
     ax.set_ylim(max(0, ymin - 2), min(100, ymax + 4))
 
     save_path = os.path.join(FIGURES_DIR, "chart6_tool_calls_vs_success.png")
-    plt.savefig(save_path, dpi=200, bbox_inches="tight")
+    save_figure_pair(save_path)
     plt.close()
 
 

@@ -1,0 +1,1325 @@
+[
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the last Monday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the black block in the box slot on the right and the upright light-colored strip with holes and determine whether they are no more than one month apart. If they are, you explain that after the earlier-expiring equipment is retired, the warehouse must still maintain the storage-support capability it performs; ask the AI Service Agent to record an item for new equipment to take over in the action list, using the earlier expiration date. If they are not, you explain that the black block will no longer be retained and no replacement will be provided; ask the AI Service Agent to register its removal from the warehouse using its expiration date. Use today for dates that have passed. Next, determine whether the two pieces’ latest retrievable use dates are more than three months apart. If they are, register every overdue routine maintenance action for the earlier-used equipment, all due today. If they are not, register only the later-used equipment’s least-overdue action. If the target equipment has no overdue actions, instead register its earliest-prescribed action using that date. Then, using the brand shared by the two pieces as a condition, find the piece of cleaning equipment with the most maintenance actions required by the manual and the earliest purchase date. Register its least-overdue action if overdue or its earliest-prescribed action otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to find the equipment with the most action items and delete those pieces’ latest-due items; delete all ties in count or date.",
+    "analysis": "1. Identify Storage Battery, Metal Bracket from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Metal Bracket, due on 2027-01-14.\n4. Add an action to clean Storage Battery, due on 2026-08-31.\n5. Add an action to inspect Storage Battery, due on 2026-08-31.\n6. Add an action to condition Professional Wet Floor Squeegee, due on 2026-09-30.\n7. Remove the action to clean Storage Battery that is due on 2026-08-31.\n8. Remove the action to inspect Storage Battery that is due on 2026-08-31.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Metal Bracket",
+          "required_action": "replace",
+          "due_date": "2027-01-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Storage Battery",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Professional Wet Floor Squeegee",
+          "required_action": "condition",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Storage Battery",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Storage Battery",
+      "Metal Bracket"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the first Sunday of August 2026. First, you ask the AI Service Agent to compare whether the maximum-service-life dates of the green strip beside the block on the right and the horizontal red strip at the bottom fall in the same calendar month. If they do, you explain that the red strip is currently only temporarily connected to the continuity test bench and will continue to be retained and used; ask the AI Service Agent to add an arrangement to return it to the ideal storage location in the files to the action list, due on August 4, 2026. If they do not, you explain that the green strip’s connector currently has a fault confirmed to be repairable and that you want to continue using this current strip; ask the AI Service Agent to register a repair action accordingly, also due on August 4, 2026. Then determine whether the two pieces’ latest retrievable use dates are more than two months apart. If they are, add every overdue routine maintenance action for the earlier-used equipment separately, all due today. If they are not, register the later-used equipment’s least-overdue action. If none is overdue, register the earliest-prescribed action using that date. Next, using both pieces’ brand as a condition, select the piece of measuring and inspection equipment with the most maintenance actions. Register its longest-overdue action if overdue or its latest-prescribed action otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to find the globally earliest due date. If it is earlier than today, change all action items on that date to today; otherwise, postpone the items on that date by one day.",
+    "analysis": "1. Identify Green Electrical Wire, Red Electrical Wire from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Red Electrical Wire, due on 2026-08-04.\n4. Add an action to clean Red Electrical Wire, due on 2026-08-02.\n5. Add an action to inspect Red Electrical Wire, due on 2026-08-02.\n6. Add an action to calibrate Workshop Digital Angle Gauge, due on 2027-07-31.\n7. Remove the action to clean Red Electrical Wire that is due on 2026-08-02.\n8. Remove the action to inspect Red Electrical Wire that is due on 2026-08-02.\n9. Add an action to clean Red Electrical Wire, due on 2026-08-03.\n10. Add an action to inspect Red Electrical Wire, due on 2026-08-03.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Red Electrical Wire",
+          "required_action": "relocate",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Red Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Workshop Digital Angle Gauge",
+          "required_action": "calibrate",
+          "due_date": "2027-07-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Red Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Red Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-03"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Green Electrical Wire",
+      "Red Electrical Wire"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the first Wednesday of August 2026. You ask the AI Service Agent to compare the latest retrievable use dates of the large dust-covered component in the middle and the silver tool beside your right hand and determine whether they are more than two months apart. If they are, you explain that the large component’s starting assembly currently cannot work normally, that the fault has been confirmed to be repairable, and that you intend to retain the original; ask the AI Service Agent to create a new repair item in the action list accordingly, due on August 7, 2026. If they are not, you explain that the silver tool will no longer be retained and no replacement will be purchased; ask the AI Service Agent to register its removal from the warehouse, due today. Next, compare the numbers of routine maintenance actions required by the two manuals. If the numbers differ, register the least-overdue action for the equipment with more actions. If the numbers are equal, separately register each piece’s longest-overdue action. If the target scope has no overdue actions, instead register the earliest-prescribed action. Overdue items are due today and non-overdue items use their prescribed dates. Then, using the silver tool’s brand as a condition, find the piece of material-handling and lifting equipment with the most maintenance actions. Register its longest-overdue action due today, or its earliest-prescribed action if none is overdue. Finally, you ask the AI Service Agent to find the due date with the most action items, choosing the earlier day if tied. Divide its items into tiers by the total number of actions their equipment has in the updated list: the highest-action tier retains the original date, successively lower tiers are postponed by one day, and a tier uses the same date. If there is only one action-total tier that day, postpone all items by one day.",
+    "analysis": "1. Identify Engine, Pliers from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Engine, due on 2026-08-07.\n4. Add an action to sharpen Pliers, due on 2026-08-05.\n5. Add an action to lubricate Workshop Low-Profile Dolly, due on 2026-08-05.\n6. Remove the action to sharpen Pliers that is due on 2026-08-05.\n7. Add an action to sharpen Pliers, due on 2026-08-06.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Engine",
+          "required_action": "repair",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Pliers",
+          "required_action": "sharpen",
+          "due_date": "2026-08-05"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workshop Low-Profile Dolly",
+          "required_action": "lubricate",
+          "due_date": "2026-08-05"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Pliers",
+          "required_action": "sharpen",
+          "due_date": "2026-08-05"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Pliers",
+          "required_action": "sharpen",
+          "due_date": "2026-08-06"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Engine",
+      "Pliers"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the second Saturday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the object below the glossy blue item at the lower left and the black block in the box slot on the right. If they are no more than two years apart, you explain that after the earlier-expiring equipment is retired, new equipment must still take over its function; ask the AI Service Agent to add a replacement arrangement to the action list, using the earlier expiration date. If they are more than two years apart, you explain that the lower-left item will no longer be retained after expiration and no replacement of the same type will be acquired; ask the AI Service Agent to register its removal from the warehouse using its expiration date. Change passed dates to today. Next, check the two pieces’ maintenance-action sets and separately find their longest-overdue actions. If the sets are the same, register only the more-overdue of the two actions, due today. If the sets differ, separately register the longest-overdue action from each set. If a piece has no overdue actions, substitute its earliest-prescribed action and its date; process all ties. Then, among other storage equipment with the same country of origin as the two pieces, find the piece that reaches its maximum service life earliest and register its least-overdue action according to the history and manual; if none is overdue, register its earliest-prescribed action. The due dates are all today. If no other candidate exists, handle the earlier-expiring anchor. Finally, count items by action type and delete the earliest-due item from the most numerous type; delete all ties in type or date.",
+    "analysis": "1. Identify Tire, Storage Battery from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Storage Battery, due on 2027-01-31.\n4. Add an action to inspect Tire, due on 2026-08-08.\n5. Add an action to clean Metal Bracket, due on 2026-08-08.\n6. Remove the action to inspect Tire that is due on 2026-08-08.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "replace",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "inspect",
+          "due_date": "2026-08-08"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Metal Bracket",
+          "required_action": "clean",
+          "due_date": "2026-08-08"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "inspect",
+          "due_date": "2026-08-08"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Tire",
+      "Storage Battery"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the second Tuesday of August 2026. You ask the AI Service Agent to determine whether the maximum-service-life dates of the upright light-colored strip with holes and the large dust-covered component in the middle are no more than thirty months apart. If they are, you explain that the light-colored strip is currently only being kept temporarily at the assembly station and will still be used; ask the AI Service Agent to list an action to return it to the location registered in the files, due on August 13, 2026. If they are not, you explain that the large component has an unresolved but repairable transmission fault and that you want to retain the original; ask the AI Service Agent to register a repair item accordingly, also due on August 13, 2026. Then compare the two pieces’ numbers of overdue routine maintenance actions. If the counts are equal, separately find their longest-overdue actions and register only the one with the earlier originally prescribed date. If the counts differ, register the least-overdue action for the piece with more overdue actions. If none is overdue, register the earliest-prescribed action. Overdue items are due today and others retain their prescribed dates. Next, using the light-colored strip’s brand as a condition, select the piece of manual equipment with the most maintenance actions. Register its longest-overdue action due today or its earliest-prescribed action using that date; process all ties. Finally, you ask the AI Service Agent to find the action type covering the most different due dates and change all items of that type on its earliest date to the day after its latest date. If it covers only one date, postpone it by one day; adjust all tied types.",
+    "analysis": "1. Identify Metal Bracket, Engine from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Metal Bracket, due on 2026-08-13.\n4. Add an action to inspect Metal Bracket, due on 2026-08-11.\n5. Add an action to inspect Studio Non-Sparking Mallet, due on 2026-08-11.\n6. Remove the action to clean Storage Battery that is due on 2026-08-16.\n7. Add an action to clean Storage Battery, due on 2026-08-19.\n8. Remove the action to inspect Metal Bracket that is due on 2026-08-11.\n9. Add an action to inspect Metal Bracket, due on 2026-08-18.\n10. Remove the action to inspect Studio Non-Sparking Mallet that is due on 2026-08-11.\n11. Add an action to inspect Studio Non-Sparking Mallet, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Metal Bracket",
+          "required_action": "relocate",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Metal Bracket",
+          "required_action": "inspect",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Studio Non-Sparking Mallet",
+          "required_action": "inspect",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Metal Bracket",
+          "required_action": "inspect",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Metal Bracket",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Studio Non-Sparking Mallet",
+          "required_action": "inspect",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Studio Non-Sparking Mallet",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Metal Bracket",
+      "Engine"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the second Friday of August 2026. You ask the AI Service Agent to compare the maximum-service-life dates of the green strip beside the block on the right and the large dust-covered component in the middle. If they are less than one year apart, you explain that after the earlier-expiring equipment is retired, new equipment must maintain its original power capability; ask the AI Service Agent to register a replacement item in the action list, using the earlier expiration date and today if that date has passed. If they are one year or more apart, you explain that the green strip will no longer be retained after expiration and no replacement will be provided; ask the AI Service Agent to record its removal from the warehouse using its expiration date. Next, determine whether the two pieces’ latest retrievable use dates are less than three months apart. If they are, register each piece’s least-overdue routine maintenance action, both due today. If they are not, register only the earlier-used equipment’s longest-overdue action. If a piece has no overdue actions, instead register its earliest-prescribed action using that date. Then, using the large component’s country of origin as a condition, find the piece of manual equipment with the most maintenance actions. Based on its history and manual, register its least-overdue action if overdue or the middle action by prescribed date otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to find the equipment with the fewest action items and change those pieces’ latest-due items to the day after the globally latest due date; adjust all ties in count or date.",
+    "analysis": "1. Identify Green Electrical Wire, Engine from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Engine, due on 2029-06-05.\n4. Add an action to inspect Green Electrical Wire, due on 2026-08-14.\n5. Add an action to inspect Engine, due on 2026-08-14.\n6. Add an action to clean Studio Long-Reach Pliers, due on 2026-08-14.\n7. Remove the action to inspect Metal Bracket that is due on 2026-08-17.\n8. Add an action to inspect Metal Bracket, due on 2029-06-06.\n9. Remove the action to clean Red Electrical Wire that is due on 2026-08-18.\n10. Add an action to clean Red Electrical Wire, due on 2029-06-06.\n11. Remove the action to inspect Tire that is due on 2026-08-19.\n12. Add an action to inspect Tire, due on 2029-06-06.\n13. Remove the action to inspect Pliers that is due on 2026-08-20.\n14. Add an action to inspect Pliers, due on 2029-06-06.\n15. Remove the action to inspect Green Electrical Wire that is due on 2026-08-14.\n16. Add an action to inspect Green Electrical Wire, due on 2029-06-06.\n17. Remove the action to clean Studio Long-Reach Pliers that is due on 2026-08-14.\n18. Add an action to clean Studio Long-Reach Pliers, due on 2029-06-06.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "replace",
+          "due_date": "2029-06-05"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Green Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "inspect",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Studio Long-Reach Pliers",
+          "required_action": "clean",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Metal Bracket",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Metal Bracket",
+          "required_action": "inspect",
+          "due_date": "2029-06-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2029-06-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tire",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tire",
+          "required_action": "inspect",
+          "due_date": "2029-06-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Pliers",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Pliers",
+          "required_action": "inspect",
+          "due_date": "2029-06-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Green Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Green Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2029-06-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Studio Long-Reach Pliers",
+          "required_action": "clean",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Studio Long-Reach Pliers",
+          "required_action": "clean",
+          "due_date": "2029-06-06"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Green Electrical Wire",
+      "Engine"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the third Monday of August 2026. First, you ask the AI Service Agent to determine whether the maximum-service-life dates of the horizontal red strip at the bottom and the silver tool beside your right hand differ by more than five years. If they do, you explain that the line served by the red strip will be removed after it expires, that the item will no longer be retained, and that no replacement will be replenished; ask the AI Service Agent to add its removal from the warehouse to the action list, using the red strip’s expiration date and today if it has passed. If they do not, you explain that the silver tool currently has a jaw fault confirmed to be repairable and that you want to continue using the original; ask the AI Service Agent to register a repair action accordingly, due on August 19, 2026. Next, determine whether all routine maintenance actions required by the red strip are included among the silver tool’s actions. If they are, handle the actions unique to the silver tool, adding them to the action list with today as the due date if overdue or using the prescribed date if not. If they are not, separately register each piece’s longest-overdue action; if none is overdue, register the earliest-prescribed action. Then, using the red strip’s brand as a condition, find the piece of powered equipment with the most maintenance actions. Register its least-overdue action if overdue or its earliest-prescribed action otherwise, due today or on that date respectively. Finally, using the red strip’s retirement date as the reference, you ask the AI Service Agent to delete all its other action items after that date. If none exists, delete all action items with the latest due date in the entire list.",
+    "analysis": "1. Identify Red Electrical Wire, Pliers from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Red Electrical Wire, due on 2030-03-19.\n4. Add an action to sharpen Pliers, due on 2026-08-17.\n5. Add an action to lubricate Workshop Cordless Rivet Gun, due on 2026-09-30.\n6. Remove the action to dispose of Red Electrical Wire that is due on 2030-03-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Red Electrical Wire",
+          "required_action": "dispose",
+          "due_date": "2030-03-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Pliers",
+          "required_action": "sharpen",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workshop Cordless Rivet Gun",
+          "required_action": "lubricate",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Red Electrical Wire",
+          "required_action": "dispose",
+          "due_date": "2030-03-19"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Red Electrical Wire",
+      "Pliers"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the Thursday of the week containing August 17, 2026. You ask the AI Service Agent to compare 2026 retrievable use records for the black block in the box slot on the right and the equipment below the glossy blue item at the lower left. If exactly one has use records, you explain that the one without records is no longer needed and no replacement of the same type will be purchased; ask the AI Service Agent to register its removal from the warehouse in the action list, due today. If both have records or neither has records, you explain that the lower-left equipment is only being kept temporarily on the maintenance rack and will continue to be used; ask the AI Service Agent to register an action to return it to the ideal storage location in the files, due on August 22, 2026. Then determine whether the two pieces’ maximum-service-life dates are no more than two years apart. If they are, register every overdue routine maintenance action for the earlier-expiring equipment, all due today. If they are not, register only the later-expiring equipment’s least-overdue action. If the target equipment has no overdue actions, register its earliest-prescribed action using that date. Next, among other safety equipment with the same country of origin as both pieces, find the piece with the most retrievable uses in 2026 and register its least-overdue action according to the history and manual, or its earliest-prescribed action if none is overdue. If no other candidate exists, handle the lower-left anchor. Finally, you ask the AI Service Agent to find the due date with the most items, choosing the later day if tied, and postpone all items on that date by one day.",
+    "analysis": "1. Identify Storage Battery, Tire from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Storage Battery, due on 2026-08-20.\n4. Add an action to clean Storage Battery, due on 2026-08-20.\n5. Add an action to inspect Storage Battery, due on 2026-08-20.\n6. Add an action to clean Classic High-Visibility Harness, due on 2026-09-30.\n7. Remove the action to inspect Studio Long-Reach Pliers that is due on 2026-08-20.\n8. Add an action to inspect Studio Long-Reach Pliers, due on 2026-08-21.\n9. Remove the action to dispose of Storage Battery that is due on 2026-08-20.\n10. Add an action to dispose of Storage Battery, due on 2026-08-21.\n11. Remove the action to clean Storage Battery that is due on 2026-08-20.\n12. Add an action to clean Storage Battery, due on 2026-08-21.\n13. Remove the action to inspect Storage Battery that is due on 2026-08-20.\n14. Add an action to inspect Storage Battery, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "dispose",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Classic High-Visibility Harness",
+          "required_action": "clean",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Long-Reach Pliers",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Long-Reach Pliers",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "dispose",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "dispose",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Storage Battery",
+      "Tire"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the fourth Sunday of August 2026. You ask the AI Service Agent to compare the latest retrievable use dates of the upright light-colored strip with holes and the horizontal red strip at the bottom and determine whether they are no more than ten days apart. If they are, you explain that the light-colored strip’s mounting hole is currently deformed, that the fault has been confirmed to be repairable, and that you still want to retain the original; ask the AI Service Agent to add a repair item to the action list accordingly, due on August 25, 2026. If they are not, you explain that after the red strip reaches its maximum service life, a new item must continue performing its circuit function; ask the AI Service Agent to register a replacement arrangement using its expiration date and today if that date has passed. Next, check the two pieces’ maintenance-action sets. If they are the same, compare the prescribed dates for each common action, find the actions on which the same equipment has the earlier date, and register these overdue actions for the equipment that has earlier dates on more actions, due today. If the counts on both sides are equal, register each piece’s longest-overdue action. If the sets differ, separately register their longest-overdue actions; when none is overdue, register the earliest-prescribed action. Then, filter other equipment using the light-colored strip’s brand and the red strip’s ideal storage location together, find the piece with the latest latest-use date, and register its least-overdue action according to the history and manual, or its earliest-prescribed action if none is overdue. If no candidate exists, handle the later-used anchor. Finally, find the most frequent action type and delete its latest-due item; if types or dates tie, delete all items with the latest due date.",
+    "analysis": "1. Identify Metal Bracket, Red Electrical Wire from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Metal Bracket, due on 2026-08-25.\n4. Add an action to clean Red Electrical Wire, due on 2026-08-23.\n5. Add an action to inspect Red Electrical Wire, due on 2026-08-23.\n6. Add an action to inspect Contemporary Magnetic Job Holder, due on 2026-09-30.\n7. Remove the action to clean Red Electrical Wire that is due on 2026-08-23.\n8. Remove the action to inspect Contemporary Magnetic Job Holder that is due on 2026-09-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Metal Bracket",
+          "required_action": "repair",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Red Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Contemporary Magnetic Job Holder",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Contemporary Magnetic Job Holder",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Metal Bracket",
+      "Red Electrical Wire"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the last Wednesday of August 2026. First, you ask the AI Service Agent to compare the maximum-service-life dates of the large dust-covered component in the middle and the lower-left equipment. If they are no more than one year apart, you explain that the large component is currently only being kept temporarily in the dynamometer test area and will still be used; ask the AI Service Agent to list an item to return it to the location registered in the files, due on August 28, 2026. If they are more than one year apart, you explain that the lower-left equipment will no longer be retained after expiration and no replacement will be purchased; ask the AI Service Agent to register its removal from the warehouse using its expiration date and today if that date has passed. Then determine whether the two pieces’ latest retrievable use dates are more than two months apart. If they are, register every overdue routine maintenance action for the earlier-used equipment, all due today. If they are not, separately register each piece’s least-overdue action. If none is overdue, register the earliest-prescribed action using that date. Next, using the large component’s country of origin as a condition, find the piece of measuring and inspection equipment with the most maintenance actions. Register its least-overdue action if overdue or sort the prescribed dates and register the middle action otherwise, due today or on that prescribed date respectively. Finally, count the action items on each due date and move all records on the date with the fewest items to the day after the date with the most items. If both are the same day, postpone that day’s items by one day; when counts tie, choose the earlier date for both.",
+    "analysis": "1. Identify Engine, Tire from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Engine, due on 2026-08-28.\n4. Add an action to clean Tire, due on 2026-08-26.\n5. Add an action to inspect Tire, due on 2026-08-26.\n6. Add an action to calibrate Residential Digital Angle Gauge, due on 2027-01-31.\n7. Remove the action to clean Studio Folding Platform Cart that is due on 2026-08-18.\n8. Add an action to clean Studio Folding Platform Cart, due on 2026-08-27.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Engine",
+          "required_action": "relocate",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tire",
+          "required_action": "clean",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tire",
+          "required_action": "inspect",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Residential Digital Angle Gauge",
+          "required_action": "calibrate",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Studio Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Studio Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-27"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Engine",
+      "Tire"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the last Saturday of August 2026. You ask the AI Service Agent to check the maintenance-action sets of the green strip beside the block on the right and the black block in the box slot, and compare their maximum-service-life dates. If the action sets are the same and the expiration dates differ by more than three years, you explain that after the earlier-expiring equipment is retired, new equipment must continue its function; ask the AI Service Agent to list a replacement arrangement in the action list, using the earlier expiration date. Otherwise, you explain that the green strip currently has an insulation-connection fault confirmed to be repairable and that you want to retain the current original; ask the AI Service Agent to register a repair item accordingly, due on August 31, 2026. Use today if the expiration date has already passed. Next, compare the two pieces’ retrievable use counts in 2026. If the counts differ, register every overdue routine maintenance action for the more-used equipment, all due today. If the counts are equal, separately register each piece’s longest-overdue action. If the target equipment has no overdue actions, register its earliest-prescribed action using that date. Then, using the green strip’s country of origin as a condition, find the piece of cleaning equipment with the most maintenance actions. Register its least-overdue action if overdue or its earliest-prescribed action otherwise, due today or on that date respectively. Finally, you ask the AI Service Agent to find the equipment with the greatest span between its earliest and latest due dates and change those pieces’ earliest-date items to the day after their latest dates. For equipment with only one date, postpone all its items by one day.",
+    "analysis": "1. Identify Green Electrical Wire, Storage Battery from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Storage Battery, due on 2027-01-31.\n4. Add an action to clean Green Electrical Wire, due on 2026-08-29.\n5. Add an action to inspect Green Electrical Wire, due on 2026-08-29.\n6. Add an action to condition Everyday Parts Cleaning Basin, due on 2026-10-31.\n7. Remove the action to clean Studio Non-Sparking Mallet that is due on 2026-08-19.\n8. Add an action to clean Studio Non-Sparking Mallet, due on 2026-08-20.\n9. Remove the action to inspect Studio Long-Reach Pliers that is due on 2026-08-20.\n10. Add an action to inspect Studio Long-Reach Pliers, due on 2026-08-21.\n11. Remove the action to inspect Workshop Offset Ratchet that is due on 2026-08-21.\n12. Add an action to inspect Workshop Offset Ratchet, due on 2026-08-22.\n13. Remove the action to replace Storage Battery that is due on 2027-01-31.\n14. Add an action to replace Storage Battery, due on 2027-02-01.\n15. Remove the action to clean Green Electrical Wire that is due on 2026-08-29.\n16. Add an action to clean Green Electrical Wire, due on 2026-08-30.\n17. Remove the action to inspect Green Electrical Wire that is due on 2026-08-29.\n18. Add an action to inspect Green Electrical Wire, due on 2026-08-30.\n19. Remove the action to condition Everyday Parts Cleaning Basin that is due on 2026-10-31.\n20. Add an action to condition Everyday Parts Cleaning Basin, due on 2026-11-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "replace",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Green Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Green Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Parts Cleaning Basin",
+          "required_action": "condition",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Non-Sparking Mallet",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Non-Sparking Mallet",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Long-Reach Pliers",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Long-Reach Pliers",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Workshop Offset Ratchet",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Workshop Offset Ratchet",
+          "required_action": "inspect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "replace",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Storage Battery",
+          "required_action": "replace",
+          "due_date": "2027-02-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Green Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Green Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Green Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Green Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Parts Cleaning Basin",
+          "required_action": "condition",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Parts Cleaning Basin",
+          "required_action": "condition",
+          "due_date": "2026-11-01"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Green Electrical Wire",
+      "Storage Battery"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the first Saturday of August 2026. You ask the AI Service Agent to compare the purchase dates of the silver tool beside your right hand and the upright light-colored strip with holes and determine whether they are more than five years apart. If they are, you explain that the silver tool is currently only being kept temporarily on the quality-review table and will continue to be used; ask the AI Service Agent to create an arrangement in the action list to return it to the ideal storage location in the files, due on August 3, 2026. If they are not more than five years apart, you explain that the light-colored strip will no longer be retained and no replacement will be provided; ask the AI Service Agent to register its removal from the warehouse, due today. Next, compare the numbers of routine maintenance actions required by the two manuals. If the numbers differ, handle the equipment with more actions and register its least-overdue action. If the numbers are equal, register each piece’s longest-overdue action. If none is overdue, register the earliest-prescribed action; overdue items are due today and others retain their prescribed dates. Then, using the light-colored strip’s brand as a condition, find the piece of manual equipment with the most maintenance actions. Register its least-overdue action if overdue or the middle action by prescribed date otherwise, due today or on that prescribed date respectively. Finally, you ask the AI Service Agent to find the equipment with the fewest action items and delete those pieces’ latest-due items; delete all ties in count or date.",
+    "analysis": "1. Identify Pliers, Metal Bracket from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Pliers, due on 2026-08-03.\n4. Add an action to sharpen Pliers, due on 2026-08-01.\n5. Add an action to clean Studio Non-Sparking Mallet, due on 2026-08-01.\n6. Remove the action to inspect Green Electrical Wire that is due on 2026-08-17.\n7. Remove the action to clean Storage Battery that is due on 2026-08-16.\n8. Remove the action to clean Engine that is due on 2026-08-18.\n9. Remove the action to clean Studio Non-Sparking Mallet that is due on 2026-08-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Pliers",
+          "required_action": "relocate",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Pliers",
+          "required_action": "sharpen",
+          "due_date": "2026-08-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Studio Non-Sparking Mallet",
+          "required_action": "clean",
+          "due_date": "2026-08-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Green Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Engine",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Studio Non-Sparking Mallet",
+          "required_action": "clean",
+          "due_date": "2026-08-01"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Pliers",
+      "Metal Bracket"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the first Tuesday of August 2026. You ask the AI Service Agent to determine whether the horizontal red strip at the bottom and the green strip on the right have exactly the same routine maintenance actions—the maintenance intervals need not be the same—and whether their maximum-service-life dates fall in the same calendar month. If both conditions hold, you explain that after the earlier-expiring strip is retired, the warehouse still needs to retain the same circuit capability; ask the AI Service Agent to add an arrangement for a new strip to take over to the action list, using the earlier expiration date and today if it has passed. Otherwise, you explain that the strip with fewer currently retrievable uses will no longer be retained and no replacement will be purchased; ask the AI Service Agent to register its removal from the warehouse using its expiration date. Then compare the prescribed dates for each maintenance action common to the two strips and count which strip has the earlier prescribed date on more actions. Register these overdue actions for the strip with the majority, due today. If the counts are equal, register each strip’s longest-overdue action. If nothing is overdue, register the earliest-prescribed action across the two and retain that date. Next, using the brand shared by the two strips as a condition, find the piece of powered equipment with the most maintenance actions. Register its least-overdue action if overdue or its earliest-prescribed action otherwise, due today or on that date respectively. Finally, you ask the AI Service Agent to find the equipment with the most action items and delete those pieces’ earliest-due items; process all ties in count or date.",
+    "analysis": "1. Identify Red Electrical Wire, Green Electrical Wire from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Green Electrical Wire, due on 2030-03-01.\n4. Add an action to clean Red Electrical Wire, due on 2026-08-04.\n5. Add an action to inspect Red Electrical Wire, due on 2026-08-04.\n6. Add an action to lubricate Workshop Cordless Rivet Gun, due on 2026-09-30.\n7. Remove the action to clean Red Electrical Wire that is due on 2026-08-04.\n8. Remove the action to inspect Red Electrical Wire that is due on 2026-08-04.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Green Electrical Wire",
+          "required_action": "replace",
+          "due_date": "2030-03-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Red Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Workshop Cordless Rivet Gun",
+          "required_action": "lubricate",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Red Electrical Wire",
+          "required_action": "clean",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Red Electrical Wire",
+          "required_action": "inspect",
+          "due_date": "2026-08-04"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Red Electrical Wire",
+      "Green Electrical Wire"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the first Friday of August 2026. You ask the AI Service Agent to compare the latest retrievable use dates of the lower-left equipment and the silver tool beside your right hand and determine whether they are more than four months apart. If they are, you explain that the lower-left equipment’s valve connection is currently damaged, that the fault has been confirmed to be repairable, and that you want to retain the original; ask the AI Service Agent to register a repair item in the action list accordingly, due on August 9, 2026. If they are not more than four months apart, you explain that the silver tool will no longer be retained and no replacement will be purchased; ask the AI Service Agent to add its removal from the warehouse, due today. Next, determine whether all the lower-left equipment’s maintenance actions are included among the silver tool’s actions. If they are, register all overdue common actions for the earlier-used equipment and separately add overdue actions unique to the silver tool, all due today. If they are not, separately register each piece’s longest-overdue action. If a relevant scope has no overdue actions, register its earliest-prescribed action using that date. Then, using the lower-left equipment’s country of origin as a condition, find other safety equipment with the most retrievable uses in 2026 and register its least-overdue action according to the history and manual, or its earliest-prescribed action if none is overdue; process all ties in count or date. Finally, count items by action type and delete the latest-due item from the least numerous type; delete all ties in type or date.",
+    "analysis": "1. Identify Tire, Pliers from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Tire, due on 2026-08-09.\n4. Add an action to clean Tire, due on 2026-08-07.\n5. Add an action to inspect Tire, due on 2026-08-07.\n6. Add an action to sharpen Pliers, due on 2026-08-07.\n7. Add an action to clean Classic High-Visibility Harness, due on 2026-09-30.\n8. Remove the action to repair Tire that is due on 2026-08-09.\n9. Remove the action to sharpen Pliers that is due on 2026-08-07.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "repair",
+          "due_date": "2026-08-09"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "clean",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "inspect",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Pliers",
+          "required_action": "sharpen",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Classic High-Visibility Harness",
+          "required_action": "clean",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "repair",
+          "due_date": "2026-08-09"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Pliers",
+          "required_action": "sharpen",
+          "due_date": "2026-08-07"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Tire",
+      "Pliers"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the second Monday of August 2026. You ask the AI Service Agent to compare the purchase dates of the black block in the box slot on the right and the large dust-covered component in the middle and determine whether they are no more than six months apart. If they are, you explain that after the earlier-expiring equipment is retired, new equipment must still continue its existing function; ask the AI Service Agent to register a replacement item in the action list, using the earlier expiration date and today if that date has passed. If they are not, you explain that the large component is currently only being kept temporarily in the power-testing room and will still be used; ask the AI Service Agent to add an action to move it back to the ideal storage location in the files, due on August 12, 2026. Then separately find each piece’s longest-overdue routine maintenance action and determine whether the two prescribed dates are no more than three months apart. If they are, add both to the action list, due today. If they are not, register only the more-overdue action. If a piece has no overdue actions, substitute its earliest-prescribed action and that date; process all ties. Next, among other equipment of both the same category and country of origin as the black block, find the piece that reaches its maximum service life earliest and register its least-overdue action according to the history and manual, or its earliest-prescribed action if none is overdue. If no other candidate exists, handle the black block. Finally, you ask the AI Service Agent to find the due date with the most action items, choosing the later day if tied. Group that day’s items by equipment purchase year: the earliest year retains the original date, subsequent different years are postponed by one day in sequence, and items from the same year use the same date. If the items involve only one purchase year, postpone all of them by one day.",
+    "analysis": "1. Identify Storage Battery, Engine from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Storage Battery, due on 2027-01-31.\n4. Add an action to clean Storage Battery, due on 2026-08-10.\n5. Add an action to clean Engine, due on 2026-08-10.\n6. Add an action to clean Metal Bracket, due on 2026-08-10.\n7. Remove the action to clean Storage Battery that is due on 2026-08-10.\n8. Remove the action to clean Engine that is due on 2026-08-10.\n9. Add an action to clean Storage Battery, due on 2026-08-11.\n10. Add an action to clean Engine, due on 2026-08-11.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Storage Battery",
+          "required_action": "replace",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Metal Bracket",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "clean",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Storage Battery",
+          "required_action": "clean",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "clean",
+          "due_date": "2026-08-11"
+        }
+      }
+    ],
+    "image_name": "warehouse7",
+    "image_path": "warehouse7.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Storage Battery",
+      "Engine"
+    ],
+    "scenario_id": 15
+  }
+]

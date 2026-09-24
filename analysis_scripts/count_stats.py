@@ -1,11 +1,19 @@
 import json
 import re
 import os
+import sys
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, PROJECT_ROOT)
+
+from tools.warehouse import warehouse_init
+from tools.household import household_init
 
 # 1. Count tool numbers
 print('=== Tool Count ===')
-for scene in ['retail', 'kitchen', 'restaurant', 'order']:
-    with open(f'../tools/{scene}/{scene}_tools.json', 'r') as f:
+for scene in ['retail', 'kitchen', 'restaurant', 'warehouse', 'household']:
+    tool_file = 'restaurant6_tools.json' if scene == 'restaurant' else f'{scene}_tools.json'
+    with open(os.path.join(PROJECT_ROOT, 'tools', scene, tool_file), 'r') as f:
         tools = json.load(f)
         print(f'{scene}: {len(tools)}')
 
@@ -13,13 +21,13 @@ for scene in ['retail', 'kitchen', 'restaurant', 'order']:
 print('\n=== Item Count ===')
 
 # Retail
-with open('../tools/retail/retail_init.py', 'r') as f:
+with open(os.path.join(PROJECT_ROOT, 'tools', 'retail', 'retail_init.py'), 'r') as f:
     content = f.read()
     products = re.findall(r'"name":\s*"([^"]+)"', content)
     print(f'retail: {len(set(products))} products')
 
 # Kitchen
-with open('../tools/kitchen/kitchen_init.py', 'r') as f:
+with open(os.path.join(PROJECT_ROOT, 'tools', 'kitchen', 'kitchen_init.py'), 'r') as f:
     content = f.read()
     if '"recipes"' in content:
         parts = content.split('"recipes"')
@@ -31,7 +39,7 @@ with open('../tools/kitchen/kitchen_init.py', 'r') as f:
         print(f'kitchen: {ingredients} ingredients')
 
 # Restaurant
-with open('../tools/restaurant/restaurant_init.py', 'r') as f:
+with open(os.path.join(PROJECT_ROOT, 'tools', 'restaurant', 'restaurant_init.py'), 'r') as f:
     content = f.read()
     if '"set_meals"' in content:
         parts = content.split('"set_meals"')
@@ -41,20 +49,32 @@ with open('../tools/restaurant/restaurant_init.py', 'r') as f:
         dishes = len(re.findall(r'"name":\s*"([^"]+)"', content))
         print(f'restaurant: {dishes} dishes')
 
-# Order
-with open('../tools/order/order_init.py', 'r') as f:
+# Restaurant 6 (multi-restaurant variant)
+with open(os.path.join(PROJECT_ROOT, 'tools', 'restaurant', 'restaurant6_init.py'), 'r') as f:
     content = f.read()
     if '"set_meals"' in content:
         parts = content.split('"set_meals"')
         dishes = len(re.findall(r'"name":\s*"([^"]+)"', parts[0]))
-        print(f'order: {dishes} dishes')
+        print(f'restaurant6: {dishes} dishes')
     else:
         dishes = len(re.findall(r'"name":\s*"([^"]+)"', content))
-        print(f'order: {dishes} dishes')
+        print(f'restaurant6: {dishes} dishes')
+
+# Warehouse and household have one database snapshot per video scenario.
+warehouse_count = sum(
+    len(getattr(warehouse_init, f'warehouse_init_data{number}')['equipment'])
+    for number in range(1, 26)
+)
+household_count = sum(
+    len(getattr(household_init, f'household_init_data{number}')['items'])
+    for number in range(1, 19)
+)
+print(f'warehouse: {warehouse_count} equipment records across database snapshots')
+print(f'household: {household_count} item records across database snapshots')
 
 # 3. Count scenario files
 print('\n=== Scenario File Statistics ===')
-scenarios_dir = '../scenarios/final'
+scenarios_dir = os.path.join(PROJECT_ROOT, 'scenarios', 'final')
 
 # Group by scenario
 scene_stats = {}

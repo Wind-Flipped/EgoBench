@@ -23,9 +23,21 @@ from tools.kitchen.kitchen_db import KitchenDB
 from tools.kitchen.kitchen_init import kitchen_init_data
 from tools.restaurant.restaurant_db import RestaurantDB
 from tools.restaurant.restaurant_init import restaurant_init_data, restaurant_init_data5
-from tools.order.order_db import OrderDB
-from tools.order.order_init import order_init_data
-from tools.user_words import kitchen_sentences, wine_sentences, retail_sentences, restaurant_sentences, order_sentences
+from tools.restaurant.restaurant6_db import Restaurant6DB
+from tools.restaurant.restaurant6_init import restaurant6_init_data
+from tools.warehouse import warehouse_init
+from tools.warehouse.warehouse_db import WarehouseDB
+from tools.household import household_init
+from tools.household.household_db import HouseholdDB
+from tools.user_words import (
+    household_sentences,
+    kitchen_sentences,
+    retail_sentences,
+    restaurant_sentences,
+    restaurant6_sentences,
+    warehouse_sentences,
+    wine_sentences,
+)
 from run.prompts import (
     USER_TEXT_ONLY_PROMPT_EASY,
     USER_TEXT_ONLY_PROMPT_HARD,
@@ -41,31 +53,80 @@ from run.utils import (
     check_user_contradiction,
     build_message_with_image
 )
-from run.apis.unified import GEMINI_URL_MAPPING, _CLOUD_URL_MAPPING, KIMI_URL_MAPPING
+SCENARIO_NUMBER_RANGES = {
+    "retail": (1, 10),
+    "kitchen": (1, 4),
+    "restaurant": (1, 6),
+    "warehouse": (1, 25),
+    "household": (1, 18),
+}
 
 
-def get_video_url_for_model(video_url, model_name):
-    """Return corresponding video URL based on model name"""
-    if not video_url:
-        return video_url
+def _create_warehouse_db(scenario_number):
+    """Create a fresh warehouse database for one numbered scenario."""
+    init_data_name = f"warehouse_init_data{scenario_number}"
+    init_data = getattr(warehouse_init, init_data_name, None)
+    if init_data is None:
+        raise ValueError(
+            f"Warehouse scenario {scenario_number} has no initialization data "
+            f"({init_data_name})."
+        )
 
-    # gemini-3.1-pro-preview uses GEMINI_URL_MAPPING
-    if model_name == "gemini-3.1-pro-preview":
-        return GEMINI_URL_MAPPING.get(video_url, video_url)
-
-    # kimi-k2.5 uses KIMI_URL_MAPPING
-    if model_name == "kimi-k2.5":
-        return KIMI_URL_MAPPING.get(video_url, video_url)
-
-    # glm-5v-turbo, qwen3.6-plus, mimo-v2-omni, doubao-seed-2-0-pro-260215 uses _CLOUD_URL_MAPPING
-    if model_name in ["glm-5v-turbo", "qwen3.6-plus", "mimo-v2-omni", "doubao-seed-2-0-pro-260215", "Qwen3.5-397B-A17B"]:
-        return _CLOUD_URL_MAPPING.get(video_url, video_url)
-
-    # Other models use original OSS link
-    return video_url
+    db = WarehouseDB()
+    db.init_from_json(init_data)
+    return db
 
 
-def run_static_simulation(input_path, tool_info_path, output_path, args=None, service_model_name="qwen3-vl-225b"):
+def _create_household_db(scenario_number):
+    """Create a fresh household database for one numbered scenario."""
+    init_data_name = f"household_init_data{scenario_number}"
+    init_data = getattr(household_init, init_data_name, None)
+    if init_data is None:
+        raise ValueError(
+            f"Household scenario {scenario_number} has no initialization data "
+            f"({init_data_name})."
+        )
+
+    db = HouseholdDB()
+    db.init_from_json(init_data)
+    return db
+
+
+def resolve_video_path(video_reference, video_dir=None):
+    """Resolve a scenario media reference to a file in the local video folder.
+
+    Some legacy scenarios contain a full URL or use ``.MOV`` while the released
+    asset is an ``.mp4``. Resolution is therefore based on the decoded basename
+    first and then on a case-insensitive filename stem.
+    """
+    import urllib.parse
+
+    if not video_reference:
+        return video_reference
+
+    reference = str(video_reference)
+    if os.path.isfile(reference):
+        return os.path.abspath(reference)
+
+    root = video_dir or os.environ.get("EGOBENCH_VIDEO_DIR")
+    root = os.path.abspath(root or os.path.join(project_root, "video"))
+    basename = os.path.basename(reference.split("?", 1)[0])
+    basename = urllib.parse.unquote(basename)
+    candidate = os.path.join(root, basename)
+    if os.path.isfile(candidate):
+        return candidate
+
+    wanted_stem = os.path.splitext(basename)[0].casefold()
+    if os.path.isdir(root):
+        for filename in sorted(os.listdir(root)):
+            path = os.path.join(root, filename)
+            if os.path.isfile(path) and os.path.splitext(filename)[0].casefold() == wanted_stem:
+                return path
+
+    return candidate
+
+
+def run_static_simulation(input_path, tool_info_path, output_path, args=None, service_model_name="qwen3-vl-235b"):
     """
     Static Mode: Send user_instruction to customer service at once, no multi-round interaction
     """
@@ -80,13 +141,38 @@ def run_static_simulation(input_path, tool_info_path, output_path, args=None, se
         scenarios = json.load(f)
 
     # New: Truncate samples based on num_samples parameter
-    if args.num_samples > 0:
+    rerun_indices = None
+    if args.rerun_indices:
+        # Explicit rerun indices (e.g. from need_rerun.xlsx). Overrides everything else.
+        from run.rerun_checker import merge_rerun_results
+        rerun_indices = [int(x) for x in args.rerun_indices.split(",") if x.strip() != ""]
+        rerun_indices = [i for i in rerun_indices if 0 <= i < len(scenarios)]
+        print(f"Rerun mode activated (explicit indices). Found {len(rerun_indices)} scenarios to rerun.")
+    elif args.num_samples > 0:
         scenarios = scenarios[:args.num_samples]
+    elif args.num_samples == -1:
+        from run.rerun_checker import get_rerun_indices, merge_rerun_results
+        eval_path = f"./eval_result/{args.service_model_name}/{args.scenario}{args.scenario_number}_{args.user_mode}_eval.json"
+        rerun_indices = get_rerun_indices(output_path, eval_path, user_mode=args.user_mode)
+
+        # rerun_indices == [] means > 20 samples but skip entire scenario.
+        if rerun_indices == []:
+            print(f"Rerun mode activated. {args.user_mode} -> > 20 samples detected, skipping the whole scenario.")
+            return
+
+        if rerun_indices is not None and len(rerun_indices) > 0:
+            print(f"Rerun mode activated. Found {len(rerun_indices)} scenarios to rerun.")
+        else:
+            print("Rerun mode activated but no matching scenarios found or condition not met. Running as num_samples=0.")
+            rerun_indices = None
 
     all_results = []
 
     for idx, sc in enumerate(scenarios):
         scenario_id = idx + 1
+
+        if rerun_indices is not None and idx not in rerun_indices:
+            continue
 
         print(f"\n{'='*20} Scenario {args.scenario}{args.scenario_number}: {scenario_id} (Static Mode) {'='*20} ")
 
@@ -116,21 +202,25 @@ def run_static_simulation(input_path, tool_info_path, output_path, args=None, se
             db = KitchenDB()
             db.init_from_json(kitchen_init_data)
         elif args.scenario == "restaurant":
-            db = RestaurantDB()
+            if args.scenario_number == 6:
+                db = Restaurant6DB()
+                db.init_from_json(restaurant6_init_data)
+            else:
+                db = RestaurantDB()
             if args.scenario_number == 5:
                 db.init_from_json(restaurant_init_data5)
-            else:
+            elif args.scenario_number != 6:
                 # 1,2,3,4
                 db.init_from_json(restaurant_init_data)
-        elif args.scenario == "order":
-            db = OrderDB()
-            db.init_from_json(order_init_data)
+        elif args.scenario == "warehouse":
+            db = _create_warehouse_db(args.scenario_number)
+        elif args.scenario == "household":
+            db = _create_household_db(args.scenario_number)
 
 
         user_instruction = sc.get("Instruction", "")
         image_path = sc.get("image_path", None)
-        # Convert video URL based on model
-        image_path = get_video_url_for_model(image_path, args.service_model_name)
+        image_path = resolve_video_path(image_path, args.video_dir)
 
         # Generate image description only in text mode
         image_description = sc.get("image_description", "")
@@ -170,7 +260,7 @@ def run_static_simulation(input_path, tool_info_path, output_path, args=None, se
         # --- Static Mode: One-time interaction ---
         # User Agent generates one message
         user_start_time = time.time()
-        user_reply, user_input_tokens, user_output_tokens = call_llm(user_messages, agent_type="user", service_model_name=args.service_model_name)
+        user_reply, user_input_tokens, user_output_tokens = call_llm(user_messages, agent_type="user", service_model_name=args.service_model_name, user_model_name=args.user_model_name)
         history_log["user_response_time_seconds"] += time.time() - user_start_time
         print(f"User Agent: {user_reply}")
 
@@ -262,14 +352,17 @@ def run_static_simulation(input_path, tool_info_path, output_path, args=None, se
         all_results.append(history_log)
 
     # 4. Save results
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(all_results, f, ensure_ascii=False, indent=2)
+    if rerun_indices is not None and len(rerun_indices) > 0:
+        merge_rerun_results(output_path, all_results, rerun_indices)
+    else:
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(all_results, f, ensure_ascii=False, indent=2)
     print(f"\nCompleted! Results saved to: {output_path}")
     print(f"Statistics Summary: ")
     for idx, result in enumerate(all_results):
         print(f"  Task {idx+1}: {result['rounds_count']} dialogue rounds, {result['input_tokens']} input tokens, {result['output_tokens']} output tokens, {result['tool_calls_count']} tool calls, {result['execution_time_seconds']} seconds")
 
-def run_simulation(input_path, tool_info_path, output_path, args=None, service_model_name="qwen3-vl-225b"):
+def run_simulation(input_path, tool_info_path, output_path, args=None, service_model_name="qwen3-vl-235b"):
     """
     Interactive Mode: Multi-round conversation
     """
@@ -285,14 +378,34 @@ def run_simulation(input_path, tool_info_path, output_path, args=None, service_m
         scenarios = json.load(f)
 
     # New: Truncate samples based on num_samples parameter
-    if args.num_samples > 0:
+    rerun_indices = None
+    if args.rerun_indices:
+        # Explicit rerun indices (e.g. from need_rerun.xlsx). Overrides everything else.
+        from run.rerun_checker import merge_rerun_results
+        rerun_indices = [int(x) for x in args.rerun_indices.split(",") if x.strip() != ""]
+        rerun_indices = [i for i in rerun_indices if 0 <= i < len(scenarios)]
+        print(f"Rerun mode activated (explicit indices). Found {len(rerun_indices)} scenarios to rerun.")
+    elif args.num_samples > 0:
         scenarios = scenarios[:args.num_samples]
+    elif args.num_samples == -1:
+        from run.rerun_checker import get_rerun_indices, merge_rerun_results
+        eval_path = f"./eval_result/{args.service_model_name}/{args.scenario}{args.scenario_number}_{args.user_mode}_eval.json"
+
+        rerun_indices = get_rerun_indices(output_path, eval_path)
+        if rerun_indices is not None and len(rerun_indices) > 0:
+            print(f"Rerun mode activated. Found {len(rerun_indices)} scenarios to rerun.")
+        else:
+            print("Rerun mode activated but no matching scenarios found or condition not met. Running as num_samples=0.")
+            rerun_indices = None
 
     all_results = []
     new_results_list = []
 
     for idx, sc in enumerate(scenarios):
         scenario_id = idx + 1
+
+        if rerun_indices is not None and idx not in rerun_indices:
+            continue
 
         print(f"\n{'='*20} Scenario {args.scenario}{args.scenario_number}: {scenario_id} {'='*20} ")
         if args.scenario == "retail":
@@ -326,23 +439,30 @@ def run_simulation(input_path, tool_info_path, output_path, args=None, service_m
             db = KitchenDB()
             db.init_from_json(kitchen_init_data)
         elif args.scenario == "restaurant":
-            user_sentences = restaurant_sentences
-            db = RestaurantDB()
+            if args.scenario_number == 6:
+                user_sentences = restaurant6_sentences
+                db = Restaurant6DB()
+                db.init_from_json(restaurant6_init_data)
+            else:
+                user_sentences = restaurant_sentences
+                db = RestaurantDB()
             if args.scenario_number == 5:
                 db.init_from_json(restaurant_init_data5)
-            else:
+            elif args.scenario_number != 6:
                 db.init_from_json(restaurant_init_data)
-        elif args.scenario == "order":
-            db = OrderDB()
-            db.init_from_json(order_init_data)
-            user_sentences = order_sentences
+        elif args.scenario == "warehouse":
+            user_sentences = warehouse_sentences
+            db = _create_warehouse_db(args.scenario_number)
+        elif args.scenario == "household":
+            user_sentences = household_sentences
+            db = _create_household_db(args.scenario_number)
 
         user_instruction = sc.get("Instruction", "")
         image_path = sc.get("image_path", None)
-        # Convert video URL based on model
-        image_path = get_video_url_for_model(image_path, args.service_model_name)
-        image_description = sc.get("image_description", "")
-
+        image_path = resolve_video_path(image_path, args.video_dir)
+        # None
+        # image_description = sc.get("image_description", "")
+        image_description = None
         start_time = time.time()
 
         history_log = {
@@ -416,7 +536,7 @@ def run_simulation(input_path, tool_info_path, output_path, args=None, service_m
         for turn in range(max_turns):
             # --- 1. User Agent Speaks ---
             user_start_time = time.time()
-            user_reply, user_input_tok, user_output_tok = call_llm(user_messages, agent_type="user", service_model_name=args.service_model_name)
+            user_reply, user_input_tok, user_output_tok = call_llm(user_messages, agent_type="user", service_model_name=args.service_model_name, user_model_name=args.user_model_name)
             user_gen_time = time.time() - user_start_time
             print(f"[Time] User response generation (Turn {turn}): {user_gen_time:.3f} seconds")
             history_log["user_response_time_seconds"] += user_gen_time
@@ -434,7 +554,8 @@ def run_simulation(input_path, tool_info_path, output_path, args=None, service_m
                     last_agent_response=last_agent_response_for_check,
                     history=history_log["dialogue"],
                     summarized_history=summarized_history_str if getattr(args, "summary_user", False) else None,
-                    user_mode=args.user_mode
+                    user_mode=args.user_mode,
+                    user_model_name=args.user_model_name
                 )
 
                 if evaluation_info:
@@ -471,9 +592,10 @@ def run_simulation(input_path, tool_info_path, output_path, args=None, service_m
             if args.multi_agent_user and args.user_mode in ["easy", "hard"]:
                 print(f"[Time] Check phase (Turn {turn}): {check_time:.3f} seconds")
                 history_log["user_response_time_seconds"] += check_time
+            origin_user_reply = user_reply
 
             if args.user_mode == "hard":
-                user_reply += "  " + user_sentences[random.randint(0, len(user_sentences) - 1)]
+                user_reply += " " + user_sentences[random.randint(0, len(user_sentences) - 1)]
 
             print(f"Final User Response: {user_reply}")
 
@@ -505,12 +627,12 @@ def run_simulation(input_path, tool_info_path, output_path, args=None, service_m
                 sum_prompt = USER_TURN_SUMMARY_PROMPT.format(
                     user_instruction=user_instruction,
                     agent_response=current_agent_response_for_task,
-                    user_response=current_user_reply_for_task,
+                    user_response=origin_user_reply,
                     previous_summary=current_summarized_history if current_summarized_history else "None"
                 )
                 print(f"Generating dialogue summary (Turn {turn})...")
                 sum_msgs = [{"role": "user", "content": sum_prompt}]
-                turn_summary, _, _ = call_llm(sum_msgs, agent_type="user", service_model_name=args.service_model_name)
+                turn_summary, _, _ = call_llm(sum_msgs, agent_type="user", service_model_name=args.service_model_name, user_model_name=args.user_model_name)
                 sum_time = time.time() - sum_start_time
                 print(f"[Time] Summary generation (Turn {turn}): {sum_time:.3f} seconds")
                 print(f"Turn {turn} Summary: {turn_summary}")
@@ -702,8 +824,11 @@ def run_simulation(input_path, tool_info_path, output_path, args=None, service_m
         history_log["execution_time_seconds"] = execution_time
         all_results.append(history_log)
 
-    with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(all_results, f, ensure_ascii=False, indent=2)
+    if rerun_indices is not None and len(rerun_indices) > 0:
+        merge_rerun_results(output_path, all_results, rerun_indices)
+    else:
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(all_results, f, ensure_ascii=False, indent=2)
     print(f"\nCompleted! Results saved to: {output_path}")
     print(f"Statistics Summary: ")
     for idx, result in enumerate(all_results):
@@ -713,15 +838,16 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run dialogue simulation in three modes")
     parser.add_argument(
         "--service_model_name",
-        choices=["qwen3-vl-225b", "glm-4.5v", "Qwen3.5-397B-A17B", "manual", "gemini-3.1-pro-preview",
-                 "glm-5v-turbo", "qwen3.6-plus", "mimo-v2-omni", "kimi-k2.5", "doubao-seed-2-0-pro-260215"],
-        default="qwen3-vl-225b",
+        choices=["qwen3-vl-235b", "glm-4.5v", "Qwen3.5-397B-A17B", "manual",
+                 "gemini-3.1-pro-preview", "glm-5v-turbo", "qwen3.6-plus", "mimo-v2.5-omni",
+                 "kimi-k2.6", "doubao-seed-2-0-pro-260215"],
+        default="qwen3-vl-235b",
         help="Tested agent model name"
     )
 
     parser.add_argument(
         "--scenario",
-        choices=["retail", "kitchen", "restaurant", "order"],
+        choices=list(SCENARIO_NUMBER_RANGES),
         default="retail",
         help="Task scenario"
     )
@@ -760,11 +886,45 @@ if __name__ == "__main__":
         help="Number of samples to test from the beginning of the scenario. 0 means test all samples."
     )
 
+    parser.add_argument(
+        "--rerun_indices",
+        type=str,
+        default="",
+        help="Comma-separated 0-based indices of scenarios to rerun (overrides num_samples=-1 eval-file logic). e.g. '0,2,7'. Results are merged into the existing output file at these indices."
+    )
+
+    parser.add_argument(
+        "--user_model_name",
+        type=str,
+        default="Qwen3.5-397B-A17B",
+        help="User model name (key in MODEL_CONFIGS), e.g. Qwen3.5-397B-A17B, DeepSeek-V3, qwen3_30b_a3b"
+    )
+
+    parser.add_argument(
+        "--video_dir",
+        default=os.environ.get("EGOBENCH_VIDEO_DIR", os.path.join(project_root, "video")),
+        help="Directory containing benchmark videos (default: ./video)",
+    )
+
     args = parser.parse_args()
 
+    min_number, max_number = SCENARIO_NUMBER_RANGES[args.scenario]
+    if not min_number <= args.scenario_number <= max_number:
+        parser.error(
+            f"{args.scenario} scenario_number must be between "
+            f"{min_number} and {max_number}"
+        )
+
     INPUT_JSON = f"./scenarios/final/{args.scenario}{args.scenario_number}.json"
-    TOOL_INFO_JSON = f"./tools/{args.scenario}/{args.scenario}_tools.json"
-    OUTPUT_JSON = f"./results/{args.service_model_name}/{args.scenario}{args.scenario_number}_{args.user_mode}.json"
+    if args.scenario == "restaurant" and args.scenario_number == 6:
+        TOOL_INFO_JSON = "./tools/restaurant/restaurant6_tools.json"
+    else:
+        TOOL_INFO_JSON = f"./tools/{args.scenario}/{args.scenario}_tools.json"
+    if args.user_model_name == "GPT-5.5":
+        # GPT as simulated user: keep results separate from the default Qwen-user runs
+        OUTPUT_JSON = f"./GPT_user_results/{args.service_model_name}/{args.scenario}{args.scenario_number}_{args.user_mode}.json"
+    else:
+        OUTPUT_JSON = f"./results/{args.service_model_name}/{args.scenario}{args.scenario_number}_{args.user_mode}.json"
     if not os.path.exists(os.path.dirname(OUTPUT_JSON)):
         os.makedirs(os.path.dirname(OUTPUT_JSON))
 

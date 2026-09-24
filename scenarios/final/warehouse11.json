@@ -1,0 +1,997 @@
+[
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the third Sunday of August 2026. Pair the records of the large white-and-yellow vehicle in the middle and the orange-and-gray equipment in the distant center, and determine whether their maximum-service-life dates are no more than three months apart. If so, require a new item to replace the distant equipment at the end of its service life, due on its maximum-service-life date or today if that date has passed. If not, explain that the middle vehicle is temporarily in the filming-record area and will remain in use; add its return to its recorded ideal location, due August 20, 2026. Next, for the black circular item standing upright in front of the last box reached for, select from equipment with the same ideal storage location those whose manuals require the most routine maintenance actions. If no other equipment qualifies, select that black circular item itself; retain all count ties. Prioritize actions shared by each candidate and the black circular item: if a shared action is overdue, add the most overdue one due today; if none is overdue, add the earliest-prescribed shared action. If there are no shared actions, apply the same rule to all of the candidate's maintenance. Next, determine whether the red cart on the right at the beginning was purchased before January 1, 2021. If so, add a same-function replacement at its life limit, due on its maximum-service-life date or today if that date has passed. If not, explain that its current inventory cart is only temporary and that it should return to the storage place stated in its records; add the relocation due August 20, 2026. Finally, choose the due date involving the most equipment, selecting the later date in a tie. Group that day's items by equipment purchase year, retain the earliest-year group, and move subsequent years one additional day later in order; if only one year is involved, postpone all items by one day.",
+    "analysis": "1. Identify Riding Lawn Mower, Push Lawn Mower, Tire, Handcart from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Riding Lawn Mower, due on 2026-08-20.\n4. Add an action to inspect Tarpaulin, due on 2026-08-16.\n5. Add an action to clean Everyday Portable Work Screen, due on 2026-09-29.\n6. Add an action to relocate Handcart, due on 2026-08-20.\n7. Remove the action to clean Urban Telescoping Work Platform that is due on 2026-08-20.\n8. Remove the action to relocate Handcart that is due on 2026-08-20.\n9. Add an action to clean Urban Telescoping Work Platform, due on 2026-08-22.\n10. Add an action to relocate Handcart, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tarpaulin",
+          "required_action": "inspect",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Everyday Portable Work Screen",
+          "required_action": "clean",
+          "due_date": "2026-09-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Handcart",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Urban Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Handcart",
+          "required_action": "relocate",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Urban Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Handcart",
+          "required_action": "relocate",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Riding Lawn Mower",
+      "Push Lawn Mower",
+      "Tire",
+      "Handcart"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is two days before August 25, 2026. First, compare the latest retrievable use dates of the low red stool on the floor and the black circular item standing upright in front of the last box reached for, and determine whether they are no more than fifteen days apart. If so, explain that the stool cannot currently work normally, that the fault has been confirmed repairable, and that you want to retain it; add an arrangement to restore it to working condition, due August 25, 2026. If not, tell the AI Service Agent that new equipment will continue the black circular item's original purpose after its life limit, and add the succession arrangement due on the cessation-of-use date or today if that date has passed. Next, determine whether the white cylinder by the wall has at least two retrievable use records in 2026. If so, select the least recently used equipment of the same brand; if not, select the most recently used same-category equipment. If either filter has no other equipment, select the white cylinder itself. For each selected item, if maintenance is overdue, add the overdue action whose latest completion record is most recent, due today; if none is overdue, add the action whose prescribed date is farthest from today and retain that date. Process all record-date or prescribed-date ties. Finally, among consecutive due dates find the pair with the smallest positive gap and move the earlier date's items to the day after the later date. If there are no consecutive dates, postpone the sole date's items by one day. In gap ties, choose the later pair.",
+    "analysis": "1. Identify Mechanic Stool, Tire, Steel Drum from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Tire, due on 2028-09-04.\n4. Add an action to clean Tarpaulin, due on 2026-08-23.\n5. Remove the action to inspect Premium Abrasive Mesh Pack that is due on 2026-08-20.\n6. Add an action to inspect Premium Abrasive Mesh Pack, due on 2026-08-22.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "replace",
+          "due_date": "2028-09-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tarpaulin",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Premium Abrasive Mesh Pack",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Premium Abrasive Mesh Pack",
+          "required_action": "inspect",
+          "due_date": "2026-08-22"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Mechanic Stool",
+      "Tire",
+      "Steel Drum"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the last Sunday of August 2026. First, count the retrievable uses from January 1, 2026 through today for the row of red containers on the left at the beginning and the red cart on the right at the beginning, and determine whether the difference is fewer than four. If so, add that the row of containers is temporarily on the maintenance-registration desk, will remain in use, and should return to its recorded location; record this storage adjustment due September 2, 2026. If not, state that the current red cart will retire at its maximum service life but the warehouse must maintain the same capability; add a same-type takeover record due on that date or today if earlier. Next, for the large white-and-yellow vehicle in the middle, find same-brand equipment whose purchase date is closest to its own. If none exists, select the vehicle itself; retain equal before-and-after distances. For each selected item, add its most overdue action due today or, if none is overdue, its earliest-prescribed action using that date, retaining all ties. Then determine whether the low red stool on the floor has three routine maintenance action types. If so, explain that it is temporarily at an unassigned workstation for turnover, will continue in use, and should return to its recorded location; add the relocation due September 1, 2026. If not, explain that it will retire but its original capability remains needed; add a same-type new-equipment takeover due on its maximum-service-life date or today if earlier. Finally, if the latest due date overall contains at least two records, group them by equipment purchase date from earliest to latest, retain the earliest group, and postpone each subsequent group by one additional day. If there is only one record, postpone it by one day.",
+    "analysis": "1. Identify Fuel Can, Handcart, Riding Lawn Mower, Mechanic Stool from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Fuel Can, due on 2026-09-02.\n4. Add an action to inspect Essential Silica Gel Cartridge, due on 2027-04-30.\n5. Add an action to replace Mechanic Stool, due on 2029-07-07.\n6. Remove the action to replace Mechanic Stool that is due on 2029-07-07.\n7. Add an action to replace Mechanic Stool, due on 2029-07-08.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Fuel Can",
+          "required_action": "relocate",
+          "due_date": "2026-09-02"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Essential Silica Gel Cartridge",
+          "required_action": "inspect",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Mechanic Stool",
+          "required_action": "replace",
+          "due_date": "2029-07-07"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Mechanic Stool",
+          "required_action": "replace",
+          "due_date": "2029-07-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Mechanic Stool",
+          "required_action": "replace",
+          "due_date": "2029-07-08"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Fuel Can",
+      "Handcart",
+      "Riding Lawn Mower",
+      "Mechanic Stool"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the first Thursday of August 2026. First, compare the bright green cabinet against the wall and the wrinkled blue plastic sheet in the rear, and determine whether the sets of routine maintenance actions required by their manuals are exactly identical; intervals need not match. If so, explain that although the green cabinet will retire, the related work cannot stop, and add a new-equipment takeover due on its maximum-service-life date or today if that date is earlier. If not, specify that the blue plastic sheet currently has a repairable functional fault and that the original is to be retained; add restoration to normal condition, due August 9, 2026. Next, for the row of red containers on the left at the beginning, find the earliest-expiring equipment with the same country of origin. If none exists, select the containers themselves; process all expiration-date ties. If a selected item has at least two overdue actions, add the second-least-overdue one due today; if exactly one, add it due today; if none, add the action with the second-earliest prescribed date, or the only action if there is just one, using its prescribed date. Finally, count action items by equipment, identify the equipment with the most, and delete their latest-due items; process all ties in count or latest date.",
+    "analysis": "1. Identify Tool Cabinet, Tarpaulin, Fuel Can from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Tarpaulin, due on 2026-08-09.\n4. Add an action to clean Reinforced Portable Air Blower, due on 2027-04-30.\n5. Remove the action to inspect Push Lawn Mower that is due on 2026-08-17.\n6. Remove the action to clean Mechanic Stool that is due on 2026-08-18.\n7. Remove the action to inspect Tool Cabinet that is due on 2026-08-19.\n8. Remove the action to clean Steel Drum that is due on 2026-08-20.\n9. Remove the action to repair Tarpaulin that is due on 2026-08-09.\n10. Remove the action to clean Reinforced Portable Air Blower that is due on 2027-04-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tarpaulin",
+          "required_action": "repair",
+          "due_date": "2026-08-09"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Reinforced Portable Air Blower",
+          "required_action": "clean",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Push Lawn Mower",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Mechanic Stool",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tool Cabinet",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Steel Drum",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tarpaulin",
+          "required_action": "repair",
+          "due_date": "2026-08-09"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Reinforced Portable Air Blower",
+          "required_action": "clean",
+          "due_date": "2027-04-30"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Tool Cabinet",
+      "Tarpaulin",
+      "Fuel Can"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is two days before August 15, 2026. Jointly check the large white-and-yellow vehicle in the middle and the white cylinder by the wall, and determine whether one equipment's required routine maintenance actions contain all of the other's. If so, tell the AI Service Agent that new equipment will continue the middle vehicle's original purpose after its life limit, and add the succession arrangement due on the cessation-of-use date or today if that date has passed. If not, explain that the white cylinder will not be retained after reaching its maximum service life and no replacement will be added; record its removal due on that date or today if earlier. Next, for the orange-and-gray equipment in the distant center, compare retrievable 2026 use counts among same-brand equipment and select those with the most. If there is no other same-brand equipment, process the distant equipment itself; retain all count ties. Among the selected equipment, identify those with the smallest positive number of overdue actions and add each one's most overdue action due today. If none has anything overdue, add the action with the latest prescribed date and retain it. In addition, determine whether the bright green cabinet against the wall has at least two overdue routine maintenance actions. If so, require a new item to replace it at the end of its service life; if not, state that it will no longer occupy warehouse space after its service life and will not be repurchased. Add the applicable takeover or cessation item due on its maximum-service-life or cessation-of-use date, or today if that date has passed. Finally, among equipment covering at least two due dates, find the smallest date span and move those equipment's latest-date items to the day after their earliest date. If every equipment covers only one date, postpone the latest item overall by one day.",
+    "analysis": "1. Identify Riding Lawn Mower, Steel Drum, Push Lawn Mower, Tool Cabinet from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Riding Lawn Mower, due on 2028-03-26.\n4. Add an action to lubricate Riding Lawn Mower, due on 2026-08-13.\n5. Add an action to replace Tool Cabinet, due on 2031-10-30.\n6. Remove the action to replace Riding Lawn Mower that is due on 2028-03-26.\n7. Add an action to replace Riding Lawn Mower, due on 2026-08-14.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2028-03-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "lubricate",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tool Cabinet",
+          "required_action": "replace",
+          "due_date": "2031-10-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2028-03-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2026-08-14"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Riding Lawn Mower",
+      "Steel Drum",
+      "Push Lawn Mower",
+      "Tool Cabinet"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is Thursday of the week containing August 17, 2026. First, retrieve the records of the orange-and-gray equipment in the distant center and the wrinkled blue plastic sheet in the rear, and compare from their histories and manual requirements whether they have equal numbers of overdue, unperformed routine maintenance actions. If so, decide that the blue plastic sheet will leave the warehouse at the end of its life with no replacement, due on its maximum-service-life date or today if that date has passed. If not, specify that the distant equipment will cease service at its life limit while the same function must be retained; add a new-item takeover record using the same due-date rule. Next, for the white cylinder by the wall, select the equipment with the fewest uses from same-category equipment having retrievable use records since March 1, 2026. If none exists, search all same-category equipment; if there is still no other equipment, select the white cylinder itself. For each selected item, if anything is overdue, add its most overdue action due today. If nothing is overdue, add separately every action due within ninety days from today on its prescribed date; if none qualifies, add the earliest-due action among all maintenance and retain that date. Finally, compare the numbers of action items due before and after today. If the former is greater, move every item on the earliest overdue date to today. Otherwise, move the farthest-future items to the day after today; use this latter rule when the counts are equal.",
+    "analysis": "1. Identify Push Lawn Mower, Tarpaulin, Steel Drum from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Push Lawn Mower, due on 2028-11-22.\n4. Add an action to clean Tire, due on 2026-08-20.\n5. Remove the action to replace Push Lawn Mower that is due on 2028-11-22.\n6. Add an action to replace Push Lawn Mower, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Push Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2028-11-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Push Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2028-11-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Push Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Push Lawn Mower",
+      "Tarpaulin",
+      "Steel Drum"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is Thursday of the week containing August 24, 2026. First, for the red cart on the right at the beginning and the bright green cabinet against the wall, find each one's most overdue routine maintenance action and determine whether their prescribed dates are no more than seven days apart; the condition is false if either has nothing overdue. If true, add that the red cart will remain in use but is temporarily on a pallet in the handover area, and record its return to its ideal storage location due August 28, 2026. If false, state that the green cabinet will no longer occupy warehouse space after its service life and will not be repurchased; add cessation of retention due on the cessation-of-use date or today if it has passed. Next, find among all other equipment whose action sets contain every action of the wrinkled blue plastic sheet in the rear, and select the earliest-purchased; if none exists, select the sheet itself, retaining all ties. For each selected item, add its least overdue action due today or, if none is overdue, its earliest-required action using its prescribed date, retaining all ties. Then determine whether the large white-and-yellow vehicle in the middle has both overdue and not-yet-due maintenance. If so, add a same-function new-item takeover at its life limit, due on the maximum-service-life date or today if it has passed. If not, explain that its current transfer rack beside the loading and unloading passage is only temporary and that it should return to the storage place in its records; add the relocation due September 1, 2026. Finally, for each existing removal or takeover arrangement, delete other items for the same equipment later than its represented cessation date while retaining the reference arrangement. If no such conflict exists, move the latest items overall one day earlier, but not earlier than today.",
+    "analysis": "1. Identify Handcart, Tool Cabinet, Tarpaulin, Riding Lawn Mower from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Tool Cabinet, due on 2031-10-30.\n4. Add an action to clean Tarpaulin, due on 2026-08-27.\n5. Add an action to relocate Riding Lawn Mower, due on 2026-09-01.\n6. Remove the action to dispose of Tool Cabinet that is due on 2031-10-30.\n7. Add an action to dispose of Tool Cabinet, due on 2031-10-29.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Tool Cabinet",
+          "required_action": "dispose",
+          "due_date": "2031-10-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Tarpaulin",
+          "required_action": "clean",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "relocate",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Tool Cabinet",
+          "required_action": "dispose",
+          "due_date": "2031-10-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Tool Cabinet",
+          "required_action": "dispose",
+          "due_date": "2031-10-29"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Handcart",
+      "Tool Cabinet",
+      "Tarpaulin",
+      "Riding Lawn Mower"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the first Monday of August 2026. First, determine whether the purchase dates of the white cylinder by the wall and the black circular item standing upright in front of the last box reached for are no more than three months apart. If so, explain that the black circular item cannot currently work normally, that the fault is confirmed repairable, and that you want to retain it; add restoration to working condition due August 5, 2026. If not, state that the white cylinder will cease being retained at its maximum service life with no replacement need; create the removal record due on that date or today if earlier. Next, for the wrinkled blue plastic sheet in the rear, find the latest-purchased same-category equipment. If none exists, select the sheet itself; retain all purchase-date ties. For each selected item, add all maintenance with prescribed dates no later than sixty days after today: overdue actions separately due today, and all others on their respective prescribed dates. If none meets the date condition, add the earliest-prescribed maintenance action and retain its date. Finally, sort distinct due dates from earliest to latest. If there are at least two, move all earliest-date items to the day after the second-earliest date; if there is only one, postpone all its items by one day.",
+    "analysis": "1. Identify Steel Drum, Tire, Tarpaulin from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Steel Drum, due on 2033-12-07.\n4. Add an action to inspect Steel Drum, due on 2026-08-03.\n5. Remove the action to inspect Steel Drum that is due on 2026-08-03.\n6. Add an action to inspect Steel Drum, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Steel Drum",
+          "required_action": "dispose",
+          "due_date": "2033-12-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Steel Drum",
+          "required_action": "inspect",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Steel Drum",
+          "required_action": "inspect",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Steel Drum",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Steel Drum",
+      "Tire",
+      "Tarpaulin"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the third day after August 7, 2026. First, for the row of red containers on the left at the beginning and the low red stool on the floor, determine whether the earlier-purchased one is also the one used less recently in current records. If so, specify that the row of containers will leave the warehouse at its life limit with no same-type replacement; add removal due on its maximum-service-life date or today if that date has passed. If not, explain that the stool's current transfer rack beside the loading and unloading passage is only temporary and that it should return to its recorded storage place; add the relocation due August 14, 2026. Next, for the bright green cabinet against the wall, find among same-category equipment purchased earlier than it the one with the most retrievable 2026 uses. If none exists, search all same-category equipment; if there is still none, select the cabinet itself. Among candidates, first identify the equipment with the most overdue actions. If the maximum is positive, add each such equipment's least overdue action due today; if it is zero, add the earliest-prescribed action among all candidates using that date. Next, determine whether every routine maintenance action required for the orange-and-gray equipment in the distant center already has a matching historical record. If so, explain that it is temporarily in the inventory area for turnover and will continue in use; add its return to the recorded location due August 14, 2026. If not, add a same-type new-equipment takeover at its maximum service life, due on that date or today if earlier. Finally, find the least frequent action types and delete their earliest-due items, processing all ties in type or date.",
+    "analysis": "1. Identify Fuel Can, Mechanic Stool, Tool Cabinet, Push Lawn Mower from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Fuel Can, due on 2027-02-06.\n4. Add an action to inspect Professional Lockable Blade Case, due on 2027-01-31.\n5. Add an action to condition Professional Weatherproof Tool Chest, due on 2027-01-31.\n6. Add an action to relocate Push Lawn Mower, due on 2026-08-10.\n7. Remove the action to dispose of Fuel Can that is due on 2027-02-06.\n8. Remove the action to relocate Push Lawn Mower that is due on 2026-08-10.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Fuel Can",
+          "required_action": "dispose",
+          "due_date": "2027-02-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Professional Lockable Blade Case",
+          "required_action": "inspect",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Professional Weatherproof Tool Chest",
+          "required_action": "condition",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Push Lawn Mower",
+          "required_action": "relocate",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Fuel Can",
+          "required_action": "dispose",
+          "due_date": "2027-02-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Push Lawn Mower",
+          "required_action": "relocate",
+          "due_date": "2026-08-10"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Fuel Can",
+      "Mechanic Stool",
+      "Tool Cabinet",
+      "Push Lawn Mower"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is three days before August 20, 2026. Examine in parallel the red cart on the right at the beginning and the large white-and-yellow vehicle in the middle, compare the numbers of routine maintenance actions required by their manuals, and determine whether the item with more actions also has more retrievable uses in 2026. If so, state that the red cart will no longer occupy warehouse space after its service life and will not be repurchased; add cessation of retention due on the cessation-of-use date or today if it has passed. If not, specify that the middle vehicle currently has a repairable functional fault and that the original is to be retained; add restoration to normal condition due August 22, 2026. Next, for the black circular item standing upright in front of the last box reached for, select the earliest-purchased other equipment with both the same brand and ideal storage location. If none meets both conditions, filter only by brand; if there is still none, select the black circular item itself. For each selected item, if at least two actions are overdue, add the second-most-overdue one due today; if exactly one is overdue, add it due today; if none are overdue, add the earliest-prescribed action using that date, retaining all ties. Finally, count distinct action types by equipment, identify those with the most types, and delete their latest-due items; delete all ties in equipment or date.",
+    "analysis": "1. Identify Handcart, Riding Lawn Mower, Tire from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Riding Lawn Mower, due on 2026-08-22.\n4. Add an action to inspect Tire, due on 2026-08-17.\n5. Remove the action to repair Riding Lawn Mower that is due on 2026-08-22.\n6. Remove the action to inspect Tire that is due on 2026-08-17.\n7. Remove the action to clean Studio Telescoping Work Platform that is due on 2026-08-19.\n8. Remove the action to inspect Premium Abrasive Mesh Pack that is due on 2026-08-20.\n9. Remove the action to condition Essential Thread-Locking Compound that is due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "repair",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "repair",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tire",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Studio Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Premium Abrasive Mesh Pack",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Essential Thread-Locking Compound",
+          "required_action": "condition",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Handcart",
+      "Riding Lawn Mower",
+      "Tire"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the fourth Monday of August 2026. First, for the low red stool on the floor and the white cylinder by the wall, determine whether their brands are identical and whether their retrievable 2026 use counts differ by no more than one. If so, explain that the white cylinder is temporarily in the inventory area for turnover, will continue in use, and should return to its recorded location; add the relocation due August 26, 2026. If not, explain that the stool cannot currently work normally, that the fault is confirmed repairable, and that you want to retain it; add restoration to working condition, also due August 26, 2026. Next, compare the red cart on the right at the beginning's maximum-service-life date with two years after today. If it is no later, select the least recently used same-origin equipment; if later, select the most recently used same-category equipment. If no other equipment exists, select the red cart itself. For each selected item, add its most overdue action due today or, if none is overdue, its latest-prescribed action using that date; process all ties. Then compare the row of red containers' earliest maintenance date with their maximum-service-life date and determine whether they fall in the same calendar year. If so, add a new-item takeover at the end of their life; if not, add cessation of retention with no repurchase. Use the maximum-service-life or cessation date as applicable, or today if it has passed. Finally, find the due date with the most items, choosing the earliest date in a tie, and group its items by equipment expiration date. Retain the earliest-expiring group and postpone each later group by one additional day; if only one group exists, postpone the whole day by one day.",
+    "analysis": "1. Identify Mechanic Stool, Steel Drum, Handcart, Fuel Can from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Mechanic Stool, due on 2026-08-26.\n4. Add an action to inspect Studio Compact Access Stool, due on 2027-04-30.\n5. Add an action to dispose of Fuel Can, due on 2027-02-06.\n6. Remove the action to inspect Fuel Can that is due on 2026-08-16.\n7. Add an action to inspect Fuel Can, due on 2026-08-17.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Mechanic Stool",
+          "required_action": "repair",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Studio Compact Access Stool",
+          "required_action": "inspect",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Fuel Can",
+          "required_action": "dispose",
+          "due_date": "2027-02-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Fuel Can",
+          "required_action": "inspect",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Fuel Can",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Mechanic Stool",
+      "Steel Drum",
+      "Handcart",
+      "Fuel Can"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the last Monday of August 2026. First, determine whether the row of red containers on the left at the beginning and the wrinkled blue plastic sheet in the rear have the same recorded ideal storage location and share at least two routine maintenance actions. If so, add that the containers cannot currently function normally, that the unresolved problem is repairable, and that they will not be replaced; record restoration of function due September 3, 2026. If not, add that the blue sheet is temporarily at an unassigned workstation, will remain in use, and should return to its recorded location, also due September 3, 2026. Next, for the low red stool on the floor, find equipment whose action set is a strict subset of and fully contained in the stool's, and select the one used least recently. If none exists, select the stool itself; retain all date ties. If anything is overdue, for each action type find the equipment with the earliest prescribed date and add that equipment and action, all due today. If none is overdue, for each type add the earliest-prescribed equipment using that date, retaining all tied equipment. Finally, sort action types by frequency, breaking frequency ties by each type's earliest date from earliest to latest, and select the middle type, or the middle two tiers if the number of types is even. Postpone those types' latest-due items by one day, processing all frequency ties.",
+    "analysis": "1. Identify Fuel Can, Tarpaulin, Mechanic Stool from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Tarpaulin, due on 2026-09-03.\n4. Add an action to inspect Mechanic Stool, due on 2026-08-31.\n5. Remove the action to inspect Mechanic Stool that is due on 2026-08-31.\n6. Remove the action to relocate Tarpaulin that is due on 2026-09-03.\n7. Add an action to inspect Mechanic Stool, due on 2026-09-01.\n8. Add an action to relocate Tarpaulin, due on 2026-09-04.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Tarpaulin",
+          "required_action": "relocate",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Mechanic Stool",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Mechanic Stool",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Tarpaulin",
+          "required_action": "relocate",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Mechanic Stool",
+          "required_action": "inspect",
+          "due_date": "2026-09-01"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Tarpaulin",
+          "required_action": "relocate",
+          "due_date": "2026-09-04"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Fuel Can",
+      "Tarpaulin",
+      "Mechanic Stool"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the first Friday of August 2026. First, compare the currently retrievable idle durations of the orange-and-gray equipment in the distant center and the bright green cabinet against the wall, and determine whether the difference is at least seven days. If so, require a new item to replace the green cabinet at the end of its life, due on its maximum-service-life date or today if that date has passed. If not, explain that the distant equipment is temporarily on the inventory cart and will remain in use; add its return to its recorded ideal location, due August 11, 2026. Next, among equipment categorized as “Other” with both the same country of origin and ideal storage location as the wrinkled blue plastic sheet in the rear, find the one used least recently. If none meets all conditions, filter only by country of origin; if there is still none, select the sheet itself. Compare all candidates' maintenance together: if anything is overdue, add only the earliest-prescribed action due today; if none is overdue, add the earliest-prescribed action using its original date, retaining all ties. In addition, determine whether the row of red containers was purchased before January 1, 2021. If so, add a same-function new-item takeover at its maximum service life, due on that date or today if it has passed. If not, explain that the label-verification table is temporary and that the containers should return to their recorded storage place; add the relocation due August 13, 2026. Finally, identify the least- and most-populated due dates. If different, move the least-populated date's items to the day after the most-populated date; if identical, postpone the whole day by one day. In all count ties choose the earlier date.",
+    "analysis": "1. Identify Push Lawn Mower, Tool Cabinet, Tarpaulin, Fuel Can from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Tool Cabinet, due on 2031-10-30.\n4. Add an action to inspect Tarpaulin, due on 2026-08-07.\n5. Add an action to relocate Fuel Can, due on 2026-08-13.\n6. Remove the action to inspect Tarpaulin that is due on 2026-08-07.\n7. Add an action to inspect Tarpaulin, due on 2026-08-08.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tool Cabinet",
+          "required_action": "replace",
+          "due_date": "2031-10-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tarpaulin",
+          "required_action": "inspect",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Fuel Can",
+          "required_action": "relocate",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tarpaulin",
+          "required_action": "inspect",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tarpaulin",
+          "required_action": "inspect",
+          "due_date": "2026-08-08"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Push Lawn Mower",
+      "Tool Cabinet",
+      "Tarpaulin",
+      "Fuel Can"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the fourth day after August 10, 2026. For the red cart on the right at the beginning and the black circular item standing upright in front of the last box reached for, find each one's earliest required routine maintenance action and determine whether the prescribed dates fall in the same calendar month. If so, explain that the red cart cannot currently work normally, that the fault is confirmed repairable, and that you want to retain it; add restoration to working condition due August 16, 2026. If not, tell the AI Service Agent that new equipment will continue the black circular item's original purpose after its life limit; add the succession arrangement due on the cessation-of-use date or today if that date has passed. Next, for the orange-and-gray equipment in the distant center, find other equipment with exactly the same action set and select the earliest-expiring; if none exists, select the distant equipment itself, processing all expiration ties. If overdue actions exist, sort them by overdue duration and add the middle one if odd or middle two if even, all due today. If none are overdue, sort by prescribed date and apply the same median rule, retaining each selected date. Finally, count distinct due dates by action type. For each tied type covering the most dates, move its earliest-date items to the day after its latest date; if it covers only one day, postpone all of it by one day.",
+    "analysis": "1. Identify Handcart, Tire, Push Lawn Mower from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Tire, due on 2028-09-04.\n4. Add an action to clean Urban Telescoping Work Platform, due on 2026-08-14.\n5. Remove the action to clean Urban Telescoping Work Platform that is due on 2026-08-14.\n6. Add an action to clean Urban Telescoping Work Platform, due on 2026-08-23.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tire",
+          "required_action": "replace",
+          "due_date": "2028-09-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Urban Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Urban Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Urban Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Handcart",
+      "Tire",
+      "Push Lawn Mower"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the third Friday of August 2026. First, for the large white-and-yellow vehicle in the middle and the low red stool on the floor, compare their historically last-completed routine maintenance actions and determine whether that order matches their purchase-date order. If so, add that the middle vehicle is temporarily at an unassigned workstation, will remain in use, and should return to its recorded location; record the adjustment due August 24, 2026. If not, state that the current stool will retire at its maximum service life but the warehouse must retain the same capability; add a same-type takeover due on that date or today if earlier. Next, determine whether the black circular item standing upright in front of the last box reached for has at least two overdue actions. If so, select the latest-purchased same-origin equipment; if not, select the earliest-purchased equipment with the same ideal storage location. If no other equipment meets the applicable condition, select the black circular item itself. For each selected item, add all overdue actions separately due today; if none are overdue, add the earliest-prescribed action using that date, retaining same-day ties. Then determine whether the white cylinder by the wall has three routine maintenance action types. If so, explain that it is temporarily on a pallet in the handover area and will continue in use; add its return to its recorded location due August 23, 2026. If not, add a same-type new-equipment takeover at its maximum service life, due on that date or today if earlier. Finally, sort distinct due dates. If their count is odd, postpone the middle date's items by one day; if even, move the earlier middle date's items to the day after the later middle date; if only one date exists, still postpone it by one day.",
+    "analysis": "1. Identify Riding Lawn Mower, Mechanic Stool, Tire, Steel Drum from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Riding Lawn Mower, due on 2026-08-24.\n4. Add an action to inspect Steel Drum, due on 2026-08-21.\n5. Add an action to replace Steel Drum, due on 2033-12-07.\n6. Remove the action to inspect Steel Drum that is due on 2026-08-21.\n7. Remove the action to condition Essential Thread-Locking Compound that is due on 2026-08-21.\n8. Add an action to inspect Steel Drum, due on 2026-08-22.\n9. Add an action to condition Essential Thread-Locking Compound, due on 2026-08-22.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Riding Lawn Mower",
+          "required_action": "relocate",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Steel Drum",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Steel Drum",
+          "required_action": "replace",
+          "due_date": "2033-12-07"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Steel Drum",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Essential Thread-Locking Compound",
+          "required_action": "condition",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Steel Drum",
+          "required_action": "inspect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Essential Thread-Locking Compound",
+          "required_action": "condition",
+          "due_date": "2026-08-22"
+        }
+      }
+    ],
+    "image_name": "warehouse11",
+    "image_path": "warehouse11.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Riding Lawn Mower",
+      "Mechanic Stool",
+      "Tire",
+      "Steel Drum"
+    ],
+    "scenario_id": 15
+  }
+]

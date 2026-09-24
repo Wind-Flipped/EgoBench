@@ -1,0 +1,932 @@
+[
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is August 24, 2026. First, you ask the AI Service Agent to determine, for the orange-and-black wheeled equipment directly ahead at the beginning of the video, whether there are any overdue routine maintenance actions that have not been performed, based on its maintenance history and the routine maintenance requirements in the manual; if there are, add every overdue action separately to the action list, with all due dates set to today; if there are not, add the maintenance that needs to be completed earliest to the action list, using the date on which it should be completed as the due date, and add all actions if multiple actions need to be completed on the same day. Next, you ask the AI Service Agent to count the number of retrievable uses of this piece of equipment from January 1, 2026 through today. If it has been used at least twice, the facility will still need the work capability it provides in the future, and you ask the AI Service Agent to record an arrangement in the action list stating that “when the current equipment is retired, it will be replaced by new equipment of the same type,” with the due date for this item being the date on which the current equipment reaches its maximum service life; otherwise, the facility will discontinue this operation, will no longer retain the current equipment, and will not purchase a replacement, and you ask the AI Service Agent to record an item in the action list accordingly, with the due date being the date on which it reaches its maximum service life; if any of the dates above has already passed, change the due date to today. Finally, you ask the AI Service Agent to read the action list after the preceding operations have been completed, find the equipment with the greatest number of action items, and delete that equipment’s action item with the latest due date; if multiple items for the same equipment are tied for the latest due date, delete all of them, and apply this rule to every piece of equipment tied for the greatest number of actions.",
+    "analysis": "1. Identify Walk-Behind Lawn Mower from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to inspect Walk-Behind Lawn Mower, due on 2026-08-24.\n4. Add an action to lubricate Walk-Behind Lawn Mower, due on 2026-08-24.\n5. Add an action to replace Walk-Behind Lawn Mower, due on 2026-11-23.\n6. Remove the action to replace Walk-Behind Lawn Mower that is due on 2026-11-23.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Walk-Behind Lawn Mower",
+          "required_action": "inspect",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Walk-Behind Lawn Mower",
+          "required_action": "lubricate",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Walk-Behind Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2026-11-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Walk-Behind Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2026-11-23"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Walk-Behind Lawn Mower"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the first Thursday of August 2026. First, you ask the AI Service Agent to determine the date on which the large gray equipment with a lid on the right at the beginning of the video reaches its maximum service life. If that date is no later than December 31, 2027, the related collection work will end at that time, and you will no longer retain this piece of equipment or purchase a replacement of the same type; ask the AI Service Agent to create a new action-list record for “stop retaining the current equipment and do not acquire replacement equipment afterward,” with that date entered as the due date. Otherwise, you will still need the same transport capability; ask the AI Service Agent to list “after the existing equipment is retired, equipment of the same type will take its place” as an action item and add it to the action list, with the date on which the current equipment reaches its maximum service life as the due date. If the corresponding date has already passed, set the due date to today. Next, you ask the AI Service Agent to compare the numbers of overdue, unperformed routine maintenance actions among all equipment of both the same category and the same brand as this piece of equipment, based on the maintenance history and the routine maintenance requirements in the manual. If overdue maintenance exists, find the equipment with the greatest number of overdue actions, and add all overdue actions for those pieces of equipment separately to the action list, with all due dates set to today. If none of the equipment has overdue maintenance, find the maintenance among them that needs to be completed earliest, add it to the action list using the date on which it should be completed, and retain all ties. Finally, you ask the AI Service Agent to inspect every action item in the updated action list one by one. If an action item’s due date is later than the retirement date of the corresponding equipment, delete every such item; do not delete the retirement arrangement that serves as the date reference. If no such item exists, delete the action item or items with the latest due date in the entire list, deleting all items tied for latest.",
+    "analysis": "1. Identify Collection Cart from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Collection Cart, due on 2027-07-08.\n4. Add an action to clean Collection Cart, due on 2026-08-06.\n5. Add an action to inspect Collection Cart, due on 2026-08-06.\n6. Remove the action to dispose of Collection Cart that is due on 2027-07-08.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Collection Cart",
+          "required_action": "dispose",
+          "due_date": "2027-07-08"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Collection Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Collection Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Collection Cart",
+          "required_action": "dispose",
+          "due_date": "2027-07-08"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Collection Cart"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is two days before August 31, 2026. First, you ask the AI Service Agent to check the latest currently retrievable use date of the black-and-white soft bag above the vehicle body. If that date is no earlier than March 1, 2026, you explain that it is currently only being kept temporarily in the loading and unloading passage and will continue to be used later; ask the AI Service Agent to add an arrangement to the action list to “move this piece of equipment from the temporary location to the ideal storage location recorded in the files,” and specify next Monday as the due date. Otherwise, you no longer need it and will not purchase a replacement of the same type; ask the AI Service Agent to create a new action record for this piece of equipment in the action list accordingly and enter next Monday as the due date. Next, you ask the AI Service Agent to make a determination, among all equipment of the same category and with the same ideal storage location as this piece of equipment, based on the maintenance history and the routine maintenance requirements in the manual: if overdue maintenance exists, find the action that is the least overdue, set its due date to today, and add it to the action list, adding all actions tied for the same overdue duration; if no maintenance is overdue, add the maintenance that needs to be performed earliest to the action list using the date on which it should be completed, adding all ties on the same day. Finally, you ask the AI Service Agent to inspect the updated action list: if the anchor equipment simultaneously has the two mutually conflicting types of action items, “continue retaining it and move its location” and “retire it or replace it with new equipment,” delete the arrangement that does not conform to the final retain-or-remove intent of this task; if there is no conflict, move the latest-due action item for this piece of equipment forward to today, adjusting all items tied for latest on the same day.",
+    "analysis": "1. Identify Grass Collection Bag from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Grass Collection Bag, due on 2026-08-31.\n4. Add an action to clean Grass Collection Bag, due on 2026-08-29.\n5. Remove the action to relocate Grass Collection Bag that is due on 2026-08-31.\n6. Add an action to relocate Grass Collection Bag, due on 2026-08-29.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Grass Collection Bag",
+          "required_action": "relocate",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Grass Collection Bag",
+          "required_action": "clean",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Grass Collection Bag",
+          "required_action": "relocate",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Grass Collection Bag",
+          "required_action": "relocate",
+          "due_date": "2026-08-29"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Grass Collection Bag"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the fifth day after August 20, 2026. First, you ask the AI Service Agent to determine, for the translucent object coiled on top of the gray box lid, whether there are any overdue routine maintenance actions that have not been performed, based on its maintenance history and the routine maintenance requirements in the manual. If there are, add every overdue action separately to the action list, with all due dates set to today; if there are not, add the maintenance that needs to be completed earliest to the action list using the date on which it should be completed, and add all actions if multiple actions need to be completed on the same day. For the same piece of equipment and the same action, retain only one due date determined according to the rules above. Next, you ask the AI Service Agent to count this piece of equipment’s overdue, unperformed routine maintenance actions. If there are no fewer than two, you explain that its connection is currently leaking air, that the fault has been confirmed to be repairable, and that you want to retain and continue using this current piece; ask the AI Service Agent to add an item to the action list accordingly and specify August 28, 2026 as the due date. Otherwise, you explain that it is currently only being kept temporarily in the packaging passage and will still be used later; ask the AI Service Agent to register “return the current equipment that still needs to be retained to its ideal location in the files” as a to-do item in the action list, with August 28, 2026 specified as the due date. Finally, you ask the AI Service Agent to find the due date with the greatest number of action items in the updated action list and count the total number of actions in the latest list for the equipment to which each action on that date belongs. If at least two different count tiers exist, retain the original date for the tier whose equipment has the greatest total number of actions, and postpone the different tiers with fewer actions by one day in sequence, using the same date for items in the same tier. If there is only one count tier, postpone by one day all action items from the day with fewer actions within that tier.",
+    "analysis": "1. Identify Flexible Hose from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Flexible Hose, due on 2026-08-25.\n4. Add an action to inspect Flexible Hose, due on 2026-08-25.\n5. Add an action to repair Flexible Hose, due on 2026-08-28.\n6. Remove the action to inspect Flexible Hose that is due on 2026-08-17.\n7. Add an action to inspect Flexible Hose, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "clean",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "inspect",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "repair",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Flexible Hose"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the third Thursday of August 2026. First, you ask the AI Service Agent to determine, for the large black curved piece that is taken away midway through the video, whether it has any overdue routine maintenance actions that have not been performed, based on the maintenance history and the routine maintenance requirements in the manual. If it does, add every overdue action separately to the action list, with all due dates set to today; if it does not, add the maintenance that needs to be completed earliest to the action list on the prescribed date, adding all tied items on the same day. For the same piece of equipment and the same action, retain only one due date determined according to the rules above. Next, you ask the AI Service Agent to determine whether this piece of equipment has any retrievable use records from January 1, 2026 through today. If it does, you will still need the same function in the future; ask the AI Service Agent to write “have a new piece of equipment take over the same type of work capability as the current equipment” into the action list, and mark the due date for this arrangement as the date on which the current equipment reaches its maximum service life. If it does not, you will no longer retain this piece of equipment and will not purchase a replacement; ask the AI Service Agent to create a new arrangement in the action list to “remove the current equipment from the warehouse while canceling subsequent replacement purchases,” with its due date set to the date on which it reaches its maximum service life. If the corresponding date has already passed, set the due date to today. Finally, you ask the AI Service Agent to delete all action items whose due dates are later than the retirement date of the corresponding equipment; do not delete the retirement arrangement that serves as the date reference. If there is no such item in the current list, find the action item or items with the earliest due date and change them to tomorrow, adjusting all items tied for earliest on the same day.",
+    "analysis": "1. Identify Handlebar from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Handlebar, due on 2026-08-20.\n4. Add an action to inspect Handlebar, due on 2026-08-20.\n5. Add an action to condition Handlebar, due on 2026-08-20.\n6. Add an action to replace Handlebar, due on 2030-05-17.\n7. Remove the action to inspect Flexible Hose that is due on 2026-08-17.\n8. Add an action to inspect Flexible Hose, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "condition",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "replace",
+          "due_date": "2030-05-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Handlebar"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the third day after August 1, 2026. First, you ask the AI Service Agent to determine whether the large upright brown cube on the tabletop has any retrievable use records from June 1, 2026 through today. If it does, you explain that it is currently only being kept temporarily in the receiving passage and will continue to be used later; ask the AI Service Agent to create an item in the action list for “adjust the storage location of this piece of equipment so that it returns to the location registered in the files,” using August 6, 2026 as the due date. If it does not, you explain that the connection at its bottom currently has damage that has been confirmed to be repairable and that you want to retain this current piece; ask the AI Service Agent to add an item to the action list to “repair the confirmed repairable problem so that the equipment returns to normal,” with August 6, 2026 as its due date. Next, you ask the AI Service Agent to filter all equipment of both the same category and the same brand as this piece of equipment based on use history, maintenance history, and the routine maintenance requirements in the manual. If overdue maintenance exists, find among this equipment the equipment with the fewest retrievable uses this year, and add all of their overdue actions separately to the action list, with all due dates set to today; process every piece of equipment tied for the fewest uses. If no overdue maintenance exists, add the maintenance among this equipment that needs to be completed earliest to the action list on the prescribed date, and retain all ties. Finally, you ask the AI Service Agent to find the due date with the greatest number of action items in the updated action list. If that date contains at least two action items, compare the purchase dates of the equipment to which those items belong: retain the original due date for the earliest-purchased tier, postpone the different later-purchased date tiers by one day in sequence, and schedule arrangements with the same purchase date on the same day. If that date contains only one action item, delete the action item or items with the latest due date in the current list, deleting all items tied for latest.",
+    "analysis": "1. Identify Packaging Carton from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Packaging Carton, due on 2026-08-06.\n4. Add an action to clean Collection Cart, due on 2026-08-04.\n5. Add an action to inspect Collection Cart, due on 2026-08-04.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Packaging Carton",
+          "required_action": "relocate",
+          "due_date": "2026-08-06"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Collection Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Collection Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-04"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Packaging Carton"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the last Monday of August 2026. First, you ask the AI Service Agent to determine, for the open-top cylindrical black container in the image, whether all of the routine maintenance actions required by the manual are already overdue, based on the maintenance history and the routine maintenance requirements in the manual. If all of them are overdue, you have decided to stop using this piece of equipment, no longer retain it, and not purchase a replacement of the same type; ask the AI Service Agent to record the corresponding arrangement in the action list accordingly, with the entry’s due date set to today. If not all of them are overdue, you explain that it is currently only being kept temporarily at the waste sorting point and will still be needed later; ask the AI Service Agent to include an arrangement to “move the current equipment from the temporary area to the ideal storage location specified in the files” in the action list, with the due date in the list set to tomorrow. Next, if this piece of equipment has overdue maintenance, you ask the AI Service Agent to add every overdue action individually to the action list, with all due dates set to today. If no maintenance is overdue, add the maintenance that needs to be completed earliest to the action list using the date on which it should be completed, adding all actions if multiple actions need to be completed on the same day. Finally, you ask the AI Service Agent to read the latest action list after the preceding operations have been completed. If the list contains at least two different due dates, change all action items on the earliest date to the day after the latest date. If there is only one due date, postpone all action items on that date by one day.",
+    "analysis": "1. Identify Waste Bin from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Waste Bin, due on 2026-08-31.\n4. Add an action to clean Waste Bin, due on 2026-08-31.\n5. Add an action to inspect Waste Bin, due on 2026-08-31.\n6. Add an action to condition Waste Bin, due on 2026-08-31.\n7. Remove the action to inspect Flexible Hose that is due on 2026-08-17.\n8. Add an action to inspect Flexible Hose, due on 2026-09-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Waste Bin",
+          "required_action": "dispose",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Waste Bin",
+          "required_action": "clean",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Waste Bin",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Waste Bin",
+          "required_action": "condition",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Flexible Hose",
+          "required_action": "inspect",
+          "due_date": "2026-09-01"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Waste Bin"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the third Tuesday of August 2026. First, you ask the AI Service Agent to check the latest currently retrievable use date of the blue bundled fabric on the countertop. If that date is no earlier than March 1, 2026, you will still need the same wiping function in the future, but this current piece should be retired after it reaches its maximum service life; ask the AI Service Agent to newly register an item in the action list to “activate replacement equipment of the same type when the current equipment stops being used,” entering that date as the due date. Otherwise, you will no longer retain this piece of equipment and will not purchase a replacement; ask the AI Service Agent to create an action record for “no longer retain this piece of equipment and do not replace it with new equipment” and add it to the action list, using the date on which it reaches its maximum service life as the due date. If the corresponding date has already passed, set the due date to today. Next, among equipment of the same category as this piece and with retrievable use records this year, you ask the AI Service Agent to count the retrievable uses since the beginning of this year and find the equipment with the fewest uses. Based on these pieces of equipment’s maintenance history and the routine maintenance requirements in the manual, if overdue maintenance exists, add every overdue action individually to the action list, with all due dates set to today. If no maintenance is overdue, add the maintenance that needs to be completed earliest using the prescribed date, retaining all ties in use count or maintenance date. Finally, you ask the AI Service Agent to inspect all equipment already scheduled to be retired or replaced by new equipment and delete other action items whose due dates are later than its retirement date; do not delete the retirement or replacement arrangement that serves as the date reference. If no such item exists, find the equipment with the greatest number of actions and delete its action item with the latest due date, applying the same rule to all ties in number or date.",
+    "analysis": "1. Identify Cleaning Cloth from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Cleaning Cloth, due on 2031-07-19.\n4. Add an action to clean Cleaning Cloth, due on 2026-08-18.\n5. Add an action to inspect Cleaning Cloth, due on 2026-08-18.\n6. Add an action to clean Wet Floor Squeegee, due on 2026-08-18.\n7. Add an action to inspect Wet Floor Squeegee, due on 2026-08-18.\n8. Add an action to clean Parts Cleaning Basin, due on 2026-08-18.\n9. Add an action to inspect Parts Cleaning Basin, due on 2026-08-18.\n10. Add an action to condition Parts Cleaning Basin, due on 2026-08-18.\n11. Add an action to clean Classic Anti-Static Dust Brush, due on 2026-08-18.\n12. Add an action to inspect Classic Anti-Static Dust Brush, due on 2026-08-18.\n13. Remove the action to replace Cleaning Cloth that is due on 2031-07-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Cleaning Cloth",
+          "required_action": "replace",
+          "due_date": "2031-07-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Cleaning Cloth",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Cleaning Cloth",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Wet Floor Squeegee",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Wet Floor Squeegee",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Parts Cleaning Basin",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Parts Cleaning Basin",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Parts Cleaning Basin",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Classic Anti-Static Dust Brush",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Classic Anti-Static Dust Brush",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Cleaning Cloth",
+          "required_action": "replace",
+          "due_date": "2031-07-19"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Cleaning Cloth"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is August 13, 2026. First, for the yellow furniture with multiple drawers at the back of the image, you ask the AI Service Agent to compare the numbers of overdue, unperformed routine maintenance actions among all equipment of the same category and with the same ideal storage location as it, based on their respective maintenance histories and the routine maintenance requirements in the manual. If this piece of furniture has the greatest number of overdue actions, including a tie for greatest, you explain that one of its drawers currently cannot open and close normally, that the fault has been confirmed to be repairable, and that you want to retain this current piece; ask the AI Service Agent to add an item to the action list accordingly, using tomorrow as the due date. Otherwise, you explain that it is currently only being kept temporarily in the outbound passage and will continue to be used later; ask the AI Service Agent to register “adjust the location of this piece of equipment, with the ideal storage point in the files as the destination” as an arrangement in the action list and mark tomorrow as the due date. Next, if overdue maintenance exists among the candidate equipment, for every piece of equipment with the greatest number of overdue actions, find and add the longest-overdue action to the action list and set its due date to today, adding all actions tied for the same overdue duration. If none of the candidates has overdue maintenance, add the maintenance among them that needs to be completed earliest on the prescribed date, retaining all ties. Finally, you ask the AI Service Agent to read the updated action list: if at least two different due dates exist, change all action items on the earliest date to the day after the second-earliest date. If there is only one due date, postpone all action items on that date by one day.",
+    "analysis": "1. Identify Tool Cabinet from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Tool Cabinet, due on 2026-08-14.\n4. Add an action to inspect Tool Cabinet, due on 2026-08-13.\n5. Remove the action to inspect Tool Cabinet that is due on 2026-08-13.\n6. Add an action to inspect Tool Cabinet, due on 2026-08-15.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tool Cabinet",
+          "required_action": "repair",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tool Cabinet",
+          "required_action": "inspect",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tool Cabinet",
+          "required_action": "inspect",
+          "due_date": "2026-08-13"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Tool Cabinet",
+          "required_action": "inspect",
+          "due_date": "2026-08-15"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Tool Cabinet"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the Friday of the week containing August 17, 2026. First, you ask the AI Service Agent to check the latest currently retrievable use date of the red climbing equipment near the wall in the image. If that date is earlier than December 1, 2025, you no longer need the climbing capability provided by this piece of equipment and will not purchase a replacement of the same type; ask the AI Service Agent to record this in the action list accordingly and mark today as the due date for this arrangement. Otherwise, you will still need the same climbing capability in the future; ask the AI Service Agent to record “replace the current equipment that will be retired at that time with new equipment of the same type” as a subsequent arrangement in the action list, using the date on which the current equipment reaches its maximum service life as the due date, and using today instead if the relevant date has already passed. Next, you ask the AI Service Agent to make a determination based on this piece of equipment’s maintenance history and the routine maintenance requirements in the manual. If overdue maintenance exists, add every overdue action individually to the action list, with all due dates set to today. If no maintenance is overdue, add the maintenance that needs to be completed earliest on the prescribed date, adding all ties on the same day. Finally, based on the updated action list, you ask the AI Service Agent to find the equipment with the greatest number of action items and delete that equipment’s action item with the latest due date; process all equipment tied for the greatest number of actions, and delete all items for the same equipment that are tied for the latest due date.",
+    "analysis": "1. Identify Ladder from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Ladder, due on 2026-08-21.\n4. Add an action to clean Ladder, due on 2026-08-21.\n5. Add an action to inspect Ladder, due on 2026-08-21.\n6. Remove the action to dispose of Ladder that is due on 2026-08-21.\n7. Remove the action to clean Ladder that is due on 2026-08-21.\n8. Remove the action to inspect Ladder that is due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Ladder",
+          "required_action": "dispose",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Ladder",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Ladder",
+          "required_action": "dispose",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Ladder",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Ladder"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the third Sunday of August 2026. First, starting with the orange-and-black wheeled equipment directly ahead at the beginning of the video, you ask the AI Service Agent to find all equipment of both the same brand and with the same ideal storage location as it and compare the number of retrievable uses of each from January 1, 2026 through today. If the anchor equipment’s number of uses is no less than that of any other piece, including a tie, you explain that its working-height adjustment mechanism currently cannot hold its position, that the fault has been confirmed to be repairable, and that you want to continue using this current piece; ask the AI Service Agent to list the arrangement “restore this piece of equipment to usable condition after repair” in the action list, with August 18, 2026 marked as the due date. Otherwise, you still need the same type of work capability but do not intend to continue using the current equipment; ask the AI Service Agent to add a record to the action list to “retain this equipment capability and have new equipment take over,” using the date on which the current equipment reaches its maximum service life as the due date and using today instead if the date has already passed. Next, among the equipment above, you ask the AI Service Agent to find the equipment that has been idle the longest according to the currently retrievable records. Based on the maintenance history and the routine maintenance requirements in the manual, if overdue maintenance exists, add the longest-overdue action and set its due date to today; if no maintenance is overdue, add the maintenance that needs to be completed earliest and use the prescribed date. Retain all tied equipment or actions. Finally, you ask the AI Service Agent to inspect the updated action list: if the same piece of equipment simultaneously has the two mutually conflicting action items of retaining and repairing it and retiring and replacing it, delete the item that does not match the actual branch of this task. If there is no conflict, change the anchor equipment’s action item or items with the latest due date to tomorrow, adjusting all items tied for latest on the same day.",
+    "analysis": "1. Identify Walk-Behind Lawn Mower from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Walk-Behind Lawn Mower, due on 2026-11-23.\n4. Add an action to inspect Walk-Behind Lawn Mower, due on 2026-08-16.\n5. Remove the action to replace Walk-Behind Lawn Mower that is due on 2026-11-23.\n6. Add an action to replace Walk-Behind Lawn Mower, due on 2026-08-17.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Walk-Behind Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2026-11-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Walk-Behind Lawn Mower",
+          "required_action": "inspect",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Walk-Behind Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2026-11-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Walk-Behind Lawn Mower",
+          "required_action": "replace",
+          "due_date": "2026-08-17"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Walk-Behind Lawn Mower"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the last Wednesday of August 2026. First, using the purchase date of the large upright brown cube on the tabletop as the cutoff, you ask the AI Service Agent to find equipment purchased earlier and with the same country of origin as it, count the retrievable uses of this equipment from January 1, 2026 through today, and find the equipment with the greatest number of uses, retaining all ties. You ask the AI Service Agent to make a determination based on the filtering results’ maintenance histories and the routine maintenance requirements in the manual: if overdue maintenance exists, add all overdue actions for this equipment separately to the action list, with all due dates set to today. If no maintenance is overdue, add the maintenance among them that needs to be completed earliest to the action list using the date on which it should be completed, retaining all ties. Next, if at least one of the preceding candidates has been used two or more times in this year’s retrievable use records, you explain that the anchor equipment is currently only being kept temporarily in the receiving passage and will continue to be used later; ask the AI Service Agent to write “move the current equipment that will continue to be used back to the storage location marked in the files” into the action list, setting August 28, 2026 as the due date for this action. Otherwise, you explain that the anchor equipment’s sealing component is currently damaged, that the fault has been confirmed to be repairable, and that you want to retain this current piece; ask the AI Service Agent to add an action item for the current equipment to the action list accordingly, using August 28, 2026 as the due date. Finally, based on the latest action list after the preceding operations have been completed, you ask the AI Service Agent to delete every action item with the latest due date; if multiple items fall on the latest date, delete all of them.",
+    "analysis": "1. Identify Packaging Carton from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Clamp Multimeter, due on 2026-09-30.\n4. Add an action to relocate Packaging Carton, due on 2026-08-28.\n5. Remove the action to clean Clamp Multimeter that is due on 2026-09-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clamp Multimeter",
+          "required_action": "clean",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Packaging Carton",
+          "required_action": "relocate",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Clamp Multimeter",
+          "required_action": "clean",
+          "due_date": "2026-09-30"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Packaging Carton"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the fourth day after August 10, 2026. First, for the open-top cylindrical black container, you ask the AI Service Agent to find equipment of the same category and with exactly the same set of routine maintenance actions required by the manual; the maintenance intervals do not need to be the same. Then, from this equipment, find the equipment with the earliest latest-use date in the currently retrievable records, retaining all ties in date. For the selected equipment, if overdue, unperformed routine maintenance exists, add every overdue action separately to the action list, with all due dates set to today. If none has overdue maintenance, add the maintenance that needs to be completed earliest on the prescribed date, adding all ties on the same day. Next, you ask the AI Service Agent to determine whether the container in the image has any retrievable use records within the past six months. If it does, you explain that it is currently only being kept temporarily in the isolated sorting area and will continue to be used later; ask the AI Service Agent to register “move this piece of equipment from the temporary storage area to the location registered in the files” as an action item and add it to the action list, with next Monday as the entry’s due date. If it does not, you will no longer retain this container and will not purchase a replacement of the same type; ask the AI Service Agent to add an arrangement to the action list to “end retention of this piece of equipment and cancel any replacement purchase,” entering next Monday in the due-date field. Finally, you ask the AI Service Agent to find the equipment with the greatest number of updated action items and delete its action item with the latest due date; process all equipment tied for the greatest number of actions, and delete all items for the same equipment that are tied for the latest due date.",
+    "analysis": "1. Identify Waste Bin from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Tool Cabinet, due on 2026-08-14.\n4. Add an action to inspect Tool Cabinet, due on 2026-08-14.\n5. Add an action to condition Tool Cabinet, due on 2026-08-14.\n6. Add an action to relocate Waste Bin, due on 2026-08-17.\n7. Remove the action to clean Tool Cabinet that is due on 2026-08-14.\n8. Remove the action to inspect Tool Cabinet that is due on 2026-08-14.\n9. Remove the action to condition Tool Cabinet that is due on 2026-08-14.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tool Cabinet",
+          "required_action": "clean",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tool Cabinet",
+          "required_action": "inspect",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tool Cabinet",
+          "required_action": "condition",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Waste Bin",
+          "required_action": "relocate",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tool Cabinet",
+          "required_action": "clean",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tool Cabinet",
+          "required_action": "inspect",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Tool Cabinet",
+          "required_action": "condition",
+          "due_date": "2026-08-14"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Waste Bin"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the first Friday of August 2026. First, you ask the AI Service Agent to determine, for the large gray equipment with a lid on the right at the beginning of the video, whether it has any overdue routine maintenance actions that have not been performed, based on the maintenance history and the routine maintenance requirements in the manual. If it does, add every overdue action individually to the action list, with all due dates set to today. If it does not, add the maintenance that needs to be completed earliest to the action list on the prescribed date, adding all tied items on the same day. For the same piece of equipment and the same action, retain only one due date determined according to the rules above. Next, you ask the AI Service Agent to determine whether it has any retrievable use records from June 1, 2026 through today. If it does, you will still need the same collection and transport capability in the future; ask the AI Service Agent to additionally record the item “have the current equipment retire when due and have new equipment of the same type take over” in the action list, using the date on which the current equipment reaches its maximum service life as the due date. If it does not, you will stop this work, no longer retain the current equipment, and not purchase a replacement; ask the AI Service Agent to create a subsequent arrangement accordingly and place it in the action list, with the date on which it reaches its maximum service life as the due date. If the corresponding date has already passed, set the due date to today. Finally, you ask the AI Service Agent to inspect the updated action list. If the same piece of equipment simultaneously has mutually conflicting arrangements to retain, retire, or replace it, delete the action item that does not conform to the final intent of this task. If there is no conflict, change the action item or items with the latest due date in the entire list to today, adjusting all items tied for latest.",
+    "analysis": "1. Identify Collection Cart from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Collection Cart, due on 2026-08-07.\n4. Add an action to inspect Collection Cart, due on 2026-08-07.\n5. Add an action to replace Collection Cart, due on 2027-07-08.\n6. Remove the action to replace Collection Cart that is due on 2027-07-08.\n7. Add an action to replace Collection Cart, due on 2026-08-07.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Collection Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Collection Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-07"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Collection Cart",
+          "required_action": "replace",
+          "due_date": "2027-07-08"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Collection Cart",
+          "required_action": "replace",
+          "due_date": "2027-07-08"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Collection Cart",
+          "required_action": "replace",
+          "due_date": "2026-08-07"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Collection Cart"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the last Thursday of August 2026. First, you ask the AI Service Agent to determine, for the large black curved piece that is taken away midway through the video, whether it has any overdue routine maintenance actions that have not been performed, based on the maintenance history and the routine maintenance requirements in the manual. If it does, add every overdue action separately to the action list, with all due dates set to today. If it does not, add the maintenance that needs to be completed earliest to the action list on the prescribed date, adding all tied items on the same day. For the same piece of equipment and the same action, retain only one due date determined according to the rules above. Next, you ask the AI Service Agent to check this piece of equipment’s latest currently retrievable use date. If that date is earlier than May 1, 2026, you no longer need this component and will not purchase a replacement of the same type; ask the AI Service Agent to enter “stop retaining the current equipment and do not acquire replacement equipment afterward” in the action list as a subsequent action, with the due date set to today. Otherwise, you explain that its fixed connection is currently broken, that the fault has been confirmed to be repairable, and that you want to retain this current piece; ask the AI Service Agent to list “restore this piece of equipment’s normal function and continue retaining the original” in the action list, setting the item’s due date to August 29, 2026. Finally, you ask the AI Service Agent to find and delete the action item for this piece of equipment with the latest due date, deleting all items tied for latest on the same day. If this piece of equipment has no action items, delete the action item or items with the latest due date in the entire list, deleting all items tied for latest.",
+    "analysis": "1. Identify Handlebar from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Handlebar, due on 2026-08-27.\n4. Add an action to inspect Handlebar, due on 2026-08-27.\n5. Add an action to condition Handlebar, due on 2026-08-27.\n6. Add an action to dispose of Handlebar, due on 2026-08-27.\n7. Remove the action to clean Handlebar that is due on 2026-08-27.\n8. Remove the action to inspect Handlebar that is due on 2026-08-27.\n9. Remove the action to condition Handlebar that is due on 2026-08-27.\n10. Remove the action to dispose of Handlebar that is due on 2026-08-27.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "clean",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "inspect",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "condition",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "dispose",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "clean",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "inspect",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "condition",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Handlebar",
+          "required_action": "dispose",
+          "due_date": "2026-08-27"
+        }
+      }
+    ],
+    "image_name": "warehouse1",
+    "image_path": "warehouse1.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Handlebar"
+    ],
+    "scenario_id": 15
+  }
+]

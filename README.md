@@ -1,8 +1,15 @@
 # EgoBench: An Interactive Egocentric Multimodal Benchmark for Tool-Using Agents
 
+<div align="center">
+  <a href="figure/fig1.pdf">
+    <img src="figure/fig1.png" alt="Overview of EgoBench tasks and evaluation workflow" width="100%">
+  </a>
+  <p><em>EgoBench task overview.</em></p>
+</div>
+
 Welcome to **EgoBench**, the first interactive multimodal agent benchmark grounded in **egocentric (first-person) videos**. EgoBench is designed to bridge the evaluation gap for AI agents operating in open, real-world environments. It jointly assesses three critical capabilities: **multimodal perception**, **tool-augmented multi-hop reasoning**, and **dynamic user interaction**.
 
-EgoBench constructs a dynamic environment containing 1,045 tasks across four daily scenarios: Retail, Restaurant, Kitchen and Order.
+EgoBench constructs a dynamic environment containing 1,590 tasks across five scenario categories: Retail, Kitchen, Restaurant, Warehouse, and Household. Restaurant 6 is the multi-restaurant selection variant within the Restaurant category.
 
 ---
 
@@ -53,13 +60,14 @@ The system operates as a **two-agent dialogue loop**:
 
 ## Supported Scenarios
 
-| Scenario   | #Tools | #Items | #Tasks |
-|------------|--------|--------|--------|
-| Retail     | 20     | 709    | 454    |
-| Kitchen    | 28     | 102    | 175    |
-| Restaurant | 25     | 142    | 219    |
-| Order      | 25     | 137    | 197    |
-| **Total**  | **98** | **1091** | **1045** |
+| Scenario   | #Variants | #Tasks |
+|------------|-----------|--------|
+| Retail     | 10        | 454    |
+| Kitchen    | 4         | 175    |
+| Restaurant | 6         | 316    |
+| Warehouse  | 25        | 375    |
+| Household  | 18        | 270    |
+| **Total**  | **63**    | **1,590** |
 
 Each scenario variant provides a different database configuration (product catalogs, menus, etc.) loaded from `tools/{scenario}/{scenario}_init.py`.
 
@@ -68,12 +76,12 @@ Each scenario variant provides a different database configuration (product catal
 | Model | Provider | API |
 |-------|----------|-----|
 | `glm-5v-turbo` | Zhipu AI | Zhipu AI SDK |
-| `qwen3-vl-225b` | Alibaba Qwen | Custom endpoint |
+| `qwen3-vl-235b` | Alibaba Qwen | Custom endpoint |
 | `Qwen3.5-397B-A17B` | Alibaba Qwen | OpenAI-compatible |
 | `qwen3.6-plus` | Alibaba Qwen | OpenAI-compatible |
 | `gemini-3.1-pro-preview` | Google | OpenAI-compatible proxy |
-| `kimi-k2.5` | Moonshot | OpenAI-compatible |
-| `mimo-v2-omni` | Xiaomi MiMo | OpenAI-compatible |
+| `kimi-k2.6` | Moonshot | OpenAI-compatible |
+| `mimo-v2.5-omni` | Xiaomi MiMo | OpenAI-compatible |
 | `doubao-seed-2-0-pro-260215` | ByteDance Doubao | OpenAI-compatible |
 | `manual` | — | Terminal input for manual testing |
 
@@ -95,16 +103,19 @@ Each scenario variant provides a different database configuration (product catal
 ├── tools/                        # Scenario databases & tool definitions
 │   ├── retail/                   # RetailDB, retail_init.py, retail_tools.json
 │   ├── kitchen/                  # KitchenDB, kitchen_init.py, kitchen_tools.json
-│   ├── restaurant/               # RestaurantDB, restaurant_init.py, restaurant_tools.json
-│   ├── order/                    # OrderDB, order_init.py, order_tools.json
+│   ├── restaurant/               # RestaurantDB plus Restaurant 6 multi-restaurant backend/schema
+│   ├── warehouse/                # WarehouseDB and variants 1-25
+│   ├── household/                # HouseholdDB and variants 1-18
 │   ├── database_init.py          # DB initialization utilities
 │   └── user_words.py             # Extra phrases for hard-mode user agent
 ├── scenarios/
 │   └── final/                    # Task definitions and ground truth (JSON)
 │       ├── retail1.json .. retail10.json
 │       ├── kitchen1.json .. kitchen4.json
-│       ├── restaurant1.json .. restaurant5.json
-│       └── order1.json .. order2.json
+│       ├── restaurant1.json .. restaurant6.json
+│       ├── warehouse1.json .. warehouse25.json
+│       └── household1.json .. household18.json
+├── video/                        # Version-controlled benchmark video assets
 ├── analysis_scripts/             # Evaluation & visualization
 │   ├── evaluate_interaction.py   # Core evaluation script
 │   ├── print_eval.py             # Pretty-print evaluation results
@@ -114,11 +125,6 @@ Each scenario variant provides a different database configuration (product catal
 │   ├── plot_results.py           # Additional plotting
 │   ├── generate_comprehensive_report.py
 │   └── run_eval.sh               # Run evaluation across all models
-├── results/                      # Raw simulation output per model
-│   └── {model_name}/             # One subdirectory per evaluated model
-├── eval_result/                  # Evaluation output per model
-│   ├── {model_name}/             # {scenario}{number}_{mode}_eval.json
-│   └── figures/                  # Generated charts (PNG, LaTeX)
 ├── run_all.sh                    # Launch all model runs in parallel
 ├── run_scenario.sh               # Configurable multi-model runner
 ├── run_glm.sh / run_qwen3.sh / … # Model-specific runners
@@ -156,14 +162,14 @@ All API keys and base URLs are managed through environment variables. A `.env.ex
    export LLM_API_BASE_URL="https://your-llm-api-endpoint.com/v1"
 
    # Kimi (Moonshot) API key
-   # Used by: kimi-k2.5
+   # Used by: kimi-k2.6
    export KIMI_API_KEY="your-kimi-api-key-here"
 
    # Kimi API base URL (optional, defaults to Moonshot's official endpoint)
    export KIMI_API_BASE_URL="https://api.moonshot.cn/v1"
 
    # Xiaomi MiMo API key
-   # Used by: mimo-v2-omni
+   # Used by: mimo-v2.5-omni
    export MIMO_API_KEY="your-mimo-api-key-here"
 
    # MiMo API base URL (optional, defaults to Xiaomi's official endpoint)
@@ -193,64 +199,38 @@ All API keys and base URLs are managed through environment variables. A `.env.ex
 
 *Required only if using the corresponding models.
 
-### Video URL Configuration
+### Video Configuration
 
 Our video files are available at [EgoBench Dataset](https://www.kaggle.com/datasets/egobench/egobench/data?select=EgoCentricVideos).
 The video information and tool library content corresponding to each task are stored in the `scenarios/final` folder.
-This framework requires video files for multimodal scenario simulations. You need to upload your own videos to publicly accessible URLs and configure them before running simulations.
+This framework reads the version-controlled benchmark videos from the local
+`video/` directory.
 
-#### Step 1: Upload Videos
+#### Step 1: Verify Videos
 
-Upload the required video files to your own cloud storage (e.g., Google Cloud Storage, AWS S3, Azure Blob, or any publicly accessible HTTPS URL). The scenarios require the following videos:
+The repository includes the required video files in `video/`. The scenarios use
+the following videos:
 
 | Scenario | Required Videos |
 |----------|----------------|
 | **retail** | retail1.mp4 - retail10.mp4 |
 | **kitchen** | kitchen1.mp4, deep_fried.mp4, Green Pepper Chicken.mp4, dumplings.mp4 |
-| **restaurant** | restaurant1.mp4 - restaurant5.mp4 |
-| **order** | afrikana_annie_1.mov, annie_butcher_1.mov, annie_meraki_1.mov, annie_pauhana_1.mov, sunny_annie_1.mov, afrikana_greek.mov, butcher_greek.mov, greek_annie_1.mov, meraki_greek.mov, pauhana_greek.mov, sunny_greek.mov |
+| **restaurant** | restaurant1.mp4 - restaurant5.mp4; Restaurant 6 uses afrikana_greek.mp4, butcher_greek.mp4, greek_annie_1.mp4, meraki_greek.mp4, pauhana_greek.mp4, sunny_greek.mp4 |
+| **warehouse** | warehouse1.mp4 - warehouse25.mp4 |
+| **household** | household1.mp4 - household18.mp4 |
 
-#### Step 2: Configure URL Mappings
+#### Step 2: Optional Custom Location
 
-Edit `run/apis/unified.py` to update the video URL mappings with your public URLs:
-
-1. **For standard models** (Qwen, GLM, Doubao, etc.): Update `_DEFAULT_CLOUD_URL_MAPPING`
-   ```python
-   _DEFAULT_CLOUD_URL_MAPPING = {
-       "retail1.mp4": "https://your-domain.com/videos/retail1.mp4",
-       "retail2.mp4": "https://your-domain.com/videos/retail2.mp4",
-       # ... add all your video URLs
-   }
-   ```
-
-2. **For Gemini models**: Update `_DEFAULT_GEMINI_URL_MAPPING`
-   ```python
-   _DEFAULT_GEMINI_URL_MAPPING = {
-       "retail1.mp4": "gs://your-bucket/videos/retail1.mp4",
-       # ... add all your video URLs
-   }
-   ```
-
-3. **For Kimi models**: Update `_DEFAULT_KIMI_URL_MAPPING`
-   ```python
-   _DEFAULT_KIMI_URL_MAPPING = {
-       "retail1.mp4": "ms://your-media-service/retail1",
-       # ... add all your video URLs
-   }
-   ```
-
-#### Step 3: Environment Variable Override (Optional)
-
-Instead of editing the code, you can also set environment variables to provide URL mappings:
+The default path is `<repository>/video`. To keep the videos elsewhere, pass
+`--video_dir` or set `EGOBENCH_VIDEO_DIR`:
 
 ```bash
-# Provide a JSON object mapping video filenames to URLs
-export VIDEO_URL_MAPPING='{"retail1.mp4": "https://your-domain.com/retail1.mp4"}'
-export GEMINI_URL_MAPPING='{"retail1.mp4": "gs://your-bucket/retail1.mp4"}'
-export KIMI_URL_MAPPING='{"retail1.mp4": "ms://your-service/retail1"}'
+export EGOBENCH_VIDEO_DIR="/absolute/path/to/video"
 ```
 
-> **Note:** Video URLs must be publicly accessible or use the appropriate protocol for your model provider (e.g., `gs://` for Google Cloud Storage with Gemini, `ms://` for Moonshot's media service).
+Legacy scenario entries containing a URL are resolved by filename against this
+local directory. Extension-only differences such as `.MOV` versus `.mp4` are
+also handled automatically.
 
 ### Installation
 
@@ -282,12 +262,20 @@ python run/multi_agent.py \
   --service_model_name doubao-seed-2-0-pro-260215 \
   --num_samples 10
 
+# Run a Household scenario
+python run/multi_agent.py \
+  --scenario household \
+  --scenario_number 1 \
+  --user_mode easy \
+  --service_model_name kimi-k2.6 \
+  --num_samples 1
+
 # Rerun only previously failed scenarios
 python run/multi_agent.py \
   --scenario restaurant \
   --scenario_number 1 \
   --user_mode easy \
-  --service_model_name qwen3-vl-225b \
+  --service_model_name qwen3-vl-235b \
   --num_samples 0
 ```
 
@@ -295,10 +283,10 @@ python run/multi_agent.py \
 
 | Argument | Values | Default | Description |
 |----------|--------|---------|-------------|
-| `--scenario` | `retail`, `kitchen`, `restaurant`, `order` | `retail` | Domain scenario |
-| `--scenario_number` | int | `1` | Environment variant number |
+| `--scenario` | `retail`, `kitchen`, `restaurant`, `warehouse`, `household` | `retail` | Domain scenario |
+| `--scenario_number` | scenario-specific integer | `1` | Retail 1-10, Kitchen 1-4, Restaurant 1-6, Warehouse 1-25, Household 1-18 |
 | `--user_mode` | `easy`, `hard`, `static` | `easy` | User agent difficulty |
-| `--service_model_name` | See [Supported Models](#supported-models) | `qwen3-vl-225b` | LLM to evaluate |
+| `--service_model_name` | See [Supported Models](#supported-models) | `qwen3-vl-235b` | LLM to evaluate |
 | `--multi_agent_user` | flag | off | Enable contradiction checker for user responses |
 | `--summary_user` | flag | off | Enable dialogue summarization to manage context length |
 | `--num_samples` | int | `0` | Limit scenarios per run (`0` = all) |

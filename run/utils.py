@@ -144,18 +144,27 @@ def get_media_mime_type(file_path):
         return mime_map.get(ext, 'image/jpeg')
 
 
-def build_message_with_media(text, media_path=None, use_vision=False, service_model_name="qwen3-vl-225b"):
+def build_message_with_media(text, media_path=None, use_vision=False, service_model_name="qwen3-vl-235b"):
     """Determine whether to include media files and message format based on use_vision parameter and service_model_name"""
     content = [{"type": "text", "text": text}]
 
     if use_vision and media_path:
         media_type = "video"
         mime_type = get_media_mime_type(media_path)
+        media_url = media_path
+        if (
+            not is_url(media_path)
+            and media_type == "video"
+            and service_model_name not in {"kimi-k2.6", "gemini-3.1-pro-preview"}
+        ):
+            base64_media = encode_video(media_path)
+            if base64_media:
+                media_url = f"data:{mime_type};base64,{base64_media}"
 
         # Build different message formats for different models
-        if service_model_name in ["glm-5v-turbo", "qwen3.6-plus", "mimo-v2-omni", "kimi-k2.5"]:
+        if service_model_name in ["glm-5v-turbo", "qwen3.6-plus", "mimo-v2.5-omni", "kimi-k2.6"]:
             if media_type == 'video':
-                content.append({"type": "video_url", "video_url": {"url": media_path}})
+                content.append({"type": "video_url", "video_url": {"url": media_url}})
             else:
                 content.append({"type": "image_url", "image_url": {"url": media_path}})
 
@@ -184,14 +193,14 @@ def build_message_with_media(text, media_path=None, use_vision=False, service_mo
         else:
             # Default format
             if media_type == 'video':
-                content.append({"type": "video_url", "video_url": {"url": media_path}})
+                content.append({"type": "video_url", "video_url": {"url": media_url}})
             else:
                 content.append({"type": "image_url", "image_url": {"url": media_path}})
 
     return content
 
 
-def build_message_with_image(text, image_path=None, use_vision=False, service_model_name="qwen3-vl-225b"):
+def build_message_with_image(text, image_path=None, use_vision=False, service_model_name="qwen3-vl-235b"):
     """Backward compatible function, recommend using build_message_with_media"""
     return build_message_with_media(text, image_path, use_vision, service_model_name)
 
@@ -208,13 +217,13 @@ def execute_tool(db_instance, tool_calls_data):
     results = []
     for tool_call_obj in tool_calls_data:
         try:
-            method_name = tool_call_obj.get("tool_name") or tool_call_obj.get("name")
+            method_name = tool_call_obj.get("tool_name")
             if not method_name:
                 results.append({
                     "role": "tool",
                     "tool_name": "unknown",
                     "parameters": {},
-                    "content": json.dumps({"error": "Missing tool identifier ('tool_name' or 'name')"}, ensure_ascii=False)
+                    "content": json.dumps({"error": "Missing tool identifier 'tool_name'"}, ensure_ascii=False)
                 })
                 continue
 
@@ -242,7 +251,7 @@ def execute_tool(db_instance, tool_calls_data):
         except Exception as e:
             results.append({
                 "role": "tool",
-                "tool_name": tool_call_obj.get("tool_name") or tool_call_obj.get("name") or "unknown",
+                "tool_name": tool_call_obj.get("tool_name") or "unknown",
                 "parameters": tool_call_obj.get("parameters", tool_call_obj.get("arguments", {})),
                 "content": json.dumps({"error": str(e)}, ensure_ascii=False)
             })
@@ -255,14 +264,16 @@ def execute_tool(db_instance, tool_calls_data):
 def check_tool_call(response_text):
     """
     Extract all JSON format strings containing tool calls from text
-    Recognition rules: JSON object/array contains tool_call, tool_name or name keywords
+    Recognition rule: a JSON object must contain the top-level tool_name key.
     Returns: (whether tool call was found, extracted tool call JSON list)
     """
     text = response_text.strip()
 
-    # Unified recognition condition, add support for "name"
+    # Only ``tool_name`` identifies a tool.  ``name`` is also a common business
+    # parameter (for example, a household item name), so accepting it here can
+    # turn a nested parameters object into a false tool call.
     def is_tool_call(obj):
-        return isinstance(obj, dict) and ("tool_call" in obj or "tool_name" in obj or "name" in obj)
+        return isinstance(obj, dict) and "tool_name" in obj
 
     # Try parsing entire text as JSON first
     try:
@@ -316,7 +327,7 @@ def check_tool_call(response_text):
 
 # --- User response evaluation functions ---
 
-def _evaluate_user_response_internal(user_response, user_instruction, last_agent_response, history_str=""):
+def _evaluate_user_response_internal(user_response, user_instruction, last_agent_response, history_str="", user_model_name="Qwen3.5-397B-A17B"):
     """Internal helper function: build prompt and call LLM to evaluate user response"""
     eval_user_content = f"""
 [User Original Instruction]
@@ -337,7 +348,7 @@ def _evaluate_user_response_internal(user_response, user_instruction, last_agent
         {"role": "user", "content": eval_user_content}
     ]
 
-    eval_response_text, _, _ = call_llm(contradiction_check_messages, agent_type="user")
+    eval_response_text, _, _ = call_llm(contradiction_check_messages, agent_type="user", user_model_name=user_model_name)
 
     evaluation_result = {}
     try:
@@ -362,11 +373,13 @@ def _evaluate_user_response_internal(user_response, user_instruction, last_agent
     return evaluation_result
 
 
-def check_user_contradiction(user_response, user_instruction, image_description="", multi_agent_user=False, last_agent_response="", history=[], summarized_history=None, user_mode="easy"):
+def check_user_contradiction(user_response, user_instruction, image_description="", multi_agent_user=False, last_agent_response="", history=[], summarized_history=None, user_mode="easy", user_model_name="Qwen3.5-397B-A17B", max_retries=3):
     """
     Check if user response contradicts the task (based on scoring mechanism)
-    If multi_agent_user is True and there is a contradiction (any dimension <= 2 points), use LLM to correct user response
+    If multi_agent_user is True and there is a contradiction (any dimension <= 0 points), use LLM to correct user response
+    Will retry up to max_retries times until the evaluation passes
     :param user_mode: User difficulty mode ("easy" or "hard"), used to select corresponding correction prompt
+    :param max_retries: Maximum number of retry attempts (default: 3)
     :return: (corrected_response, evaluation_result)
     """
     if not multi_agent_user:
@@ -382,9 +395,18 @@ def check_user_contradiction(user_response, user_instruction, image_description=
             content = item["content"]
             history_str += f"{role}: {content}\n"
 
-    # 1. Evaluate original user response
+    # Select corresponding prompt based on user_mode
+    if user_mode == "hard":
+        correction_prompt_template = USER_TEXT_ONLY_PROMPT_HARD
+    else:
+        correction_prompt_template = USER_TEXT_ONLY_PROMPT_EASY
+
+    current_response = user_response
+    all_attempts = []
+
+    # Evaluate original response first
     print("Evaluating user response (Corrections Check)...")
-    evaluation_result = _evaluate_user_response_internal(user_response, user_instruction, last_agent_response, history_str)
+    evaluation_result = _evaluate_user_response_internal(current_response, user_instruction, last_agent_response, history_str, user_model_name="Qwen3.5-397B-A17B")
 
     if "error" in evaluation_result:
         print(f"Evaluation failed: {evaluation_result['error']}")
@@ -400,38 +422,50 @@ def check_user_contradiction(user_response, user_instruction, image_description=
     evaluation_result["average_score"] = avg_score
 
     # Check if correction is needed
-    needs_correction = False
-    for k, v in scores.items():
-        try:
-            if float(v) <= 0:
-                needs_correction = True
-                break
-        except:
-            pass
+    def needs_correction_check(scores_dict):
+        for k, v in scores_dict.items():
+            try:
+                if float(v) <= 0:
+                    return True
+            except:
+                pass
+        return False
 
-    corrected_response = user_response
+    needs_fix = needs_correction_check(scores)
+    corrected_response = current_response
     evaluation_result["original_response"] = user_response
 
-    if needs_correction:
-        print(f"Low score detected (average: {avg_score}), starting to correct user response... (Scores: {scores})")
+    if not needs_fix:
+        evaluation_result["correction_applied"] = False
+        evaluation_result["retry_count"] = 0
+        print(f"Scores passed (average: {avg_score})")
+        return corrected_response, evaluation_result
 
-        # Select corresponding prompt based on user_mode
-        if user_mode == "hard":
-            correction_prompt_template = USER_TEXT_ONLY_PROMPT_HARD
+    # Need correction - start retry loop
+    print(f"Low score detected (average: {avg_score}), starting to correct user response... (Scores: {scores})")
+
+    for attempt in range(1, max_retries + 1):
+        print(f"\n--- Correction Attempt {attempt}/{max_retries} ---")
+
+        # Get feedback from previous attempt
+        if attempt == 1:
+            feedback = evaluation_result.get("suggestion", "")
+            response_to_correct = user_response
         else:
-            correction_prompt_template = USER_TEXT_ONLY_PROMPT_EASY
+            feedback = all_attempts[-1].get("suggestion", "")
+            response_to_correct = all_attempts[-1].get("response", user_response)
 
         correction_input = correction_prompt_template.format(
             user_instruction=user_instruction,
             image_description=image_description,
-            original_user_response=user_response,
-            evaluation_feedback=evaluation_result.get("suggestion", ""),
+            original_user_response=response_to_correct,
+            evaluation_feedback=feedback,
             history_summary=history_str,
             service_agent_response=last_agent_response
         )
 
         correction_messages = [{"role": "user", "content": correction_input}]
-        corrected_response_text, _, _ = call_llm(correction_messages, agent_type="user")
+        corrected_response_text, _, _ = call_llm(correction_messages, agent_type="user", user_model_name=user_model_name)
 
         cleaned_response = corrected_response_text.strip()
         if cleaned_response.startswith("```"):
@@ -440,31 +474,55 @@ def check_user_contradiction(user_response, user_instruction, image_description=
                 cleaned_response = '\n'.join(lines[1:-1])
 
         corrected_response = cleaned_response.strip()
-        print(f"User response corrected: {corrected_response}")
+        print(f"Corrected response (attempt {attempt}): {corrected_response}")
 
-        evaluation_result["correction_applied"] = True
-        evaluation_result["corrected_response"] = corrected_response
+        # Evaluate the corrected response
+        print(f"Evaluating corrected response (attempt {attempt})...")
+        corrected_evaluation = _evaluate_user_response_internal(corrected_response, user_instruction, last_agent_response, history_str, user_model_name=user_model_name)
 
-        print("Evaluating corrected response...")
-        corrected_evaluation = _evaluate_user_response_internal(corrected_response, user_instruction, last_agent_response, history_str)
+        attempt_record = {
+            "attempt": attempt,
+            "response": corrected_response,
+            "scores": corrected_evaluation.get("scores", {}),
+            "suggestion": corrected_evaluation.get("suggestion", "")
+        }
 
         if "error" not in corrected_evaluation:
             corrected_scores = corrected_evaluation.get("scores", {})
-            evaluation_result["corrected_scores"] = corrected_scores
-
             try:
                 c_values = [float(v) for v in corrected_scores.values()]
                 c_avg_score = round(sum(c_values) / len(c_values), 2) if c_values else 0
             except:
                 c_avg_score = 0
-            evaluation_result["corrected_average_score"] = c_avg_score
+            attempt_record["average_score"] = c_avg_score
+            print(f"Attempt {attempt} scores: {corrected_scores} (average: {c_avg_score})")
 
-            print(f"Corrected scores: {corrected_scores} (average: {c_avg_score})")
+            # Check if this attempt passes
+            if not needs_correction_check(corrected_scores):
+                print(f"Attempt {attempt} passed evaluation!")
+                all_attempts.append(attempt_record)
+                break
+            else:
+                print(f"Attempt {attempt} still has low scores, will retry...")
         else:
-            evaluation_result["corrected_evaluation_error"] = corrected_evaluation.get("error")
+            attempt_record["error"] = corrected_evaluation.get("error")
+            print(f"Attempt {attempt} evaluation failed: {corrected_evaluation.get('error')}")
 
-    else:
-        evaluation_result["correction_applied"] = False
-        print(f"Scores passed (average: {avg_score})")
+        all_attempts.append(attempt_record)
+
+        # If this is the last attempt, we keep the corrected_response from this attempt
+        if attempt == max_retries:
+            print(f"Reached maximum retries ({max_retries}), using last attempt's response")
+
+    # Build final evaluation result
+    evaluation_result["correction_applied"] = True
+    evaluation_result["retry_count"] = len(all_attempts)
+    evaluation_result["corrected_response"] = corrected_response
+    evaluation_result["all_attempts"] = all_attempts
+
+    if all_attempts:
+        final_attempt = all_attempts[-1]
+        evaluation_result["corrected_scores"] = final_attempt.get("scores", {})
+        evaluation_result["corrected_average_score"] = final_attempt.get("average_score", 0)
 
     return corrected_response, evaluation_result

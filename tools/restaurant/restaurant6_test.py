@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Order Database Interactive Test
+Restaurant 6 Database Interactive Test
 
 Allows manual selection of initialization data and testing of all database operations.
 """
@@ -8,13 +8,13 @@ Allows manual selection of initialization data and testing of all database opera
 import sys
 from typing import Dict, Any, List
 
-from order_db import OrderDB
-from order_init import order_init_data
+from restaurant6_db import Restaurant6DB
+from restaurant6_init import restaurant6_init_data
 
 
 # Map scenario numbers to their data
 SCENARIOS = {
-    1: ("Order Main Data", order_init_data),
+    1: ("Restaurant 6 Data", restaurant6_init_data),
 }
 
 
@@ -64,7 +64,7 @@ def print_menu():
     print("-" * 60)
 
 
-def initialize_database() -> OrderDB:
+def initialize_database() -> Restaurant6DB:
     """Let user select and initialize a scenario."""
     print("\nAvailable Scenarios:")
     for num, (name, data) in SCENARIOS.items():
@@ -82,7 +82,7 @@ def initialize_database() -> OrderDB:
             if int(choice) in SCENARIOS:
                 scenario_num = int(choice)
                 name, data = SCENARIOS[scenario_num]
-                db = OrderDB()
+                db = Restaurant6DB()
                 db.init_from_json(data)
                 print(f"\nInitialized: {name}")
                 print(f"  Restaurants: {len(db.restaurants)}")
@@ -93,7 +93,7 @@ def initialize_database() -> OrderDB:
             print("Invalid input. Please enter a number.")
 
 
-def get_current_restaurant(db: OrderDB) -> str:
+def get_current_restaurant(db: Restaurant6DB) -> str:
     """Get current restaurant or prompt user to select one."""
     if db.user_current_restaurant:
         return db.user_current_restaurant
@@ -117,7 +117,7 @@ def get_current_restaurant(db: OrderDB) -> str:
         return None
 
 
-def test_select_restaurant(db: OrderDB):
+def test_select_restaurant(db: Restaurant6DB):
     """Test selecting a restaurant."""
     print("\nAvailable restaurants:")
     for i, rest_name in enumerate(db.restaurants.keys(), 1):
@@ -138,7 +138,7 @@ def test_select_restaurant(db: OrderDB):
         print("Invalid input.")
 
 
-def test_add_dish_to_catalog(db: OrderDB):
+def test_add_dish_to_catalog(db: Restaurant6DB):
     """Test add_dish_to_catalog method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -178,7 +178,7 @@ def test_add_dish_to_catalog(db: OrderDB):
     print(f"\nResult: {result}")
 
 
-def test_remove_dish_from_catalog(db: OrderDB):
+def test_remove_dish_from_catalog(db: Restaurant6DB):
     """Test remove_dish_from_catalog method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -189,7 +189,7 @@ def test_remove_dish_from_catalog(db: OrderDB):
     print(f"\nResult: {result}")
 
 
-def test_update_dish_price(db: OrderDB):
+def test_update_dish_price(db: Restaurant6DB):
     """Test update_dish_price method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -204,7 +204,7 @@ def test_update_dish_price(db: OrderDB):
         print(f"Invalid input: {e}")
 
 
-def test_update_dish_discount(db: OrderDB):
+def test_update_dish_discount(db: Restaurant6DB):
     """Test update_dish_discount method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -219,7 +219,7 @@ def test_update_dish_discount(db: OrderDB):
         print(f"Invalid input: {e}")
 
 
-def test_find_dishes_by_category(db: OrderDB):
+def test_find_dishes_by_category(db: Restaurant6DB):
     """Test find_dishes_by_category method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -233,7 +233,7 @@ def test_find_dishes_by_category(db: OrderDB):
         print(f"    - {dish}")
 
 
-def test_find_dishes_by_nutritional_tag(db: OrderDB):
+def test_find_dishes_by_nutritional_tag(db: Restaurant6DB):
     """Test find_dishes_by_nutritional_tag method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -247,7 +247,7 @@ def test_find_dishes_by_nutritional_tag(db: OrderDB):
         print(f"    - {dish}")
 
 
-def test_find_dishes_by_taste(db: OrderDB):
+def test_find_dishes_by_taste(db: Restaurant6DB):
     """Test find_dishes_by_taste method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -261,7 +261,7 @@ def test_find_dishes_by_taste(db: OrderDB):
         print(f"    - {dish}")
 
 
-def test_filter_dishes_by_price_range(db: OrderDB):
+def test_filter_dishes_by_price_range(db: Restaurant6DB):
     """Test filter_dishes_by_price_range method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -279,7 +279,7 @@ def test_filter_dishes_by_price_range(db: OrderDB):
         print(f"Invalid input: {e}")
 
 
-def test_list_all_discounted_dishes(db: OrderDB):
+def test_list_all_discounted_dishes(db: Restaurant6DB):
     """Test list_all_discounted_dishes method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -292,7 +292,7 @@ def test_list_all_discounted_dishes(db: OrderDB):
         print(f"    - {dish}")
 
 
-def test_get_dish_nutrition(db: OrderDB):
+def test_get_dish_nutrition(db: Restaurant6DB):
     """Test get_dish_nutrition method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -311,7 +311,7 @@ def test_get_dish_nutrition(db: OrderDB):
         print(f"  {result.get('message', 'Unknown error')}")
 
 
-def test_get_dish_allergens(db: OrderDB):
+def test_get_dish_allergens(db: Restaurant6DB):
     """Test get_dish_allergens method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -327,7 +327,7 @@ def test_get_dish_allergens(db: OrderDB):
         print(f"  {result.get('message', 'Unknown error')}")
 
 
-def test_get_dish_taste_profile(db: OrderDB):
+def test_get_dish_taste_profile(db: Restaurant6DB):
     """Test get_dish_taste_profile method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -343,7 +343,7 @@ def test_get_dish_taste_profile(db: OrderDB):
         print(f"  {result.get('message', 'Unknown error')}")
 
 
-def test_get_dish_price(db: OrderDB):
+def test_get_dish_price(db: Restaurant6DB):
     """Test get_dish_price method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -359,7 +359,7 @@ def test_get_dish_price(db: OrderDB):
         print(f"  {result.get('message', 'Unknown error')}")
 
 
-def test_get_dish_discount(db: OrderDB):
+def test_get_dish_discount(db: Restaurant6DB):
     """Test get_dish_discount method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -375,7 +375,7 @@ def test_get_dish_discount(db: OrderDB):
         print(f"  {result.get('message', 'Unknown error')}")
 
 
-def test_create_set_meal(db: OrderDB):
+def test_create_set_meal(db: Restaurant6DB):
     """Test create_set_meal method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -416,7 +416,7 @@ def test_create_set_meal(db: OrderDB):
         print(f"Invalid input: {e}")
 
 
-def test_get_set_meal_details(db: OrderDB):
+def test_get_set_meal_details(db: Restaurant6DB):
     """Test get_set_meal_details method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -436,7 +436,7 @@ def test_get_set_meal_details(db: OrderDB):
         print(f"  {result.get('message', 'Unknown error')}")
 
 
-def test_find_set_meals_containing_dish(db: OrderDB):
+def test_find_set_meals_containing_dish(db: Restaurant6DB):
     """Test find_set_meals_containing_dish method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -450,7 +450,7 @@ def test_find_set_meals_containing_dish(db: OrderDB):
         print(f"    - {meal}")
 
 
-def test_add_dish_to_order(db: OrderDB):
+def test_add_dish_to_order(db: Restaurant6DB):
     """Test add_dish_to_order method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -466,7 +466,7 @@ def test_add_dish_to_order(db: OrderDB):
         print(f"Invalid input: {e}")
 
 
-def test_remove_dish_from_order(db: OrderDB):
+def test_remove_dish_from_order(db: Restaurant6DB):
     """Test remove_dish_from_order method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -482,7 +482,7 @@ def test_remove_dish_from_order(db: OrderDB):
         print(f"Invalid input: {e}")
 
 
-def test_clear_user_order(db: OrderDB):
+def test_clear_user_order(db: Restaurant6DB):
     """Test clear_user_order method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -493,7 +493,7 @@ def test_clear_user_order(db: OrderDB):
     print(f"\nResult: {result}")
 
 
-def test_get_user_order_summary(db: OrderDB):
+def test_get_user_order_summary(db: Restaurant6DB):
     """Test get_user_order_summary method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -511,7 +511,7 @@ def test_get_user_order_summary(db: OrderDB):
         print("  Order is empty")
 
 
-def test_calculate_order_total(db: OrderDB):
+def test_calculate_order_total(db: Restaurant6DB):
     """Test calculate_order_total method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -523,7 +523,7 @@ def test_calculate_order_total(db: OrderDB):
     print(f"  Total: ${result.get('total', 0):.2f}")
 
 
-def test_calculate_order_tax(db: OrderDB):
+def test_calculate_order_tax(db: Restaurant6DB):
     """Test calculate_order_tax method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -535,7 +535,7 @@ def test_calculate_order_tax(db: OrderDB):
     print(f"  Total tax: ${result.get('total_tax', 0):.2f}")
 
 
-def test_summarize_order_nutrition(db: OrderDB):
+def test_summarize_order_nutrition(db: Restaurant6DB):
     """Test summarize_order_nutrition method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -552,7 +552,7 @@ def test_summarize_order_nutrition(db: OrderDB):
         print("  No nutrition data available.")
 
 
-def test_add_set_meal_to_order(db: OrderDB):
+def test_add_set_meal_to_order(db: Restaurant6DB):
     """Test add_set_meal_to_order method."""
     restaurant = get_current_restaurant(db)
     if not restaurant:
@@ -568,7 +568,7 @@ def test_add_set_meal_to_order(db: OrderDB):
         print(f"Invalid input: {e}")
 
 
-def test_compute_total_payment(db: OrderDB):
+def test_compute_total_payment(db: Restaurant6DB):
     """Test compute_total_payment method (multi-restaurant)."""
     user_id = input("Enter user ID: ").strip()
     print("\nEnter dishes from different restaurants (one per line)")
@@ -602,7 +602,7 @@ def test_compute_total_payment(db: OrderDB):
     print(f"  Total payment: ${result.get('total_payment', 0):.2f}")
 
 
-def test_compute_total_tax(db: OrderDB):
+def test_compute_total_tax(db: Restaurant6DB):
     """Test compute_total_tax method (multi-restaurant)."""
     user_id = input("Enter user ID: ").strip()
     print("\nEnter dishes from different restaurants (one per line)")
@@ -636,7 +636,7 @@ def test_compute_total_tax(db: OrderDB):
     print(f"  Total tax: ${result.get('total_tax', 0):.2f}")
 
 
-def test_compute_total_nutrition(db: OrderDB):
+def test_compute_total_nutrition(db: Restaurant6DB):
     """Test compute_total_nutrition method (multi-restaurant)."""
     user_id = input("Enter user ID: ").strip()
     print("\nEnter dishes from different restaurants (one per line)")
@@ -675,7 +675,7 @@ def test_compute_total_nutrition(db: OrderDB):
         print("  No nutrition data available.")
 
 
-def show_catalog_summary(db: OrderDB):
+def show_catalog_summary(db: Restaurant6DB):
     """Show a summary of all restaurants."""
     print("\nCatalog Summary:")
     print(f"  Total restaurants: {len(db.restaurants)}")

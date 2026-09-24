@@ -1,9 +1,13 @@
 *.jpg
 *.png
+!figure/fig1.png
 *.zip
-*.mp4
 *.xlsx
 .env
+.env.*
+!.env.example
+*.pem
+*.key
 
 # Python cache
 __pycache__/
@@ -11,15 +15,43 @@ __pycache__/
 *$py.class
 *.egg-info/
 .eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.ipynb_checkpoints/
 
 # Results and evaluation
 results/
+results_*/
+GPT_user_results/
+GPT_user_results_*/
+GPT_user_eval_result/
 eval_result/
-video/
+eval_result_*/
+error_analysis/
+error_analysis_*/
+reports/
+
+# Ignore only the legacy plural directory. Benchmark assets in video/ are tracked.
+videos/
+
+# Runtime output
+*.log
+*.pid
+.gpt_user_pids*
+nohup.out
 
 # IDE and OS
 .idea/
 .vscode/
+.claude/
 .DS_Store
 *.swp
 *.swo

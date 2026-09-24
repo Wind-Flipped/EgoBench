@@ -256,7 +256,7 @@ class RestaurantDB:
 
     # --- Dish Catalog Management Tools ---
 
-    def add_dish_to_catalog(self, name: str, category: str, price: float, tax_rate: float, discount: float,
+    def add_dish_to_catalog(self, dish_name: str, category: str, price: float, tax_rate: float, discount: float,
                            nutritional_characteristics: List[str], taste: List[str], allergens: List[str],
                            nutrition: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -265,7 +265,7 @@ class RestaurantDB:
         try:
             nutrition_obj = NutritionInfo(**nutrition)
             dish = Dish(
-                name=name.lower(),
+                name=dish_name.lower(),
                 category=category.lower(),
                 price=price,
                 tax_rate=tax_rate,
@@ -275,46 +275,46 @@ class RestaurantDB:
                 allergens=[a.lower() for a in allergens],
                 nutrition=nutrition_obj
             )
-            self.catalog[name.lower()] = dish
-            return {"status": "success", "message": f"Dish '{name}' added/updated successfully."}
+            self.catalog[dish_name.lower()] = dish
+            return {"status": "success", "message": f"Dish '{dish_name}' added/updated successfully."}
         except Exception as e:
             return {"status": "error", "message": f"Failed to add/update dish: {str(e)}"}
 
-    def remove_dish_from_catalog(self, name: str) -> Dict[str, Any]:
+    def remove_dish_from_catalog(self, dish_name: str) -> Dict[str, Any]:
         """
         Remove a dish from the catalog by its exact name.
         """
-        dish_key = name.lower()
+        dish_key = dish_name.lower()
         if dish_key in self.catalog:
             del self.catalog[dish_key]
             # Also remove from any user's order where it might exist
             for order in self.user_orders.values():
                 order.pop(dish_key, None)
-            return {"status": "success", "message": f"Dish '{name}' removed from catalog."}
+            return {"status": "success", "message": f"Dish '{dish_name}' removed from catalog."}
         else:
-            return {"status": "error", "message": f"Dish '{name}' not found in catalog."}
+            return {"status": "error", "message": f"Dish '{dish_name}' not found in catalog."}
 
-    def update_dish_price(self, name: str, new_price: float) -> Dict[str, Any]:
+    def update_dish_price(self, dish_name: str, new_price: float) -> Dict[str, Any]:
         """
         Update the price of an existing dish in the catalog.
         """
-        dish_key = name.lower()
+        dish_key = dish_name.lower()
         if dish_key in self.catalog:
             self.catalog[dish_key].price = new_price
-            return {"status": "success", "message": f"Price of dish '{name}' updated to {new_price}."}
+            return {"status": "success", "message": f"Price of dish '{dish_name}' updated to {new_price}."}
         else:
-            return {"status": "error", "message": f"Dish '{name}' not found in catalog."}
+            return {"status": "error", "message": f"Dish '{dish_name}' not found in catalog."}
 
-    def update_dish_discount(self, name: str, new_discount: float) -> Dict[str, Any]:
+    def update_dish_discount(self, dish_name: str, new_discount: float) -> Dict[str, Any]:
         """
         Update the discount factor for an existing dish.
         """
-        dish_key = name.lower()
+        dish_key = dish_name.lower()
         if dish_key in self.catalog:
             self.catalog[dish_key].discount = new_discount
-            return {"status": "success", "message": f"Discount of dish '{name}' updated to {new_discount}."}
+            return {"status": "success", "message": f"Discount of dish '{dish_name}' updated to {new_discount}."}
         else:
-            return {"status": "error", "message": f"Dish '{name}' not found in catalog."}
+            return {"status": "error", "message": f"Dish '{dish_name}' not found in catalog."}
 
     def find_dishes_by_category(self, category: str) -> Dict[str, Any]:
         """

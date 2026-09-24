@@ -1,110 +1,60 @@
+"""Print the four simulated-user averages saved by the main evaluator."""
+
+import argparse
 import json
 import os
-import re
-from collections import defaultdict
 
-# Define 8 metrics
-metrics = [
-    'original_role_consistency_avg',
-    'original_instruction_following_avg',
-    'original_resilience_avg',
-    'original_contextual_robustness_avg',
-    'final_role_consistency_avg',
-    'final_instruction_following_avg',
-    'final_resilience_avg',
-    'final_contextual_robustness_avg'
-]
 
-# Store all data
-all_metrics = defaultdict(list)
-scene_metrics = defaultdict(lambda: defaultdict(list))
-mode_metrics = defaultdict(lambda: defaultdict(list))
+USER_PERFORMANCE_KEYS = (
+    "role_consistency",
+    "instruction_following",
+    "resilience",
+    "contextual_robustness",
+)
 
-# Iterate over all model directories under results
-results_dir = '../results'
-for model_dir in os.listdir(results_dir):
-    model_path = os.path.join(results_dir, model_dir)
-    if not os.path.isdir(model_path):
-        continue
 
-    # Iterate over all JSON files in the model directory
-    for filename in os.listdir(model_path):
-        if not filename.endswith('.json'):
+def main():
+    parser = argparse.ArgumentParser(
+        description="Print simulated-user metric averages from evaluation summaries"
+    )
+    parser.add_argument(
+        "--eval_root",
+        default=os.path.join(os.path.dirname(__file__), "..", "eval_result"),
+        help="Directory containing per-model evaluation summaries",
+    )
+    args = parser.parse_args()
+
+    if not os.path.isdir(args.eval_root):
+        print(f"Evaluation directory not found: {args.eval_root}")
+        return
+
+    found = False
+    for model_name in sorted(os.listdir(args.eval_root)):
+        summary_path = os.path.join(args.eval_root, model_name, "summary.json")
+        if not os.path.isfile(summary_path):
             continue
 
-        filepath = os.path.join(model_path, filename)
-        try:
-            with open(filepath, 'r') as f:
-                data = json.load(f)
+        with open(summary_path, "r", encoding="utf-8") as stream:
+            summary = json.load(stream).get("summary", {})
 
-            if not isinstance(data, list):
-                continue
+        averages = summary.get("avg_user_performance")
+        if not isinstance(averages, dict):
+            continue
 
-            # Extract scenario name and mode
-            # Filename format: retail1_easy.json
-            parts = filename.replace('.json', '').rsplit('_', 1)
-            if len(parts) == 2:
-                scene_name = parts[0]  # retail1
-                mode = parts[1]  # easy/hard/static
+        counts = summary.get("user_performance_sample_counts", {})
+        found = True
+        print(f"\n{model_name}")
+        print(f"{'Metric':<28} {'Average':>10} {'Samples':>10}")
+        print("-" * 50)
+        for key in USER_PERFORMANCE_KEYS:
+            print(
+                f"{key:<28} {averages.get(key, 0.0):>10.4f} "
+                f"{counts.get(key, 0):>10}"
+            )
 
-                # Extract base scenario name (retail)
-                base_scene = re.match(r'([a-z]+)', scene_name).group(1) if scene_name else 'unknown'
-            else:
-                base_scene = 'unknown'
-                mode = 'unknown'
+    if not found:
+        print("No evaluation summary containing simulated-user metrics was found.")
 
-            # Collect metrics per scenario
-            for item in data:
-                if 'user_performance' not in item:
-                    continue
-                up = item['user_performance']
 
-                for metric in metrics:
-                    if metric in up and up[metric] is not None:
-                        value = up[metric]
-                        all_metrics[metric].append(value)
-                        scene_metrics[base_scene][metric].append(value)
-                        mode_metrics[mode][metric].append(value)
-
-        except Exception as e:
-            print(f"Error processing {filepath}: {e}")
-
-# Calculate and output results
-print("=" * 80)
-print("Average user_performance metrics across all scenarios")
-print("=" * 80)
-print(f"{'Metric':<45} {'Average':>10} {'Samples':>10}")
-print("-" * 80)
-for metric in metrics:
-    values = all_metrics[metric]
-    if values:
-        avg = sum(values) / len(values)
-        print(f"{metric:<45} {avg:>10.4f} {len(values):>10}")
-    else:
-        print(f"{metric:<45} {'N/A':>10} {0:>10}")
-
-print("\n" + "=" * 80)
-print("Average metrics grouped by base scenario")
-print("=" * 80)
-for scene in sorted(scene_metrics.keys()):
-    print(f"\n--- {scene.upper()} ---")
-    print(f"{'Metric':<45} {'Average':>10} {'Samples':>10}")
-    print("-" * 65)
-    for metric in metrics:
-        values = scene_metrics[scene][metric]
-        if values:
-            avg = sum(values) / len(values)
-            print(f"{metric:<45} {avg:>10.4f} {len(values):>10}")
-
-print("\n" + "=" * 80)
-print("Average metrics grouped by mode")
-print("=" * 80)
-for mode in sorted(mode_metrics.keys()):
-    print(f"\n--- {mode.upper()} ---")
-    print(f"{'Metric':<45} {'Average':>10} {'Samples':>10}")
-    print("-" * 65)
-    for metric in metrics:
-        values = mode_metrics[mode][metric]
-        if values:
-            avg = sum(values) / len(values)
-            print(f"{metric:<45} {avg:>10.4f} {len(values):>10}")
+if __name__ == "__main__":
+    main()

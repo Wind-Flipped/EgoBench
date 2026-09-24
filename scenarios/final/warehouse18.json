@@ -1,0 +1,918 @@
+[
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is three days before August 18, 2026. You ask AI Service Agent to inspect the currently verifiable latest use date of the parallel black strips hanging down at the front and determine whether it is no earlier than May 1, 2026. If so, state that the current item will leave at maximum service life, the related need will end, and no replacement will be acquired; you ask AI Service Agent to add the arrangement for ceasing to retain it to the action list, due on its maximum-service-life date or today if earlier than today; if not, explain that it is only temporarily on a pallet in the receiving-review area, will continue to be used, and should return to its ideal registered location; you ask AI Service Agent to add this storage adjustment to the action list, due August 19, 2026. You ask AI Service Agent, among same-category devices, to select those whose manuals require the most routine-maintenance actions; in an action-count tie select those with fewer verifiable uses in 2026, then retain those purchased earlier; if there is no other same-category device, select the black strips. For the devices selected above, you ask AI Service Agent to continue the determination based on historical maintenance records and routine maintenance requirements in the manual. For each selected device, you ask AI Service Agent to determine: if maintenance is overdue add the overdue action whose latest completion record is latest, due today; if none is overdue, add the action whose prescribed date is farthest from today, retaining that date and all ties. Finally, after completing the preceding list changes on August 15, you ask AI Service Agent to review the action list again at that time, treat every record in it as an action item without distinguishing its source, find the due date covering the greatest number of devices, choosing the later date in a tie, and group the corresponding devices by purchase year; keep the original date for the group with the earliest purchase year, postpone the other years successively by one day from earlier to later, and if there is only one year, postpone all of them by one day.",
+    "analysis": "1. Identify Pull Rod from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Pull Rod, due on 2026-08-19.\n4. Add an action to inspect Urban Magnetic Job Holder, due on 2027-04-30.\n5. Remove the action to clean Aerosol Can that is due on 2026-08-19.\n6. Add an action to clean Aerosol Can, due on 2026-08-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Pull Rod",
+          "required_action": "relocate",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Urban Magnetic Job Holder",
+          "required_action": "inspect",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Pull Rod"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the Sunday of the week containing August 10, 2026. For the upright silver-purple cylinder at the upper right, you ask AI Service Agent to make a determination based on its historical maintenance records and the routine maintenance requirements in its manual. You ask AI Service Agent first to check the number of overdue actions for this device: as long as the number is greater than zero, add the action that has been overdue the longest to the action list and set its due date to today; if the number is zero, add the action with the earliest prescribed date to the action list and use that date, retaining all tied actions. Next, you ask AI Service Agent to determine, based on the historical maintenance records and routine maintenance requirements in the manual for the upright silver-purple cylinder at the upper right, whether it has at least two overdue and unperformed routine maintenance actions. If the answer is yes, you explain that retention of the upright silver-purple cylinder at the upper right will end directly after it expires and that no device of the same type will be purchased to take over; you ask AI Service Agent to add the arrangement for ceasing to retain it to the action list, with the due date set to the date on which the device reaches its maximum service life, or today if that date is earlier than today. If the answer is no, you add that the upright silver-purple cylinder at the upper right is temporarily stored on the transfer rack beside the loading and unloading passage, that the device will not leave use, and that its storage location should be adjusted to the location marked in the files; you ask AI Service Agent to record this storage adjustment in the action list, due August 21, 2026. Finally, after completing the preceding list changes on August 16, you ask AI Service Agent to use the already updated action list to process all action items in it, count the number of action items for each device, find the devices with the largest count, and delete those devices' items with the latest due date; process all ties in device count or date.",
+    "analysis": "1. Identify Aerosol Can from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to condition Aerosol Can, due on 2026-08-16.\n4. Add an action to dispose of Aerosol Can, due on 2027-01-14.\n5. Remove the action to dispose of Aerosol Can that is due on 2027-01-14.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "condition",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "dispose",
+          "due_date": "2027-01-14"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "dispose",
+          "due_date": "2027-01-14"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Aerosol Can"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is August 17, 2026. You ask AI Service Agent to determine the maximum-service-life date of the tool lifted in the hand and whether it is no later than December 31, 2028. If so, add that the current tool will be replaced at expiration while the warehouse maintains the same capability; you ask AI Service Agent to add this replacement to the action list, due on its maximum-service-life date or today if earlier than today; if not, you tell AI Service Agent that the tool lifted in the hand currently has a repairable functional abnormality and will remain in use after repair; you ask AI Service Agent to add the arrangement for restoring the current device to normal function to the action list, due August 23, 2026. Next, you ask AI Service Agent to rank manual equipment by routine-maintenance action count and retain the highest tier; within it, compare from fewer to more verifiable uses in 2026 through August 17, finally breaking ties by earlier purchase. Based on overdue status on August 17, you ask AI Service Agent to add each required action of the selected devices, making past-prescribed-date actions due today and retaining original dates for the rest. Finally, after completing the preceding list changes on August 17, you ask AI Service Agent to inspect all action items in the action list uniformly and sort all due dates; if the number of dates is odd, delete all action items on the middle date; if the number is even, delete the items on the earlier of the two middle dates; if there is only one date, delete all items on that date.",
+    "analysis": "1. Identify Wrench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Wrench, due on 2026-08-23.\n4. Add an action to clean Screwdriver, due on 2026-08-17.\n5. Add an action to inspect Screwdriver, due on 2026-08-17.\n6. Add an action to sharpen Screwdriver, due on 2026-08-17.\n7. Remove the action to clean Aerosol Can that is due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Wrench",
+          "required_action": "repair",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "clean",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "sharpen",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Wrench"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is August 18, 2026. You ask AI Service Agent to compare the currently verifiable latest use dates of the gray-black machine being repaired and the parallel black strips hanging down at the front, and determine whether they are no more than sixty days apart. If yes, explain that the machine cannot start normally, technicians have confirmed the fault is repairable, and you intend to retain the current unit; you ask AI Service Agent to add the arrangement for restoring the current device to normal function to the action list, due August 20, 2026; if no, state that the current black strips will stop being used at maximum service life and a same-type device will still be needed; you ask AI Service Agent to add this replacement to the action list, due on their maximum-service-life date or today if earlier than today. For the black strips, you ask AI Service Agent to find among other same-brand devices those with the earliest latest use date; in a date tie retain those purchased earlier; if none exist, select the black strips. For the devices selected above in relation to the black strips, you ask AI Service Agent to continue the determination based on historical maintenance records and routine maintenance requirements in the manual. For each selected device, you ask AI Service Agent to determine: if any action is overdue add every overdue action separately, all due today; if none is overdue add the earliest-prescribed action using that date, retaining all same-day ties. Finally, after completing the preceding list changes on August 18, you ask AI Service Agent to read the latest action list, treat all records in it uniformly as action items, find the due date containing the greatest number of different action types, then find the action type occurring least often on that date and delete the corresponding items; if that date has only one action type, delete all items on that date, and process all ties in the number of types.",
+    "analysis": "1. Identify Engine, Pull Rod from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Pull Rod, due on 2034-07-03.\n4. Add an action to clean Reinforced Parts Cleaning Basin, due on 2026-09-29.\n5. Remove the action to inspect Engine that is due on 2026-08-17.\n6. Remove the action to condition Pull Rod that is due on 2026-08-18.\n7. Remove the action to clean Aerosol Can that is due on 2026-08-19.\n8. Remove the action to clean Modular Podium Step Ladder that is due on 2026-08-20.\n9. Remove the action to replace Pull Rod that is due on 2034-07-03.\n10. Remove the action to clean Reinforced Parts Cleaning Basin that is due on 2026-09-29.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Pull Rod",
+          "required_action": "replace",
+          "due_date": "2034-07-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Reinforced Parts Cleaning Basin",
+          "required_action": "clean",
+          "due_date": "2026-09-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Pull Rod",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Modular Podium Step Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Pull Rod",
+          "required_action": "replace",
+          "due_date": "2034-07-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Reinforced Parts Cleaning Basin",
+          "required_action": "clean",
+          "due_date": "2026-09-29"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Engine",
+      "Pull Rod"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the third Wednesday of August 2026. For the dark long-handled implement swung back and forth during operation, you ask AI Service Agent to find among other devices with the same country of origin those whose maximum-service-life date is closest to its date; when differences tie retain those with the earlier currently verifiable latest use date; if no other device qualifies, process the implement itself. For the devices selected above, you ask AI Service Agent to continue the determination based on historical maintenance records and routine maintenance requirements in the manual. For each selected device, you ask AI Service Agent to determine: if an undone routine-maintenance action is overdue add the longest-overdue one, due today; if none is overdue add the earliest-prescribed one using that date, retaining all ties. Then you ask AI Service Agent to count the implement's verifiable uses from January 1, 2026 through today and determine whether there are at least two. If so, decide that it will leave the warehouse at expiration and no same-type device will be needed afterward; you ask AI Service Agent to add the arrangement for ceasing to retain it to the action list, due on its maximum-service-life date or today if earlier than today; if not, explain that it must be retained but is temporarily at the workstation pending assignment and should be moved to its registered location; you ask AI Service Agent to add this storage adjustment to the action list, due August 23, 2026. Finally, after completing the preceding list changes on August 19, you ask AI Service Agent to use the updated action list, treat all records in the list uniformly as action items, count for each action type the number of distinct due dates it covers, find the type covering the most dates, and change the items of that type on the earliest date to the day after its latest date; if it covers only one date, postpone those items by one day, and process all tied types.",
+    "analysis": "1. Identify Wrench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to inspect Screwdriver, due on 2026-08-19.\n4. Add an action to relocate Wrench, due on 2026-08-23.\n5. Remove the action to inspect Engine that is due on 2026-08-17.\n6. Add an action to inspect Engine, due on 2026-08-20.\n7. Remove the action to clean Aerosol Can that is due on 2026-08-19.\n8. Add an action to clean Aerosol Can, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Wrench",
+          "required_action": "relocate",
+          "due_date": "2026-08-23"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Wrench"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is three days before August 23, 2026. You ask AI Service Agent to determine, from the currently verifiable latest use date of the blue perforated panel on the wall, whether it has been idle for at least 180 days. If so, tell AI Service Agent that its mobile cart in the inventory area is only for short-term turnover, that the original must be retained, and that it should return to its ideal recorded location; you ask AI Service Agent to add this storage adjustment to the action list, due August 24, 2026; if not, add that it will be removed from the warehouse at the end of its life with no replacement need; you ask AI Service Agent to add the arrangement for ceasing to retain it to the action list, due on its maximum-service-life date or today if earlier than today. In addition, you ask AI Service Agent to select from material-handling and lifting equipment the devices with the greatest number of manual routine-maintenance action types; if tied, select those with fewer verifiable uses in 2026 through August 20, then those purchased earlier. Using August 20 as the assessment point, you ask AI Service Agent to add all required actions, making actions past their prescribed dates due today and using their dates for the rest. Finally, after completing the preceding list changes on August 20, you ask AI Service Agent to treat all records in the action list uniformly as action items, find the due date covering the greatest number of devices, choosing the later date in a tie, and group the corresponding devices by purchase year; keep the original date for the group with the earliest purchase year, postpone the other years successively by one day from earlier to later, and if there is only one year, postpone all of them by one day.",
+    "analysis": "1. Identify Tool Rack from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Tool Rack, due on 2028-01-25.\n4. Add an action to clean Easy-Clean Folding Platform Cart, due on 2026-08-20.\n5. Add an action to inspect Easy-Clean Folding Platform Cart, due on 2026-08-20.\n6. Remove the action to clean Modular Podium Step Ladder that is due on 2026-08-20.\n7. Add an action to clean Modular Podium Step Ladder, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tool Rack",
+          "required_action": "dispose",
+          "due_date": "2028-01-25"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Easy-Clean Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Easy-Clean Folding Platform Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Modular Podium Step Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Modular Podium Step Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Tool Rack"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the Friday of the week containing August 17, 2026. For the orange tool held in the left hand after turning around, you ask AI Service Agent to make a determination based on its historical maintenance records and the routine maintenance requirements in its manual. If there are overdue and unperformed routine maintenance actions, you ask AI Service Agent to write the action that has been overdue the longest into the action list and set its due date to today; if there are no overdue actions, write the action with the earliest prescribed date into the action list and use that date, retaining all tied actions. Next, you ask AI Service Agent to check whether the manual for the orange tool held in the left hand after turning around requires at least three types of routine maintenance actions. If the answer is yes, you specify that the orange tool held in the left hand after turning around currently cannot work normally, that the cause of the fault has been identified and can be repaired, and that the warehouse is still to retain the original device; you ask AI Service Agent to write the arrangement for restoring the current device to normal function into the action list, due August 26, 2026. If the answer is no, you explain that the current orange tool held in the left hand after turning around is to leave after reaching its maximum service life, but the related work will continue and must be taken over by a new device of the same type; you ask AI Service Agent to add this takeover arrangement to the action list, with the due date set to the date on which the device reaches its maximum service life, or today if that date is earlier than today. Finally, after completing the preceding list changes on August 21, you ask AI Service Agent to review the action list again at that time, treat every record in it as an action item without distinguishing its source, count the number of action items for each device, find the devices with the largest count, and delete those devices' items with the latest due date; process all ties in device count or date.",
+    "analysis": "1. Identify Screwdriver from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to inspect Screwdriver, due on 2026-08-21.\n4. Add an action to repair Screwdriver, due on 2026-08-26.\n5. Remove the action to repair Screwdriver that is due on 2026-08-26.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "inspect",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "repair",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "repair",
+          "due_date": "2026-08-26"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Screwdriver"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is August 22, 2026. You ask AI Service Agent to determine whether the sets of routine-maintenance actions required by the manuals for the parallel black strips hanging down at the front and the dark long-handled implement swung during operation are exactly the same, regardless of intervals. If so, explain that the black strips' existing fault is confirmed fixable and that you want to repair the original rather than replace it; you ask AI Service Agent to add the arrangement for restoring the current device to normal function to the action list, due August 24, 2026; if not, decide that the dark long-handled implement will retire at expiration while the warehouse retains the same capability through a new device; you ask AI Service Agent to add this replacement to the action list, due on its maximum-service-life date or today if earlier than today. For the implement, you ask AI Service Agent to find among devices with the same ideal storage location those with the most overdue actions; in a count tie select those with the earlier prescribed date, then retain those purchased earlier; if there is no other device, process the implement itself. For the devices selected above in relation to the implement, you ask AI Service Agent to continue the determination based on historical maintenance records and routine maintenance requirements in the manual. Among the selected devices, you ask AI Service Agent to find those with the most overdue actions: if the maximum is above zero, add each such device's longest-overdue action, due today; if zero, add the earliest-prescribed action using that date, retaining all ties. Finally, after completing the preceding list changes on August 22, you ask AI Service Agent to use the already updated action list to process all action items in it and sort all due dates; if the number of dates is odd, delete all action items on the middle date; if the number is even, delete the items on the earlier of the two middle dates; if there is only one date, delete all items on that date.",
+    "analysis": "1. Identify Pull Rod, Wrench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Wrench, due on 2030-11-27.\n4. Add an action to inspect Screwdriver, due on 2026-08-22.\n5. Remove the action to clean Aerosol Can that is due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Wrench",
+          "required_action": "replace",
+          "due_date": "2030-11-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "inspect",
+          "due_date": "2026-08-22"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Pull Rod",
+      "Wrench"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is August 23, 2026. You ask AI Service Agent to compare the upright silver-purple cylinder's numbers of verifiable uses from January 1 through March 31, 2026 and from April 1 through today, and determine whether the latter interval has more. If yes, add that it will be removed from the warehouse at the end of its life with no replacement need; you ask AI Service Agent to add the arrangement for ceasing to retain it to the action list, due on its maximum-service-life date or today if earlier than today; if no, tell AI Service Agent that its temporary pallet in the receiving-review area is only for short-term turnover, the original must be retained, and it should return to its ideal recorded location; you ask AI Service Agent to add this storage adjustment to the action list, due August 27, 2026. Next, you ask AI Service Agent to rank measuring and inspection equipment by routine-maintenance action count and retain the highest tier; within it, compare from fewer to more verifiable uses in 2026 through August 23, finally breaking ties by earlier purchase. Based on overdue status on August 23, you ask AI Service Agent to add each required action of the selected devices, making past-prescribed-date actions due today and retaining original dates for the rest. Finally, after completing the preceding list changes on August 23, you ask AI Service Agent to inspect all action items in the action list uniformly, find the due date containing the greatest number of different action types, then find the action type occurring least often on that date and delete the corresponding items; if that date has only one action type, delete all items on that date, and process all ties in the number of types.",
+    "analysis": "1. Identify Aerosol Can from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Aerosol Can, due on 2026-08-27.\n4. Add an action to clean Anti-Slip Digital Angle Gauge, due on 2027-01-29.\n5. Add an action to inspect Anti-Slip Digital Angle Gauge, due on 2026-10-30.\n6. Add an action to calibrate Anti-Slip Digital Angle Gauge, due on 2026-09-30.\n7. Remove the action to inspect Engine that is due on 2026-08-17.\n8. Remove the action to condition Pull Rod that is due on 2026-08-18.\n9. Remove the action to clean Aerosol Can that is due on 2026-08-19.\n10. Remove the action to clean Modular Podium Step Ladder that is due on 2026-08-20.\n11. Remove the action to relocate Aerosol Can that is due on 2026-08-27.\n12. Remove the action to clean Anti-Slip Digital Angle Gauge that is due on 2027-01-29.\n13. Remove the action to inspect Anti-Slip Digital Angle Gauge that is due on 2026-10-30.\n14. Remove the action to calibrate Anti-Slip Digital Angle Gauge that is due on 2026-09-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Anti-Slip Digital Angle Gauge",
+          "required_action": "clean",
+          "due_date": "2027-01-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Anti-Slip Digital Angle Gauge",
+          "required_action": "inspect",
+          "due_date": "2026-10-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Anti-Slip Digital Angle Gauge",
+          "required_action": "calibrate",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Pull Rod",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Modular Podium Step Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Anti-Slip Digital Angle Gauge",
+          "required_action": "clean",
+          "due_date": "2027-01-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Anti-Slip Digital Angle Gauge",
+          "required_action": "inspect",
+          "due_date": "2026-10-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Anti-Slip Digital Angle Gauge",
+          "required_action": "calibrate",
+          "due_date": "2026-09-30"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Aerosol Can"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the fourth Monday of August 2026. For the tool lifted in the hand, you ask AI Service Agent to find the earliest-purchased devices among others with both the same category and brand; if none meet both conditions, search only by category; when purchase dates tie retain those with fewer currently verifiable uses in 2026; if there is still no other device select the tool itself. For the devices selected above in relation to the tool lifted in the hand, you ask AI Service Agent to continue the determination based on historical maintenance records and routine maintenance requirements in the manual. For each selected device, you ask AI Service Agent to determine: if at least two actions are overdue add the second-longest-overdue action, due today; if one is overdue add it; if none is overdue add the second-earliest-prescribed action, or the sole action if only one, retaining its prescribed date. Then you ask AI Service Agent to determine whether all routine-maintenance actions required by the lifted tool are already overdue. If so, state that it will not be retained or replaced after reaching maximum service life; you ask AI Service Agent to add the arrangement for ceasing to retain it to the action list, due on its maximum-service-life date or today if earlier than today; if not, state that its location on the transfer rack beside the loading and unloading aisle is temporary, it will remain in use, and should be moved to its recorded location; you ask AI Service Agent to add this storage adjustment to the action list, due August 29, 2026. Finally, after completing the preceding list changes on August 24, you ask AI Service Agent to read the latest action list, treat all records in it uniformly as action items, count for each action type the number of distinct due dates it covers, find the type covering the most dates, and change the items of that type on the earliest date to the day after its latest date; if it covers only one date, postpone those items by one day, and process all tied types.",
+    "analysis": "1. Identify Wrench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to sharpen Screwdriver, due on 2026-08-24.\n4. Add an action to dispose of Wrench, due on 2030-11-27.\n5. Remove the action to clean Aerosol Can that is due on 2026-08-19.\n6. Add an action to clean Aerosol Can, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "sharpen",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Wrench",
+          "required_action": "dispose",
+          "due_date": "2030-11-27"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Wrench"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is three days before August 28, 2026. For the gray-black machine being repaired, you ask AI Service Agent to make a determination based on its historical maintenance records and the routine maintenance requirements in its manual. If maintenance is overdue, you ask AI Service Agent to select the overdue maintenance action whose most recent completion record is latest, record it in the action list, and set its due date to today; if none is overdue, record the action whose prescribed date is farthest from today in the action list and retain that date, processing all ties in record date or prescribed date. Next, you ask AI Service Agent to determine whether the purchase date of the gray-black machine being repaired is earlier than January 1, 2023. If the foregoing determination holds, you decide that the gray-black machine being repaired is to retire when it reaches its service-life limit, while the warehouse still needs to retain the same operating capability and a new device will take its place; you ask AI Service Agent to record this takeover arrangement in the action list, with the due date set to the date on which the device reaches its maximum service life, or today if that date is earlier than today. If the foregoing determination does not hold, you explain that the existing fault of the gray-black machine being repaired has been confirmed removable and that you want to repair the original item rather than replace it with another device; you ask AI Service Agent to add the arrangement for restoring the current device to normal function to the action list, due August 31, 2026. Finally, after completing the preceding list changes on August 25, you ask AI Service Agent to use the updated action list, treat all records in the list uniformly as action items, find the due date covering the greatest number of devices, choosing the later date in a tie, and, under the selected later date, group the corresponding devices by purchase year; keep the original date for the group with the earliest purchase year, postpone the other years successively by one day from earlier to later, and if there is only one year, postpone all of them by one day.",
+    "analysis": "1. Identify Engine from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to clean Engine, due on 2026-08-25.\n4. Add an action to repair Engine, due on 2026-08-31.\n5. Remove the action to repair Engine that is due on 2026-08-31.\n6. Add an action to repair Engine, due on 2026-09-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "clean",
+          "due_date": "2026-08-25"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "repair",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "repair",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Engine",
+          "required_action": "repair",
+          "due_date": "2026-09-01"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Engine"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the Wednesday of the week containing August 24, 2026. You ask AI Service Agent to compare the dates on which the dark long-handled implement swung back and forth during operation and the upright silver-purple cylinder at the upper right reach their maximum service lives, and determine whether the two dates are no more than one year apart. If the answer is yes, you tell AI Service Agent that the dark long-handled implement swung back and forth during operation currently has a repairable functional abnormality and that the current device will continue to be used after it is repaired; you ask AI Service Agent to add the arrangement for restoring the current device to normal function to the action list, due August 28, 2026. If the answer is no, you add that the current upright silver-purple cylinder at the upper right is to be replaced after its service life expires and that the warehouse still needs to maintain the same equipment capability; you ask AI Service Agent to record this takeover arrangement in the action list, with the due date set to the date on which the device reaches its maximum service life, or today if that date is earlier than today. In addition, you ask AI Service Agent to select from the warehouse's elevated-access equipment the devices with the greatest number of types of routine maintenance actions in their manuals; if the number of types is tied, compare their currently verifiable uses in 2026 through August 26 and take those with fewer uses, then take those purchased earlier if still tied. You ask AI Service Agent, using August 26 as the determination point, to add all routine maintenance actions required for the selected devices to the action list together; actions past their prescribed dates are uniformly due today, and the remaining actions use their respective prescribed dates. Finally, after completing the preceding list changes on August 26, you ask AI Service Agent to treat all records in the action list uniformly as action items, count the number of action items for each device, find the devices with the largest count, and delete those devices' items with the latest due date; within each current device, process all ties in date.",
+    "analysis": "1. Identify Wrench, Aerosol Can from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Aerosol Can, due on 2027-01-14.\n4. Add an action to clean Adjustable Telescoping Work Platform, due on 2026-08-26.\n5. Add an action to inspect Adjustable Telescoping Work Platform, due on 2026-08-26.\n6. Add an action to condition Adjustable Telescoping Work Platform, due on 2026-08-26.\n7. Remove the action to clean Adjustable Telescoping Work Platform that is due on 2026-08-26.\n8. Remove the action to inspect Adjustable Telescoping Work Platform that is due on 2026-08-26.\n9. Remove the action to condition Adjustable Telescoping Work Platform that is due on 2026-08-26.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "replace",
+          "due_date": "2027-01-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "inspect",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "condition",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "inspect",
+          "due_date": "2026-08-26"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "condition",
+          "due_date": "2026-08-26"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Wrench",
+      "Aerosol Can"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the last Thursday of August 2026. You ask AI Service Agent to determine, from the maintenance history and manual requirements of the blue perforated panel on the wall, whether its earliest required maintenance date is no later than September 1, 2026. If so, state that its location on the transfer rack beside the loading and unloading aisle is temporary, it will remain in use, and should be moved to its recorded location; you ask AI Service Agent to add this storage adjustment to the action list, due August 30, 2026; if not, state that it will not be retained or replaced after reaching maximum service life; you ask AI Service Agent to add the arrangement for ceasing to retain it to the action list, due on its maximum-service-life date or today if earlier than today. For that panel, you ask AI Service Agent to find among other devices with both the same country of origin and ideal storage location those with the earliest latest use date; if none meet both conditions, select only by country of origin; in a date tie retain those purchased later; if there is still no other device, process the panel itself. For the devices selected above in relation to the blue perforated panel on the wall, you ask AI Service Agent to continue the determination based on historical maintenance records and routine maintenance requirements in the manual. For each selected device, you ask AI Service Agent to determine: if an undone action is overdue add the longest-overdue one, due today; if none is overdue, add the earliest-prescribed one using that date, retaining all ties. Finally, after completing the preceding list changes on August 27, you ask AI Service Agent to review the action list again at that time, treat every record in it as an action item without distinguishing its source, and sort all due dates from earliest to latest; if the number of dates is odd, delete all action items on the middle date; if the number is even, delete the items on the earlier of the two middle dates; if there is only one date, delete all items on that date.",
+    "analysis": "1. Identify Tool Rack from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Tool Rack, due on 2026-08-30.\n4. Add an action to inspect Ergonomic Anti-Static Dust Brush, due on 2026-09-30.\n5. Remove the action to clean Aerosol Can that is due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Tool Rack",
+          "required_action": "relocate",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Ergonomic Anti-Static Dust Brush",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Tool Rack"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is August 28, 2026. You ask AI Service Agent to determine whether the orange tool held in the left hand after turning around will reach its maximum service life within eighteen months from today. If the determination is affirmative, you explain that the orange tool held in the left hand after turning around still needs to be retained, is merely being kept temporarily on a mobile cart in the inventory area, and should have its storage location corrected to the location registered in the files; you ask AI Service Agent to add this storage adjustment to the action list, due September 1, 2026. If the determination is negative, you decide that the orange tool held in the left hand after turning around is to leave the warehouse after its service life expires and that a device of the same type will no longer be needed afterward; you ask AI Service Agent to record the arrangement for ceasing to retain it in the action list, with the due date set to the date on which the device reaches its maximum service life, or today if that date is earlier than today. After completing this determination, you ask AI Service Agent to screen the warehouse's material-handling and lifting equipment, first finding the devices whose manuals have the highest number of routine maintenance actions; when there is a tie, select the devices with the fewest currently verifiable uses in 2026 through August 28, and if still tied, select those purchased earlier. You ask AI Service Agent, based on the determination made on August 28, to add all routine maintenance actions in the manuals for the selected devices to the action list: write today as the due date for actions that are overdue, and record actions whose prescribed dates have not yet arrived using their original dates. Finally, after completing the preceding list changes on August 28, you ask AI Service Agent to use the already updated action list to process all action items in it, find the due date containing the greatest number of different action types, then find the action type occurring least often on that date and delete the corresponding items; if that date has only one action type, delete all items on that date, and process all ties in the number of types.",
+    "analysis": "1. Identify Screwdriver from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Screwdriver, due on 2031-04-28.\n4. Add an action to clean Easy-Clean Folding Platform Cart, due on 2026-08-28.\n5. Add an action to inspect Easy-Clean Folding Platform Cart, due on 2026-08-28.\n6. Remove the action to clean Easy-Clean Folding Platform Cart that is due on 2026-08-28.\n7. Remove the action to inspect Easy-Clean Folding Platform Cart that is due on 2026-08-28.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "dispose",
+          "due_date": "2031-04-28"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Easy-Clean Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Easy-Clean Folding Platform Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Easy-Clean Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-28"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Easy-Clean Folding Platform Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-28"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Screwdriver"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the fifth Saturday of August 2026. You ask AI Service Agent to count the currently verifiable uses in 2026 of the parallel black strips hanging down at the front and the dark long-handled implement swung during operation, and determine whether their counts differ by no more than one. If so, add that the black strips have an unresolved but repairable problem and that you have decided to continue using this unit; you ask AI Service Agent to add the arrangement for restoring the current device to normal function to the action list, due September 3, 2026; if not, you tell AI Service Agent that the implement will cease service at expiration but its original use cannot be interrupted and must be taken over by a same-type device; you ask AI Service Agent to add this replacement to the action list, due on its maximum-service-life date or today if earlier than today. Next, you ask AI Service Agent to rank elevated-access equipment by routine-maintenance action count and retain the highest tier; within it, compare from fewer to more verifiable uses in 2026 through August 29, finally breaking ties by earlier purchase. Based on overdue status on August 29, you ask AI Service Agent to add each required action of the selected devices, making past-prescribed-date actions due today and retaining original dates for the rest. Finally, after completing the preceding list changes on August 29, you ask AI Service Agent to inspect all action items in the action list uniformly, count for each action type the number of distinct due dates it covers, find the type covering the most dates, and change the items of that type on the earliest date to the day after its latest date; if it covers only one date, postpone those items by one day, and process all tied types.",
+    "analysis": "1. Identify Pull Rod, Wrench from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Pull Rod, due on 2026-09-03.\n4. Add an action to clean Adjustable Telescoping Work Platform, due on 2026-08-29.\n5. Add an action to inspect Adjustable Telescoping Work Platform, due on 2026-08-29.\n6. Add an action to condition Adjustable Telescoping Work Platform, due on 2026-08-29.\n7. Remove the action to clean Aerosol Can that is due on 2026-08-19.\n8. Add an action to clean Aerosol Can, due on 2026-08-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Pull Rod",
+          "required_action": "repair",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "inspect",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Adjustable Telescoping Work Platform",
+          "required_action": "condition",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Aerosol Can",
+          "required_action": "clean",
+          "due_date": "2026-08-30"
+        }
+      }
+    ],
+    "image_name": "warehouse18",
+    "image_path": "warehouse18.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Pull Rod",
+      "Wrench"
+    ],
+    "scenario_id": 15
+  }
+]

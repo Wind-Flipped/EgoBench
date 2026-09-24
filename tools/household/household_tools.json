@@ -1,0 +1,436 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_all_item_names",
+      "description": "Returns the names of all household items in the household scenario. It takes no input parameters. The result contains only a list of household item names and no other information.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {},
+        "required": []
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_item_category",
+      "description": "Returns the category of a specified household item. Its only required parameter is item_name, which must be non-empty and exactly match a name in the household item records. The result contains only the category string.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "item_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact household item name."
+          }
+        },
+        "required": [
+          "item_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_items_by_category",
+      "description": "Exactly matches a category and returns all household item names in it. Its only required parameter is category, which must be one of furniture, tableware, cookware, bedding, clothing, footwear, home_textile, storage_item, home_appliance, electronics, lighting, decoration, cleaning_item, daily_supply, or other. The parameter cannot be empty or omitted, and new categories cannot be invented. The result contains only a list of household item names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "furniture",
+              "tableware",
+              "cookware",
+              "bedding",
+              "clothing",
+              "footwear",
+              "home_textile",
+              "storage_item",
+              "home_appliance",
+              "electronics",
+              "lighting",
+              "decoration",
+              "cleaning_item",
+              "daily_supply",
+              "other"
+            ]
+          }
+        },
+        "required": [
+          "category"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_item_ideal_storage_location",
+      "description": "Returns the ideal location for storing a specified household item when it is not in use. Its only required parameter is item_name, which must be non-empty and exactly match a name in the household item records. The result contains only the ideal_storage_location string.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "item_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact household item name."
+          }
+        },
+        "required": [
+          "item_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_items_by_ideal_storage_location",
+      "description": "Exactly matches a location and returns all household item names assigned to it. Its only required parameter is location, which must be one of living_room, dining_room, bedroom, study, wardrobe, linen_closet, shoe_cabinet, kitchen_cabinet, pantry, bathroom_cabinet, laundry_area, storage_room, bookshelf, display_shelf, balcony, or garage. The parameter cannot be empty or omitted, and new locations cannot be invented. The result contains only a list of household item names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "location": {
+            "type": "string",
+            "enum": [
+              "living_room",
+              "dining_room",
+              "bedroom",
+              "study",
+              "wardrobe",
+              "linen_closet",
+              "shoe_cabinet",
+              "kitchen_cabinet",
+              "pantry",
+              "bathroom_cabinet",
+              "laundry_area",
+              "storage_room",
+              "bookshelf",
+              "display_shelf",
+              "balcony",
+              "garage"
+            ]
+          }
+        },
+        "required": [
+          "location"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_item_purchase_date",
+      "description": "Returns the purchase date of a specified household item. Its only required parameter is item_name, which must be non-empty and exactly match a name in the household item records. The result is a YYYY-MM-DD date string, or null when the purchase date is unknown.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "item_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact household item name."
+          }
+        },
+        "required": [
+          "item_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_items_by_purchase_date_range",
+      "description": "Returns all household item names whose purchase dates fall within the specified inclusive range; items with a null purchase_date are excluded. Its two required parameters are start_date and end_date, both non-empty YYYY-MM-DD strings; start_date cannot be later than end_date. The result contains only a list of household item names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive start date in YYYY-MM-DD format."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive end date in YYYY-MM-DD format."
+          }
+        },
+        "required": [
+          "start_date",
+          "end_date"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_item_purchase_price",
+      "description": "Returns the purchase_price of a specified household item. Its only required parameter is item_name, which must be non-empty and exactly match a name in the household item records. The result contains only the purchase price.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "item_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact household item name."
+          }
+        },
+        "required": [
+          "item_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_items_by_purchase_price_range",
+      "description": "Returns all household item names whose purchase_price falls within the specified inclusive range. Its two required parameters are min_price and max_price, both numbers greater than or equal to zero; neither may be omitted, and min_price cannot exceed max_price. The result contains only a list of household item names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "min_price": {
+            "type": "number",
+            "minimum": 0
+          },
+          "max_price": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "min_price",
+          "max_price"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_item_usage_history",
+      "description": "Returns the usage periods of a specified household item. Its only required parameter is item_name, which must be non-empty and exactly match a name in the household item records. The result is a list of START/END strings: START may be YYYY-MM-DD or PURCHASE_DATE, and END may be YYYY-MM-DD or PRESENT. It returns an empty list when there is no usage history.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "item_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact household item name."
+          }
+        },
+        "required": [
+          "item_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "find_items_used_during_date_range",
+      "description": "Returns household items with at least one usage_history period overlapping the specified inclusive date range. The system resolves PURCHASE_DATE using the item's purchase_date and PRESENT using the current date. Its two required parameters are start_date and end_date, both non-empty YYYY-MM-DD strings; start_date cannot be later than end_date. The result contains only a list of household item names.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive start date in YYYY-MM-DD format."
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive end date in YYYY-MM-DD format."
+          }
+        },
+        "required": [
+          "start_date",
+          "end_date"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_item_maintenance_history",
+      "description": "Returns the maintenance records of a specified household item. Each record contains only date and action, where action is one of clean, condition, disinfect, wash, or inspect. Its only required parameter is item_name, which must be non-empty and exactly match a name in the household item records.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "item_name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact household item name."
+          }
+        },
+        "required": [
+          "item_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_item_maintenance_and_usage_instructions",
+      "description": "Returns a dictionary of maintenance and usage instructions for the requested household items, including periodic maintenance actions and the maximum service life. Its only required parameter is item_name, which must be a non-empty list of exact names from the household item records. Each result key is an item name and its value is that item's instructions.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "item_name": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Non-empty list of exact household item names."
+          }
+        },
+        "required": [
+          "item_name"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "add_to_household_action_list",
+      "description": "Appends one new household action on every successful call and never updates, replaces, or removes an existing entry. The same name and required_action may therefore have multiple scheduled entries, including entries with different due dates. Its four required parameters are user_id, name, required_action, and due_date. name must exactly match a household item record. required_action must be one of: clean (wipe or dust without washing), condition (wax, oil, polish, moisture-proof, waterproof, or otherwise protect), disinfect (sanitize), wash (hand-, machine-, or water-wash), inspect (check structure, function, safety, and wear), repair (fix damage or replace a local part without replacing the whole item), relocate (return to the ideal storage location), dry (air- or machine-dry after washing), iron (press clothing or household textiles), replace (retire and obtain or use a replacement), or dispose (remove without obtaining a replacement). due_date must be a YYYY-MM-DD string. No parameter may be empty or omitted. The result contains only an addition success message.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact household item name."
+          },
+          "required_action": {
+            "type": "string",
+            "enum": [
+              "clean",
+              "condition",
+              "disinfect",
+              "wash",
+              "inspect",
+              "repair",
+              "relocate",
+              "dry",
+              "iron",
+              "replace",
+              "dispose"
+            ]
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Due date in YYYY-MM-DD format."
+          }
+        },
+        "required": [
+          "user_id",
+          "name",
+          "required_action",
+          "due_date"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "remove_from_household_action_list",
+      "description": "Removes only the action whose name, required_action, and due_date all exactly match an entry in the specified user's list. Its four required parameters are user_id, name, required_action, and due_date. required_action must be one of clean, condition, disinfect, wash, inspect, repair, relocate, dry, iron, replace, or dispose. due_date must be a YYYY-MM-DD date and exactly match the stored due date. No parameter may be empty or omitted. The result contains only a removal success message; an error is returned when no action matches all three fields.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Exact household item name."
+          },
+          "required_action": {
+            "type": "string",
+            "enum": [
+              "clean",
+              "condition",
+              "disinfect",
+              "wash",
+              "inspect",
+              "repair",
+              "relocate",
+              "dry",
+              "iron",
+              "replace",
+              "dispose"
+            ]
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Due date of the exact action to remove in YYYY-MM-DD format."
+          }
+        },
+        "required": [
+          "user_id",
+          "name",
+          "required_action",
+          "due_date"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "tool_name": "get_household_action_list",
+      "description": "Returns all current household-item actions for a specified user. Its only required parameter is user_id, which cannot be empty or omitted. Each returned entry contains only name, required_action, and due_date.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "user_id"
+        ]
+      }
+    }
+  }
+]

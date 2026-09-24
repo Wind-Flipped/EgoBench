@@ -1,0 +1,979 @@
+[
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the third Wednesday of August 2026. First, ask the AI Service Agent to compare the maximum-service-life dates of the glowing object on the screen in front of the office chair and the object held in the hand during the vehicle repair, and determine whether they are no more than three months apart. If so, tell the AI Service Agent that the glowing object on the screen in front of the office chair is to cease being retained when it reaches its maximum service life, with no subsequent replacement need, and ask it to create the corresponding removal record in the action list, due on that date or today if that date is earlier than today. If not, explain that the object held during the vehicle repair is only temporarily on a transfer rack beside the loading and unloading passage, will continue to be used, and needs to return to the ideal storage location in its records; ask the AI Service Agent to add this relocation to the action list, due August 21, 2026. Then, for the black-screen device on the tabletop beside the wrench, ask the AI Service Agent to find, among other equipment with both the same country of origin and ideal storage location, the equipment used least recently. If none meets both conditions, filter only by country of origin; if there is still no other equipment, select the black-screen device itself. For the selected equipment, have the AI Service Agent assess its maintenance history against the manual's routine maintenance requirements. First identify the equipment with the largest number of overdue actions. If that maximum is greater than zero, add each such equipment's least overdue action to the action list, due today; if it is zero, add the action with the earliest prescribed date among all candidates and use that date. Next, for the black wheeled seat beside the workstation, determine whether every routine maintenance action required by the manual already has a historical record for the same action. If so, add that the seat will remain in use but is temporarily in the temporary inventory area, and ask the AI Service Agent to record an arrangement to return it to its recorded ideal storage location, due August 21, 2026. If not, explain that although the seat will be retired at that time, its work cannot be interrupted, and ask the AI Service Agent to add a new-equipment takeover arrangement, due on its maximum-service-life date or today if that date is earlier than today. Finally, after all these list entries are complete, treat every record in the list as an action item. Among equipment covering at least two due dates, find the equipment with the smallest date span and move its latest-date items to the day after its earliest date. If every equipment covers only one date, postpone the latest item overall by one day.",
+    "analysis": "1. Identify Computer, Screwdriver, Mobile Phone, Office Chair from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Computer, due on 2027-07-04.\n4. Add an action to inspect Spray Bottle, due on 2026-08-19.\n5. Add an action to relocate Office Chair, due on 2026-08-21.\n6. Remove the action to relocate Office Chair that is due on 2026-08-21.\n7. Add an action to relocate Office Chair, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Computer",
+          "required_action": "dispose",
+          "due_date": "2027-07-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Spray Bottle",
+          "required_action": "inspect",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "relocate",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "relocate",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "relocate",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Computer",
+      "Screwdriver",
+      "Mobile Phone",
+      "Office Chair"
+    ],
+    "scenario_id": 1
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is the fourth Wednesday of August 2026. First, ask the AI Service Agent to compare the currently retrievable latest-use dates of the black wheeled seat beside the workstation and the silver vehicle parked by the door, and determine whether they are no more than fifteen days apart. If so, you decide that the black wheeled seat will leave the warehouse at the end of its service life with no replacement; ask the AI Service Agent to record this subsequent arrangement in the action list, due on its maximum-service-life date or today if that date has passed. If not, explain that the silver vehicle has an unresolved functional fault that technicians have confirmed can be repaired and that you do not intend to replace it; ask the AI Service Agent to add an arrangement to retain and repair it, due August 29, 2026. Then, for the object held in the hand during the vehicle repair, find other equipment with an exactly identical routine-maintenance-action set and select the one with the earliest maximum-service-life date. If none exists, select the held object itself; process every tie in expiration date. For each selected item, have the AI Service Agent assess its maintenance history against the manual requirements. If it has at least two overdue actions, add the second-most-overdue action to the action list, due today. If it has only one, add that action, also due today. If it has none, add the action with the earliest prescribed date and use that date, retaining all ties. Finally, after the preceding entries are complete, compare the numbers of action items due before today and after today. If the former is greater, move every item on the earliest overdue date to today. Otherwise, move the items on the farthest future date to the day after today; use this latter rule when the counts are equal.",
+    "analysis": "1. Identify Office Chair, Bicycle, Screwdriver from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Bicycle, due on 2026-08-29.\n4. Add an action to clean Compact Laser Distance Meter, due on 2026-09-30.\n5. Remove the action to clean Professional Telescoping Work Platform that is due on 2026-08-18.\n6. Add an action to clean Professional Telescoping Work Platform, due on 2026-08-26.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Bicycle",
+          "required_action": "repair",
+          "due_date": "2026-08-29"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Compact Laser Distance Meter",
+          "required_action": "clean",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Professional Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Professional Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-26"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Office Chair",
+      "Bicycle",
+      "Screwdriver"
+    ],
+    "scenario_id": 2
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the first Sunday of August 2026. For the black-screen device on the tabletop beside the wrench and the pink cleaning container in front of the wooden board, ask the AI Service Agent to check both together, count each one's retrievable uses from January 1, 2026 through today, and determine whether the difference is fewer than four uses. If so, add that the pink cleaning container will remain in use but is temporarily in the temporary inventory area, and ask the AI Service Agent to record its return to the ideal storage location in its records, due August 5, 2026. If not, tell the AI Service Agent that the black-screen device currently has a definite, repairable fault and that you still want to use the original; ask it to create the corresponding action, due August 6, 2026. Next, for the glowing object on the screen in front of the office chair, first determine whether at least two of its maintenance actions are overdue. If so, select the latest-purchased equipment from those with the same country of origin; if not, select the earliest-purchased equipment from those with the same ideal storage location. If no other equipment meets the applicable condition, select the glowing screen object itself. For each selected item, use its maintenance history and manual requirements: if maintenance is overdue, add the most overdue action due today; if none is overdue, add the action with the latest prescribed date and retain that date. Process all ties in duration or date. Then, for the silver vehicle parked by the door, compare its earliest required routine-maintenance date with its maximum-service-life date and determine whether they fall in the same calendar year. If so, specify that the vehicle will cease service at the service-life limit but the same function must be retained; ask the AI Service Agent to add a new-item takeover record, due on its maximum-service-life date or today if that date has passed. If not, decide that the vehicle will leave the warehouse at the end of its life with no replacement, and have the AI Service Agent record that arrangement with the same due-date rule. Finally, after all preceding action records have been updated, treat every record in the list as an action item and check, item by item, the cessation-of-use date represented by any existing removal or takeover arrangement. If the same equipment has other items later than that date, delete those later items while retaining the reference removal or takeover arrangement. If no such conflict exists, move the latest item overall one day earlier, but not earlier than today.",
+    "analysis": "1. Identify Mobile Phone, Spray Bottle, Computer, Bicycle from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Spray Bottle, due on 2026-08-05.\n4. Add an action to condition Everyday Lockable Blade Case, due on 2027-04-30.\n5. Add an action to dispose of Bicycle, due on 2027-05-03.\n6. Remove the action to dispose of Bicycle that is due on 2027-05-03.\n7. Add an action to dispose of Bicycle, due on 2027-05-02.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Spray Bottle",
+          "required_action": "relocate",
+          "due_date": "2026-08-05"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Everyday Lockable Blade Case",
+          "required_action": "condition",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Bicycle",
+          "required_action": "dispose",
+          "due_date": "2027-05-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Bicycle",
+          "required_action": "dispose",
+          "due_date": "2027-05-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Bicycle",
+          "required_action": "dispose",
+          "due_date": "2027-05-02"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Mobile Phone",
+      "Spray Bottle",
+      "Computer",
+      "Bicycle"
+    ],
+    "scenario_id": 3
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the second Sunday of August 2026. First ask the AI Service Agent to retrieve the records of both the pink cleaning container in front of the wooden board and the glowing object on the screen in front of the office chair, and determine whether the sets of routine maintenance actions required by their manuals are exactly identical; their maintenance intervals need not match. If so, explain that the pink cleaning container currently cannot work normally, that the fault has been confirmed repairable, and that you want to retain this item; ask the AI Service Agent to add an arrangement to restore it to working condition to the action list, due August 10, 2026. If not, explain that the glowing screen object is temporarily at an unassigned workstation for turnover, will continue to be used, and must be returned to the location in its equipment record; ask the AI Service Agent to create a relocation record, due August 14, 2026. Next, for the object held in the hand during the vehicle repair, find among equipment with the same country of origin the one whose maximum-service-life date is closest to that of the held object. If no other equipment qualifies, select the held object itself; retain all ties in date difference. For each selected item, check its maintenance history against the manual requirements. If there are overdue actions, for each kind of routine maintenance action find the equipment with the earliest prescribed date and add that equipment and action to the action list, all due today. If none are overdue, add every action type with its applicable prescribed date, retaining all tied equipment. Finally, sort the distinct due dates in the updated action list from earliest to latest. If there are at least two dates, move all action items on the earliest date to the day after the second-earliest date. If there is only one date, postpone every item on it by one day.",
+    "analysis": "1. Identify Spray Bottle, Computer, Screwdriver from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Computer, due on 2026-08-14.\n4. Add an action to clean Everyday Mobile Fastener Cabinet, due on 2027-04-30.\n5. Add an action to inspect Everyday Mobile Fastener Cabinet, due on 2026-10-31.\n6. Remove the action to relocate Computer that is due on 2026-08-14.\n7. Add an action to relocate Computer, due on 2026-08-17.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Computer",
+          "required_action": "relocate",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Everyday Mobile Fastener Cabinet",
+          "required_action": "clean",
+          "due_date": "2027-04-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Everyday Mobile Fastener Cabinet",
+          "required_action": "inspect",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Computer",
+          "required_action": "relocate",
+          "due_date": "2026-08-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Computer",
+          "required_action": "relocate",
+          "due_date": "2026-08-17"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Spray Bottle",
+      "Computer",
+      "Screwdriver"
+    ],
+    "scenario_id": 4
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the third Sunday of August 2026. First, for the black-screen device on the tabletop beside the wrench and the black wheeled seat beside the workstation, ask the AI Service Agent to determine whether the routine maintenance actions required by either piece contain all those required by the other. If so, specify that the black wheeled seat will cease service at its service-life limit but the same function must be retained; ask the AI Service Agent to add a new-item takeover record, due on its maximum-service-life date or today if that date has passed. If not, specify that the inventory cart where the black-screen device currently sits is only temporary, that the device will remain in use, and that it must return to the storage location stated in its records; ask the AI Service Agent to add this to the action list, due August 18, 2026. Next, for the pink cleaning container in front of the wooden board, find among other equipment with the same ideal storage location the one with the latest maximum-service-life date. If none exists, select the pink cleaning container itself; retain all date ties. Assess each selected item's maintenance history against its manual requirements, comparing all candidates' routine maintenance together. If anything is overdue, add only the action with the earliest prescribed date to the action list, due today. If none is overdue, add the action with the earliest prescribed date and use its original date. Retain all ties. In addition, for the silver vehicle parked by the door, determine whether its purchase date is earlier than January 1, 2021. If so, tell the AI Service Agent that new equipment will continue its original purpose after it reaches its life limit, and ask it to add this succession arrangement, due on the cessation-of-use date or today if that date has passed. If not, explain that the vehicle is only temporarily on the label-verification table, will continue to be used, and needs to return to the ideal storage location in its records; ask the AI Service Agent to add this relocation, due August 19, 2026. Finally, after all the foregoing has been entered, treat every record in the list as an action item, find the least frequent action types, and delete the earliest-due items of those types. Process all ties in type and date.",
+    "analysis": "1. Identify Mobile Phone, Office Chair, Spray Bottle, Bicycle from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Office Chair, due on 2026-10-12.\n4. Add an action to clean Drink Bottle, due on 2026-08-16.\n5. Add an action to relocate Bicycle, due on 2026-08-19.\n6. Remove the action to inspect Office Chair that is due on 2026-08-17.\n7. Remove the action to condition Computer that is due on 2026-08-18.\n8. Remove the action to replace Office Chair that is due on 2026-10-12.\n9. Remove the action to relocate Bicycle that is due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "replace",
+          "due_date": "2026-10-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Drink Bottle",
+          "required_action": "clean",
+          "due_date": "2026-08-16"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Bicycle",
+          "required_action": "relocate",
+          "due_date": "2026-08-19"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Computer",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "replace",
+          "due_date": "2026-10-12"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Bicycle",
+          "required_action": "relocate",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Mobile Phone",
+      "Office Chair",
+      "Spray Bottle",
+      "Bicycle"
+    ],
+    "scenario_id": 5
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is two days before August 25, 2026. First, using the silver vehicle parked by the door and the object held in the hand during the vehicle repair, ask the AI Service Agent to compare, from their maintenance histories and manual requirements, whether they have equal numbers of overdue, unperformed routine maintenance actions. If so, tell the AI Service Agent that the silver vehicle currently has a definite, repairable fault and that you still want to use the original; ask it to create the corresponding action-list item, due August 26, 2026. If not, require a new item to replace the held object at the end of its service life and add this takeover item, due on its maximum-service-life date or today if that date has passed. Next, for the black-screen device on the tabletop beside the wrench, find among equipment with the same country of origin the one with the earliest retrievable latest-use date. If there is no other equipment, select the black-screen device itself; retain all date ties. Assess each selected item's maintenance status from its history and manual requirements. If actions are overdue, sort them by overdue duration and add the middle action when the count is odd or the middle two when it is even, all due today. If none are overdue, sort by prescribed date, apply the same median rule, and add the selected actions with their respective prescribed dates. Finally, using the newly revised action list and treating all its records as action items, count distinct action types by equipment, identify the equipment with the most types, and delete its latest-due items. Delete all ties in equipment or date.",
+    "analysis": "1. Identify Bicycle, Screwdriver, Mobile Phone from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Screwdriver, due on 2027-07-14.\n4. Add an action to condition Contemporary Thread-Locking Compound, due on 2027-01-31.\n5. Add an action to inspect Contemporary Thread-Locking Compound, due on 2027-07-30.\n6. Remove the action to inspect Contemporary Thread-Locking Compound that is due on 2027-07-30.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Screwdriver",
+          "required_action": "replace",
+          "due_date": "2027-07-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Contemporary Thread-Locking Compound",
+          "required_action": "condition",
+          "due_date": "2027-01-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Contemporary Thread-Locking Compound",
+          "required_action": "inspect",
+          "due_date": "2027-07-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Contemporary Thread-Locking Compound",
+          "required_action": "inspect",
+          "due_date": "2027-07-30"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Bicycle",
+      "Screwdriver",
+      "Mobile Phone"
+    ],
+    "scenario_id": 6
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the last Sunday of August 2026. First, for the black-screen device on the tabletop beside the wrench and the object held during the vehicle repair, find each one's most overdue routine maintenance action and determine whether the two prescribed dates are no more than seven days apart; treat the condition as false if either equipment has nothing overdue. If true, explain that the black-screen device is temporarily at an unassigned workstation for turnover and will continue to be used, with the destination determined by its record; ask the AI Service Agent to create a record to return it to the registered location, due August 31, 2026. If false, explain that the held object will retire at its maximum service life but its original capability remains needed; add an arrangement for new equipment of the same kind to take over, due on that maximum-service-life date or today if it is earlier than today. Next, for the glowing object on the screen in front of the office chair, find among equipment with the same ideal storage location and a purchase date no later than January 1, 2023 the one with the latest maximum-service-life date. If none meets both conditions, filter only by ideal storage location; if there is still no other equipment, select the glowing object itself. For each selected item, add all overdue routine maintenance actions separately, all due today; if none are overdue, add the action with the earliest prescribed date and use that date, retaining every same-day tie. Then determine whether the black wheeled seat beside the workstation has three kinds of routine maintenance actions required by its manual. If so, add that it will remain in use but is temporarily on a pallet in the handover area, and record its return to the ideal storage location in its records, due September 3, 2026. If not, explain that although it will retire, the related work cannot stop, and add a new-equipment takeover arrangement due on its maximum-service-life date or today if that date is earlier. Finally, find the due date with the most items and group those items by their equipment's maximum-service-life dates. Retain the earliest-expiring group, postpone each subsequent expiration-date group by one additional day, and, if there is only one group, postpone all items on that day by one day.",
+    "analysis": "1. Identify Mobile Phone, Screwdriver, Computer, Office Chair from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, purchase dates, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Screwdriver, due on 2027-07-14.\n4. Add an action to clean Compact Folding Platform Cart, due on 2026-08-30.\n5. Add an action to inspect Compact Folding Platform Cart, due on 2026-08-30.\n6. Add an action to relocate Office Chair, due on 2026-09-03.\n7. Remove the action to clean Compact Folding Platform Cart that is due on 2026-08-30.\n8. Remove the action to inspect Compact Folding Platform Cart that is due on 2026-08-30.\n9. Add an action to clean Compact Folding Platform Cart, due on 2026-08-31.\n10. Add an action to inspect Compact Folding Platform Cart, due on 2026-08-31.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Screwdriver",
+          "required_action": "replace",
+          "due_date": "2027-07-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Compact Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Compact Folding Platform Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Office Chair",
+          "required_action": "relocate",
+          "due_date": "2026-09-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Compact Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Compact Folding Platform Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Compact Folding Platform Cart",
+          "required_action": "clean",
+          "due_date": "2026-08-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Compact Folding Platform Cart",
+          "required_action": "inspect",
+          "due_date": "2026-08-31"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Mobile Phone",
+      "Screwdriver",
+      "Computer",
+      "Office Chair"
+    ],
+    "scenario_id": 7
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the first Thursday of August 2026. Ask the AI Service Agent to examine in parallel the pink cleaning container in front of the wooden board and the silver vehicle parked by the door, then determine whether their purchase dates are no more than three months apart. If so, state that the current pink cleaning container will be retired at its maximum service life but the warehouse must maintain the same capability; ask it to create a same-type equipment takeover record, due on that expiration date or today if the date is earlier. If not, explain that the silver vehicle has an unresolved functional fault confirmed repairable and that you do not plan to replace it; add an arrangement to retain and repair it, due August 11, 2026. Next, for the glowing object on the screen in front of the office chair, compare each same-category equipment's retrievable 2026 use count with that object's count and select the smallest difference. If there is no other same-category equipment, select the glowing object itself; process every tie. For each selected item, use its history and manual requirements, prioritizing routine maintenance actions shared by the candidate and the glowing object: if a shared action is overdue, add the most overdue one due today; if none is overdue, add the one with the earliest prescribed date. If they share no actions, apply the same rule to all of the candidate's routine maintenance actions. Finally, sort action types by frequency and take the middle type, or the middle two frequency tiers if the number of types is even. Postpone those types' latest-due items by one day, processing all frequency ties.",
+    "analysis": "1. Identify Spray Bottle, Bicycle, Computer from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Bicycle, due on 2026-08-11.\n4. Add an action to clean Essential Weatherproof Tool Chest, due on 2026-09-30.\n5. Add an action to inspect Everyday Lockable Blade Case, due on 2026-09-30.\n6. Add an action to inspect Everyday Mobile Fastener Cabinet, due on 2026-10-31.\n7. Add an action to inspect Everyday Weatherproof Tool Chest, due on 2026-09-30.\n8. Remove the action to clean Essential Weatherproof Tool Chest that is due on 2026-09-30.\n9. Add an action to clean Essential Weatherproof Tool Chest, due on 2026-10-01.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Bicycle",
+          "required_action": "repair",
+          "due_date": "2026-08-11"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Essential Weatherproof Tool Chest",
+          "required_action": "clean",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Everyday Lockable Blade Case",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Everyday Mobile Fastener Cabinet",
+          "required_action": "inspect",
+          "due_date": "2026-10-31"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Everyday Weatherproof Tool Chest",
+          "required_action": "inspect",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Essential Weatherproof Tool Chest",
+          "required_action": "clean",
+          "due_date": "2026-09-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Essential Weatherproof Tool Chest",
+          "required_action": "clean",
+          "due_date": "2026-10-01"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Spray Bottle",
+      "Bicycle",
+      "Computer"
+    ],
+    "scenario_id": 8
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is two days before August 15, 2026. First, for the black wheeled seat beside the workstation and the glowing object on the screen in front of the office chair, determine whether the earlier-purchased one is also the one used less recently in the currently retrievable records. If so, require a new item to replace the black wheeled seat when its service life ends and add this takeover item, due on its maximum-service-life date or today if that date has passed. If not, state that the glowing object will no longer occupy warehouse space after its service life and will not be repurchased; add its cessation of retention, due on its cessation-of-use date or today if that date has passed. Next, for the pink cleaning container in front of the wooden board, find the currently longest-idle equipment of the same brand. If no other same-brand equipment exists, select the pink container itself; retain all idle-duration ties. From the selected equipment's history and manual requirements, if anything is overdue, add the overdue maintenance action whose latest completion record is most recent, due today. If nothing is overdue, add the action whose prescribed date is farthest from today and retain that date. Process all ties in record date or prescribed date. Next, determine whether the silver vehicle parked by the door has at least two overdue routine maintenance actions. If so, specify that it will cease service at its service-life limit but the same function must be retained, and add a new-item takeover record due on its maximum-service-life date or today if that date has passed. If not, decide that it will leave the warehouse at the end of its life without replacement and add that arrangement with the same due-date rule. Finally, identify separately the due dates with the fewest and most action items. If they differ, move the records on the least-populated date to the day after the most-populated date. If they coincide, postpone every item on that day by one day. For all count ties, choose the earlier date.",
+    "analysis": "1. Identify Office Chair, Computer, Spray Bottle, Bicycle from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to replace Office Chair, due on 2026-10-12.\n4. Add an action to inspect Contemporary Thread-Locking Compound, due on 2027-07-30.\n5. Add an action to replace Bicycle, due on 2027-05-03.\n6. Remove the action to inspect Office Chair that is due on 2026-08-17.\n7. Add an action to inspect Office Chair, due on 2026-08-18.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "replace",
+          "due_date": "2026-10-12"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Contemporary Thread-Locking Compound",
+          "required_action": "inspect",
+          "due_date": "2027-07-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Bicycle",
+          "required_action": "replace",
+          "due_date": "2027-05-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "inspect",
+          "due_date": "2026-08-18"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Office Chair",
+      "Computer",
+      "Spray Bottle",
+      "Bicycle"
+    ],
+    "scenario_id": 9
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is Thursday of the week containing August 17, 2026. First, for the black wheeled seat beside the workstation and the object held during the vehicle repair, compare the numbers of routine maintenance actions required by their manuals and determine whether the item with more actions also has more retrievable uses in 2026. If so, explain that the held object will no longer be retained after reaching its maximum service life and that no replacement will be added; ask the AI Service Agent to record its removal from the warehouse, due on its maximum-service-life date or today if that date is earlier. If not, tell the AI Service Agent that new equipment will continue the black wheeled seat's original purpose after it reaches its life limit, and add this succession arrangement, due on the cessation-of-use date or today if that date has passed. Next, for the pink cleaning container in front of the wooden board, find the earliest-purchased other equipment in the same category. If none exists, select the pink container itself; retain every purchase-date tie. Assess each selected item from its history and manual requirements: if it has overdue actions, add its most overdue one due today; if not, add its action with the earliest prescribed date and retain that date, keeping all ties. Finally, treating every record in the updated list as an action item, count the distinct due dates covered by each action type. For every tied type covering the most dates, move all its earliest-date items to the day after its latest date; if that type covers only one day, postpone all of it by one day.",
+    "analysis": "1. Identify Office Chair, Screwdriver, Spray Bottle from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Screwdriver, due on 2027-07-14.\n4. Add an action to clean Drink Bottle, due on 2026-08-20.\n5. Remove the action to clean Professional Telescoping Work Platform that is due on 2026-08-18.\n6. Add an action to clean Professional Telescoping Work Platform, due on 2026-08-23.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Screwdriver",
+          "required_action": "dispose",
+          "due_date": "2027-07-14"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Drink Bottle",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Professional Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Professional Telescoping Work Platform",
+          "required_action": "clean",
+          "due_date": "2026-08-23"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Office Chair",
+      "Screwdriver",
+      "Spray Bottle"
+    ],
+    "scenario_id": 10
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is Thursday of the week containing August 24, 2026. First, for the black-screen device on the tabletop beside the wrench and the glowing object on the screen in front of the office chair, check whether their brands are identical and whether their retrievable 2026 use counts differ by no more than one. If both conditions hold, add that the black-screen device is temporarily in the short-term display area, is not to be retired, and should return to the location in its records; ask the AI Service Agent to add this storage adjustment, due August 29, 2026. Otherwise, decide that the glowing object will leave the warehouse at the end of its life with no replacement, and record that arrangement, due on its maximum-service-life date or today if that date has passed. Next, for the object held during the vehicle repair, find the currently longest-idle equipment among those with the same country of origin and at least one shared routine maintenance action. If none meets both conditions, filter only by country of origin; if there is still no other equipment, select the held object itself. For each selected item, if at least two actions are overdue, add the second-least-overdue one due today; if exactly one is overdue, add it due today; if none are overdue, add the action with the second-earliest prescribed date, or the only action if there is just one, retaining its prescribed date. Then determine whether the black wheeled seat beside the workstation has both overdue and not-yet-due maintenance actions. If so, state that new equipment will continue its original purpose after its life limit and add a succession arrangement, due on the cessation-of-use date or today if that date has passed. If not, explain that the seat is temporarily in the filming-record area, will continue in use, and needs to return to its recorded ideal storage location; add the relocation due August 31, 2026. Finally, sort all distinct due dates. If their count is odd, postpone the items on the middle date by one day. If it is even, move the items on the earlier middle date to the day after the later middle date. If there is only one date, still postpone it by one day.",
+    "analysis": "1. Identify Mobile Phone, Computer, Screwdriver, Office Chair from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Computer, due on 2027-07-04.\n4. Add an action to inspect Contemporary Thread-Locking Compound, due on 2027-07-30.\n5. Add an action to replace Office Chair, due on 2026-10-12.\n6. Remove the action to lubricate Lightweight Material Handling Skate that is due on 2026-08-21.\n7. Add an action to lubricate Lightweight Material Handling Skate, due on 2026-10-13.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Computer",
+          "required_action": "dispose",
+          "due_date": "2027-07-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Contemporary Thread-Locking Compound",
+          "required_action": "inspect",
+          "due_date": "2027-07-30"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Office Chair",
+          "required_action": "replace",
+          "due_date": "2026-10-12"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Lightweight Material Handling Skate",
+          "required_action": "lubricate",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Lightweight Material Handling Skate",
+          "required_action": "lubricate",
+          "due_date": "2026-10-13"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Mobile Phone",
+      "Computer",
+      "Screwdriver",
+      "Office Chair"
+    ],
+    "scenario_id": 11
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_01, and today is the first Monday of August 2026. For the glowing object on the screen in front of the office chair and the silver vehicle parked by the door, ask the AI Service Agent whether their recorded ideal storage locations are identical and whether they share at least two routine maintenance actions. If so, tell it that the silver vehicle currently has a definite, repairable fault and that you still want to use the original; create the corresponding action-list item, due August 6, 2026. If not, explain that the glowing object will not be retained after expiration and that no same-type function needs replacement; add its removal from the warehouse, due on its expiration date or today if that date is earlier. Next, for the black-screen device on the tabletop beside the wrench, determine whether it has any retrievable use record since March 1, 2026. If it does, select the latest-purchased equipment with both the same brand and category; if it does not, select the earliest-purchased equipment with both the same country of origin and storage location. If no other equipment meets the applicable paired conditions, filter only by brand or country of origin, respectively; if there is still none, select the black-screen device itself. For the selected equipment, add the most overdue action due today; if none are overdue, add the action with the latest prescribed date and retain that date. Finally, using the revised list and treating every record as an action item, find the due date with the fewest items and move those items to the day before the date with the most items. In count ties choose the earlier date. If the new date would precede today, use today. If the least- and most-populated dates are the same, postpone all items on that date by one day.",
+    "analysis": "1. Identify Computer, Bicycle, Mobile Phone from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Computer, due on 2027-07-04.\n4. Add an action to condition Office Chair, due on 2026-08-03.\n5. Remove the action to condition Office Chair that is due on 2026-08-03.\n6. Add an action to condition Office Chair, due on 2026-08-04.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Computer",
+          "required_action": "dispose",
+          "due_date": "2027-07-04"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Office Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Office Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-03"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_01",
+          "equipment": "Office Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-04"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Computer",
+      "Bicycle",
+      "Mobile Phone"
+    ],
+    "scenario_id": 12
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_02, and today is the third day after August 7, 2026. First, compare the currently retrievable idle durations of the pink cleaning container in front of the wooden board and the black wheeled seat beside the workstation, and determine whether the difference is at least seven days. If so, tell the AI Service Agent that the pink container will cease being retained at its maximum service life with no replacement need, and create the corresponding removal record, due on that date or today if it is earlier. If not, explain that the wheeled seat is temporarily in the filming-record area, will continue to be used, and must return to its recorded ideal storage location; add the relocation due August 12, 2026. Next, for the glowing object on the screen in front of the office chair, find other equipment whose routine-maintenance-action set contains that object's actions and select the most recently used. If none exists, select the glowing object itself; process all ties. For each selected item, if anything is overdue, add its most overdue action due today. If nothing is overdue, add separately every action due within ninety days from today using its prescribed date; if none qualifies, add the earliest-due action among all maintenance and retain its prescribed date. In addition, determine whether every routine maintenance action required for the object held during the vehicle repair already has a matching historical record. If so, add that it will remain in use but is temporarily on the maintenance-registration desk, and record its return to its ideal storage location, due August 12, 2026. If not, explain that although it will retire, its work cannot stop, and add a new-equipment takeover arrangement due on its maximum-service-life date or today if that date is earlier. Finally, identify the equipment with the fewest action items and delete its earliest-due items; process all ties in count or date.",
+    "analysis": "1. Identify Spray Bottle, Office Chair, Computer, Screwdriver from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to dispose of Spray Bottle, due on 2035-05-21.\n4. Add an action to condition Office Chair, due on 2026-08-10.\n5. Add an action to relocate Screwdriver, due on 2026-08-12.\n6. Remove the action to dispose of Spray Bottle that is due on 2035-05-21.\n7. Remove the action to condition Computer that is due on 2026-08-18.\n8. Remove the action to clean Bicycle that is due on 2026-08-19.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Spray Bottle",
+          "required_action": "dispose",
+          "due_date": "2035-05-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Office Chair",
+          "required_action": "condition",
+          "due_date": "2026-08-10"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Screwdriver",
+          "required_action": "relocate",
+          "due_date": "2026-08-12"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Spray Bottle",
+          "required_action": "dispose",
+          "due_date": "2035-05-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Computer",
+          "required_action": "condition",
+          "due_date": "2026-08-18"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_02",
+          "equipment": "Bicycle",
+          "required_action": "clean",
+          "due_date": "2026-08-19"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Spray Bottle",
+      "Office Chair",
+      "Computer",
+      "Screwdriver"
+    ],
+    "scenario_id": 13
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_03, and today is three days before August 20, 2026. First, for the pink cleaning container in front of the wooden board and the object held during the vehicle repair, find each one's earliest required routine maintenance action and determine whether the two prescribed dates fall in the same calendar month. If so, decide that the pink container will leave the warehouse at the end of its life with no replacement, and record that arrangement due on its maximum-service-life date or today if that date has passed. If not, explain that the held object has an unresolved functional fault confirmed repairable and that you do not plan to replace it; add an arrangement to retain and repair it, due August 20, 2026. Next, for the silver vehicle parked by the door, find other equipment with both the same brand and exactly the same routine-maintenance-action set, and select the earliest-expiring one. If none meets both conditions, filter only by action set; if there is still no other equipment, select the silver vehicle itself. For each selected item, add its least overdue action due today; if none are overdue, add the earliest required action using its prescribed date, retaining all ties. Finally, find the due date covering the most action types, choosing the earliest date in a tie. Group that day's items by their equipment's total action counts in the list: retain the group with the largest count, postpone each other distinct count group by one additional day, and, if there is only one group, postpone the entire day by one day.",
+    "analysis": "1. Identify Spray Bottle, Screwdriver, Bicycle from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, maximum service-life and retirement dates, equipment category, brand, or country of origin, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to repair Screwdriver, due on 2026-08-20.\n4. Add an action to clean Office Chair, due on 2026-08-17.\n5. Remove the action to repair Screwdriver that is due on 2026-08-20.\n6. Remove the action to clean Artisan Podium Step Ladder that is due on 2026-08-20.\n7. Add an action to repair Screwdriver, due on 2026-08-21.\n8. Add an action to clean Artisan Podium Step Ladder, due on 2026-08-21.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Screwdriver",
+          "required_action": "repair",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Office Chair",
+          "required_action": "clean",
+          "due_date": "2026-08-17"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Screwdriver",
+          "required_action": "repair",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Artisan Podium Step Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-20"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Screwdriver",
+          "required_action": "repair",
+          "due_date": "2026-08-21"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_03",
+          "equipment": "Artisan Podium Step Ladder",
+          "required_action": "clean",
+          "due_date": "2026-08-21"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Spray Bottle",
+      "Screwdriver",
+      "Bicycle"
+    ],
+    "scenario_id": 14
+  },
+  {
+    "Instruction": "Your user ID is warehouse_user_04, and today is the fourth Monday of August 2026. First, for the black-screen device on the tabletop beside the wrench and the silver vehicle parked by the door, compare their latest required routine maintenance actions and determine whether the order of their prescribed dates matches the order of their purchase dates. If so, add that the silver vehicle will remain in use but is temporarily on the maintenance-registration desk, and record its return to the ideal storage location in its records, due August 27, 2026. If not, tell the AI Service Agent that the black-screen device currently has a definite, repairable fault and that you still want to use the original; create the corresponding action, due August 28, 2026. Next, for the black wheeled seat beside the workstation, find among other same-category equipment purchased no earlier than the seat the one with the latest retrievable last-use date. If none meets both conditions, filter only by category; if there is still no other equipment, select the seat itself. For each selected item, identify all maintenance with prescribed dates no later than sixty days after today: add every overdue action separately due today, and add all others on their respective prescribed dates. If no action meets that date condition, add the action with the earliest prescribed date and retain it. Then, for the pink cleaning container in front of the wooden board, compare its earliest routine-maintenance date with its maximum-service-life date and determine whether they fall in the same calendar year. If so, specify that it will cease service at its life limit but the same function must be retained, and add a new-item takeover record due on its maximum-service-life date or today if that date has passed. If not, decide that it will leave the warehouse at the end of its life with no replacement, using the same due-date rule. Finally, after all preceding records are updated, find the consecutive due-date pair with the largest gap in chronological order and move all items on the earlier date to the day before the later date. If all consecutive dates differ by only one day or the list has only one date, postpone the latest items by one day.",
+    "analysis": "1. Identify Mobile Phone, Bicycle, Office Chair, Spray Bottle from the video.\n2. Evaluate maintenance history and the manual maintenance schedule, usage history, most recent use, or use frequency, purchase dates, maximum service-life and retirement dates, equipment category, brand, or country of origin, recorded ideal storage locations, repairability and the retain/replace/dispose decision, and the current action list and its due-date rules, then resolve all conditions and ties.\n3. Add an action to relocate Bicycle, due on 2026-08-27.\n4. Add an action to clean Screwdriver, due on 2026-08-24.\n5. Add an action to inspect Screwdriver, due on 2026-08-24.\n6. Add an action to dispose of Spray Bottle, due on 2035-05-21.\n7. Remove the action to relocate Bicycle that is due on 2026-08-27.\n8. Add an action to relocate Bicycle, due on 2035-05-20.",
+    "ground_truth": [
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Bicycle",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Screwdriver",
+          "required_action": "clean",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Screwdriver",
+          "required_action": "inspect",
+          "due_date": "2026-08-24"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Spray Bottle",
+          "required_action": "dispose",
+          "due_date": "2035-05-21"
+        }
+      },
+      {
+        "tool_name": "remove_from_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Bicycle",
+          "required_action": "relocate",
+          "due_date": "2026-08-27"
+        }
+      },
+      {
+        "tool_name": "add_to_equipment_action_list",
+        "parameters": {
+          "user_id": "warehouse_user_04",
+          "equipment": "Bicycle",
+          "required_action": "relocate",
+          "due_date": "2035-05-20"
+        }
+      }
+    ],
+    "image_name": "warehouse9",
+    "image_path": "warehouse9.mp4",
+    "image_description": "You are now in a warehouse.",
+    "key": "equipment",
+    "value": [
+      "Mobile Phone",
+      "Bicycle",
+      "Office Chair",
+      "Spray Bottle"
+    ],
+    "scenario_id": 15
+  }
+]

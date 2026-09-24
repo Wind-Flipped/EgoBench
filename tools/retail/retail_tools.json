@@ -138,7 +138,8 @@
           "discount",
           "nutritional_characteristics",
           "taste",
-          "country_of_origin"
+          "country_of_origin",
+          "nutrition"
         ]
       }
     }
