@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="figure/fig1.pdf">
-    <img src="figure/fig1.png" alt="Overview of EgoBench tasks and evaluation workflow" width="100%">
+    <img src="figure/fig1.pdf" alt="Overview of EgoBench tasks and evaluation workflow" width="100%">
   </a>
   <p><em>EgoBench task overview.</em></p>
 </div>
