@@ -1,8 +1,10 @@
 # EgoBench: An Interactive Egocentric Multimodal Benchmark for Tool-Using Agents
 
+Our paper, **“EgoBench: An Interactive Egocentric Multimodal Benchmark for Tool-Using Agents,”** has been accepted to **NeurIPS 2026**.
+
 <div align="center">
   <a href="figure/fig1.pdf">
-    <img src="figure/fig1.pdf" alt="Overview of EgoBench tasks and evaluation workflow" width="100%">
+    <img src="figure/fig1.png" alt="Overview of EgoBench tasks and evaluation workflow" width="100%">
   </a>
   <p><em>EgoBench task overview.</em></p>
 </div>
@@ -359,3 +361,17 @@ Evaluation results are saved to `eval_result/{model_name}/{scenario}{number}_{mo
 
 ## License
 Released under the MIT License. See [LICENSE](./LICENSE) for full terms.
+
+## Citation
+
+If you find EgoBench useful in your research, please cite our paper:
+
+```bibtex
+@inproceedings{liu2026egobench,
+  title     = {EgoBench: An Interactive Egocentric Multimodal Benchmark for Tool-Using Agents},
+  author    = {Yunqi Liu and Tong Niu and Zitong Wang and Zhenlong Dai and Yuqi Qing and Weiqiang Wang and Jian Liu},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026},
+  url       = {https://arxiv.org/abs/2605.27820}
+}
+```
