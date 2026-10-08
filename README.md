@@ -14,7 +14,7 @@ tags:
 size_categories:
   - 1K<n<10K
 license: other
-license_name: "EgoBench Mixed License (MIT and CC BY 4.0)"
+license_name: egobench-mixed-license
 license_link: "https://huggingface.co/datasets/emodiary/EgoBench/blob/main/LICENSE"
 ---
 
