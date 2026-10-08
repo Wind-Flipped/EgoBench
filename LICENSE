@@ -1,0 +1,28 @@
+EgoBench Licensing Notice
+
+Copyright (c) 2026 EgoBench Authors
+
+Different components of this repository are distributed under different
+licenses:
+
+1. Source code
+
+   Source code, including Python files, shell scripts, and evaluation
+   utilities, is licensed under the MIT License. See LICENSE-CODE.
+
+2. Benchmark data and video assets
+
+   Benchmark task definitions, annotations, JSON files, scenario databases,
+   and video files under scenarios/final/video/ are licensed under the
+   Creative Commons Attribution 4.0 International License (CC BY 4.0).
+   See DATA_LICENSE.md.
+
+3. Third-party material
+
+   Third-party components, if any, remain subject to their respective
+   licenses and attribution requirements. Nothing in this notice overrides
+   the license terms of third-party material.
+
+When using or redistributing material from this repository, apply the license
+corresponding to that material and retain the applicable copyright,
+attribution, and license notices.

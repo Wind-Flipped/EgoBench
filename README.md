@@ -1,3 +1,23 @@
+---
+pretty_name: "EgoBench"
+language:
+  - en
+task_categories:
+  - visual-question-answering
+tags:
+  - video
+  - multimodal
+  - benchmark
+  - tool-use
+  - agent
+  - egocentric-video
+size_categories:
+  - 1K<n<10K
+license: other
+license_name: "EgoBench Mixed License (MIT and CC BY 4.0)"
+license_link: "https://huggingface.co/datasets/emodiary/EgoBench/blob/main/LICENSE"
+---
+
 # EgoBench: An Interactive Egocentric Multimodal Benchmark for Tool-Using Agents
 
 Our paper, **“EgoBench: An Interactive Egocentric Multimodal Benchmark for Tool-Using Agents,”** has been accepted to **NeurIPS 2026**.
@@ -357,10 +377,23 @@ Simulation results are saved to `results/{model_name}/{scenario}{number}_{mode}.
 
 Evaluation results are saved to `eval_result/{model_name}/{scenario}{number}_{mode}_eval.json`.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Code License](https://img.shields.io/badge/code-MIT-blue.svg)
+![Data License](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey.svg)
 
 ## License
-Released under the MIT License. See [LICENSE](./LICENSE) for full terms.
+
+EgoBench uses separate licenses for code and data:
+
+- Source code, including Python files, shell scripts, and evaluation utilities,
+  is licensed under the [MIT License](./LICENSE-CODE).
+- Benchmark task definitions, annotations, JSON files, scenario databases, and
+  video files under `scenarios/final/video/` are licensed under the
+  [Creative Commons Attribution 4.0 International License](./DATA_LICENSE.md).
+
+The included video assets are distributed with authorization from their
+respective rightsholders. Third-party components, if any, remain subject to
+their respective licenses. See the repository [licensing notice](./LICENSE)
+before using or redistributing individual components.
 
 ## Citation
 
